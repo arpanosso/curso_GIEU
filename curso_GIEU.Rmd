@@ -959,7 +959,10 @@ Como $|\hat{Y_10}|>D_2$, o teste é significativo ao nível de 5% de probabilida
 
 Portanto, o resultado final do teste pode ser representado da seguinte maneira:
 
-![](m4_1.png) 
+![](docs//m4_1.png) 
+```{r}
+knitr::include_graphics("m4_1.png")
+```
 
 **Conclusão**: As médias ligadas por uma mesma barra não diferem entre si pelo teste de Duncan ao nível de 5% de probabilidade.
 
