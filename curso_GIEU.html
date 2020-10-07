@@ -50,14 +50,14 @@
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -66,16 +66,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -84,9 +82,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -196,9 +194,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">1</span> Prerequisites</h1>
 <p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
 <p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># or the development version</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co"># or the development version</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></a></code></pre></div>
 <p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
 <p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
 <!--chapter:end:index.Rmd-->
@@ -207,8 +205,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">2</span> Introduction</h1>
 <p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter @ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter @ref(methods).</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center">
 <img src="curso_GIEU_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
 <p class="caption">
@@ -216,10 +214,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </p>
 </div>
 <p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure @ref(fig:nice-fig). Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table @ref(tab:nice-tab).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">knitr<span class="op">::</span><span class="kw">kable</span>(</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb3-4" title="4">)</a></code></pre></div>
 <table>
 <caption>(#tab:nice-tab)Here is a nice table!</caption>
 <thead>
@@ -837,45 +835,45 @@ t_{obs} = \frac{\hat{Y_1}}{s(\hat{Y_1})} = \frac{-7,99}{0,98} = -8,15^{**}
 <p><strong>7. Conclusão do teste</strong></p>
 <p>Como <span class="math inline">\(t_{obs} \in RC\)</span> pois <span class="math inline">\(-8,15 &lt; - 2,95\)</span>, ou seja, o teste foi significativo ao nível de 1% de probabilidade. Neste caso, rejeitamos <span class="math inline">\(H_0\)</span> e concluímos que o grupo Salitre difere do grupo Nitrocálcio a esse nível de probabilidade, sendo o grupo Nitrocálcio o mais recomendado pois apresentou uma maior produção.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb4-2"><a href="#cb4-2"></a>I &lt;-<span class="st"> </span><span class="dv">6</span> <span class="co"># Número de tratamentos</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>r &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># Número de repetições com que cada média foi calculada</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>GLres &lt;-<span class="st"> </span><span class="dv">15</span> <span class="co"># Graus de liberdade do Resíduo (6-1)*(4-1) = 15</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>QMres &lt;-<span class="st"> </span><span class="fl">0.64</span> <span class="co"># Quadrado médio do resíduo da análise de variância</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>medias&lt;-<span class="kw">c</span>(<span class="fl">21.57</span>,<span class="fl">27.76</span>,<span class="fl">24.58</span>,<span class="fl">28.44</span>,<span class="fl">28.85</span>,<span class="fl">28.30</span>) <span class="co"># vetor de médias</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>c1&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>Y1 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c1) <span class="co"># Definindo o primeiro contraste</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>Y1</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb4-2" title="2">I &lt;-<span class="st"> </span><span class="dv">6</span> <span class="co"># Número de tratamentos</span></a>
+<a class="sourceLine" id="cb4-3" title="3">r &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># Número de repetições com que cada média foi calculada</span></a>
+<a class="sourceLine" id="cb4-4" title="4">GLres &lt;-<span class="st"> </span><span class="dv">15</span> <span class="co"># Graus de liberdade do Resíduo (6-1)*(4-1) = 15</span></a>
+<a class="sourceLine" id="cb4-5" title="5">QMres &lt;-<span class="st"> </span><span class="fl">0.64</span> <span class="co"># Quadrado médio do resíduo da análise de variância</span></a>
+<a class="sourceLine" id="cb4-6" title="6">medias&lt;-<span class="kw">c</span>(<span class="fl">21.57</span>,<span class="fl">27.76</span>,<span class="fl">24.58</span>,<span class="fl">28.44</span>,<span class="fl">28.85</span>,<span class="fl">28.30</span>) <span class="co"># vetor de médias</span></a>
+<a class="sourceLine" id="cb4-7" title="7">c1&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></a>
+<a class="sourceLine" id="cb4-8" title="8">Y1 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c1) <span class="co"># Definindo o primeiro contraste</span></a>
+<a class="sourceLine" id="cb4-9" title="9">Y1</a></code></pre></div>
 <pre><code>## [1] -7.99</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#calculando a estatística do teste</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>tobs &lt;-<span class="st"> </span>Y1<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c1<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>tobs</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">#calculando a estatística do teste</span></a>
+<a class="sourceLine" id="cb6-2" title="2">tobs &lt;-<span class="st"> </span>Y1<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c1<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</a>
+<a class="sourceLine" id="cb6-3" title="3">tobs</a></code></pre></div>
 <pre><code>## [1] -8.15476</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># limite crítico ao nível de 5%</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>tc5&lt;-<span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="op">/</span><span class="dv">2</span>,GLres)</span>
-<span id="cb8-3"><a href="#cb8-3"></a>tc5</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># limite crítico ao nível de 5%</span></a>
+<a class="sourceLine" id="cb8-2" title="2">tc5&lt;-<span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="op">/</span><span class="dv">2</span>,GLres)</a>
+<a class="sourceLine" id="cb8-3" title="3">tc5</a></code></pre></div>
 <pre><code>## [1] 2.13145</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># limite crítico ao nível de 1%</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>tc1 &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>,GLres)</span>
-<span id="cb10-3"><a href="#cb10-3"></a>tc1</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># limite crítico ao nível de 1%</span></a>
+<a class="sourceLine" id="cb10-2" title="2">tc1 &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>,GLres)</a>
+<a class="sourceLine" id="cb10-3" title="3">tc1</a></code></pre></div>
 <pre><code>## [1] 2.946713</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-15"><a href="#cb12-15"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-16"><a href="#cb12-16"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-17"><a href="#cb12-17"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># Construção do Gráfico para interpretação</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-11" title="11"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-13" title="13"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-14" title="14"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-15" title="15"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-16" title="16"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-17" title="17"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p><strong>b) Nitrocálcio vs. Nitrocálcio + Enxofre</strong></p>
 <p><strong>1. Hipóteses</strong></p>
@@ -906,32 +904,32 @@ t_{obs} = \frac{\hat{Y_2}}{s(\hat{Y_2})} = \frac{0,55}{0,57} = 0,96^{NS}
 <p><strong>7. Conclusão do teste</strong></p>
 <p>Como <span class="math inline">\(t_{obs} \not\in RC\)</span> pois <span class="math inline">\(0,96 &lt; 2,13\)</span>, ou seja, o teste foi não significativo ao nível de 5% de probabilidade. Neste caso, não rejeitamos <span class="math inline">\(H_0\)</span> e concluímos que a média do tratamento Nitrocálcio não difere da média do tratamento Nitrocálcio + Enxofre a esse nível de probabilidade.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>c2&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>Y2 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c2) <span class="co"># Definindo o primeiro contraste</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>Y2</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">c2&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></a>
+<a class="sourceLine" id="cb13-2" title="2">Y2 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c2) <span class="co"># Definindo o primeiro contraste</span></a>
+<a class="sourceLine" id="cb13-3" title="3">Y2</a></code></pre></div>
 <pre><code>## [1] 0.55</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#calculando a estatística do teste</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>tobs &lt;-<span class="st"> </span>Y2<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c2<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</span>
-<span id="cb15-3"><a href="#cb15-3"></a>tobs</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="co">#calculando a estatística do teste</span></a>
+<a class="sourceLine" id="cb15-2" title="2">tobs &lt;-<span class="st"> </span>Y2<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c2<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</a>
+<a class="sourceLine" id="cb15-3" title="3">tobs</a></code></pre></div>
 <pre><code>## [1] 0.9722718</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-11"><a href="#cb17-11"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-12"><a href="#cb17-12"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-13"><a href="#cb17-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-14"><a href="#cb17-14"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-15"><a href="#cb17-15"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-16"><a href="#cb17-16"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb17-17"><a href="#cb17-17"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
-<span id="cb17-18"><a href="#cb17-18"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co"># Construção do Gráfico para interpretação</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="co"># Construção do Gráfico para interpretação</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-6" title="6"><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-7" title="7"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-8" title="8"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-9" title="9"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-10" title="10"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-11" title="11"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-12" title="12"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-13" title="13"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-14" title="14"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-15" title="15"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-16" title="16"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-17" title="17"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb17-18" title="18"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 </div>
@@ -1082,19 +1080,19 @@ C_6^2 = \frac{I.(I-1)}{2} =\frac{6.(6-1)}{2} = \frac{30}{2} = 15 \;contrastes
 \]</span></p>
 <p><strong>Obs:</strong> Médias seguidas pela mesma letra não diferem entre si pelo teste de Tukey ao nível de 5% de probabilidade.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Carregue, instale se necessário, o pacote &quot;agricolae&quot;</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="kw">library</span>(agricolae)</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># Contrução do vetor com o nome dos tratamentos</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>trat&lt;-<span class="kw">c</span>(<span class="st">&quot;Test.&quot;</span>,<span class="st">&quot;Sulf. amônio&quot;</span>,<span class="st">&quot;Sal. Chile&quot;</span>,<span class="st">&quot;Ureia&quot;</span>,<span class="st">&quot;Nitc.&quot;</span>,<span class="st">&quot;Nitc.+S&quot;</span>)</span>
-<span id="cb18-6"><a href="#cb18-6"></a></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="co"># Utilizar a função &#39;HDS.test&#39; do pacote agricolae</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a>tukey&lt;-<span class="kw">HSD.test</span>(medias, <span class="co"># vetor de média</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="co"># Carregue, instale se necessário, o pacote &quot;agricolae&quot;</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="kw">library</span>(agricolae)</a>
+<a class="sourceLine" id="cb18-3" title="3"></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="co"># Contrução do vetor com o nome dos tratamentos</span></a>
+<a class="sourceLine" id="cb18-5" title="5">trat&lt;-<span class="kw">c</span>(<span class="st">&quot;Test.&quot;</span>,<span class="st">&quot;Sulf. amônio&quot;</span>,<span class="st">&quot;Sal. Chile&quot;</span>,<span class="st">&quot;Ureia&quot;</span>,<span class="st">&quot;Nitc.&quot;</span>,<span class="st">&quot;Nitc.+S&quot;</span>)</a>
+<a class="sourceLine" id="cb18-6" title="6"></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="co"># Utilizar a função &#39;HDS.test&#39; do pacote agricolae</span></a>
+<a class="sourceLine" id="cb18-8" title="8">tukey&lt;-<span class="kw">HSD.test</span>(medias, <span class="co"># vetor de média</span></a>
+<a class="sourceLine" id="cb18-9" title="9">                trat, <span class="co"># nomes de tratamentos</span></a>
+<a class="sourceLine" id="cb18-10" title="10">                GLres, <span class="co"># graus de liberdade de resíduos</span></a>
+<a class="sourceLine" id="cb18-11" title="11">                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></a>
+<a class="sourceLine" id="cb18-12" title="12">                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></a>
+<a class="sourceLine" id="cb18-13" title="13">                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></a></code></pre></div>
 <pre><code>## 
 ## Study: medias ~ trat
 ## 
@@ -1126,13 +1124,13 @@ C_6^2 = \frac{I.(I-1)}{2} =\frac{6.(6-1)}{2} = \frac{30}{2} = 15 \;contrastes
 ## Sulf. amônio  27.76      a
 ## Sal. Chile    24.58      b
 ## Test.         21.57      c</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Construção do gráfico de colunas</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
-<span id="cb20-3"><a href="#cb20-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
-<span id="cb20-4"><a href="#cb20-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb20-5"><a href="#cb20-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
-<span id="cb20-6"><a href="#cb20-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
-<span id="cb20-7"><a href="#cb20-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="co"># Construção do gráfico de colunas</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</a>
+<a class="sourceLine" id="cb20-3" title="3">          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb20-4" title="4">          <span class="dt">las=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb20-5" title="5">          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</a>
+<a class="sourceLine" id="cb20-6" title="6">          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</a>
+<a class="sourceLine" id="cb20-7" title="7">          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</a></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 </div>
@@ -1276,7 +1274,7 @@ D_{2} = z_2.\frac{s}{\sqrt{r}} = 3,01.\frac{\sqrt{0,64}}{\sqrt{4}} = 1,20\;kg
 <p><strong>7 - Resultado:</strong></p>
 <p>Portanto, o resultado final do teste pode ser representado da seguinte maneira:</p>
 <p><img src="docs/m4_1.png" /></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;m4_1.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;m4_1.png&quot;</span>)</a></code></pre></div>
 <p><img src="m4_1.png" width="463" /></p>
 <p><strong>Conclusão</strong>: As médias ligadas por uma mesma barra não diferem entre si pelo teste de Duncan ao nível de 5% de probabilidade.</p>
 <p>O resultado final pode também ser apresentado com a utilização das letras ao invés da barra:</p>
@@ -1290,13 +1288,13 @@ D_{2} = z_2.\frac{s}{\sqrt{r}} = 3,01.\frac{\sqrt{0,64}}{\sqrt{4}} = 1,20\;kg
 \]</span></p>
 <p><strong>Obs:</strong> Médias seguidas pela mesma letra não diferem entre si pelo teste de Duncan ao nível de 5% de probabilidade.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Utilizar a função &#39;duncan.test&#39; do pacote agricolae</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>duncan&lt;-<span class="kw">duncan.test</span>(medias, <span class="co"># vetor de média</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
-<span id="cb22-6"><a href="#cb22-6"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
-<span id="cb22-7"><a href="#cb22-7"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co"># Utilizar a função &#39;duncan.test&#39; do pacote agricolae</span></a>
+<a class="sourceLine" id="cb22-2" title="2">duncan&lt;-<span class="kw">duncan.test</span>(medias, <span class="co"># vetor de média</span></a>
+<a class="sourceLine" id="cb22-3" title="3">                trat, <span class="co"># nomes de tratamentos</span></a>
+<a class="sourceLine" id="cb22-4" title="4">                GLres, <span class="co"># graus de liberdade de resíduos</span></a>
+<a class="sourceLine" id="cb22-5" title="5">                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></a>
+<a class="sourceLine" id="cb22-6" title="6">                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></a>
+<a class="sourceLine" id="cb22-7" title="7">                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></a></code></pre></div>
 <pre><code>## 
 ## Study: medias ~ trat
 ## 
@@ -1330,13 +1328,13 @@ D_{2} = z_2.\frac{s}{\sqrt{r}} = 3,01.\frac{\sqrt{0,64}}{\sqrt{4}} = 1,20\;kg
 ## Sulf. amônio  27.76      a
 ## Sal. Chile    24.58      b
 ## Test.         21.57      c</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Conatrução do gráfico de colunas</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="kw">bar.group</span>(duncan<span class="op">$</span>groups,</span>
-<span id="cb24-3"><a href="#cb24-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
-<span id="cb24-4"><a href="#cb24-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb24-5"><a href="#cb24-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
-<span id="cb24-6"><a href="#cb24-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
-<span id="cb24-7"><a href="#cb24-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Duncan (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="co"># Conatrução do gráfico de colunas</span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="kw">bar.group</span>(duncan<span class="op">$</span>groups,</a>
+<a class="sourceLine" id="cb24-3" title="3">          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb24-4" title="4">          <span class="dt">las=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb24-5" title="5">          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</a>
+<a class="sourceLine" id="cb24-6" title="6">          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</a>
+<a class="sourceLine" id="cb24-7" title="7">          <span class="dt">main=</span><span class="st">&quot;Teste de Duncan (5%)&quot;</span>);<span class="kw">box</span>()</a></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 </div>
@@ -1463,13 +1461,13 @@ S = \sqrt{(I-1).F.\hat{V}(\hat{Y})} =  \sqrt{(6-1).(2,90).(4,80)} = \sqrt{69,6} 
 \]</span></p>
 <p><strong>Conclusão</strong>: Como <span class="math inline">\(|\hat{Y}| &gt; S\)</span>, o teste foi significativo ao nível de 5% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que, em média, o grupo dos tratamentos com adubo apresenta uma produção superior à testemunha (sem adubo).</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Utilizar a função &#39;scheffe.test&#39; do pacote agricolae</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>scheffe&lt;-<span class="kw">scheffe.test</span>(medias, <span class="co"># vetor de média</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Utilizar a função &#39;scheffe.test&#39; do pacote agricolae</span></a>
+<a class="sourceLine" id="cb25-2" title="2">scheffe&lt;-<span class="kw">scheffe.test</span>(medias, <span class="co"># vetor de média</span></a>
+<a class="sourceLine" id="cb25-3" title="3">                trat, <span class="co"># nomes de tratamentos</span></a>
+<a class="sourceLine" id="cb25-4" title="4">                GLres, <span class="co"># graus de liberdade de resíduos</span></a>
+<a class="sourceLine" id="cb25-5" title="5">                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></a>
+<a class="sourceLine" id="cb25-6" title="6">                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></a>
+<a class="sourceLine" id="cb25-7" title="7">                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></a></code></pre></div>
 <pre><code>## 
 ## Study: medias ~ trat
 ## 
@@ -1501,13 +1499,13 @@ S = \sqrt{(I-1).F.\hat{V}(\hat{Y})} =  \sqrt{(6-1).(2,90).(4,80)} = \sqrt{69,6} 
 ## Sulf. amônio  27.76      a
 ## Sal. Chile    24.58      b
 ## Test.         21.57      c</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Construção do gráfico de colunas</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
-<span id="cb27-3"><a href="#cb27-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
-<span id="cb27-4"><a href="#cb27-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb27-5"><a href="#cb27-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
-<span id="cb27-6"><a href="#cb27-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
-<span id="cb27-7"><a href="#cb27-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Scheffé (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="co"># Construção do gráfico de colunas</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</a>
+<a class="sourceLine" id="cb27-3" title="3">          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb27-4" title="4">          <span class="dt">las=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb27-5" title="5">          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</a>
+<a class="sourceLine" id="cb27-6" title="6">          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</a>
+<a class="sourceLine" id="cb27-7" title="7">          <span class="dt">main=</span><span class="st">&quot;Teste de Scheffé (5%)&quot;</span>);<span class="kw">box</span>()</a></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <!--chapter:end:07-Comparações.Rmd-->
 <div id="refs" class="references">
@@ -1515,7 +1513,7 @@ S = \sqrt{(I-1).F.\hat{V}(\hat{Y})} =  \sqrt{(6-1).(2,90).(4,80)} = \sqrt{69,6} 
 <p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.</p>
 </div>
 <div id="ref-R-bookdown">
-<p>———. 2020. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+<p>———. 2020. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.</p>
 </div>
 </div>
 </div>
