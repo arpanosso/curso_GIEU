@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 8 7. DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU</title>
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 8 7. DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 8 7. DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU" />
+  
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+<meta name="author" content="Alan R. Panosso" />
+
+
+<meta name="date" content="2020-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">curso_GIEU</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução ao Curso</a></li>
+<li class="chapter" data-level="2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>2</b> Testes para Comparação de médias</a><ul>
+<li class="chapter" data-level="2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>2.1</b> INTRODUÇÃO</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>2.1.1</b> CONTRASTES DE MÉDIAS</a></li>
+<li class="chapter" data-level="2.1.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contraste"><i class="fa fa-check"></i><b>2.1.2</b> ESTIMATIVA DO CONTRASTE</a></li>
+<li class="chapter" data-level="2.1.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>2.1.3</b> COVARIÂNCIA ENTRE DOIS CONTRASTES</a></li>
+<li class="chapter" data-level="2.1.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>2.1.4</b> CONTRASTES ORTOGONAIS</a></li>
+<li class="chapter" data-level="2.1.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>2.1.5</b> VARIÂNCIA DE UM CONTRASTE</a></li>
+<li class="chapter" data-level="2.1.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>2.1.6</b> ERRO PADRÃO DO CONTRASTE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>2.2</b> TESTE t DE STUDENT</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>2.2.1</b> EXEMPLO DE APLICAÇÃO DO TESTE t de STUDENT</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>2.3</b> TESTE DE TUKEY</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>2.3.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE TUKEY</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>2.4</b> TESTE DE DUNCAN</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>2.4.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE DUNCAN</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>2.5</b> TESTE DE SCHEFFÉ</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>2.5.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE SCHEFFÉ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>3</b> 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="3.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>3.1</b> 5.1 CARACTERIZAÇÃO</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modelo-matemático.html"><a href="modelo-matemático.html"><i class="fa fa-check"></i><b>4</b> 5.2 MODELO MATEMÁTICO</a></li>
+<li class="chapter" data-level="5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><i class="fa fa-check"></i><b>5</b> 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA</a><ul>
+<li class="chapter" data-level="5.1" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.1</b> 5.4 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="5.2" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.2</b> 5.5 EXEMPLO DE APLICAÇÃO</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
+<li class="chapter" data-level="6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>6.1</b> 5.6.1 INTRODUÇÃO</a></li>
+<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>6.2</b> 5.6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.3</b> 5.6.3 CÁLCULO DAS MÉDIAS E ERROS PADRÕES DAS MÉDIAS:</a></li>
+<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> 5.6.4 TESTE DE TUKEY PARA COMPARAÇÃO DAS MÉDIAS</a></li>
+<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> 5.6.5 CÁLCULO DO COEFICIENTE DE VARIAÇÃO DO EXPERIMENTO</a></li>
+<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> 5.6.6 APLICAÇÃO DO TESTE t DE STUDENT A UM CONTRASTE</a></li>
+<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> 5.6.7 TESTE DE DUNCAN PARA A COMPARAÇÃO DAS MÉDIAS</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#utilizando-o-r"><i class="fa fa-check"></i><b>6.7.1</b> Utilizando o R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>7.1</b> 6.1 INTRODUÇÃO</a></li>
+<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> 6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.2.1</b> 6.2.1. MÉTODO DOS CONTRASTES DE TOTAIS DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="7.2.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.2.2</b> 6.2.2. MÉTODO DOS TOTAIS DE TRATAMENTOS (SEM UTILIZAR CONTRASTES)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2.3</b> 6.2.3. ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="7.2.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.2.4</b> <strong>Conclusões</strong></a></li>
+<li class="chapter" data-level="7.2.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.2.5</b> 6.2.4. COMPONENTES COM MAIS DE UM GRAU DE LIBERDADE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> 7. DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> 7.1. CARACTERIZAÇÃO</a></li>
+<li class="chapter" data-level="8.2" data-path="modelo-matemático.html"><a href="modelo-matemático.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> 7.2. MODELO MATEMÁTICO</a></li>
+<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> 7.3. HIPÓTESES BÁSICAS</a></li>
+<li class="chapter" data-level="8.4" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> 7.4. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="8.5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> 7.5. EXEMPLO DE APLICAÇÃO</a></li>
+<li class="chapter" data-level="8.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#delineamento-em-blocos-csualizados-com-uma-parcela-perdida"><i class="fa fa-check"></i><b>8.6</b> 7.6. DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>8.6.1</b> 7.6.1. INTRODUÇÃO</a></li>
+<li class="chapter" data-level="8.6.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>8.6.2</b> 7.6.2. ESTIMATIVA DA PARCELA PERDIDA</a></li>
+<li class="chapter" data-level="8.6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>8.6.3</b> 7.6.3. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="8.6.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.4</b> 7.6.4. MÉDIAS DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="8.6.5" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#erros-padrões-das-médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.5</b> 7.6.5. ERROS PADRÕES DAS MÉDIAS DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="8.6.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#comparação-das-médias-para-o-teste-de-tukey"><i class="fa fa-check"></i><b>8.6.6</b> 7.6.6. COMPARAÇÃO DAS MÉDIAS PARA O TESTE DE TUKEY</a></li>
+<li class="chapter" data-level="8.6.7" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>8.6.7</b> 7.6.7. EXEMPLO DE APLICAÇÃO</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso do R do GIEU</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="delineamento-em-blocos-casualizados" class="section level1">
+<h1><span class="header-section-number">Capítulo 8</span> 7. DELINEAMENTO EM BLOCOS CASUALIZADOS</h1>
+<div id="caracterização" class="section level2">
+<h2><span class="header-section-number">8.1</span> 7.1. CARACTERIZAÇÃO</h2>
+<p>O delineamento em blocos casualizados (DBC) é o mais utilizado dos delineamentos experimentais, e os experimentos instalados de acordo com esse delineamento são denominados de <strong>experimentos em blocos casualizados</strong> ou <strong>experimentos em blocos ao acaso</strong>. Além dos princípios da <strong><em>repetição</em></strong> e da <strong><em>casualização</em></strong>, leva em conta também o princípio do <strong><em>controle local</em></strong>.</p>
+<p>Sempre que houver dúvidas a respeito da homogeneidade das condições experimentais é conveniente usar o princípio do controle local, estabelecendo blocos com parcelas homogêneas.</p>
+<p><strong>As principais características deste delineamento são</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><p>As parcelas são distribuídas em grupos ou blocos (princípio do controle local) de tal forma que elas sejam o mais uniforme possível dentro de cada bloco.</p></li>
+<li><p>O número de parcelas por bloco deve ser igual ao número de tratamentos (blocos completos casualizados).</p></li>
+<li><p>Os tratamentos são designados às parcelas de forma casual, sendo essa casualização feita dentro de cada bloco.</p></li>
+</ol>
+<p>Esse delineamento é mais eficiente que o delineamento inteiramente casualizado, e essa eficiência depende da uniformidade das parcelas dentro de cada bloco, podendo inclusive, haver diferenças acentuadas de um bloco para outro.</p>
+<p>Então, por exemplo, se temos um experimento em blocos casualizados em que desejamos estudar o efeito de 4 variedades (V1,V2,V3 e V4), sendo cada uma delas repetidas 5 vezes, teremos o seguinte plano experimental:</p>
+<p><img src="DBC_d.png" /></p>
+<p>Note que dentro de cada bloco temos as variedades sorteadas ao acaso. Caso este mesmo ensaio fosse montado no delineamento inteiramente casualizados, o sorteio seria feito em todas as parcelas do experimento, e os tratamentos não seriam agrupados em blocos. Por exemplo, no delineamento inteiramente casualizado teríamos:</p>
+<p><img src="DIC_d.png" /></p>
+<p>E eficiência do delineamento em blocos casualizados depende de uniformidade das parcelas dentro de cada bloco. De um bloco para outro, pode haver variação.</p>
+<p>A forma e a distribuição dos blocos no campo depende apenas da uniformidade das condições experimentais.</p>
+<p>Os blocos podem ser retangulares, quadrados ou irregulares:</p>
+<p><img src="blocos.jpg" /></p>
+<p>Os blocos podem ser espalhados em toda a área de estudo, ou então agrupados um ao lado do outro. Geralmente se coloca um bloco ao lado do outro para facilitar a condução do experimento.</p>
+<p>Os blocos são utilizados para controlar pequenas diferenças que ocorrem entre as parcelas experimentais, tais como, diferenças de fertilidade do solo, diferenças de disponibilidade de água, diferenças de luminosidade (no caso de casas de vegetação), etc.</p>
+<p><strong>As principais vantagens desse delineamento são:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Controla as diferenças que ocorrem nas condições experimentais de um bloco para outro.</p></li>
+<li><p>Permite, dentro de certos limites, utilizar qualquer número de tratamentos e blocos.</p></li>
+<li><p>Nos conduz a uma estimativa mais exata para a variância residual.</p></li>
+<li><p>A análise de variância é relativamente simples, sendo apenas um pouco mais demorada que a do delineamento inteiramente casualizado, pois possui uma causa de variação a mais (Blocos).</p></li>
+</ol>
+<p><strong>As principais desvantagens desse delineamento são:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Pela utilização do princípio do controle local há uma diminuição no número de graus de liberdade do resíduo.</p></li>
+<li><p>A exigência de homogeneidade dentro do bloco limita o número de tratamentos, que não pode ser muito grande.</p></li>
+</ol>
+</div>
+<div id="modelo-matemático" class="section level2">
+<h2><span class="header-section-number">8.2</span> 7.2. MODELO MATEMÁTICO</h2>
+<p>Para podermos analisar um experimento em qualquer delineamento, necessitamos conhecer o modelo matemático do mesmo, e aceitar algumas hipóteses básicas necessárias para a validade da análise de variância.</p>
+<p>O modelo matemático do delineamento em blocos casualizados é o seguinte:</p>
+<p><span class="math display">\[
+x_{ij} = \mu +\tau_i + \beta_j+\epsilon_{ij}
+\]</span></p>
+<p>onde,
+<span class="math inline">\(x_{ij}\)</span> representa o valor esperado na parcela que recebeu o tratamento <span class="math inline">\(i\)</span> e que se encontra no bloco <span class="math inline">\(j\)</span>.</p>
+<p><span class="math inline">\(\mu\)</span> é a média geral do experimento.</p>
+<p><span class="math inline">\(\tau_i\)</span> é o efeito devido ao tratamento <em>i</em> que foi aplicado à parcela.</p>
+<p><span class="math inline">\(\beta_j\)</span> é o efeito devido ao bloco <em>j</em> em que se encontra a parcela.</p>
+<p><span class="math inline">\(\epsilon_{ij}\)</span> é o efeito dos fatores não controlados ou acaso na parcela que recebeu o tratamento <em>i</em> e que se encontra no bloco <em>j</em>.</p>
+</div>
+<div id="hipóteses-básicas" class="section level2">
+<h2><span class="header-section-number">8.3</span> 7.3. HIPÓTESES BÁSICAS</h2>
+<p>As hipóteses básicas para a validade da análise de variância são as mesmas já vistas para o delineamento inteiramente casualizado, ou seja:</p>
+<p><strong>Aditividade</strong>: Os efeitos dos fatores do modelo são aditivos</p>
+<p><strong>Independência</strong>: Os erros (desvios) <span class="math inline">\(\epsilon_{ij}\)</span>, devido aos efeitos de fatores não controlados ou acaso devem ser independentes</p>
+<p><strong>Homocedasticidade (homogeneidade de variâncias)</strong>: Os erros (desvios) <span class="math inline">\(\epsilon_{ij}\)</span>, devido ao acaso devem possuir variância comum <span class="math inline">\(\sigma^2\)</span></p>
+<p><strong>Normalidade dos desvios</strong>: Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> devido ao acaso devem possuir distribuição normal de probabilidades.</p>
+<p>Uma forma resumida de apresentar estas quatro pressuposições é apresentada a seguir:</p>
+<p><span class="math display">\[
+\epsilon_{ij} \overset{iid}{\tilde{}} N(0,\sigma^2) \\
+\]</span></p>
+<p>Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> são independentes e identicamente distribuídos, de acordo com uma distribuição normal, com média zero e variância comum <span class="math inline">\(\sigma^2\)</span>.</p>
+</div>
+<div id="obtenção-da-análise-de-variância" class="section level2">
+<h2><span class="header-section-number">8.4</span> 7.4. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</h2>
+<p>Para a obtenção da análise de variância, vamos considerar um experimento genérico em blocos casualizados com <span class="math inline">\(I\)</span> tratamentos e <span class="math inline">\(J\)</span> blocos. Os dados obtidos podem ser dispostos num quadro como o seguinte:</p>
+<table>
+<colgroup>
+<col width="42%" />
+<col width="3%" />
+<col width="3%" />
+<col width="11%" />
+<col width="3%" />
+<col width="11%" />
+<col width="3%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tratamentos</th>
+<th>1</th>
+<th>2</th>
+<th>…</th>
+<th><span class="math inline">\(j\)</span></th>
+<th>…</th>
+<th><span class="math inline">\(J\)</span></th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(x_{11}\)</span></td>
+<td><span class="math inline">\(x_{12}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{1j}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{1J}\)</span></td>
+<td><span class="math inline">\(T_1=\sum_{j=1}^Jx_{1j}\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(x_{21}\)</span></td>
+<td><span class="math inline">\(x_{22}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{2j}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{2J}\)</span></td>
+<td><span class="math inline">\(T_2=\sum_{j=1}^Jx_{2j}\)</span></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+<td>…</td>
+<td></td>
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(i\)</span></td>
+<td><span class="math inline">\(x_{i1}\)</span></td>
+<td><span class="math inline">\(x_{i2}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{ij}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{iJ}\)</span></td>
+<td><span class="math inline">\(T_i=\sum_{j=1}^Jx_{ij}\)</span></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+<td>…</td>
+<td></td>
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I\)</span></td>
+<td><span class="math inline">\(x_{I1}\)</span></td>
+<td><span class="math inline">\(x_{I2}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{Ij}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(x_{IJ}\)</span></td>
+<td><span class="math inline">\(T_I=\sum_{j=1}^Jx_{Ij}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><span class="math inline">\(B_1=\sum_{i=1}^Ix_{i1}\)</span></td>
+<td><span class="math inline">\(B_2=\sum_{i=1}^Ix_{i2}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(B_j=\sum_{i=1}^Ix_{ij}\)</span></td>
+<td>…</td>
+<td><span class="math inline">\(B_J=\sum_{i=1}^Ix_{iJ}\)</span></td>
+<td><span class="math inline">\(G=\sum_{i=1}^I\sum_{j=1}^Jx_{ij}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Pelo método dos mínimos quadrados, devemos obter as estimativas de <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\tau_i\)</span> e <span class="math inline">\(\beta_j\)</span> que minimizam a soma de quadrados dos erros do modelo:</p>
+<p><span class="math display">\[
+x_{ij} = \mu +\tau_i + \beta_j+\epsilon_{ij}
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+\hat{m} = \frac{\sum_{i=1}^I\sum_{j=1}^Jx_{ij}}{IJ}=\frac{G}{IJ} \\
+\hat{t_i}=\frac{T_i}{J}-\hat{m}=\hat{m_i}-\hat{m} \\
+\hat{b_j}=\frac{B_j}{I}-\hat{m}=\hat{m_j}-\hat{m}
+\]</span></p>
+<p>Podemos agora obter as somas de quadrados para cada um desses efeitos. As somas de quadrados total e devido ao efeito de tratamentos são obtidas da mesma maneira que no delineamento inteiramente casualizado:</p>
+<p><span class="math display">\[
+SQ_{Total}=\sum_{i=1}^{I}\sum_{j=1}^Jx_{ij}-C\\
+SQ_{Trat}=\frac{1}{J}\sum_{i=1}^IT_i^2-C \\
+onde,\; C=\frac{G^2}{IJ}
+\]</span></p>
+<p>A soma de quadrados devido ao efeito de blocos é obtida por:
+<span class="math display">\[
+SQ_{Blocos} = I\hat{b_1^2}+I\hat{b_2^2}+...+I\hat{b_J^2} \\
+SQ_{Blocos} = I(\hat{b_1^2}+\hat{b_2^2}+...+\hat{b_J^2})\\
+SQ_{Blocos} = I\left[ \left(\frac{B_1}{I}-\hat{m} \right)^2+\left(   \frac{B_2}{I}-\hat{m} \right)^2+...+\left( \frac{B_J}{I}-\hat{m} \right)^2 \right]\\
+SQ_{Blocos} = I\left[ \left(\frac{B_1^2}{I^2}-2\hat{m}\frac{B_1}{I}+\hat{m}^2 \right)+\left(\frac{B_2^2}{I^2}-2\hat{m}\frac{B_2}{I}+\hat{m}^2
+\right)+...+\left(  \frac{B_J^2}{I^2}-2\hat{m}\frac{B_J}{I}+\hat{m^2}\right) \right] \\
+SQ_{Blocos} =\left[\left(\frac{B_1^2}{I}+\frac{B_2^2}{I}+...+\frac{B_J^2}{I}\right)-2\hat{m}(B_1+B_2+...+B_J)+ IJ\hat{m}^2 \right] \\
+SQ_{Blocos} = \frac{1}{I}(B_1^2+B_2^2+...+B_J^2)-2\hat{m}G+IJ\frac{G^2}{(IJ)^2}\\
+SQ_{Blocos} =\frac{1}{I}\sum_{j=1}^JB_j^2-C
+\]</span></p>
+<p>A soma de quadrados devido ao efeito dos fatores não controlados ou acaso (<span class="math inline">\(SQ_{Resíduo}\)</span>), é obtida por diferença:</p>
+<p><span class="math display">\[
+SQ_{Resíduo} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos}
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>Causas de Variação</th>
+<th>GL</th>
+<th>SQ</th>
+<th>QM</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tratamentos</td>
+<td><span class="math inline">\(I-1\)</span></td>
+<td><span class="math inline">\(SQ_{Trat}\)</span></td>
+<td><span class="math inline">\(SQ_{Trat}\)</span>/(I-1)</td>
+<td><span class="math inline">\(QM_{Trat}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
+</tr>
+<tr class="even">
+<td>Blocos</td>
+<td><span class="math inline">\(J-1\)</span></td>
+<td><span class="math inline">\(SQ_{Blocos}\)</span></td>
+<td><span class="math inline">\(SQ_{Blocos}\)</span>/(J-1)</td>
+<td><span class="math inline">\(QM_{Blocos}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Resíduo</td>
+<td><span class="math inline">\((I-1)(J-1)\)</span></td>
+<td><span class="math inline">\(SQ_{Res}\)</span></td>
+<td><span class="math inline">\(SQ_{Res}\)</span>/[(I-1)(J-1)]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><span class="math inline">\(IJ-1\)</span></td>
+<td><span class="math inline">\(SQ_{Total}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>HIPÓTESES TESTADAS:</strong></p>
+<p><strong>Para Tratamentos</strong>:
+<span class="math display">\[
+\begin{cases} H_0: t_i=0, i=1,2, ...,I. \\
+H_1:pelo\;menos\;um \;valor\;t_i \neq 0
+\end{cases}
+\]</span></p>
+<p><strong>Para Blocos</strong>:</p>
+<p><span class="math display">\[
+\begin{cases} H_0: b_j=0, j=1,2, ...,J. \\
+H_1:pelo\;menos\;um \;valor\;b_j \neq 0
+\end{cases}
+\]</span></p>
+<p><strong>CRITÉRIO DO TESTE</strong>:</p>
+<p><strong>Para Tratamentos</strong>:</p>
+<p>Comparamos o valor F calculado para tratamentos com o valor de F tabelado em função do número de GL de Tratamentos e GL do resíduo, ao nível <span class="math inline">\(\alpha\)</span> de significância.</p>
+<p>Se <span class="math inline">\(F_{Trat} &gt; F_{Tab}\)</span>, concluímos que o teste é significativo, portanto, rejeitamos <span class="math inline">\(H_0\)</span> e devemos concluir que existe diferença significativa entre os efeitos dos tratamentos testados em relação à variáveis (característica) em estudo.</p>
+<p><strong>Para Blocos</strong>:</p>
+<p>Pra Blocos, a comparação é feita entre o valor de F calculado com o F tabelado em função do número de GL de Blocos e GL do resíduo, ao nível <span class="math inline">\(\alpha\)</span> de significância</p>
+<p>Se <span class="math inline">\(F_{Blocos} &gt; F_{Tab}\)</span>, concluímos que o teste é significativo, portanto, rejeitamos <span class="math inline">\(H_0\)</span> e devemos concluir que os blocos possuem efeitos diferentes em relação à característica em estudo, ou seja, os blocos foram eficientes no controle da heterogeneidade local.</p>
+</div>
+<div id="exemplo-de-aplicação" class="section level2">
+<h2><span class="header-section-number">8.5</span> 7.5. EXEMPLO DE APLICAÇÃO</h2>
+<p>No trabalho “Influência do genótipo e da adubação sobre algumas características fenotípicas de <em>Zea mays</em> L (Milho)”, realizado por BARBOSA (1976), foram utilizadas 4 cultivares de milho:</p>
+<p><span class="math inline">\(C_1\)</span> = OPACO 2</p>
+<p><span class="math inline">\(C_2\)</span> = PIRANÃO</p>
+<p><span class="math inline">\(C_3\)</span> = COMPOSTO FLINT</p>
+<p><span class="math inline">\(C_4\)</span> = AGROCERES AG-152</p>
+<p>O ensaio foi montado de acordo com o delineamento em blocos casualizados, sendo utilizados 5 blocos para controlar as diferenças de fertilidade do solo entre terraços.</p>
+<p>Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em <a href="https://github.com/arpanosso/ExpAgr_2020/blob/master/dados/milho.txt">milho</a>.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tratamentos
+</th>
+<th style="text-align:right;">
+Bloco1
+</th>
+<th style="text-align:right;">
+Bloco2
+</th>
+<th style="text-align:right;">
+Bloco3
+</th>
+<th style="text-align:right;">
+Bloco4
+</th>
+<th style="text-align:right;">
+Bloco5
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+2812
+</td>
+<td style="text-align:right;">
+2296
+</td>
+<td style="text-align:right;">
+3501
+</td>
+<td style="text-align:right;">
+3301
+</td>
+<td style="text-align:right;">
+3691
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+15601
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+3728
+</td>
+<td style="text-align:right;">
+3588
+</td>
+<td style="text-align:right;">
+4418
+</td>
+<td style="text-align:right;">
+4544
+</td>
+<td style="text-align:right;">
+5084
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+21362
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+5359
+</td>
+<td style="text-align:right;">
+5106
+</td>
+<td style="text-align:right;">
+7477
+</td>
+<td style="text-align:right;">
+8007
+</td>
+<td style="text-align:right;">
+7956
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+33905
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+4482
+</td>
+<td style="text-align:right;">
+4510
+</td>
+<td style="text-align:right;">
+5236
+</td>
+<td style="text-align:right;">
+5930
+</td>
+<td style="text-align:right;">
+5025
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+25183
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgray !important;">
+Total
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+16381
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+15500
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+20632
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+21782
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+21756
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+96051
+</td>
+</tr>
+</tbody>
+</table>
+<p>As hipóteses que desejamos testar são as seguintes:</p>
+<p><span class="math display">\[
+\begin{cases} H_0: As\;cultivares\;testadas\;não\;diferem\;entre\;si\;em\;relação\;à\;produção\;da\;cultura\;do\;milho. \\
+H_1: As\;cultivares\;testadas\;diferem\;entre\;si\;em\;relação\;à\;produção\;da\;cultura\;do\;milho.
+\end{cases}
+\]</span></p>
+<p>Para obtenção da análise de variância, devemos, inicialmente, obter as Somas de Quadrados:</p>
+<p><strong>a) Soma de quadrados total</strong>:</p>
+<p><span class="math display">\[
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C \\
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{IJ} \\
+SQ_{Total} = (2812^2+2296^2+...+3501^2) - \frac{96051^2}{4\cdot5}\\
+SQ_{Total} = 47817032,90
+\]</span></p>
+<p><strong>b) Soma de quadrados devido ao efeito de tratamentos</strong>:</p>
+<p><span class="math display">\[
+SQ_{Trat} = \frac{\sum_{i=1}^IT_i^2}{J} - C \\
+SQ_{Trat} = \frac{T_1^2+T_2^2+...+T_I^2}{J} - \frac{G^2}{IJ}\\
+SQ_{Trat} = \frac{15601^2+21362^2+33905^2+25183^2}{5} - \frac{96051^2}{4\cdot5}\\ SQ_{Trat}= 35402021,70
+\]</span></p>
+<p><strong>c) Soma de quadrados devido ao efeito de blocos</strong>:</p>
+<p><span class="math display">\[
+SQ_{Blocos} = \frac{\sum_{j=1}^JB_j^2}{I} - C \\
+SQ_{Blocos} = \frac{B_1^2+B_2^2+...+B_J^2}{I} - \frac{G^2}{IJ}\\
+SQ_{Blocos} = \frac{16381^2+15500^2+20632^2+21782^2+21756^2}{4} - \frac{96051^2}{4\cdot5}\\ SQ_{Blocos}= 9221681,20
+\]</span></p>
+<p><strong>d) Soma de quadrados do resíduo</strong>:</p>
+<p><span class="math display">\[
+SQ_{Res} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos}\\
+SQ_{Res} = 47817032,9-35402021,7-9221681,2=3193330,00
+\]</span></p>
+<p>Então podemos montar o seguinte quadro de análise de variância:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas.de.Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamento
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+35402021,7
+</td>
+<td style="text-align:left;">
+11800673,9
+</td>
+<td style="text-align:left;">
+44,34**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+9221681,2
+</td>
+<td style="text-align:left;">
+2305420,3
+</td>
+<td style="text-align:left;">
+8,66**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+3193330,00
+</td>
+<td style="text-align:left;">
+266110,83
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+47817032,9
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+</tbody>
+</table>
+<p>Valores de F da tabela para tratamentos (3 x 12 GL):<span class="math inline">\(\begin{cases} 5\%=3,49 \\ 1\%=5,95 \end{cases}\)</span></p>
+<p>Valores de F da tabela para blocos (4 x 12 GL):<span class="math inline">\(\begin{cases} 5\%=3,26 \\ 1\%=5,41 \end{cases}\)</span></p>
+<p><strong>Conclusões</strong>:</p>
+<p><strong>a) Para Tratamentos</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as cultivares diferem entre si em relação à produção da cultura do milho, com um grau de confiança superior a <span class="math inline">\(99\%\)</span> de probabilidade.</p>
+<p><strong>b) Para Blocos</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as diferenças de fertilidade do solo entre terraços apresentaram efeitos diferentes sobre a produção do milho, com um grau de confiança superior a <span class="math inline">\(99\%\)</span> de probabilidade.</p>
+<p>Para tirar conclusões mais específicas sobre o comportamento das cultivares, devemos utilizar um teste de comparação de médias.</p>
+<p><strong>a) Cálculo das médias de cada tratamento e erros padrões das médias</strong>:</p>
+<p>Então, no nosso exemplo, temos:
+<span class="math display">\[
+\hat{m_1} = \frac{T_1}{J}=\frac{15601}{5}=3120,20\;kg/ha\\
+\hat{m_2} = \frac{T_2}{J}=\frac{21362}{5}=4272,40\;kg/ha\\
+\hat{m_3} = \frac{T_3}{J}=\frac{33905}{5}=6781,00\;kg/ha\\
+\hat{m_4} = \frac{T_4}{J}=\frac{25183}{5}=5036,60\;kg/ha\\
+\]</span></p>
+<p>Erro padrão dessas médias será:</p>
+<p><span class="math display">\[
+s(\hat{m}) = \frac{s}{\sqrt{J}}=\sqrt{\frac{QM_{Res}}{J}} =\sqrt{\frac{266110,83}{5}}=230,70\;kg/ha
+\]</span></p>
+<p><strong>b) Aplicação do teste de Tukey </strong>:</p>
+<p><strong>b.1. Cálculo do valor de <span class="math inline">\(\Delta\)</span></strong>:</p>
+<p><span class="math display">\[
+q_{(4\;trat\times12\;GLres)}(5\%) = 4,20\\
+s=\sqrt{QM_{Res}}=515,8593,\;com\; r=5 \\
+DMS=q\cdot\sqrt{\frac{QM_{Res}}{r}}=4,20\cdot\sqrt{\frac{266110,83}{5}}=968,94\;kg/ha
+\]</span></p>
+<p><strong>b.2. Cálculo das estimativas dos contrastes entre duas médias</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(\hat{m_3}\)</span></th>
+<th><span class="math inline">\(\hat{m_4}\)</span></th>
+<th><span class="math inline">\(\hat{m_2}\)</span></th>
+<th><span class="math inline">\(\hat{m_1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\hat{m_3}\)</span></td>
+<td>-</td>
+<td>1744,4*</td>
+<td>2508,60*</td>
+<td>3660,80*</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hat{m_4}\)</span></td>
+<td>-</td>
+<td>-</td>
+<td>764,20</td>
+<td>1916,40*</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\hat{m_2}\)</span></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>1152,20*</td>
+</tr>
+</tbody>
+</table>
+<p><strong>b.3. Conclusão</strong>: Médias seguidas de pela mesma letra não diferem entre si pelo teste de Tukey, ao nível de 5% de probabilidade.</p>
+<p><span class="math display">\[
+\hat{m_3} = 6781,00\;kg/ha\;\;\;\;-a\\
+\hat{m_4} = 5036,60\;kg/ha\;\;\;\;-b\\
+\hat{m_2} = 4272,40\;kg/ha\;\;\;\;-b\\
+\hat{m_1} = 3120,20\;kg/ha\;\;\;\;-c\\
+\]</span></p>
+<p>Portanto, a melhor cultivar foi o Composto Flint, pois diferiu das demais pelo teste de Tukey e apresentou maior produtividade.</p>
+<p><strong>c) Cálculo do coeficiente de variação do experimento</strong>:
+<span class="math display">\[
+\hat{m}=\frac{G}{IJ}=\frac{96051}{4\cdot5}=4802,55\;kg/ha\\
+s=\sqrt{QM_{Res}}=\sqrt{226110,83}=515,8593\;kg/ha\\
+CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot515,8593}{4802,55}=10,74\%
+\]</span></p>
+<p><strong>Aplicação no R</strong></p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="delineamento-em-blocos-casualizados.html#cb72-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt&quot;</span></span>
+<span id="cb72-2"><a href="delineamento-em-blocos-casualizados.html#cb72-2"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb72-3"><a href="delineamento-em-blocos-casualizados.html#cb72-3"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<pre><code>##      trat bloco    y
+## 1  OPACO2     1 2812
+## 2  OPACO2     2 2296
+## 3  OPACO2     3 3501
+## 4  OPACO2     4 3301
+## 5  OPACO2     5 3691
+## 6 PIRANAO     1 3728</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="delineamento-em-blocos-casualizados.html#cb74-1"></a><span class="co"># Extraindo os fatores e a variável resposta</span></span>
+<span id="cb74-2"><a href="delineamento-em-blocos-casualizados.html#cb74-2"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>trat)</span>
+<span id="cb74-3"><a href="delineamento-em-blocos-casualizados.html#cb74-3"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>bloco)</span>
+<span id="cb74-4"><a href="delineamento-em-blocos-casualizados.html#cb74-4"></a>y&lt;-dados<span class="op">$</span>y</span>
+<span id="cb74-5"><a href="delineamento-em-blocos-casualizados.html#cb74-5"></a></span>
+<span id="cb74-6"><a href="delineamento-em-blocos-casualizados.html#cb74-6"></a><span class="co"># Definindo o modelo matemático</span></span>
+<span id="cb74-7"><a href="delineamento-em-blocos-casualizados.html#cb74-7"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
+<span id="cb74-8"><a href="delineamento-em-blocos-casualizados.html#cb74-8"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: y
+##           Df   Sum Sq  Mean Sq F value    Pr(&gt;F)    
+## trat       3 35402022 11800674 44.3450 9.068e-07 ***
+## bloco      4  9221681  2305420  8.6634   0.00158 ** 
+## Residuals 12  3193330   266111                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="delineamento-em-blocos-casualizados.html#cb76-1"></a><span class="co">#Comparação de Médias pelo teste de Tukey</span></span>
+<span id="cb76-2"><a href="delineamento-em-blocos-casualizados.html#cb76-2"></a><span class="kw">require</span>(<span class="st">&quot;agricolae&quot;</span>)</span>
+<span id="cb76-3"><a href="delineamento-em-blocos-casualizados.html#cb76-3"></a>glRes&lt;-<span class="kw">df.residual</span>(modelo)</span>
+<span id="cb76-4"><a href="delineamento-em-blocos-casualizados.html#cb76-4"></a>QMres&lt;-<span class="kw">deviance</span>(modelo)<span class="op">/</span>glRes</span>
+<span id="cb76-5"><a href="delineamento-em-blocos-casualizados.html#cb76-5"></a>tukey &lt;-<span class="st"> </span><span class="kw">HSD.test</span>(modelo,<span class="st">&quot;trat&quot;</span>, <span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+## Study: modelo ~ &quot;trat&quot;
+## 
+## HSD Test for y 
+## 
+## Mean Square Error:  266110.8 
+## 
+## trat,  means
+## 
+##                 y       std r  Min  Max
+## AG152      5036.6  596.4368 5 4482 5930
+## COMP.FLINT 6781.0 1431.4177 5 5106 8007
+## OPACO2     3120.2  565.1997 5 2296 3691
+## PIRANAO    4272.4  616.1240 5 3588 5084
+## 
+## Alpha: 0.05 ; DF Error: 12 
+## Critical Value of Studentized Range: 4.19866 
+## 
+## Minimun Significant Difference: 968.628 
+## 
+## Treatments with the same letter are not significantly different.
+## 
+##                 y groups
+## COMP.FLINT 6781.0      a
+## AG152      5036.6      b
+## PIRANAO    4272.4      b
+## OPACO2     3120.2      c</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="delineamento-em-blocos-casualizados.html#cb78-1"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
+<span id="cb78-2"><a href="delineamento-em-blocos-casualizados.html#cb78-2"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb78-3"><a href="delineamento-em-blocos-casualizados.html#cb78-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(y)<span class="op">*</span><span class="fl">1.10</span>),</span>
+<span id="cb78-4"><a href="delineamento-em-blocos-casualizados.html#cb78-4"></a>          <span class="dt">xlab=</span><span class="st">&quot;Cultivares&quot;</span>,</span>
+<span id="cb78-5"><a href="delineamento-em-blocos-casualizados.html#cb78-5"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg por ha)&quot;</span>,</span>
+<span id="cb78-6"><a href="delineamento-em-blocos-casualizados.html#cb78-6"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="delineamento-em-blocos-casualizados.html#cb79-1"></a><span class="co"># Cálculo do CV</span></span>
+<span id="cb79-2"><a href="delineamento-em-blocos-casualizados.html#cb79-2"></a>cv&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMres)<span class="op">/</span><span class="kw">mean</span>(y)</span>
+<span id="cb79-3"><a href="delineamento-em-blocos-casualizados.html#cb79-3"></a><span class="kw">paste</span>(<span class="kw">round</span>(cv,<span class="dv">2</span>),<span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;10.74%&quot;</code></pre>
+<p>Utilizando o pacote “ExpDes.pt”</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="delineamento-em-blocos-casualizados.html#cb81-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
+<span id="cb81-2"><a href="delineamento-em-blocos-casualizados.html#cb81-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
+<span id="cb81-3"><a href="delineamento-em-blocos-casualizados.html#cb81-3"></a></span>
+<span id="cb81-4"><a href="delineamento-em-blocos-casualizados.html#cb81-4"></a><span class="co"># verificando os 6 primeiros registros</span></span>
+<span id="cb81-5"><a href="delineamento-em-blocos-casualizados.html#cb81-5"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<pre><code>##      trat bloco    y
+## 1  OPACO2     1 2812
+## 2  OPACO2     2 2296
+## 3  OPACO2     3 3501
+## 4  OPACO2     4 3301
+## 5  OPACO2     5 3691
+## 6 PIRANAO     1 3728</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="delineamento-em-blocos-casualizados.html#cb83-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dbc</span></span>
+<span id="cb83-2"><a href="delineamento-em-blocos-casualizados.html#cb83-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>trat <span class="co"># Criando o vetor de tratamentos</span></span>
+<span id="cb83-3"><a href="delineamento-em-blocos-casualizados.html#cb83-3"></a>bloco &lt;-<span class="st"> </span>dados<span class="op">$</span>bloco <span class="co"># Criando o vetor dos blocos</span></span>
+<span id="cb83-4"><a href="delineamento-em-blocos-casualizados.html#cb83-4"></a>y &lt;-<span class="st"> </span>dados<span class="op">$</span>y <span class="co"># Criando o vetor com a variável resposta</span></span>
+<span id="cb83-5"><a href="delineamento-em-blocos-casualizados.html#cb83-5"></a></span>
+<span id="cb83-6"><a href="delineamento-em-blocos-casualizados.html#cb83-6"></a><span class="co"># Utilizando a função</span></span>
+<span id="cb83-7"><a href="delineamento-em-blocos-casualizados.html#cb83-7"></a><span class="kw">dbc</span>(trat,bloco,y,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
+<pre><code>## ------------------------------------------------------------------------
+## Quadro da analise de variancia
+## ------------------------------------------------------------------------
+##            GL       SQ QM     Fc      Pr&gt;Fc
+## Tratamento  3 35402022  2 44.345 0.00000091
+## Bloco       4  9221681  3  8.663 0.00158020
+## Residuo    12  3193330  4                  
+## Total      19 47817033  1                  
+## ------------------------------------------------------------------------
+## CV = 10.74 %
+## 
+## ------------------------------------------------------------------------
+## Teste de normalidade dos residuos 
+## valor-p:  0.1786606 
+## De acordo com o teste de Shapiro-Wilk a 5% de significancia, os residuos podem ser considerados normais.
+## ------------------------------------------------------------------------
+## 
+## ------------------------------------------------------------------------
+## Teste de homogeneidade de variancia 
+## valor-p:  0.03461775 
+## ATENCAO: a 5% de significancia, as variancias nao podem ser consideradas homogeneas!
+## ------------------------------------------------------------------------
+## 
+## Teste de Tukey
+## ------------------------------------------------------------------------
+## Grupos Tratamentos Medias
+## a 	 COMP.FLINT 	 6781 
+##  b 	 AG152 	 5036.6 
+##  b 	 PIRANAO 	 4272.4 
+##   c 	 OPACO2 	 3120.2 
+## ------------------------------------------------------------------------</code></pre>
+</div>
+<div id="delineamento-em-blocos-csualizados-com-uma-parcela-perdida" class="section level2">
+<h2><span class="header-section-number">8.6</span> 7.6. DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</h2>
+<div id="introdução" class="section level3">
+<h3><span class="header-section-number">8.6.1</span> 7.6.1. INTRODUÇÃO</h3>
+<p>O Delineamento em blocos casualizados é balanceado de tal forma que todos os blocos possuem todos os tratamentos. Assim, se ocorrer uma perda de parcela, há uma quebra neste balanceamento, pois se, por exemplo, perdermos a parcela <span class="math inline">\(x_{ij}\)</span> o tratamento <span class="math inline">\(i\)</span> não conterá o efeito do bloco <span class="math inline">\(j\)</span>. Essa quebra de balaceamento leva a sérias complicações no método de análise de variância.</p>
+<p>Um método de facilitar a análise consiste em obter uma estimativa da parcela perdida. Esta estimativa não representa o valor que seria obtido, pois ningém pode saber qua seria este valor, mas é um artifício de cálculo bastante simple que conduz ao mesmo resultado que se chegaria, por processos mais complexos, considerando apenas os dados realmente obtidos (blocos incompletos).</p>
+</div>
+<div id="estimativa-da-parcela-perdida" class="section level3">
+<h3><span class="header-section-number">8.6.2</span> 7.6.2. ESTIMATIVA DA PARCELA PERDIDA</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">Blocos</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Tratamentos</strong></td>
+<td align="center"><strong>1</strong></td>
+<td align="center"><strong>2</strong></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(j\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(J\)</span></td>
+<td align="right"><strong>Total</strong></td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="center"><span class="math inline">\(x_{11}\)</span></td>
+<td align="center"><span class="math inline">\(x_{12}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{1j}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{1J}\)</span></td>
+<td align="right"><span class="math inline">\(T_1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="center"><span class="math inline">\(x_{21}\)</span></td>
+<td align="center"><span class="math inline">\(x_{22}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{2j}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{2J}\)</span></td>
+<td align="right"><span class="math inline">\(T_2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">…</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(i\)</span></td>
+<td align="center"><span class="math inline">\(x_{i1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{i2}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{ij} = NA\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{iJ}\)</span></td>
+<td align="right"><span class="math inline">\(T+x_{ij}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">…</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(I\)</span></td>
+<td align="center"><span class="math inline">\(x_{I1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{I2}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{Ij}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{IJ}\)</span></td>
+<td align="right"><span class="math inline">\(T_I\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total</strong></td>
+<td align="center"><span class="math inline">\(B_1\)</span></td>
+<td align="center"><span class="math inline">\(B_2\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(B+x_{ij}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(B_J\)</span></td>
+<td align="right"><span class="math inline">\(G&#39;+x_{ij}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>NA</strong> = é a parcela perdida</li>
+</ul>
+<p>De acordo com o modelo matemático, temos:</p>
+<p><span class="math display">\[
+x_{ij}= \mu+\tau_{i}+\beta_{j}+\epsilon_{ij}
+\]</span></p>
+<p>A estimativa da parcela perdida é obtida tornando mínimo o efeito dos fatores não contralados ou acaso na parcela.</p>
+<p>Então, utilizando o método dos quadrados mínimos, obtém-se:</p>
+<p><span class="math display">\[
+x_{ij} = \frac{IT+JB-G&#39;}{(I-1)(J-1)}
+\]</span></p>
+<p>onde</p>
+<p><span class="math inline">\(I\)</span> é o número de tratamentos do experimento.</p>
+<p><span class="math inline">\(J\)</span> é o número de blocos do experimento.</p>
+<p><span class="math inline">\(T\)</span> é a soma das parcelas existentes no tratamento que perdeu a parcela.</p>
+<p><span class="math inline">\(B\)</span> é a soma das parcelas existentes no bloco que perdeu a parcela.</p>
+<p><span class="math inline">\(G&#39;\)</span> é a soma das parcelas existentes no experimento.</p>
+</div>
+<div id="obtenção-da-análise-de-variância-1" class="section level3">
+<h3><span class="header-section-number">8.6.3</span> 7.6.3. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</h3>
+<p>Uma vez obtida a estimativa da parcela perdida, substituímos o seu valor no quadro de dados, e calculamos as somas de quadrados da maneira usual. Então, com o valor estimado da parcela perdidada obtemos:</p>
+<p><span class="math inline">\(T_{i}=T+x_{ij}\)</span></p>
+<p><span class="math inline">\(B_{j}=B+x_{ij}\)</span></p>
+<p><span class="math inline">\(G=G&#39;+x_{ij}\)</span></p>
+<p><span class="math inline">\(C=\frac{G^2}{IJ}\)</span></p>
+<p><span class="math inline">\(SQ_{Total}=\sum_{i=1}^I\sum_{j=1}^Jx_{ij}^2-C\)</span></p>
+<p><span class="math inline">\(SQ_{Trat}=\frac{1}{J}\sum_{i=1}^IT_{i}^2-C\)</span></p>
+<p><span class="math inline">\(SQ_{Blocos}=\frac{1}{I}\sum_{j=1}^JB_{j}^2-C\)</span></p>
+<p><span class="math inline">\(SQ_{Res}=SQ_{Total}-SQ_{Trat}-SQ_{Blocos}\)</span></p>
+<p>O método dos mínimos quadrados torna mínima a soma de quadrados do resíduo, a qual fica corretamente estimada, porém, causa uma superestimação na soma de quadrados de tratamentos e de blocos.</p>
+<p>Então, a soma de quadrados de tratamentos deve ser ajustada. Para isso, devemos calcular o fator de correção, representado por <span class="math inline">\(U\)</span>, e dado por:</p>
+<p><span class="math display">\[
+U=F.C. =\frac{I-1}{I}\left(x_{ij}-\frac{B}{I-1}\right)^2
+\]</span></p>
+<p>Onde:</p>
+<p><span class="math inline">\(x_{ij}\)</span> é a estimativa da parcela perdida.</p>
+<p><span class="math inline">\(I\)</span> é o número de tratamentos do experimento.</p>
+<p><span class="math inline">\(B\)</span> é a soma dos parcelas existentes no bloco que perdeu a parcela.</p>
+<p>E a soma de quadrados de tratamentos ajustada será:</p>
+<p><span class="math inline">\(SQ_{Trat(Aj.)}=SQ_{Trat}-U\)</span></p>
+<p>Embora, na pratica não seja necessário, caso haja interesse, pode-se também, fazer a correção da soma de quadrado de blocos por meio da expressão:</p>
+<p><span class="math inline">\(SQ_{Blocos(Aj.)}=SQ_{Blocos}-U_B\)</span></p>
+<p>Onde:</p>
+<p><span class="math display">\[
+U_B=\frac{J-1}{J}\left(x_{ij}-\frac{T}{J-1}\right)^2
+\]</span></p>
+<p>A seguir montamos o quadro de análise de variância, <strong>lembrando que há uma perda de um grau de liberdade</strong> para o total e para o resíduo, devido à estimativa da parcela perdida.</p>
+<p>Então, o quadro de análise de variância será:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Causas de Variação</th>
+<th>GL</th>
+<th>SQ</th>
+<th>QM</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tratamentos (Ajust.)</td>
+<td><span class="math inline">\(I-1\)</span></td>
+<td><span class="math inline">\(SQ_{Trat}-U\)</span></td>
+<td><span class="math inline">\(SQ_{Trat(Aj.)}\)</span>/(I-1)</td>
+<td><span class="math inline">\(QM_{Trat}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
+</tr>
+<tr class="even">
+<td>Blocos</td>
+<td><span class="math inline">\(J-1\)</span></td>
+<td><span class="math inline">\(SQ_{Blocos}-U_B\)</span></td>
+<td><span class="math inline">\(SQ_{Blocos}\)</span>/(J-1)</td>
+<td><span class="math inline">\(QM_{Blocos}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Resíduo</td>
+<td><span class="math inline">\((I-1)(J-1)-1\)</span></td>
+<td><span class="math inline">\(SQ_{Res}\)</span></td>
+<td><span class="math inline">\(SQ_{Res}\)</span>/[(I-1)(J-1)-1]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong><span class="math inline">\(IJ-2\)</span></strong></td>
+<td>–</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Os valores de F calculados são comparados com os valores de F tabelados para se verificar se o teste é significativo ou não.</p>
+</div>
+<div id="médias-de-tratamentos" class="section level3">
+<h3><span class="header-section-number">8.6.4</span> 7.6.4. MÉDIAS DE TRATAMENTOS</h3>
+<p>As médias de tratamentos são obtidas de maneiral usual, ou seja:</p>
+<p><span class="math inline">\(\hat{m}_k=\frac{T_k}{J}\)</span> para os tratamentos que não perderam parcela.</p>
+<p><span class="math inline">\(\hat{m}_i=\frac{T+x_{ij}}{J}\)</span> para o tratamento que perdeu a parcela.</p>
+</div>
+<div id="erros-padrões-das-médias-de-tratamentos" class="section level3">
+<h3><span class="header-section-number">8.6.5</span> 7.6.5. ERROS PADRÕES DAS MÉDIAS DE TRATAMENTOS</h3>
+<p><strong>a) Para as médias dos tratamentos que não perderam parcela.</strong></p>
+<p><span class="math display">\[
+s(\hat{m})=\frac{s}{\sqrt{J}}=\sqrt{\frac{QM_{Res}}{J}}
+\]</span></p>
+<p><strong>b) Para a média do tratamento que perdeu parcela.</strong></p>
+<p><span class="math display">\[
+s(\hat{m})= \sqrt{\hat{V}(\hat{m})},\; onde \\
+\hat{V}(\hat{m}) = \left[ \frac{1}{J}+\frac{I}{J(J-1)(I-1)} \right]s^2
+\]</span></p>
+</div>
+<div id="comparação-das-médias-para-o-teste-de-tukey" class="section level3">
+<h3><span class="header-section-number">8.6.6</span> 7.6.6. COMPARAÇÃO DAS MÉDIAS PARA O TESTE DE TUKEY</h3>
+<p>Temos dois casos a considerar;</p>
+<p><strong>a) Comparação entre médias dos tratamentos sem parcela perdida:</strong></p>
+<p><span class="math display">\[
+\hat{Y} = \hat{m}_k-\hat{m}_{k&#39;} \\
+\hat{V}\hat{Y}=\frac{2}{J}s^2
+\]</span></p>
+<p>Então, para a aplicação do teste de Tukey, temos:</p>
+<p><span class="math display">\[
+\Delta = dms=q\sqrt{\frac{1}{2}\cdot\frac{2}{J}s^2}=q\frac{s}{\sqrt{J}}
+\]</span></p>
+<p><strong>b) Comparações entre as médias dos tratamentos sem parcela perdida <span class="math inline">\((k)\)</span> com média do tratamento que perdeu parcela <span class="math inline">\((i)\)</span>:</strong></p>
+<p><span class="math display">\[
+\hat{Y} = \hat{m}_k-\hat{m}_{i} \\
+\hat{V}(\hat{Y})=\left[\frac{2}{J}+\frac{I}{J(I-1)(J-1)} \right]s^2
+\]</span></p>
+<p>então, para a aplicação do teste de Tukey, temos:</p>
+<p><span class="math display">\[
+\Delta = dms = q\sqrt{\frac{1}{2}\hat{V}(\hat{Y})}
+\]</span></p>
+</div>
+<div id="exemplo-de-aplicação-1" class="section level3">
+<h3><span class="header-section-number">8.6.7</span> 7.6.7. EXEMPLO DE APLICAÇÃO</h3>
+<p>Para exemplificar a análise de variância de um experimento em blocos casualizados com parcela perdida, vamos analisar os dados obtidos pelo trabalho intitulado “Estudos dos Efeitos do Promalin sobre frutos de macieiras (<em>Malus</em> spp) cultivares Brasil e Rainha”, realizado por MESTRINER (1980). Foram utiizados 5 tratamentos:</p>
+<p><span class="math inline">\(T_1\)</span> - 12.5 ppm de promalin em plena floração</p>
+<p><span class="math inline">\(T_2\)</span> - 25.0 ppm de promalin em plena floração</p>
+<p><span class="math inline">\(T_3\)</span> - 50.0 ppm de promalin em plena floração</p>
+<p><span class="math inline">\(T_4\)</span> - 12.5 ppm de promalin em plena floração + 12.5 ppm de promalin no início da frutificação</p>
+<p><span class="math inline">\(T_5\)</span> - Testemunha</p>
+<p>Os resultados obtidos para peso médio de frutos da macieira, em gramas, foram os seguintes, e podem ser encontrados online em <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/macieira.txt">macieira</a>.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tratamentos
+</th>
+<th style="text-align:right;">
+Bloco1
+</th>
+<th style="text-align:right;">
+Bloco2
+</th>
+<th style="text-align:right;">
+Bloco3
+</th>
+<th style="text-align:right;">
+Bloco4
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:right;">
+142.36
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+144.78
+</td>
+<td style="text-align:right;">
+145.19
+</td>
+<td style="text-align:right;">
+138.88
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+571.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T2
+</td>
+<td style="text-align:right;">
+139.28
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+137.77
+</td>
+<td style="text-align:right;">
+144.44
+</td>
+<td style="text-align:right;">
+130.61
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+552.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T3
+</td>
+<td style="text-align:right;">
+140.73
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+134.06
+</td>
+<td style="text-align:right;">
+136.07
+</td>
+<td style="text-align:right;">
+144.11
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+554.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T4
+</td>
+<td style="text-align:right;">
+150.88
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+135.83
+</td>
+<td style="text-align:right;">
+136.97
+</td>
+<td style="text-align:right;">
+136.36
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+560.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: red !important;">
+T5
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+153.49
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;font-weight: bold;color: white !important;background-color: red !important;">
+NA
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+151.75
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+150.22
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+455.46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgray !important;">
+Total
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+726.74
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+552.44
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+714.42
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+700.18
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+2693.78
+</td>
+</tr>
+</tbody>
+</table>
+<p>Em vermelho descamos o tratamento e o bloco que perderam a parcela.</p>
+<p>As hipóteses que desejamos testar são:
+<span class="math display">\[
+\begin{cases} H_0:\;As\;doses\;de\;Promalin\;não\;influenciam\;no\;peso\;médio\;de\;frutos\;de\;macieira\\
+H_1: \;As\;doses\;de\;Promalin\;possuem\;efeitos \;diferentes\;sobre\;o\;peso\;médio\;de\;frutos\;de\;macieira
+\end{cases}
+\]</span></p>
+<p><strong>a) estimativa da parcela perdida</strong></p>
+<p><span class="math display">\[
+x_{ij} = \frac{IT+JB-G&#39;}{(I-1)(J-1)}
+x_{52} = \frac{5\cdot455,46+4\cdot552,44-2693,78}{(5-1)(4-1)} = 149,44\;g
+\]</span></p>
+<p>A seguir, colocamos esse valor no quado de dados, e recalculamos os totais:</p>
+<p><span class="math inline">\(T_{5}=T+x_{52}=455,46+149,44=604,90\)</span></p>
+<p><span class="math inline">\(B_{2}=B+x_{52}=552,44+149,44=701,88\)</span></p>
+<p><span class="math inline">\(G=G&#39;+x_{52}=2693,78+149,44=2843,22\)</span></p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tratamentos
+</th>
+<th style="text-align:right;">
+Bloco1
+</th>
+<th style="text-align:right;">
+Bloco2
+</th>
+<th style="text-align:right;">
+Bloco3
+</th>
+<th style="text-align:right;">
+Bloco4
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:right;">
+142.36
+</td>
+<td style="text-align:right;">
+144.78
+</td>
+<td style="text-align:right;">
+145.19
+</td>
+<td style="text-align:right;">
+138.88
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+571.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T2
+</td>
+<td style="text-align:right;">
+139.28
+</td>
+<td style="text-align:right;">
+137.77
+</td>
+<td style="text-align:right;">
+144.44
+</td>
+<td style="text-align:right;">
+130.61
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+552.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T3
+</td>
+<td style="text-align:right;">
+140.73
+</td>
+<td style="text-align:right;">
+134.06
+</td>
+<td style="text-align:right;">
+136.07
+</td>
+<td style="text-align:right;">
+144.11
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+554.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T4
+</td>
+<td style="text-align:right;">
+150.88
+</td>
+<td style="text-align:right;">
+135.83
+</td>
+<td style="text-align:right;">
+136.97
+</td>
+<td style="text-align:right;">
+136.36
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+560.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T5
+</td>
+<td style="text-align:right;">
+153.49
+</td>
+<td style="text-align:right;">
+149.44
+</td>
+<td style="text-align:right;">
+151.75
+</td>
+<td style="text-align:right;">
+150.22
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+604.90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgray !important;">
+Total
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+726.74
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+701.88
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+714.42
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+700.18
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+2843.22
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>b) Cálculo das somas de Quadrados</strong></p>
+<p><strong>b.1) Soma de Quadrados Total:</strong>
+$$
+SQ_{Total}=<em>{i=1}^I</em>{j=1}<sup>Jx_{ij}</sup>2-C \</p>
+<p>SQ_{Total}=[142.36<sup>2++149.44</sup>2++150.22^2]-=816,5390
+$$</p>
+<p><strong>b.2) Soma de Quadrados de Tratamentos:</strong>
+<span class="math display">\[
+SQ_{Trat}=\frac{1}{J}\sum_{i=1}^IT_{i}^2-C \\
+SQ_{Trat}=\frac{1}{4}[571,21^2+\cdots+604,9^2]-\frac{2843,22^2}{5\cdot4}=463,9483
+\]</span></p>
+<p><strong>b.3) Soma de Quadrados de Blocos:</strong>
+<span class="math display">\[
+SQ_{Blocos}=\frac{1}{I}\sum_{j=1}^JB_{j}^2-C \\
+SQ_{Blocos}=\frac{1}{5}[726,74^2+701,88^2+714,42^2+700,18^2]-\frac{2843,22^2}{5\cdot4}=91,9078
+\]</span></p>
+<p><strong>b.4) Soma de Quadrados de Resíduos:</strong></p>
+<p><span class="math display">\[
+SQ_{Res}=SQ_{total}-SQ_{Trat}-SQ_{Blocos} \\
+SQ_{Res}=816,5390-463,9483-91,9078=260,6829
+\]</span></p>
+<p><strong>c) Correção da soma de quadrados de tratamentos</strong>:</p>
+<p><span class="math display">\[
+U=\frac{I-1}{I}\left(x_{ij}-\frac{B}{I-1}\right)^2 \\
+U=\frac{5-1}{I}\left(149,44-\frac{552,44}{5-1}\right)^2=102,6951
+\]</span></p>
+<p>Portanto, temos:</p>
+<p><span class="math inline">\(SQ_{Trat(Aj.)}=SQ_{Trat}-U=463,9483-102,6951=361,2532\)</span></p>
+<p>Então podemos montar o seguinte quadro de análise de variância:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas de Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamento
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+361,2532
+</td>
+<td style="text-align:left;">
+90,3133
+</td>
+<td style="text-align:left;">
+3,81*
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+91,9078
+</td>
+<td style="text-align:left;">
+30,6359
+</td>
+<td style="text-align:left;">
+1,29ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+260,6829
+</td>
+<td style="text-align:left;">
+23,6984
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+</tbody>
+</table>
+<p>Valores de F da tabela para tratamentos (4 x 11 GL):<span class="math inline">\(\begin{cases} 5\%=3,36 \\ 1\%=5,67 \end{cases}\)</span></p>
+<p>Valores de F da tabela para blocos (3 x 11 GL):<span class="math inline">\(\begin{cases} 5\%=3,81 \\ 1\%=6,22 \end{cases}\)</span></p>
+<p><strong>Conclusões</strong>: O teste F foi significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as doses de Promalin possuem efeitos diferentes sobre o peso médio dos frutos de maçã, com um grau de confiança superior a <span class="math inline">\(95\%\)</span> de probabilidade.</p>
+<p>Para tirar conclusões mais específicas sobre o comportamento dos inseticidas, podemos aplicar um teste de comparação de médias.</p>
+<p><strong>a) Cálculo das médias de tratamentos</strong>:</p>
+<p><span class="math display">\[
+\hat{m_1} = \frac{T_1}{J}=\frac{571,21}{4}=142,80\;g\\
+\hat{m_2} = \frac{T_2}{J}=\frac{552,10}{4}=138,03\;g\\
+\hat{m_3} = \frac{T_3}{J}=\frac{554,97}{4}=138,74\;g\\
+\hat{m_4} = \frac{T_4}{J}=\frac{560,04}{4}=140,01\;g\\
+\hat{m_5} = \frac{T_5}{J}=\frac{604,90}{4}=151,23\;g\\
+\]</span></p>
+<p><strong>b) Cálculo dos erros padrões das médias de tratamentos</strong>:</p>
+<p>Para as médias dos tratamentos que não perderam parcela, temos:</p>
+<p><span class="math inline">\(s(\hat{m})=\sqrt{\frac{QM_{Res}}{J}}=\sqrt{\frac{23,6984}{4}}=2,43\;g,\;k=(1,2,3,4)\)</span></p>
+<p>Para média do tratamento que perdeu a parcela, o erro padrão será:</p>
+<p><span class="math inline">\(s(\hat{m}_5)=\sqrt{\frac{1}{J}+\frac{I}{J(J-1)(I-1)}s^2}=\sqrt{\frac{1}{4}+\frac{5}{4(4-1)(5-1)}23,6984}=2,90\;g\)</span></p>
+<p><strong>c) Aplicação do teste de Tukey para comparação das médias de tratamentos</strong>:</p>
+<p><strong>c.1) Cálculo do valor de <span class="math inline">\(\Delta\)</span> para comparações entre médias de tratamentos que não perderam parcela</strong>:</p>
+<p><span class="math inline">\(q_{(5\times11GLRes)} = 4,57, s=\sqrt{QM_{Res}}=4,8681\;\;\;\;\;\;\;\ r=4\)</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+\delta = dms = q\sqrt{\frac{QM_{Res}}{r}}=4,57\sqrt{\frac{23,6984}{4}}=11,12\;g
+\]</span>
+<strong>c.2) Cálculo do <span class="math inline">\(\Delta\)</span> para comparações entre médias dos tratamentos que não perderam parcela e a média do tratamento que perdeu a parcela <span class="math inline">\(\hat{m}_5\)</span></strong>:</p>
+<p><span class="math display">\[
+\hat{Y} = \hat{m}_k-\hat{m}_{i} \\
+\hat{V}(\hat{Y})=\left[\frac{2}{J}+\frac{I}{J(I-1)(J-1)} \right]s^2
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+\Delta = dms =q\sqrt{\frac{1}{2}\hat{V}(\hat{Y})} \\
+\Delta = dms =4,57\sqrt{\frac{1}{2}\left[\frac{2}{4}+\frac{5}{4(5-1)(4-1)} \right]23,6984^2}=12,23\;g
+\]</span></p>
+<p><strong>c.3) Cálculo das estimativas dos contrastes entre duas médias</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(\hat{m_1}\)</span></th>
+<th><span class="math inline">\(\hat{m_4}\)</span></th>
+<th><span class="math inline">\(\hat{m_3}\)</span></th>
+<th><span class="math inline">\(\hat{m_2}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\hat{m_5}\)</span></td>
+<td>8,43</td>
+<td>11,22</td>
+<td>12,49*</td>
+<td>13,2*</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hat{m_1}\)</span></td>
+<td>-</td>
+<td>2,79</td>
+<td>4,06</td>
+<td>4,77</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\hat{m_4}\)</span></td>
+<td>-</td>
+<td>-</td>
+<td>1,27</td>
+<td>1,98</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hat{m_3}\)</span></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>0,71</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão</strong>: Médias seguidas de pelo menos uma letra em comum não diferem entre si, pelo teste de Tukey, ao nível de 5% de probabilidade.</p>
+<p><span class="math display">\[
+\hat{m_5} = 151,23\;g\;\;\;\;-a\\
+\hat{m_1} = 142,80\;g\;\;\;\;-ab\\
+\hat{m_4} = 140,01\;g\;\;\;\;-ab\\
+\hat{m_3} = 138,74\;g\;\;\;\;-b\\
+\hat{m_2} = 138,03\;g\;\;\;\;-b
+\]</span></p>
+<p>Portanto, a melhor dose 12,5 ppm de promalin aplicada em plena floração (Traramento 1) ou em plena floração e no início da frutificação (Tratamento 4) não afeta o peso médio dos frutos, pois não difere da testemunha.</p>
+<p><strong>d) Cálculo do coeficiente de variação do experimento</strong>:</p>
+<p><span class="math display">\[
+\hat{m}=\frac{G}{IJ}=\frac{2843,22}{5\cdot4}=142,16\;g\\
+s=\sqrt{QM_{Res}}=\sqrt{23,6984}=4,8681\;g\\
+CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot4,8681}{142,16}=3,42\%.
+\]</span></p>
+<p>Aplicação no R.</p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="delineamento-em-blocos-casualizados.html#cb85-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/macieira.txt&quot;</span></span>
+<span id="cb85-2"><a href="delineamento-em-blocos-casualizados.html#cb85-2"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
+<span id="cb85-3"><a href="delineamento-em-blocos-casualizados.html#cb85-3"></a></span>
+<span id="cb85-4"><a href="delineamento-em-blocos-casualizados.html#cb85-4"></a><span class="co"># Extraindo os fatores e a variável resposta</span></span>
+<span id="cb85-5"><a href="delineamento-em-blocos-casualizados.html#cb85-5"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>trat)</span>
+<span id="cb85-6"><a href="delineamento-em-blocos-casualizados.html#cb85-6"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>bloco)</span>
+<span id="cb85-7"><a href="delineamento-em-blocos-casualizados.html#cb85-7"></a>y&lt;-dados<span class="op">$</span>y</span>
+<span id="cb85-8"><a href="delineamento-em-blocos-casualizados.html#cb85-8"></a>B&lt;-<span class="kw">tapply</span>(y,bloco,sum,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)[<span class="kw">is.na</span>(B&lt;-<span class="kw">tapply</span>(y,bloco,sum))]</span>
+<span id="cb85-9"><a href="delineamento-em-blocos-casualizados.html#cb85-9"></a></span>
+<span id="cb85-10"><a href="delineamento-em-blocos-casualizados.html#cb85-10"></a><span class="co"># Definindo o modelo para análise preliminar com a parcela perdida</span></span>
+<span id="cb85-11"><a href="delineamento-em-blocos-casualizados.html#cb85-11"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
+<span id="cb85-12"><a href="delineamento-em-blocos-casualizados.html#cb85-12"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: y
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## trat       4 412.42 103.106  4.3507 0.02369 *
+## bloco      3  87.66  29.220  1.2330 0.34419  
+## Residuals 11 260.68  23.698                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="delineamento-em-blocos-casualizados.html#cb87-1"></a><span class="co"># Estimando a parcela perdida</span></span>
+<span id="cb87-2"><a href="delineamento-em-blocos-casualizados.html#cb87-2"></a>xij&lt;-<span class="kw">predict</span>(modelo,<span class="dt">newdata =</span> dados<span class="op">$</span>bloco&lt;-<span class="kw">as.factor</span>(bloco))[<span class="kw">is.na</span>(y)]</span>
+<span id="cb87-3"><a href="delineamento-em-blocos-casualizados.html#cb87-3"></a></span>
+<span id="cb87-4"><a href="delineamento-em-blocos-casualizados.html#cb87-4"></a><span class="co"># valor estimado</span></span>
+<span id="cb87-5"><a href="delineamento-em-blocos-casualizados.html#cb87-5"></a>xij</span></code></pre></div>
+<pre><code>##     18 
+## 149.44</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="delineamento-em-blocos-casualizados.html#cb89-1"></a><span class="co"># Substituindo a parcela perdida pelo valor estimado</span></span>
+<span id="cb89-2"><a href="delineamento-em-blocos-casualizados.html#cb89-2"></a>y[<span class="kw">is.na</span>(y)]&lt;-xij</span>
+<span id="cb89-3"><a href="delineamento-em-blocos-casualizados.html#cb89-3"></a></span>
+<span id="cb89-4"><a href="delineamento-em-blocos-casualizados.html#cb89-4"></a><span class="co"># Definindo o novo modelo</span></span>
+<span id="cb89-5"><a href="delineamento-em-blocos-casualizados.html#cb89-5"></a>modeloC&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
+<span id="cb89-6"><a href="delineamento-em-blocos-casualizados.html#cb89-6"></a>anava&lt;-<span class="kw">anova</span>(modeloC)</span>
+<span id="cb89-7"><a href="delineamento-em-blocos-casualizados.html#cb89-7"></a></span>
+<span id="cb89-8"><a href="delineamento-em-blocos-casualizados.html#cb89-8"></a><span class="co"># Calculando o fator de correção para o ajuste das soma de quadrados dos tratamentos</span></span>
+<span id="cb89-9"><a href="delineamento-em-blocos-casualizados.html#cb89-9"></a>I&lt;-<span class="kw">length</span>(<span class="kw">levels</span>(trat))</span>
+<span id="cb89-10"><a href="delineamento-em-blocos-casualizados.html#cb89-10"></a>QMRes&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb89-11"><a href="delineamento-em-blocos-casualizados.html#cb89-11"></a>(U&lt;-(I<span class="dv">-1</span>)<span class="op">/</span>(I)<span class="op">*</span>(xij<span class="op">-</span>B<span class="op">/</span>(I<span class="dv">-1</span>))<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##       18 
+## 102.6951</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="delineamento-em-blocos-casualizados.html#cb91-1"></a>anava<span class="op">$</span>Df[<span class="dv">3</span>]&lt;-anava<span class="op">$</span>Df[<span class="dv">3</span>]<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb91-2"><a href="delineamento-em-blocos-casualizados.html#cb91-2"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span>[<span class="dv">1</span>]<span class="op">-</span>U</span>
+<span id="cb91-3"><a href="delineamento-em-blocos-casualizados.html#cb91-3"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span><span class="op">/</span>anava<span class="op">$</span>Df</span>
+<span id="cb91-4"><a href="delineamento-em-blocos-casualizados.html#cb91-4"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">F value</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">1</span>]<span class="op">/</span>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb91-5"><a href="delineamento-em-blocos-casualizados.html#cb91-5"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-<span class="kw">pf</span>(anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>],anava<span class="op">$</span>Df[<span class="dv">1</span>],anava<span class="op">$</span>Df[<span class="dv">3</span>])</span>
+<span id="cb91-6"><a href="delineamento-em-blocos-casualizados.html#cb91-6"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">F value</span><span class="st">`</span>[<span class="dv">2</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">2</span>]<span class="op">/</span>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb91-7"><a href="delineamento-em-blocos-casualizados.html#cb91-7"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">2</span>]&lt;-<span class="kw">pf</span>(anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">2</span>],anava<span class="op">$</span>Df[<span class="dv">2</span>],anava<span class="op">$</span>Df[<span class="dv">3</span>])</span>
+<span id="cb91-8"><a href="delineamento-em-blocos-casualizados.html#cb91-8"></a>anava</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: y
+##           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## trat       4 361.25  90.313  3.8109 0.0002554 ***
+## bloco      3  91.91  30.636  1.2927 0.1667326    
+## Residuals 11 260.68  23.698                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="delineamento-em-blocos-casualizados.html#cb93-1"></a><span class="co">## Comparações múltiplas para as médias Tukey</span></span>
+<span id="cb93-2"><a href="delineamento-em-blocos-casualizados.html#cb93-2"></a><span class="kw">require</span>(<span class="st">&quot;agricolae&quot;</span>)</span>
+<span id="cb93-3"><a href="delineamento-em-blocos-casualizados.html#cb93-3"></a>tukey &lt;-<span class="st"> </span><span class="kw">HSD.test</span>(modelo,<span class="st">&quot;trat&quot;</span>, <span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+## Study: modelo ~ &quot;trat&quot;
+## 
+## HSD Test for y 
+## 
+## Mean Square Error:  23.69846 
+## 
+## trat,  means
+## 
+##           y      std r    Min    Max
+## T1 142.8025 2.897843 4 138.88 145.19
+## T2 138.0250 5.708897 4 130.61 144.44
+## T3 138.7425 4.539760 4 134.06 144.11
+## T4 140.0100 7.261621 4 135.83 150.88
+## T5 151.8200 1.636123 3 150.22 153.49
+## 
+## Alpha: 0.05 ; DF Error: 11 
+## Critical Value of Studentized Range: 4.573596 
+## 
+## Groups according to probability of means differences and alpha level( 0.05 )
+## 
+## Treatments with the same letter are not significantly different.
+## 
+##           y groups
+## T5 151.8200      a
+## T1 142.8025     ab
+## T4 140.0100     ab
+## T3 138.7425      b
+## T2 138.0250      b</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="delineamento-em-blocos-casualizados.html#cb95-1"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
+<span id="cb95-2"><a href="delineamento-em-blocos-casualizados.html#cb95-2"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb95-3"><a href="delineamento-em-blocos-casualizados.html#cb95-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(y)<span class="op">*</span><span class="fl">1.10</span>),</span>
+<span id="cb95-4"><a href="delineamento-em-blocos-casualizados.html#cb95-4"></a>          <span class="dt">xlab=</span><span class="st">&quot;Cultivares&quot;</span>,</span>
+<span id="cb95-5"><a href="delineamento-em-blocos-casualizados.html#cb95-5"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg por ha)&quot;</span>,</span>
+<span id="cb95-6"><a href="delineamento-em-blocos-casualizados.html#cb95-6"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="delineamento-em-blocos-casualizados.html#cb96-1"></a><span class="co"># Cálculo do CV</span></span>
+<span id="cb96-2"><a href="delineamento-em-blocos-casualizados.html#cb96-2"></a>QMRes&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb96-3"><a href="delineamento-em-blocos-casualizados.html#cb96-3"></a>cv&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMRes)<span class="op">/</span><span class="kw">mean</span>(y)</span>
+<span id="cb96-4"><a href="delineamento-em-blocos-casualizados.html#cb96-4"></a><span class="kw">round</span>(cv,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 3.42</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso_GIEU.pdf", "curso_GIEU.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

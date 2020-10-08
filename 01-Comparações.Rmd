@@ -1,4 +1,4 @@
-# TESTES PARA COMPARAÇÃO DE MÉDIAS
+# Testes para Comparação de médias
 
 ## INTRODUÇÃO
 

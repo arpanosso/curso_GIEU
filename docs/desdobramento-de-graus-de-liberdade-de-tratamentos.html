@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS | Curso do R do GIEU</title>
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS | Curso do R do GIEU" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS | Curso do R do GIEU" />
+  
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+<meta name="author" content="Alan R. Panosso" />
+
+
+<meta name="date" content="2020-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"/>
+<link rel="next" href="delineamento-em-blocos-casualizados.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">curso_GIEU</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução ao Curso</a></li>
+<li class="chapter" data-level="2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>2</b> Testes para Comparação de médias</a><ul>
+<li class="chapter" data-level="2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>2.1</b> INTRODUÇÃO</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>2.1.1</b> CONTRASTES DE MÉDIAS</a></li>
+<li class="chapter" data-level="2.1.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contraste"><i class="fa fa-check"></i><b>2.1.2</b> ESTIMATIVA DO CONTRASTE</a></li>
+<li class="chapter" data-level="2.1.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>2.1.3</b> COVARIÂNCIA ENTRE DOIS CONTRASTES</a></li>
+<li class="chapter" data-level="2.1.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>2.1.4</b> CONTRASTES ORTOGONAIS</a></li>
+<li class="chapter" data-level="2.1.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>2.1.5</b> VARIÂNCIA DE UM CONTRASTE</a></li>
+<li class="chapter" data-level="2.1.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>2.1.6</b> ERRO PADRÃO DO CONTRASTE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>2.2</b> TESTE t DE STUDENT</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>2.2.1</b> EXEMPLO DE APLICAÇÃO DO TESTE t de STUDENT</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>2.3</b> TESTE DE TUKEY</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>2.3.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE TUKEY</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>2.4</b> TESTE DE DUNCAN</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>2.4.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE DUNCAN</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>2.5</b> TESTE DE SCHEFFÉ</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>2.5.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE SCHEFFÉ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>3</b> 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="3.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>3.1</b> 5.1 CARACTERIZAÇÃO</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modelo-matemático.html"><a href="modelo-matemático.html"><i class="fa fa-check"></i><b>4</b> 5.2 MODELO MATEMÁTICO</a></li>
+<li class="chapter" data-level="5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><i class="fa fa-check"></i><b>5</b> 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA</a><ul>
+<li class="chapter" data-level="5.1" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.1</b> 5.4 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="5.2" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.2</b> 5.5 EXEMPLO DE APLICAÇÃO</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
+<li class="chapter" data-level="6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>6.1</b> 5.6.1 INTRODUÇÃO</a></li>
+<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>6.2</b> 5.6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.3</b> 5.6.3 CÁLCULO DAS MÉDIAS E ERROS PADRÕES DAS MÉDIAS:</a></li>
+<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> 5.6.4 TESTE DE TUKEY PARA COMPARAÇÃO DAS MÉDIAS</a></li>
+<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> 5.6.5 CÁLCULO DO COEFICIENTE DE VARIAÇÃO DO EXPERIMENTO</a></li>
+<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> 5.6.6 APLICAÇÃO DO TESTE t DE STUDENT A UM CONTRASTE</a></li>
+<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> 5.6.7 TESTE DE DUNCAN PARA A COMPARAÇÃO DAS MÉDIAS</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#utilizando-o-r"><i class="fa fa-check"></i><b>6.7.1</b> Utilizando o R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>7.1</b> 6.1 INTRODUÇÃO</a></li>
+<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> 6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.2.1</b> 6.2.1. MÉTODO DOS CONTRASTES DE TOTAIS DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="7.2.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.2.2</b> 6.2.2. MÉTODO DOS TOTAIS DE TRATAMENTOS (SEM UTILIZAR CONTRASTES)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2.3</b> 6.2.3. ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="7.2.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.2.4</b> <strong>Conclusões</strong></a></li>
+<li class="chapter" data-level="7.2.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.2.5</b> 6.2.4. COMPONENTES COM MAIS DE UM GRAU DE LIBERDADE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> 7. DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> 7.1. CARACTERIZAÇÃO</a></li>
+<li class="chapter" data-level="8.2" data-path="modelo-matemático.html"><a href="modelo-matemático.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> 7.2. MODELO MATEMÁTICO</a></li>
+<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> 7.3. HIPÓTESES BÁSICAS</a></li>
+<li class="chapter" data-level="8.4" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> 7.4. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="8.5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> 7.5. EXEMPLO DE APLICAÇÃO</a></li>
+<li class="chapter" data-level="8.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#delineamento-em-blocos-csualizados-com-uma-parcela-perdida"><i class="fa fa-check"></i><b>8.6</b> 7.6. DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>8.6.1</b> 7.6.1. INTRODUÇÃO</a></li>
+<li class="chapter" data-level="8.6.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>8.6.2</b> 7.6.2. ESTIMATIVA DA PARCELA PERDIDA</a></li>
+<li class="chapter" data-level="8.6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>8.6.3</b> 7.6.3. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="8.6.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.4</b> 7.6.4. MÉDIAS DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="8.6.5" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#erros-padrões-das-médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.5</b> 7.6.5. ERROS PADRÕES DAS MÉDIAS DE TRATAMENTOS</a></li>
+<li class="chapter" data-level="8.6.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#comparação-das-médias-para-o-teste-de-tukey"><i class="fa fa-check"></i><b>8.6.6</b> 7.6.6. COMPARAÇÃO DAS MÉDIAS PARA O TESTE DE TUKEY</a></li>
+<li class="chapter" data-level="8.6.7" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>8.6.7</b> 7.6.7. EXEMPLO DE APLICAÇÃO</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso do R do GIEU</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="desdobramento-de-graus-de-liberdade-de-tratamentos" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</h1>
+<div id="introdução" class="section level2">
+<h2><span class="header-section-number">7.1</span> 6.1 INTRODUÇÃO</h2>
+<p>Quando planejamos um experimento, normalmente, o fazemos de tal forma que o mesmo nos forneça respostas a uma série de perguntas. Então, com um único experimento, o pesquisador deseja testar várias hipóteses relacionadas com os efeitos dos tratamentos utilizados. Isso pode ser feito, decompondo-se os graus de liberdade de tratamentos, isolando-se o efeito devido a cada um dos graus de liberdade, ou então, a cada grupo de graus de liberdade.</p>
+<p>Conforme vimos, quando efetuamos a análise de variância pelo teste F, trabalhando com todos os tratamentos, obtemos informações muito mais gerais, relacionadas com o comportamento dos tratamentos como um todo. Por meio do desdobramento ou decomposição dos graus de liberdade de tratamentos, podemos obter informações muito mais específicas, relacionadas com o comportamento de cada um dos componentes do desdobramento.</p>
+<p>Além disso, após a decomposição dos graus de liberdade de tratamentos, podemos aplicar o teste F a cada um dos componentes do desdobramento.</p>
+<p>Essa técnica baseia-se na utilização de contrastes, sendo necessário que os contrastes correspondentes aos componentes do desdobramento sejam ortogonais entre si. Isto significa que os componentes do desdobramento devem ser independentes.</p>
+<p>Uma vez que desejamos aplicar o teste F a cada um dos componentes do desdobramento, cada componente deve possuir uma estimativa de variância, e portanto, <strong>devemos decompor a soma dos quadrados de tratamentos em partes atribuídas a cada um dos componentes do desdobramento</strong>.</p>
+<p>Então, podemos dizer que o desdobramento dos graus de liberdade de tratamentos é uma técnica semelhante à da análise de variância, que nos permite fazer partições dos graus de liberdade e da soma de quadrados de tratamentos em partes atribuídas a vários componentes independentes, sendo que cada um dos componentes deverá nos proporcionar uma estimativa de variância.</p>
+<p>Existem dois métodos que nos permitem calcular as somas de quadrados correspondentes a cada um dos componentes do desdobramento:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Método dos contrastes de totais de tratamentos</strong>.</li>
+<li><strong>Métodos dos totais de tratamentos, sem utilizar contraste</strong>.</li>
+</ol>
+<p>O procedimento utilizado para o desdobramento dos graus de liberdade de tratamentos será apresentado por meio de um exemplo numérico.</p>
+</div>
+<div id="obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos" class="section level2">
+<h2><span class="header-section-number">7.2</span> 6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</h2>
+<p>Vamos considerar os dados do trabalho “Ação de microrganismos do solo sobre o desenvolvimento de mudas de <em>Eucalyptus grandis</em> Hill Ex Maiden em tubetes” (Korari, 1990), realizado no delineamento inteiramente casualizado, com 5 tratamentos e 5 repetições. Os tratamentos utilizados foram:</p>
+<p>ST - Solo rizosférico de <em>Paspalum notatum</em> (grama batatais)</p>
+<p>AC - Cultura de <em>Azotobacter chroococcum</em></p>
+<p>AP - Cultura de <em>Azotobacter paspali</em></p>
+<p>PM - Cultura de <em>Azotobacter paspali</em> morta</p>
+<p>T - Testemunha</p>
+<p>Os resultados obtido para a altura média das mudas de <em>Eucalyptus grandis</em> (cm), 105 dias após a inoculação foram os seguintes.</p>
+<p><a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/eucalyptus.txt">eucalyptus</a>.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tratamentos
+</th>
+<th style="text-align:left;">
+Rep.1
+</th>
+<th style="text-align:left;">
+Rep.2
+</th>
+<th style="text-align:left;">
+Rep.3
+</th>
+<th style="text-align:left;">
+Rep.4
+</th>
+<th style="text-align:left;">
+Rep.5
+</th>
+<th style="text-align:left;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1 - ST
+</td>
+<td style="text-align:left;">
+25.6
+</td>
+<td style="text-align:left;">
+25.48
+</td>
+<td style="text-align:left;">
+25.06
+</td>
+<td style="text-align:left;">
+20.58
+</td>
+<td style="text-align:left;">
+19.02
+</td>
+<td style="text-align:left;">
+115.74
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2 - AC
+</td>
+<td style="text-align:left;">
+27.2
+</td>
+<td style="text-align:left;">
+21.57
+</td>
+<td style="text-align:left;">
+23.61
+</td>
+<td style="text-align:left;">
+24.89
+</td>
+<td style="text-align:left;">
+20.27
+</td>
+<td style="text-align:left;">
+117.54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3 - AP
+</td>
+<td style="text-align:left;">
+25.36
+</td>
+<td style="text-align:left;">
+31.07
+</td>
+<td style="text-align:left;">
+27.3
+</td>
+<td style="text-align:left;">
+18.93
+</td>
+<td style="text-align:left;">
+18.09
+</td>
+<td style="text-align:left;">
+120.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4 - PM
+</td>
+<td style="text-align:left;">
+17.97
+</td>
+<td style="text-align:left;">
+19.07
+</td>
+<td style="text-align:left;">
+15.94
+</td>
+<td style="text-align:left;">
+16.46
+</td>
+<td style="text-align:left;">
+16.44
+</td>
+<td style="text-align:left;">
+85.88
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5 - T
+</td>
+<td style="text-align:left;">
+18.92
+</td>
+<td style="text-align:left;">
+16.07
+</td>
+<td style="text-align:left;">
+14.5
+</td>
+<td style="text-align:left;">
+20.17
+</td>
+<td style="text-align:left;">
+22.27
+</td>
+<td style="text-align:left;">
+91.93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+531.84
+</td>
+</tr>
+</tbody>
+</table>
+<p>Inicialmente, devemos fazer a análise de variância, denominada de análise de variância preliminar, de acordo com o delineamento inteiramente casualizado. Assim, temos:</p>
+<p><strong>Cálculo das Somas de Quadrados</strong>:</p>
+<p><strong>a)Soma de quadrados Total</strong>:</p>
+<p><span class="math display">\[
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C \\
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{IJ} \\
+SQ_{Total} = (25,60^2+25,48^2+...+22,27^2) - \frac{531,84^2}{5\cdot5}\\
+SQ_{Total} = 447,1366
+\]</span></p>
+<p><strong>b) Soma de quadrados de Tratamentos</strong>:</p>
+<p><span class="math display">\[
+SQ_{Trat} = \frac{\sum_{i=1}^IT_i^2}{J} - C \\
+SQ_{Trat} = \frac{T_1^2+T_2^2+...+T_I^2}{J} - \frac{G^2}{IJ}\\
+SQ_{Trat} = \frac{115,74^2+117,54^2+...+91,93^2}{5} - \frac{531,84^2}{5\cdot5}\\ 
+SQ_{Trat} = 209,5408
+\]</span></p>
+<p><strong>c) Soma de Quadrado de Resíduo</strong>:</p>
+<p><span class="math display">\[
+SQ_{Res} = SQ_{Total} - SQ_{Trat} \\
+SQ_{Res} = 447,1366- 209,5408 = 237,5958
+\]</span>
+Então, podemos montar o seguinte quadro de análise de variância:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas.de.Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamento
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+209,5408
+</td>
+<td style="text-align:left;">
+52,3852
+</td>
+<td style="text-align:left;">
+4,41*
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+20
+</td>
+<td style="text-align:left;">
+237,5958
+</td>
+<td style="text-align:left;">
+11,8798
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+24
+</td>
+<td style="text-align:left;">
+447,1366
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+</tbody>
+</table>
+<p>Valores de F da tabela para (4 x 20 GL):<span class="math inline">\(\begin{cases} 5\%=2,87 \\ 1\%=4,43 \end{cases}\)</span></p>
+<p><strong>Conclusão</strong>: O teste F foi significativo ao nível de 5% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que os tratamentos possuem efeitos diferentes sobre a altura média de mudas de <em>Eucalypto</em>, com um grau de confiança de <span class="math inline">\(95\%\)</span> de probabilidade.</p>
+<p>Podemos notar que esta é uma conclusão muito geral, relacionada com o efeito dos tratamentos como um todo, nada nos dizendo com relação à comparação entre os tratamentos. Para a obtenção de informações mais específicas, podemos proceder à decomposição dos graus de liberdade de tratamentos.</p>
+<p>Para desdobrar os graus de liberdade de tratamentos, devemos, inicialmente, estabelecer os componentes do desdobramento, de tal forma que as comparações sejam de interesse prático, e os contrastes correspondentes aos componentes do desdobramento sejam ortogonais entre si.</p>
+<p>Assim, no nosso exemplo, podemos proceder ao seguinte desdobramento:</p>
+<p>1 - (ST+AC+AP) vs. (PM+T)……….1 GL</p>
+<p>2 - ST vs. (AC+AP)…………………1 GL</p>
+<p>3 - AC vs. AP………………………..1 GL</p>
+<p>4 - PM vs. T………………………….1 GL</p>
+<p>Sendo a técnica do desdobramento de graus de liberdade de tratamentos, baseada em contrastes ortogonais, devemos estabelecer os contrastes de totais de tratamentos correspondentes à cada componente do desdobramento:</p>
+<p><span class="math display">\[
+Y_1 = 2T_1+2T_2+2T_3-3T_4-3T5\\
+Y_2 = 2T_1-T_2-T_3+0T_4+0T5\\
+Y_3 = 0T_1+T_2-T_3+0T_4+0T5\\
+Y_4 = 0T_1+0T_2+0T_3+T_4-T5
+\]</span></p>
+<p>Note que os contrastes são ortogonais entre si, uma vez que são ortogonais dois a dois.</p>
+<p>Para o cálculo das somas de quadrados correspondentes a cada componente do desdobramento, podemos utilizar um dos dois métodos seguintes</p>
+<div id="método-dos-contrastes-de-totais-de-tratamentos" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> 6.2.1. MÉTODO DOS CONTRASTES DE TOTAIS DE TRATAMENTOS</h3>
+<p>Para aplicação deste método, devemos, inicialmente, estabelecer os contrastes correspondentes a cada um dos componentes do desdobramento, tomando-se o cuidado de trabalhar com contrastes ortogonais entre si. Esses contrastes diferem dos que utilizamos normalmente, por serem funções lineares de totais de tratamentos e não de médias de tratamentos.</p>
+<p>Vejamos então, como procedemos para calcular a soma de quadrados correspondente a um determinado componente do desdobramento, conhecendo-se o seu contraste.</p>
+<p>Se tivermos um contraste de totais de tratamento, da forma genérica:</p>
+<p><span class="math display">\[
+Y=c_1T_1+c_2T_2+...+c_IT_I
+\]</span></p>
+<p>onde, <span class="math inline">\(\sum_{i=1}^Ic_i=0\)</span>, e cuja estimativa é dada por:</p>
+<p><span class="math display">\[
+\hat{Y}=c_1\hat{T_1}+c_2\hat{T_2}+...+c_I\hat{T_I}
+\]</span></p>
+<p>a soma de quadrados correspondente é obtida por:</p>
+<p><span class="math display">\[
+SQY=\frac{\hat{Y^2}}{r\sum_{i=1}^Ic_i^2}
+\]</span>
+em que:</p>
+<p><span class="math inline">\(\hat{Y}\)</span> é a estimativa do contraste,
+<span class="math inline">\(r\)</span> é o número de repetições com que foram obtidos os totais de tratamentos.
+<span class="math inline">\(c_i\)</span> é o coeficiente do total do tratamento <span class="math inline">\(i\)</span> no contraste.</p>
+<p>No nosso exemplo, os contrastes de totais de tratamentos já foram estabelecidos, de modo que podemos passar ao cálculo das somas de quadrados:</p>
+<p><strong>a) Cálculo da soma de quadrados do componente (ST+AC+AP) vs. (PM+T)</strong>:</p>
+<p><span class="math display">\[
+\hat{Y_1}=2\hat{T_1}+2\hat{T_2}+2\hat{T_3}-3\hat{T_4}-3\hat{T_5} \\
+\hat{Y_1}=2\cdot115,74+2\cdot117,54+2\cdot120,75-3\cdot85,88-3\cdot91,95\\
+\hat{Y_1}=174,63\;cm\\
+\sum_{i=1}^Ic_i^2=2^2+2^2+2^2+(-3)^2+(-3)^2=30\:\:\:\:\:e\:\:\:\:r=5
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQY_1=\frac{\hat{Y_1^2}}{r\sum_{i=1}^Ic_i^2}=\frac{174,63^2}{5\cdot30}=203,3042
+\]</span></p>
+<p><strong>b) Cálculo da soma de quadrados do componente ST vs. (AC+AP)</strong>:</p>
+<p><span class="math display">\[
+\hat{Y_2}=2\hat{T_1}-\hat{T_2}-\hat{T_3} \\
+\hat{Y_2}=2\cdot115,74-117,54-120,75\\
+\hat{Y_2}=-6,81\;cm\\
+\sum_{i=1}^Ic_i^2=2^2+(-1)^2+(-1)^2=6\:\:\:\:\:e\:\:\:\:r=5
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQY_2=\frac{\hat{Y_2^2}}{r\sum_{i=1}^Ic_i^2}=\frac{(-6,81)^2}{5\cdot6}=1,5459
+\]</span></p>
+<p><strong>c) Cálculo da soma de quadrados do componente AC vs. AP</strong>:</p>
+<p><span class="math display">\[
+\hat{Y_3}=\hat{T_2}-\hat{T_3} \\
+\hat{Y_3}=117,54-120,75\\
+\hat{Y_3}=-3,21\;cm\\
+\sum_{i=1}^Ic_i^2=1^2+(-1)^2=2\:\:\:\:\:e\:\:\:\:r=5
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQY_3=\frac{\hat{Y_3^2}}{r\sum_{i=1}^Ic_i^2}=\frac{(-3,21)^2}{5\cdot2}=1,0304
+\]</span></p>
+<p><strong>d) Cálculo da soma de quadrados do componente PM vs. T</strong>:</p>
+<p><span class="math display">\[
+\hat{Y_4}=\hat{T_4}-\hat{T_5} \\
+\hat{Y_4}=85,88-91,95\\
+\hat{Y_4}=-6,05\;cm\\
+\sum_{i=1}^Ic_i^2=1^2+(-1)^2=2\:\:\:\:\:e\:\:\:\:r=5
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQY_4=\frac{\hat{Y_4^2}}{r\sum_{i=1}^Ic_i^2}=\frac{(-6,05)^2}{5\cdot2}=3,6603
+\]</span></p>
+<p><strong>VERIFICAÇÃO</strong>:</p>
+<p><span class="math display">\[
+SQY_1+SQY_2+SQY_3+SQY_4=SQ_{Trat} \\
+203,3042+1,5459+1,0304+3,6603=209,5808
+\]</span></p>
+</div>
+<div id="método-dos-totais-de-tratamentos-sem-utilizar-contrastes" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> 6.2.2. MÉTODO DOS TOTAIS DE TRATAMENTOS (SEM UTILIZAR CONTRASTES)</h3>
+<p>Embora a técnica do desdobramento seja baseada em contrastes ortogonais, para o cálculo das somas de quadrados dos componentes do desdobramento por este método, necessitamos apenas conhecer os totais de tratamentos e o número de parcelas somadas para obter cada total de tratamento, não nos preocupando em utilizar os contrastes.</p>
+<p>Assim, para uma comparação qualquer, por exemplo:</p>
+<p><strong>Grupo A vs. Grupo B</strong>,</p>
+<p>necessitamos apenas conhecer os totais de cada grupo (<span class="math inline">\(T_A\)</span> e <span class="math inline">\(T_B\)</span>) e o número de parcelas somadas para obter estes totais (<span class="math inline">\(n_A\)</span> e <span class="math inline">\(n_B\)</span>).</p>
+<p>então temos:
+<span class="math display">\[
+\frac{\begin{cases} 
+Total\;do\;grupo\;A=T_A\;(n_a\;parcelas)  \\ 
+Total\;do\;grupo\;B=T_B\;(n_B\;parcelas)  \end{cases}}
+{Total(A+B)=(T_A+T_B)\;(n_A+n_b \;parcelas)}
+\]</span></p>
+<p>a soma de quadrados correspondente será calculada por:</p>
+<p><span class="math display">\[
+SQ_{A\;vs.\;B}=\frac{T_A^2}{n_A}+\frac{T_B^2}{n_B}-\frac{(T_A+T_B)^2}{(n_A+n_B)}
+\]</span></p>
+<p>No nosso Exemplo, temos:</p>
+<p><strong>a) Cálculo da soma de quadrados do componente (ST+AC+AP) vs. (PM+T)</strong>:</p>
+<p><span class="math display">\[
+\frac{\begin{cases} 
+Total\;do\;grupo\;(ST+AC+AP)=354,03\;(15\;parcelas)  \\ 
+Total\;do\;grupo\;(PM+T)=177,81\;(10\;parcelas)  \end{cases}}
+{Total=531,84\;(25\;parcelas)}
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQ_{(ST+AC+AP)\;vs.\;(PM+T)}=\frac{354,03^2}{15}+\frac{177,81^2}{10}-\frac{531,84^2}{25}=203,3042
+\]</span></p>
+<p><strong>b) Cálculo da soma de quadrados do componente ST vs. (AC+AP)</strong>:</p>
+<p><span class="math display">\[
+\frac{\begin{cases} 
+Total\;do\;grupo\;ST=115,74\;(5\;parcelas)  \\ 
+Total\;do\;grupo\;(AC+AP)=238,29\;(10\;parcelas)  \end{cases}}
+{Total=354,03\;(15\;parcelas)}
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQ_{ST\;vs.\;(AC+AP)}=\frac{115,74^2}{5}+\frac{238,29^2}{10}-\frac{354,03^2}{15}=1,5459
+\]</span></p>
+<p><strong>c) Cálculo da soma de quadrados do componente AC vs. AP</strong>:</p>
+<p><span class="math display">\[
+\frac{\begin{cases} 
+Total\;do\;grupo\;AC=117,54\;(5\;parcelas)  \\ 
+Total\;do\;grupo\;AP=120,75\;(5\;parcelas)  \end{cases}}
+{Total=238,29\;(10\;parcelas)}
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQ_{AC\;vs.\;AP}=\frac{117,54^2}{5}+\frac{120,75^2}{5}-\frac{238,29^2}{10}=1,0304
+\]</span></p>
+<p><strong>d) Cálculo da soma de quadrados do componente PM vs. T</strong>:</p>
+<p><span class="math display">\[
+\frac{\begin{cases} 
+Total\;do\;grupo\;PM=85,88\;(5\;parcelas)  \\ 
+Total\;do\;grupo\;T=91,93\;(5\;parcelas)  \end{cases}}
+{Total=177,81\;(10\;parcelas)}
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQ_{PM\;vs.\;T}=\frac{85,88^2}{5}+\frac{91,93^2}{5}-\frac{177,81^2}{10}=3,6603
+\]</span></p>
+</div>
+<div id="análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> 6.2.3. ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</h3>
+<p>Uma vez obtidas as somas de quadrados, para cada componente do desdobramento, por qualquer dos dois métodos apresentados anteriormente, podemos montar o quadro de análise de variância com o desdobramento:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas.de.Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(ST+AC+AP) vs. (PM+T)
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+203,3042
+</td>
+<td style="text-align:left;">
+203,3042
+</td>
+<td style="text-align:left;">
+17,11**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ST vs. (AC+AP)
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1,5459
+</td>
+<td style="text-align:left;">
+1,5459
+</td>
+<td style="text-align:left;">
+0,13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AC vs AP
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1,0304
+</td>
+<td style="text-align:left;">
+1,0304
+</td>
+<td style="text-align:left;">
+0,09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PM vs. T
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3,6603
+</td>
+<td style="text-align:left;">
+3,6603
+</td>
+<td style="text-align:left;">
+0,31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+(Tratamento)
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+<ol start="4" style="list-style-type: decimal">
+<li></td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+(209,5408)
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+Resíduo
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+20
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+237,5958
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+11,8798
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+24
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+447,1366
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<p>Valores de F da tabela para (1 x 20 GL):<span class="math inline">\(\begin{cases} 5\%=4.35 \\ 1\%=8.10 \end{cases}\)</span></p>
+<p><strong>Verificação</strong>: <span class="math inline">\(\frac{17,11+0,13+0,09+0,31}{4}=4,41=F_{Trat}\)</span></p>
+</div>
+<div id="conclusões" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> <strong>Conclusões</strong></h3>
+<p><strong>1. Para componente (ST+AC+AP) vs. (PM+T)</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que o grupo de tratamentos (<strong>ST+AC+AP</strong>) difere do grupo (<strong>PM+T</strong>) em relação à altura média de mudas de <em>Eucalyptus</em>, com grau de confiança superior a <span class="math inline">\(99\%\)</span> de probabilidade.</p>
+<p><strong>2. Para componente ST vs. (AC+AP)</strong>: O teste F não foi significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que o grupo de tratamentos (<strong>ST</strong>) não difere do grupo (<strong>AC+AP</strong>) em relação à altura média de mudas de <em>Eucalyptus</em>.</p>
+<p><strong>3. Para componente AC vs. AP</strong>: O teste F não foi significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que o grupo de tratamentos (<strong>AC</strong>) não difere do grupo (<strong>AP</strong>) em relação à altura média de mudas de <em>Eucalyptus</em>.</p>
+<p><strong>4. Para componente PM vs. T</strong>: O teste F não foi significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que o grupo de tratamentos (<strong>PM</strong>) não difere do grupo (<strong>T</strong>) em relação à altura média de mudas de <em>Eucalyptus</em>.</p>
+<p><strong>Cálculo do Coeficiente de Variação do experimento</strong>:</p>
+<p><span class="math display">\[
+\hat{m} = \frac{G}{IJ} = \frac{531,84}{5\cdot5} = 21,27\;cm \\
+s = \sqrt{QM_{Res}}=\sqrt{11,8798}=3,45\;cm\\
+\]</span></p>
+<p>Portanto:
+<span class="math display">\[
+CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{3,45}{21,27}=16,22\%
+\]</span></p>
+<p><strong>Resolvendo no R</strong></p>
+<p><img src="Rlogo.png" /></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-1"></a><span class="co"># Caminho dos dados</span></span>
+<span id="cb54-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/eucalyptus.txt&quot;</span></span>
+<span id="cb54-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-3"></a></span>
+<span id="cb54-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-4"></a><span class="co"># Carregando os dados no programa</span></span>
+<span id="cb54-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb54-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-6"></a></span>
+<span id="cb54-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-7"></a><span class="co">#Extraindo o fator tratamento e a variável resposta </span></span>
+<span id="cb54-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-8"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>TRAT)</span>
+<span id="cb54-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-9"></a>y&lt;-dados<span class="op">$</span>Y</span>
+<span id="cb54-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-10"></a></span>
+<span id="cb54-11"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-11"></a></span>
+<span id="cb54-12"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-12"></a><span class="co"># definindo o modelo para a análise de variância preliminar</span></span>
+<span id="cb54-13"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-13"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
+<span id="cb54-14"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-14"></a></span>
+<span id="cb54-15"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-15"></a><span class="co">#Quadro da análise de variância preliminar</span></span>
+<span id="cb54-16"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb54-16"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: y
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## trat       4 209.54  52.385  4.4096 0.01021 *
+## Residuals 20 237.60  11.880                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb56-1"></a><span class="co"># Os coeficientes do contraste devem ser atribuídos de acordo com a ordem dos tratamentos definidos por:</span></span>
+<span id="cb56-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb56-2"></a><span class="kw">levels</span>(trat)</span></code></pre></div>
+<pre><code>## [1] &quot;1_ST&quot; &quot;2_AC&quot; &quot;3_AP&quot; &quot;4_PM&quot; &quot;5_T&quot;</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-1"></a><span class="co">#Então os contrastes serão:</span></span>
+<span id="cb58-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-2"></a>contrastes&lt;-<span class="kw">cbind</span>(</span>
+<span id="cb58-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-3"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>),</span>
+<span id="cb58-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-4"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb58-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-5"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb58-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-6"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb58-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-7"></a>                    )</span>
+<span id="cb58-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-8"></a><span class="co">#Visualização dos contrastes</span></span>
+<span id="cb58-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb58-9"></a>contrastes</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    2    2    0    0
+## [2,]    2   -1    1    0
+## [3,]    2   -1   -1    0
+## [4,]   -3    0    0    1
+## [5,]   -3    0    0   -1</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb60-1"></a><span class="co">#Atribuição dos contrastes ao fator trat</span></span>
+<span id="cb60-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb60-2"></a><span class="kw">contrasts</span>(trat)&lt;-contrastes</span>
+<span id="cb60-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb60-3"></a></span>
+<span id="cb60-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb60-4"></a><span class="co">#Verificação dos contrastes</span></span>
+<span id="cb60-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb60-5"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## 1_ST    2    2    0    0
+## 2_AC    2   -1    1    0
+## 3_AP    2   -1   -1    0
+## 4_PM   -3    0    0    1
+## 5_T    -3    0    0   -1</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-1"></a><span class="co">#Definição do novo modelo para o desdobramento dos graus de liberdade</span></span>
+<span id="cb62-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-2"></a>modelo.contrastes&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
+<span id="cb62-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-3"></a></span>
+<span id="cb62-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-4"></a><span class="co">#Desdobramento dos graus de Liberdade</span></span>
+<span id="cb62-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-5"></a><span class="kw">summary</span>(modelo.contrastes, </span>
+<span id="cb62-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-6"></a>        <span class="dt">split=</span> <span class="kw">list</span>(<span class="dt">trat=</span> </span>
+<span id="cb62-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-7"></a>                      <span class="kw">list</span>(<span class="st">&quot;(ST+AC+AP) vs. (PM+T)&quot;</span>=<span class="st"> </span><span class="dv">1</span>, </span>
+<span id="cb62-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-8"></a>                           <span class="st">&quot;ST vs. (AC+AP)&quot;</span>=<span class="st"> </span><span class="dv">2</span>, </span>
+<span id="cb62-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-9"></a>                           <span class="st">&quot;AC vs. AP&quot;</span>=<span class="st"> </span><span class="dv">3</span>, </span>
+<span id="cb62-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb62-10"></a>                           <span class="st">&quot;PM vs T&quot;</span>=<span class="st"> </span><span class="dv">4</span>)))</span></code></pre></div>
+<pre><code>##                               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## trat                           4 209.54   52.39   4.410 0.010205 *  
+##   trat: (ST+AC+AP) vs. (PM+T)  1 203.30  203.30  17.113 0.000511 ***
+##   trat: ST vs. (AC+AP)         1   1.55    1.55   0.130 0.722083    
+##   trat: AC vs. AP              1   1.03    1.03   0.087 0.771403    
+##   trat: PM vs T                1   3.66    3.66   0.308 0.584999    
+## Residuals                     20 237.60   11.88                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb64-1"></a><span class="co"># Coeficiente de variação do ensaio</span></span>
+<span id="cb64-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb64-2"></a>media&lt;-<span class="kw">mean</span>(y)</span>
+<span id="cb64-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb64-3"></a>QMres&lt;-<span class="kw">deviance</span>(modelo)<span class="op">/</span><span class="kw">df.residual</span>(modelo)</span>
+<span id="cb64-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb64-4"></a>CV&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMres)<span class="op">/</span>media</span>
+<span id="cb64-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb64-5"></a><span class="kw">paste</span>(<span class="kw">round</span>(CV,<span class="dv">2</span>),<span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;16.2%&quot;</code></pre>
+</div>
+<div id="componentes-com-mais-de-um-grau-de-liberdade" class="section level3">
+<h3><span class="header-section-number">7.2.5</span> 6.2.4. COMPONENTES COM MAIS DE UM GRAU DE LIBERDADE</h3>
+<p>Em alguns casos, o experimentador pode estar interessado em realizar um desdobramento incompleto, como o seguinte:</p>
+<p>1 - Inoculados (ST+AC+AP) vs. Testemunhas (PM+T)……….1 GL</p>
+<p>2 - Entre inoculados (ST, AC, AP)………………………………2 GL</p>
+<p>3 - Entre Testemunhas (PM vs. T)………………………………1 GL</p>
+<p>Nesse caso, a soma de quadrados correspondente ao componente com mais do que 1 grau de liberdade pode ser calculada pelo método dos totais de tratamentos, da seguinte maneira:</p>
+<p><span class="math display">\[
+\frac{\begin{cases} 
+Total\;de\;ST=115,74\;(5\;parcelas)  \\ 
+Total\;de\;AC=117,54\;(5\;parcelas)  \\ 
+Total\;de\;AP=120,75\;(5\;parcelas)  \\   \end{cases}}
+{Total=354.03\;(15\;parcelas)}
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+SQ_{(Entre\;Inoculantes)}=\frac{115,74^2}{5}+\frac{117,54^2}{5}+\frac{120,75^2}{5}-\frac{354,03^2}{15}=2,5763
+\]</span></p>
+<p>Assim, podemos montar o seguinte quadro de análise de variância:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas.de.Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(ST+AC+AP) vs. (PM+T)
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+203,3042
+</td>
+<td style="text-align:left;">
+203,3042
+</td>
+<td style="text-align:left;">
+17,11**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Entre Inoculantes (ST, AC, AP)
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2,5763
+</td>
+<td style="text-align:left;">
+1,2882
+</td>
+<td style="text-align:left;">
+0,11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PM vs. T
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3,6603
+</td>
+<td style="text-align:left;">
+3,6603
+</td>
+<td style="text-align:left;">
+0,31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+(Tratamento)
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+4
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+(209,5408)
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+Resíduo
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+20
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+237,5958
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+11,8798
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+24
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+447,1366
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: #BBBBBB !important;">
+–
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Rlogo.png" /></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb66-1"></a><span class="co"># Criando, novamente o fator tratamento.</span></span>
+<span id="cb66-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb66-2"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>TRAT)</span>
+<span id="cb66-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb66-3"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
+<pre><code>##      2_AC 3_AP 4_PM 5_T
+## 1_ST    0    0    0   0
+## 2_AC    1    0    0   0
+## 3_AP    0    1    0   0
+## 4_PM    0    0    1   0
+## 5_T     0    0    0   1</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-1"></a><span class="co">#Então os contrastes serão:</span></span>
+<span id="cb68-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-2"></a>contrastes&lt;-<span class="kw">cbind</span>(</span>
+<span id="cb68-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-3"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>),</span>
+<span id="cb68-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-4"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb68-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-5"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb68-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-6"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb68-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-7"></a>                    )</span>
+<span id="cb68-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-8"></a><span class="co">#Atribuição dos contrastes ao fator trat</span></span>
+<span id="cb68-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-9"></a><span class="kw">contrasts</span>(trat)&lt;-contrastes</span>
+<span id="cb68-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-10"></a></span>
+<span id="cb68-11"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-11"></a><span class="co">#Verificação dos contrastes</span></span>
+<span id="cb68-12"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb68-12"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## 1_ST    2    0    0    0
+## 2_AC    2    1    0    0
+## 3_AP    2    0    1    0
+## 4_PM   -3    0    0    1
+## 5_T    -3    0    0   -1</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-1"></a><span class="co">#Definição do novo modelo para o desdobramento dos graus de liberdade</span></span>
+<span id="cb70-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-2"></a>modelo.contrastes&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
+<span id="cb70-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-3"></a></span>
+<span id="cb70-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-4"></a><span class="co">#Desdobramento dos graus de Liberdade</span></span>
+<span id="cb70-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-5"></a><span class="kw">summary</span>(modelo.contrastes, </span>
+<span id="cb70-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-6"></a>        <span class="dt">split=</span> <span class="kw">list</span>(<span class="dt">trat=</span> </span>
+<span id="cb70-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-7"></a>                      <span class="kw">list</span>(<span class="st">&quot;(ST+AC+AP) vs. (PM+T)&quot;</span>=<span class="st"> </span><span class="dv">1</span>, </span>
+<span id="cb70-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-8"></a>                           <span class="st">&quot;Entre Inoculantes (AC, AP, ST)&quot;</span>=<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), </span>
+<span id="cb70-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb70-9"></a>                           <span class="st">&quot;PM vs T&quot;</span>=<span class="st"> </span><span class="dv">4</span>)))</span></code></pre></div>
+<pre><code>##                                        Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## trat                                    4 209.54   52.39   4.410 0.010205 *  
+##   trat: (ST+AC+AP) vs. (PM+T)           1 203.30  203.30  17.113 0.000511 ***
+##   trat: Entre Inoculantes (AC, AP, ST)  2   2.58    1.29   0.108 0.897764    
+##   trat: PM vs T                         1   3.66    3.66   0.308 0.584999    
+## Residuals                              20 237.60   11.88                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="delineamento-em-blocos-casualizados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso_GIEU.pdf", "curso_GIEU.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
