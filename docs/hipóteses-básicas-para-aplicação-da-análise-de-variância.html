@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 5 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA | Curso do R do GIEU</title>
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 5 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA | Curso do R do GIEU" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 5 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA | Curso do R do GIEU" />
+  
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+<meta name="author" content="Alan R. Panosso" />
+
+
+<meta name="date" content="2020-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelo-matemático.html"/>
+<link rel="next" href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">curso_GIEU</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>2</b> TESTES PARA COMPARAÇÃO DE MÉDIAS</a><ul>
+<li class="chapter" data-level="2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>2.1</b> INTRODUÇÃO</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>2.1.1</b> CONTRASTES DE MÉDIAS</a></li>
+<li class="chapter" data-level="2.1.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contraste"><i class="fa fa-check"></i><b>2.1.2</b> ESTIMATIVA DO CONTRASTE</a></li>
+<li class="chapter" data-level="2.1.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>2.1.3</b> COVARIÂNCIA ENTRE DOIS CONTRASTES</a></li>
+<li class="chapter" data-level="2.1.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>2.1.4</b> CONTRASTES ORTOGONAIS</a></li>
+<li class="chapter" data-level="2.1.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>2.1.5</b> VARIÂNCIA DE UM CONTRASTE</a></li>
+<li class="chapter" data-level="2.1.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>2.1.6</b> ERRO PADRÃO DO CONTRASTE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>2.2</b> TESTE t DE STUDENT</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>2.2.1</b> EXEMPLO DE APLICAÇÃO DO TESTE t de STUDENT</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>2.3</b> TESTE DE TUKEY</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>2.3.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE TUKEY</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>2.4</b> TESTE DE DUNCAN</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>2.4.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE DUNCAN</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>2.5</b> TESTE DE SCHEFFÉ</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>2.5.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE SCHEFFÉ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>3</b> 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="3.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>3.1</b> 5.1 CARACTERIZAÇÃO</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modelo-matemático.html"><a href="modelo-matemático.html"><i class="fa fa-check"></i><b>4</b> 5.2 MODELO MATEMÁTICO</a></li>
+<li class="chapter" data-level="5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><i class="fa fa-check"></i><b>5</b> 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA</a><ul>
+<li class="chapter" data-level="5.1" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.1</b> 5.4 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="5.2" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.2</b> 5.5 EXEMPLO DE APLICAÇÃO</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
+<li class="chapter" data-level="6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>6.1</b> 5.6.1 INTRODUÇÃO</a></li>
+<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>6.2</b> 5.6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.3</b> 5.6.3 CÁLCULO DAS MÉDIAS E ERROS PADRÕES DAS MÉDIAS:</a></li>
+<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> 5.6.4 TESTE DE TUKEY PARA COMPARAÇÃO DAS MÉDIAS</a></li>
+<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> 5.6.5 CÁLCULO DO COEFICIENTE DE VARIAÇÃO DO EXPERIMENTO</a></li>
+<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> 5.6.6 APLICAÇÃO DO TESTE t DE STUDENT A UM CONTRASTE</a></li>
+<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> 5.6.7 TESTE DE DUNCAN PARA A COMPARAÇÃO DAS MÉDIAS</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#utilizando-o-r"><i class="fa fa-check"></i><b>6.7.1</b> Utilizando o R</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso do R do GIEU</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hipóteses-básicas-para-aplicação-da-análise-de-variância" class="section level1">
+<h1><span class="header-section-number">Capítulo 5</span> 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA</h1>
+<p>As hipóteses básicas que devemos admitir para tornar válida a aplicação da análise de variância são as seguintes:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Aditividade</strong>: Os efeitos dos fatores do modelo são aditivos.</p></li>
+<li><p><strong>Independência</strong>: Os erros (desvios) <span class="math inline">\(\epsilon_{ij}\)</span>, devido aos efeitos de fatores não controlados ou acaso devem ser independentes.</p></li>
+<li><p><strong>Homocedasticidade (homogeneidade de variâncias)</strong>: Os erros (desvios) <span class="math inline">\(\epsilon_{ij}\)</span>, devido ao acaso devem possuir variância comum <span class="math inline">\(\sigma^2\)</span></p></li>
+<li><p><strong>Normalidade dos desvios</strong>: Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> devido ao acaso devem possuir distribuição normal de probabilidades.</p></li>
+</ol>
+<p>Uma forma resumida de apresentar estas quatro pressuposições é apresentada a seguir:</p>
+<p><span class="math display">\[
+\epsilon_{ij} \overset{iid}{\tilde{}} N(0,\sigma^2) \\
+\]</span></p>
+<p>Quando as hipóteses básicas não são satisfeitas, como no caso mais frequente a homocedasticidade, deve-se utilizar uma transformação dos dados para contormar o problema.</p>
+<p><strong>1. Raiz Quadrada:</strong> <span class="math inline">\(y=\sqrt{x}\)</span></p>
+<p>Geralmente utilizada para dados de contagem, que frequentemente seguem a distribuição de Poisson, em que a média e a variância são iguais. Exemplo, número de ácaros por folha, número de frutos atacados, número de plantas doentes por parcela, etc. No caso de ocorrência de valores nulos ou baixos, recomenda-se <span class="math inline">\(y=\sqrt{x+0,5}\)</span> ou <span class="math inline">\(y=\sqrt{x+1}\)</span>.</p>
+<p><strong>2. Arco Seno:</strong> <span class="math inline">\(y=arcoseno\sqrt{\frac{x}{100}}\)</span></p>
+<p>Recomendada para dados de porcentagem, proveniente de contagem, que geralmente seguem a distribuição binomial, como exemplo, % de plantas atacadas, % de germinação, etc.</p>
+<p><strong>3. Transformação Logarítmica:</strong> <span class="math inline">\(y=log{(x)}\)</span></p>
+<p>Quando é constatada uma certa proporcionalidade entre as médias e os desvios padrões dos tratamentos. Exemplo: No caso de contagem de insetos, se a população é numerora, as contagens serão altas para a testemunha e para os tratamentos que não controlam a praga, enquanto que, para os tratamentos que controlam a praga, a amplitude de variação será baixa.</p>
+<p>Quando houver zeros entre as contagens, utiliza-se <span class="math inline">\(y=log(x+1)\)</span>.</p>
+<div id="obtenção-da-análise-de-variância" class="section level2">
+<h2><span class="header-section-number">5.1</span> 5.4 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</h2>
+<p>Para a obtenção da análise de variância, vamos considerar um experimento inteiramente casualizado com <strong>I</strong> tratamentos e <strong>J</strong> repetições.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Trat <code>\</code> Repetição</th>
+<th align="center"><span class="math inline">\(1\)</span></th>
+<th align="center"><span class="math inline">\(2\)</span></th>
+<th align="center">…</th>
+<th align="center"><span class="math inline">\(j\)</span></th>
+<th align="center">…</th>
+<th align="center"><span class="math inline">\(J\)</span></th>
+<th align="center">Total</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(1\)</span></td>
+<td align="center"><span class="math inline">\(x_{11}\)</span></td>
+<td align="center"><span class="math inline">\(x_{12}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{1j}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{1J}\)</span></td>
+<td align="center"><span class="math inline">\(T_1 = \sum_{j=1}^J x_{1j}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(2\)</span></td>
+<td align="center"><span class="math inline">\(x_{21}\)</span></td>
+<td align="center"><span class="math inline">\(x_{22}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{2j}\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(x_{2J}\)</span></td>
+<td align="center"><span class="math inline">\(T_2 = \sum_{j=1}^J x_{2j}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(i\)</span></td>
+<td align="center"><span class="math inline">\(x_{i1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{i2}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{ij}\)</span></td>
+<td align="center">—</td>
+<td align="center"><span class="math inline">\(x_{iJ}\)</span></td>
+<td align="center"><span class="math inline">\(T_i = \sum_{j=1}^J x_{ij}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(I\)</span></td>
+<td align="center"><span class="math inline">\(x_{I1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{I2}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{Ij}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{IJ}\)</span></td>
+<td align="center"><span class="math inline">\(T_I = \sum_{j=1}^J x_{Ij}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Total</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(G = \sum_{i=1}^I\sum_{j=1}^J x_{ij}\)</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>De acordo com o modelo matemático deste delienamento, o valor observado na parcela que recebeu o tratamento <em>I</em> na repetição <em>J</em> é representado por:</p>
+<p><span class="math display">\[
+x_{ij}= \mu + \tau_i + \epsilon_{ij}
+\]</span></p>
+<p>Porém, os parâmetros do modelo são desconhecido. Assim, devemos incialmente, obter estimativas desses parâmetros.</p>
+<p>O método utilizado para obtenção das estimativas desses parâmetros é chamado de método dos mínimos quadrados, e consiste em obter as estimativas que minimizam a soma dos quadrados dos erros <span class="math inline">\(\epsilon_{ij}\)</span></p>
+<p>Utilizamos o Métodos dos Mínimos Quadrados, para minimizar a soma dos quadrados dos erros <span class="math inline">\(\epsilon_{ij}\)</span>:</p>
+<p><span class="math display">\[
+\epsilon_{ij}= x_{ij} - \mu - \tau_i
+\]</span></p>
+<p><span class="math display">\[
+\epsilon_{ij}^2= (x_{ij} - \mu - \tau_i)^2
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i=1}^I\sum_{j=i}^j\epsilon_{ij}^2=\sum_{i=1}^I\sum_{j=i}^j( x_{ij} - \mu - \tau_i)^2
+\]</span>
+Fazendo <span class="math inline">\(z=\sum_{i=1}^I\sum_{j=i}^j\epsilon_{ij}^2\)</span>, derivando em relação a <span class="math inline">\(\mu\)</span> e em relação <span class="math inline">\(\tau_i\)</span> e igualando as equações a 0, temos:</p>
+<p><span class="math display">\[
+\begin{cases} \sum_{i=1}^I\sum_{j=i}^Jx_{ij} - IJ\hat{m} -J\sum_{i=1}^I \hat{\tau_i} =0 \\ \sum_{j=1}^Jx_{ij}-J\hat{m}-J\hat{\tau_i}=0 \end{cases}
+\]</span></p>
+<p>Impondo a restrição <span class="math inline">\(\sum_{i=1}^I \hat{\tau_i}=0\)</span>, temos:</p>
+<p><span class="math display">\[
+\begin{cases} \sum_{i=1}^I\sum_{j=i}^Jx_{ij} - IJ\hat{m} =0 \\ \sum_{j=1}^Jx_{ij}-J\hat{m}-J\hat{\tau_i}=0 \end{cases}
+\]</span>
+Então:
+<span class="math display">\[
+\hat{m} = \frac{\sum_{i=1}^I\sum_{j=i}^Jx_{ij}}{IJ}=\frac{G}{IJ}
+\]</span>
+e, fazendo <span class="math inline">\(T_i=\sum_{j=1}^Jx_{ij}\)</span>, sendo o total para o tratamento específico <em>i</em>:</p>
+<p><span class="math display">\[
+\hat{\tau_i} =\frac{T_i}{J} - \hat{m}
+\]</span></p>
+<p><strong>Podemos agora obter as somas de quadrados:</strong></p>
+<p><strong>1. Soma de Quadrados Total</strong>: <span class="math inline">\(SQ_{Total}\)</span> - é definida como a soma dos quadrados dos desvios em relação à média aritmética:</p>
+<p><span class="math display">\[
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^J(x_{ij} - \hat{m})^2 \\
+\]</span>
+Manipulando algebricamente, temos:</p>
+<p><span class="math display">\[
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{IJ}
+\]</span></p>
+<p>Ao fazermos <span class="math inline">\(C = \frac{G^2}{IJ}\)</span> temos portanto:</p>
+<p><span class="math display">\[
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C
+\]</span></p>
+<p><strong>2. Soma de Quadrados de Tratamentos</strong>: <span class="math inline">\(SQ_{Trat}\)</span> - é definida como a soma dos quadrados dos efeitos dos tratamentos:</p>
+<p><span class="math display">\[
+SQ_{Trat} = \frac{\sum_{i=1}^IT_i^2}{J} - C
+\]</span></p>
+<p>Lembrando que:</p>
+<p><span class="math display">\[
+T_i^2 = \left ( \sum_{j=1}^J{x_{ij}} \right)^2
+\]</span></p>
+<p>e</p>
+<p><span class="math display">\[
+C = \frac{G^2}{IJ}
+\]</span></p>
+<p><strong>3. Soma de Quadrados do resíduo</strong>: <span class="math inline">\(SQ_{Res}\)</span> - é definida como a soma dos quadrados do efeito do acaso. Lembrando que no delineamento inteiramente casualizado a variância total é dividida em duas partes, uma devido ao efeito dos tratamentos e outra devido ao efeito dos fatores não controlados ou acaso (Resíduo), então, a soma de quadrados do resíduo pode ser obtida por diferença, ou seja</p>
+<p><span class="math display">\[
+SQ_{Res} = SQ_{Total} - SQ_{Trat}
+\]</span></p>
+<p>Podemos, a seguir, montar o seguinte quadro de análise de variância:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Causas de Variação</th>
+<th>GL</th>
+<th>SQ</th>
+<th>QM</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tratamento</td>
+<td>I-1</td>
+<td><span class="math inline">\(SQ_{Trat}\)</span></td>
+<td><span class="math inline">\(SQ_{Trat}\)</span>/(I-1)</td>
+<td><span class="math inline">\(QM_{Trat}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
+</tr>
+<tr class="even">
+<td>Resíduo</td>
+<td>I(J-1)</td>
+<td><span class="math inline">\(SQ_{Res}\)</span></td>
+<td><span class="math inline">\(SQ_{Res}\)</span>/[I(J-1)]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>IJ-1</strong></td>
+<td><span class="math inline">\(SQ_{Total}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>As hipóteses testadas são:</p>
+<p><span class="math display">\[
+\begin{cases} H_0: \tau_i = 0, i=1,2,...,I. \\ 
+H_1: \text{pelo menos um valor } \tau_i \neq 0
+\end{cases}
+\]</span></p>
+<p><strong>CRITÉRIO DO TESTE</strong>: Comparamos o valor F calculado para tratamentos com o valor de F tabelado em função do número de graus de liberdade (GL) de tratamentos e do resíduo, ao nível <span class="math inline">\(\alpha\)</span> de significância.</p>
+<p>Se <span class="math inline">\(F_{Trat} &gt; F_{Tab}\)</span>, concluímos que o teste é significativo, portanto, rejeitamos <span class="math inline">\(H_0\)</span> e devemos concluir que existe diferença significativa entre os efeitos dos tratamentos testados em relação às variáveis (característica) em estudo.</p>
+</div>
+<div id="exemplo-de-aplicação" class="section level2">
+<h2><span class="header-section-number">5.2</span> 5.5 EXEMPLO DE APLICAÇÃO</h2>
+<p>Num experimento inteiramente casualizado, de competição de variedades de mandioca, realizado numa área perfeitamente homogênea quanto às condições experimentais, foram utilizadas 5 repetições das seguintes variedades:</p>
+<p>1 - IAC 5</p>
+<p>2 - IAC 7</p>
+<p>3 - IAC 11</p>
+<p>4 - IRACEMA</p>
+<p>5 - MANTIQUEIRA</p>
+<p>A designação dos tratamentos às parcelas no campo, juntamente com as produções, expressa em t/ha, foi a seguinte:</p>
+<p><img src="Delin1.png" /></p>
+<p>Com estes dados, podemos organizar o quadro seguinte:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tratamentos</th>
+<th>Rep.1</th>
+<th>Rep.2</th>
+<th>Rep.3</th>
+<th>Rep.4</th>
+<th>Rep. 5</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 - IAC 5</td>
+<td>38,9</td>
+<td>25,4</td>
+<td>20,3</td>
+<td>25,7</td>
+<td>29,3</td>
+<td>139,6</td>
+</tr>
+<tr class="even">
+<td>2 - IAC 7</td>
+<td>20,9</td>
+<td>26,2</td>
+<td>32,3</td>
+<td>28,3</td>
+<td>28,7</td>
+<td>136,4</td>
+</tr>
+<tr class="odd">
+<td>3 - IAC 11</td>
+<td>28,1</td>
+<td>27,0</td>
+<td>25,8</td>
+<td>26,9</td>
+<td>22,3</td>
+<td>130,1</td>
+</tr>
+<tr class="even">
+<td>4 - IRACEMA</td>
+<td>38,7</td>
+<td>43,2</td>
+<td>41,7</td>
+<td>39,0</td>
+<td>40,3</td>
+<td>202,9</td>
+</tr>
+<tr class="odd">
+<td>5 - MANTIQUEIRA</td>
+<td>47,8</td>
+<td>47,8</td>
+<td>44,7</td>
+<td>50,5</td>
+<td>56,4</td>
+<td>247,2</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>856,2</td>
+</tr>
+</tbody>
+</table>
+<p>As hipóteses que desejamos testar são:</p>
+<p><span class="math inline">\(H_0\)</span>: As variedades de mandioca testadas não são diferentes entre si quanto à produção.</p>
+<p><span class="math inline">\(H_1\)</span>: As variedade de mandioca testadas diferem entre si quanto à produção.</p>
+<p><strong>Cálculo das Somas de Quadrados</strong></p>
+<p><strong>a) Soma de Quadrados Total</strong>:</p>
+<p><span class="math display">\[
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C \\
+SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{IJ} \\
+SQ_{Total} = (38,9^2+25,4^2+...+56,4^2) - \frac{856,2^2}{5\cdot5}\\
+SQ_{Total} = 2509,46
+\]</span></p>
+<p><strong>b) Soma de Quadrados devido ao efeito de Tratamentos</strong>:</p>
+<p><span class="math display">\[
+SQ_{Trat} = \frac{\sum_{i=1}^IT_i^2}{J} - C \\
+SQ_{Trat} = \frac{T_1^2+T_2^2+...+T_I^2}{J} - \frac{G^2}{IJ}\\
+SQ_{Trat} = \frac{139,6^2+136,4^2+...+247,2^2}{5} - \frac{856,2^2}{5\cdot5}\\ 
+SQ_{Trat}= 2135,94
+\]</span></p>
+<p><strong>Soma de Quadrados do Resíduo</strong>:
+<span class="math display">\[
+SQ_{Res} = SQ_{Total} - SQ_{Trat} \\
+SQ_{Res} = 2509,46 - 2135,94 = 373,52
+\]</span></p>
+<p>Então, podemos montar o seguinte quadro de análise de variância:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Causas de Variação</th>
+<th>GL</th>
+<th>SQ</th>
+<th>QM</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tratamento</td>
+<td>4</td>
+<td>2135,94</td>
+<td>533,99</td>
+<td>28.59**</td>
+</tr>
+<tr class="even">
+<td>Resíduo</td>
+<td>20</td>
+<td>373,52</td>
+<td>18,68</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>24</td>
+<td><strong>2509,46</strong></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Valores de F da tabela para (4 x 20 GL):<span class="math inline">\(\begin{cases} 5\%=2,87 \\ 1\%=4,43 \end{cases}\)</span></p>
+<p><strong>Conclusão</strong>: O teste F foi significativo ao nível de 1% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as variedades diferem entre si em relação à produção de mandioca, com um grau de confiança de <span class="math inline">\(99\%\)</span> de probabilidade.</p>
+<p>Conclusões específicas sobre o comportamento das variedades, devemos utilizar um teste de compração de médias.</p>
+<p><strong>a) Cálculo das médias de cada tratamento e erros padrões das médias</strong>:</p>
+<p><span class="math display">\[
+\hat{m_1} = \frac{T_1}{J} = \frac{139,6}{5} = 27,9\;t/ha\\
+\hat{m_2} = \frac{T_2}{J}= \frac{136,4}{5} = 27,3\;t/ha\\
+\hat{m_3} = \frac{T_3}{J}= \frac{130,1}{5} = 26,0\;t/ha\\
+\hat{m_4} = \frac{T_4}{J}= \frac{202,9}{5} = 40,6\;t/ha\\
+\hat{m_5} =\frac{T_5}{J}= \frac{247,2}{5} = 49,4\;t/ha
+\]</span></p>
+<p>E o erro padrão das médias será:</p>
+<p><span class="math display">\[
+s(\hat{m_1}) = s(\hat{m_2})=s(\hat{m_3})=s(\hat{m_4})=s(\hat{m_5})= \sqrt{\frac{QM_{Res}}{J}} = \sqrt{\frac{18,68}{5}} = 1,93 \; t/ha 
+\]</span></p>
+<p><strong>b) Aplicação do teste de Tukey para a comparação das médias de tratamentos</strong></p>
+<p><strong>b.1) Cálculo do valor de <span class="math inline">\(\Delta\)</span></strong>:</p>
+<p><span class="math display">\[
+q_{(5\;Trat \times 20 gl\;Resíduo)}(5\%) = 4.23
+\]</span>
+Então, temos:</p>
+<p><span class="math display">\[
+\Delta = q \cdot \sqrt{\frac{QM_{Res}}{J}} = 4,23 \cdot 1,93 = 8,2\;t/ha
+\]</span></p>
+<p><strong>b.2) Organizar a médias em ordem decrescente</strong>:</p>
+<p><span class="math display">\[
+\hat{m_5} = 49,4\;t/ha\\
+\hat{m_4} = 40,6\;t/ha\\
+\hat{m_1} = 27,9\;t/ha\\
+\hat{m_2} = 27,3\;t/ha\\
+\hat{m_3} = 26,0\;t/ha
+\]</span></p>
+<p><strong>b.3) Cálculo das estimativas de contrastes entre duas médias</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(\hat{m_4}\)</span></th>
+<th align="center"><span class="math inline">\(\hat{m_1}\)</span></th>
+<th align="center"><span class="math inline">\(\hat{m_2}\)</span></th>
+<th align="center"><span class="math inline">\(\hat{m_3}\)</span></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\hat{m_5}\)</span></td>
+<td align="center"><span class="math inline">\(8,8^{*}\)</span></td>
+<td align="center"><span class="math inline">\(21,5^{*}\)</span></td>
+<td align="center"><span class="math inline">\(22,1^{*}\)</span></td>
+<td align="center"><span class="math inline">\(23,4^{*}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\hat{m_4}\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(12,7^{*}\)</span></td>
+<td align="center"><span class="math inline">\(13,3^{*}\)</span></td>
+<td align="center"><span class="math inline">\(14,6^{*}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\hat{m_1}\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(0,60^{ns}\)</span></td>
+<td align="center"><span class="math inline">\(1,9^{ns}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\hat{m_2}\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(1,3^{ns}\)</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>b.4) Conclusão</strong>: Médias seguidas pela mesma letra, não diferem entre si, pelo teste de Tukey ao nível de 5% de probabilidade.</p>
+<p><span class="math display">\[
+\hat{m_5} = 49,4-a\\
+\hat{m_4} = 40,6-b\\
+\hat{m_1} = 27,9-c\\
+\hat{m_2} = 27,3-c\\
+\hat{m_3} = 26,0-c
+\]</span></p>
+<p>Portanto, a melhor variedade é a Mantiqueira, pois difere de todas as outras pelo teste e Tukey e apresenta maior produção de mandioca.</p>
+<p><strong>c) Cálculo do coeficiente de variação do experimento:</strong></p>
+<p><span class="math display">\[
+\hat{m} = \frac{G}{IJ} = \frac{856,2}{5 \cdot 5} = 34,2 \;t/ha \\
+s = \sqrt{QM_{res}} = \sqrt{18,64} = 4,32\;t/ha \\
+CV = 100 \cdot \frac{s}{\hat{m}} = 100 \cdot \frac{4,32}{34,2} = 12,63\%
+\]</span></p>
+<p>Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt">Mandioca</a>.</p>
+<p><img src="Rlogo.png" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb26-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
+<span id="cb26-2"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb26-2"></a><span class="kw">library</span>(ExpDes.pt)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;ExpDes.pt&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:agricolae&#39;:
+## 
+##     lastC, order.group, tapply.stat</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     ccf</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-1"></a><span class="co"># Caminho dos dados</span></span>
+<span id="cb30-2"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt&quot;</span></span>
+<span id="cb30-3"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-3"></a></span>
+<span id="cb30-4"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-4"></a><span class="co"># Lendo o arquivo de dados</span></span>
+<span id="cb30-5"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb30-6"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-6"></a></span>
+<span id="cb30-7"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-7"></a><span class="co"># verificando os 6 primeiros registros</span></span>
+<span id="cb30-8"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb30-8"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<pre><code>##   Trat Rep    Y
+## 1    1   1 38.9
+## 2    1   2 25.4
+## 3    1   3 20.3
+## 4    1   4 25.7
+## 5    1   5 29.3
+## 6    2   1 20.9</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb32-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
+<span id="cb32-2"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb32-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat <span class="co"># Criando o vetor de tratamentos</span></span>
+<span id="cb32-3"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb32-3"></a>prod &lt;-<span class="st"> </span>dados<span class="op">$</span>Y <span class="co"># Criando o vetor com a variável resposta</span></span>
+<span id="cb32-4"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb32-4"></a></span>
+<span id="cb32-5"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb32-5"></a><span class="co"># Utilizando a função</span></span>
+<span id="cb32-6"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#cb32-6"></a><span class="kw">dic</span>(trat,prod,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
+<pre><code>## ------------------------------------------------------------------------
+## Quadro da analise de variancia
+## ------------------------------------------------------------------------
+##            GL      SQ QM     Fc      Pr&gt;Fc
+## Tratamento  4 2135.94  3 28.592 5.0773e-08
+## Residuo    20  373.52  2                  
+## Total      24 2509.46  1                  
+## ------------------------------------------------------------------------
+## CV = 12.62 %
+## 
+## ------------------------------------------------------------------------
+## Teste de normalidade dos residuos 
+## Valor-p:  0.2156065 
+## De acordo com o teste de Shapiro-Wilk a 5% de significancia, os residuos podem ser considerados normais.
+## ------------------------------------------------------------------------
+## 
+## ------------------------------------------------------------------------
+## Teste de homogeneidade de variancia 
+## valor-p:  0.1115615 
+## De acordo com o teste de bartlett a 5% de significancia, as variancias podem ser consideradas homogeneas.
+## ------------------------------------------------------------------------
+## 
+## Teste de Tukey
+## ------------------------------------------------------------------------
+## Grupos Tratamentos Medias
+## a 	 5 	 49.44 
+##  b 	 4 	 40.58 
+##   c 	 1 	 27.92 
+##   c 	 2 	 27.28 
+##   c 	 3 	 26.02 
+## ------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelo-matemático.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso_GIEU.pdf", "curso_GIEU.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

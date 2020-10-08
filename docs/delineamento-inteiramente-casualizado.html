@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Curso do R do GIEU</title>
+  <title>Capítulo 3 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO | Curso do R do GIEU</title>
   <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Curso do R do GIEU" />
+  <meta property="og:title" content="Capítulo 3 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Curso do R do GIEU" />
+  <meta name="twitter:title" content="Capítulo 3 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO | Curso do R do GIEU" />
   
   <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="testes-para-comparação-de-médias.html"/>
+<link rel="prev" href="testes-para-comparação-de-médias.html"/>
+<link rel="next" href="modelo-matemático.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -198,29 +198,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Curso do R do GIEU</h1>
-<p class="author"><em>Alan R. Panosso</em></p>
-<p class="date"><em>2020-10-08</em></p>
+<div id="delineamento-inteiramente-casualizado" class="section level1">
+<h1><span class="header-section-number">Capítulo 3</span> 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO</h1>
+<div id="caracterização" class="section level2">
+<h2><span class="header-section-number">3.1</span> 5.1 CARACTERIZAÇÃO</h2>
+<p>O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos interiamente casualizados ou experimentos inteiramente ao acaso.</p>
+<p>Este delineamento apresenta as seguintes características:</p>
+<ol style="list-style-type: decimal">
+<li><p>Leva em consideração os princípios da <strong>repetição</strong> e da <strong>casualização</strong>, deixando de lado o princípio do controle local e, portanto, as repetições não são organizadas em blocos.</p></li>
+<li><p>Os tratamentos são designados às parcelas de forma inteiramente casual, com qualquer número de repetições.</p></li>
+</ol>
+<p><strong>As principais vantagens desse delineamento são as seguintes:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Flexibilidade, uma vez que o número de repetições pode variar de um tratamento para outro, sem causar sérios problemas na análise.</p></li>
+<li><p>Proporciona o maior número de graus de liberdade possível para o resíduo.</p></li>
+</ol>
+<p><strong>As principais desvantagens desse delineamento são:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>As parcelas experimentais devem ser homogêneas.</p></li>
+<li><p>Leva a uma alta estimativa da variância residual <span class="math inline">\(QM_{Res}\)</span>, uma vez que todas as variações, exceto aquela devido ao efeito de tratamentos, são tomadas como variação do acaso.</p></li>
+</ol>
+<p>Para a instalação desse experimento devemos ter certeza da homogeneidade das condições experimentais. Este delineamento é bastante utilizado em ensaios de laboratório e em ensaios com vasos, realizados dentro de casas de vegetação, em que as condições experimentais podem ser perfeitamente controladas.</p>
+<p>A distribuição casual dos tratamentos a todas as parcelas do experimento é a principal característica deste delineamento. Por exemplo, num experimento no delineamento inteiramente casualizado com 5 tratamentos e 5 repetições, a casualização dos tratamentos seria feita sorteando-se para cada uma das 20 parcelas do experimento uma combinação de tratamento e repetição, ou seja:</p>
+<p><span class="math display">\[
+\begin{matrix}
+A1 &amp; A2 &amp; A3 &amp; A4 \\
+B1 &amp; B2 &amp; B3 &amp; B4 \\
+C1 &amp; C2 &amp; C3 &amp; C4 \\
+D1 &amp; D2 &amp; D3 &amp; D4 \\
+E1 &amp; E2 &amp; E3 &amp; E4 
+\end{matrix}
+\]</span></p>
+<p>Assim, um sorteio para distribuição dos tratamento às parcelas poderia ser o seguinte:</p>
+<p><span class="math display">\[
+\begin{matrix}
+B4 &amp; D1 &amp; B1 &amp; A2 &amp; D4\\
+D2 &amp; A1 &amp; C4 &amp; D3 &amp; B3\\
+E1 &amp; E3 &amp; B2 &amp; C2 &amp; C2\\
+A4 &amp; C1 &amp; E4 &amp; E2 &amp; E2
+\end{matrix}
+\]</span></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Capítulo 1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="co"># or the development version</span></span>
-<span id="cb1-3"><a href="index.html#cb1-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="testes-para-comparação-de-médias.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="testes-para-comparação-de-médias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelo-matemático.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
