@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 2 Testes para Comparação de médias | Curso do R do GIEU</title>
+  <title>Capítulo 4 TESTES PARA COMPARAÇÃO DE MÉDIAS | Curso do R do GIEU</title>
   <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 2 Testes para Comparação de médias | Curso do R do GIEU" />
+  <meta property="og:title" content="Capítulo 4 TESTES PARA COMPARAÇÃO DE MÉDIAS | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 2 Testes para Comparação de médias | Curso do R do GIEU" />
+  <meta name="twitter:title" content="Capítulo 4 TESTES PARA COMPARAÇÃO DE MÉDIAS | Curso do R do GIEU" />
   
   <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-08" />
+<meta name="date" content="2020-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
+<link rel="prev" href="planejamento-de-experimentos.html"/>
 <link rel="next" href="delineamento-inteiramente-casualizado.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -136,73 +136,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">curso_GIEU</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução ao Curso</a></li>
-<li class="chapter" data-level="2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>2</b> Testes para Comparação de médias</a><ul>
-<li class="chapter" data-level="2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>2.1</b> INTRODUÇÃO</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>2.1.1</b> CONTRASTES DE MÉDIAS</a></li>
-<li class="chapter" data-level="2.1.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contraste"><i class="fa fa-check"></i><b>2.1.2</b> ESTIMATIVA DO CONTRASTE</a></li>
-<li class="chapter" data-level="2.1.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>2.1.3</b> COVARIÂNCIA ENTRE DOIS CONTRASTES</a></li>
-<li class="chapter" data-level="2.1.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>2.1.4</b> CONTRASTES ORTOGONAIS</a></li>
-<li class="chapter" data-level="2.1.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>2.1.5</b> VARIÂNCIA DE UM CONTRASTE</a></li>
-<li class="chapter" data-level="2.1.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>2.1.6</b> ERRO PADRÃO DO CONTRASTE</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUÇÃO AO CURSO</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#alguns-conceitos-básicos"><i class="fa fa-check"></i><b>1.1</b> Alguns conceitos básicos</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#medidas-de-posição-e-de-tendência-central"><i class="fa fa-check"></i><b>1.2</b> Medidas de posição e de tendência central</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>2.2</b> TESTE t DE STUDENT</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>2.2.1</b> EXEMPLO DE APLICAÇÃO DO TESTE t de STUDENT</a></li>
+<li class="chapter" data-level="2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html"><i class="fa fa-check"></i><b>2</b> COMPARAÇÕES DE PARÂMETROS DE DUAS POPULAÇÕES</a><ul>
+<li class="chapter" data-level="2.1" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-da-variância-de-duas-populações-normais"><i class="fa fa-check"></i><b>2.1</b> Comparação da variância de duas populações normais</a></li>
+<li class="chapter" data-level="2.2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-de-duas-médias-de-populações-normais-amostras-independentes"><i class="fa fa-check"></i><b>2.2</b> Comparação de duas médias de populações normais: amostras independentes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>2.3</b> TESTE DE TUKEY</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>2.3.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE TUKEY</a></li>
+<li class="chapter" data-level="3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html"><i class="fa fa-check"></i><b>3</b> PLANEJAMENTO DE EXPERIMENTOS</a><ul>
+<li class="chapter" data-level="3.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>3.1</b> Introdução</a></li>
+<li class="chapter" data-level="3.2" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#unidade-experimental-ou-parcela"><i class="fa fa-check"></i><b>3.2</b> Unidade Experimental ou Parcela</a></li>
+<li class="chapter" data-level="3.3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>3.3</b> Princípios Básicos da Experimentação</a></li>
+<li class="chapter" data-level="3.4" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#relação-entre-os-princípios-básico-da-experimentação-e-os-delineamentos-experimentais"><i class="fa fa-check"></i><b>3.4</b> Relação entre os princípios básico da experimentação e os delineamentos experimentais</a></li>
+<li class="chapter" data-level="3.5" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#testes-de-significância"><i class="fa fa-check"></i><b>3.5</b> Testes de Significância</a></li>
+<li class="chapter" data-level="3.6" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#teste-f-de-snedecor-para-análise-de-variância"><i class="fa fa-check"></i><b>3.6</b> Teste F de Snedecor para Análise de Variância</a></li>
+<li class="chapter" data-level="3.7" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#exemplo-de-aplicação-do-teste-f"><i class="fa fa-check"></i><b>3.7</b> Exemplo de aplicação do teste F</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>2.4</b> TESTE DE DUNCAN</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>2.4.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE DUNCAN</a></li>
+<li class="chapter" data-level="4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>4</b> TESTES PARA COMPARAÇÃO DE MÉDIAS</a><ul>
+<li class="chapter" data-level="4.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
+<li class="chapter" data-level="4.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>4.2</b> Contrastes de Médias</a></li>
+<li class="chapter" data-level="4.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contrastes"><i class="fa fa-check"></i><b>4.3</b> Estimativa do Contrastes</a></li>
+<li class="chapter" data-level="4.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>4.4</b> Covariância entre dois contrastes</a></li>
+<li class="chapter" data-level="4.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>4.5</b> Contrastes ortogonais</a></li>
+<li class="chapter" data-level="4.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>4.6</b> Variância de um contraste</a></li>
+<li class="chapter" data-level="4.7" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>4.7</b> Erro padrão do contraste</a></li>
+<li class="chapter" data-level="4.8" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>4.8</b> Teste t de Student</a></li>
+<li class="chapter" data-level="4.9" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>4.9</b> Exemplo de aplicação do teste t de Student</a></li>
+<li class="chapter" data-level="4.10" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>4.10</b> Teste de Tukey</a></li>
+<li class="chapter" data-level="4.11" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>4.11</b> Exemplo de aplicação do teste de Tukey</a></li>
+<li class="chapter" data-level="4.12" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>4.12</b> Teste de Duncan</a></li>
+<li class="chapter" data-level="4.13" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>4.13</b> Exemplo de aplicação do teste de Duncan</a></li>
+<li class="chapter" data-level="4.14" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>4.14</b> Teste de Scheffé</a></li>
+<li class="chapter" data-level="4.15" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>4.15</b> Exemplo de aplicação do teste de Scheffé</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>2.5</b> TESTE DE SCHEFFÉ</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>2.5.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE SCHEFFÉ</a></li>
+<li class="chapter" data-level="5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>5</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="5.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>5.1</b> Caracterização</a></li>
+<li class="chapter" data-level="5.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>5.2</b> Modelo Matemático</a></li>
+<li class="chapter" data-level="5.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>5.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
+<li class="chapter" data-level="5.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="5.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.5</b> Exemplo de aplicação</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
+<li class="chapter" data-level="6.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
+<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>6.2</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-error-padrôes-das-médias"><i class="fa fa-check"></i><b>6.3</b> Cálculo das médias e error padrôes das médias</a></li>
+<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> Teste de Tukey para comparação das médias</a></li>
+<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> Cálculo do coeficiente de variação do experimento</a></li>
+<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> Aplicação do teste t de Student a um contraste</a></li>
+<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> Teste de Duncan para a comparação das médias</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>3</b> 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
-<li class="chapter" data-level="3.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>3.1</b> 5.1 CARACTERIZAÇÃO</a></li>
+<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
+<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos</a></li>
+<li class="chapter" data-level="7.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.3</b> Método dos contrastes de totais de tratamentos</a></li>
+<li class="chapter" data-level="7.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.4</b> Método dos totais de tratamentos (sem utilizar contrastes)</a></li>
+<li class="chapter" data-level="7.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.5.1</b> <strong>Conclusões</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="modelo-matemático.html"><a href="modelo-matemático.html"><i class="fa fa-check"></i><b>4</b> 5.2 MODELO MATEMÁTICO</a></li>
-<li class="chapter" data-level="5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><i class="fa fa-check"></i><b>5</b> 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA</a><ul>
-<li class="chapter" data-level="5.1" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.1</b> 5.4 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="5.2" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.2</b> 5.5 EXEMPLO DE APLICAÇÃO</a></li>
+<li class="chapter" data-level="7.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-maisde-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.6</b> Componentes com maisde um grau de liberdade</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
-<li class="chapter" data-level="6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>6.1</b> 5.6.1 INTRODUÇÃO</a></li>
-<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>6.2</b> 5.6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.3</b> 5.6.3 CÁLCULO DAS MÉDIAS E ERROS PADRÕES DAS MÉDIAS:</a></li>
-<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> 5.6.4 TESTE DE TUKEY PARA COMPARAÇÃO DAS MÉDIAS</a></li>
-<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> 5.6.5 CÁLCULO DO COEFICIENTE DE VARIAÇÃO DO EXPERIMENTO</a></li>
-<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> 5.6.6 APLICAÇÃO DO TESTE t DE STUDENT A UM CONTRASTE</a></li>
-<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> 5.6.7 TESTE DE DUNCAN PARA A COMPARAÇÃO DAS MÉDIAS</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#utilizando-o-r"><i class="fa fa-check"></i><b>6.7.1</b> Utilizando o R</a></li>
+<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> Caracterização</a></li>
+<li class="chapter" data-level="8.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> Modelo matemático</a></li>
+<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> Hipóteses básicas</a></li>
+<li class="chapter" data-level="8.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="8.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> Exemplo de aplicação</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
-<li class="chapter" data-level="7.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>7.1</b> 6.1 INTRODUÇÃO</a></li>
-<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> 6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.2.1</b> 6.2.1. MÉTODO DOS CONTRASTES DE TOTAIS DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="7.2.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.2.2</b> 6.2.2. MÉTODO DOS TOTAIS DE TRATAMENTOS (SEM UTILIZAR CONTRASTES)</a></li>
-<li class="chapter" data-level="7.2.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2.3</b> 6.2.3. ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="7.2.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.2.4</b> <strong>Conclusões</strong></a></li>
-<li class="chapter" data-level="7.2.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.2.5</b> 6.2.4. COMPONENTES COM MAIS DE UM GRAU DE LIBERDADE</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> 7. DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
-<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> 7.1. CARACTERIZAÇÃO</a></li>
-<li class="chapter" data-level="8.2" data-path="modelo-matemático.html"><a href="modelo-matemático.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> 7.2. MODELO MATEMÁTICO</a></li>
-<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> 7.3. HIPÓTESES BÁSICAS</a></li>
-<li class="chapter" data-level="8.4" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> 7.4. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="8.5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> 7.5. EXEMPLO DE APLICAÇÃO</a></li>
-<li class="chapter" data-level="8.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#delineamento-em-blocos-csualizados-com-uma-parcela-perdida"><i class="fa fa-check"></i><b>8.6</b> 7.6. DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>8.6.1</b> 7.6.1. INTRODUÇÃO</a></li>
-<li class="chapter" data-level="8.6.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>8.6.2</b> 7.6.2. ESTIMATIVA DA PARCELA PERDIDA</a></li>
-<li class="chapter" data-level="8.6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>8.6.3</b> 7.6.3. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="8.6.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.4</b> 7.6.4. MÉDIAS DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="8.6.5" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#erros-padrões-das-médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.5</b> 7.6.5. ERROS PADRÕES DAS MÉDIAS DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="8.6.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#comparação-das-médias-para-o-teste-de-tukey"><i class="fa fa-check"></i><b>8.6.6</b> 7.6.6. COMPARAÇÃO DAS MÉDIAS PARA O TESTE DE TUKEY</a></li>
-<li class="chapter" data-level="8.6.7" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>8.6.7</b> 7.6.7. EXEMPLO DE APLICAÇÃO</a></li>
-</ul></li>
+<li class="chapter" data-level="9" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><i class="fa fa-check"></i><b>9</b> DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
+<li class="chapter" data-level="9.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
+<li class="chapter" data-level="9.2" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>9.2</b> Estimativa da parcela perdida</a></li>
+<li class="chapter" data-level="9.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>9.3</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="9.4" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>9.4</b> Médias de tratamentos</a></li>
+<li class="chapter" data-level="9.5" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>9.5</b> Erros padrões das médias</a></li>
+<li class="chapter" data-level="9.6" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>9.6</b> Comparação de médias pelo teste de Tukey</a></li>
+<li class="chapter" data-level="9.7" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>9.7</b> Exemplo de aplicação</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -225,13 +233,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="testes-para-comparação-de-médias" class="section level1">
-<h1><span class="header-section-number">Capítulo 2</span> Testes para Comparação de médias</h1>
+<h1><span class="header-section-number">Capítulo 4</span> TESTES PARA COMPARAÇÃO DE MÉDIAS</h1>
 <div id="introdução" class="section level2">
-<h2><span class="header-section-number">2.1</span> INTRODUÇÃO</h2>
+<h2><span class="header-section-number">4.1</span> Introdução</h2>
 <p>O Teste F nos permite apenas tirar conclusões gerais relacionadas ao comportamento dos tratamentos como um todo, indicando se eles se comportam da mesma maneira ou de maneira diferente, nada nos informando com relação a quais os melhores tratamentos. Para verificar quais são os melhores tratamentos, devemos utilizar os teste de <strong>comparação de médias</strong>.</p>
 <p>Antes de entrarmos no estudo dos testes de comparação de médias, devemos abordar conceitos relacionados com estes testes.</p>
-<div id="contrastes-de-médias" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> CONTRASTES DE MÉDIAS</h3>
+</div>
+<div id="contrastes-de-médias" class="section level2">
+<h2><span class="header-section-number">4.2</span> Contrastes de Médias</h2>
 <p>Contraste de médias são relações lineares entre as médias verdadeiras dos tratamentos, de forma qua a soma algébrica dos coeficientes dessa função seja nula (igual a Zero).</p>
 <p>Então, uma combinação linear das médias do tipo:</p>
 <p><span class="math display">\[
@@ -253,8 +262,8 @@ Y_3=m_1+m_2-m_3
 <p>não é um contraste.</p>
 <p>O número de contrastes que podemos formar com um grupo de médias é grande, e numa análise estatística, formamos aqueles que realmente são de interesse do pesquisador.</p>
 </div>
-<div id="estimativa-do-contraste" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> ESTIMATIVA DO CONTRASTE</h3>
+<div id="estimativa-do-contrastes" class="section level2">
+<h2><span class="header-section-number">4.3</span> Estimativa do Contrastes</h2>
 <p>Geralmente, não conhecemos as médias verdadeiras, de forma que o verdadeiro valor do contraste também nos é desconhecido. Porém, como conhecemos as estimativas das médias, podemos calcular as estimativas dos contrastes.</p>
 <p>Então, para um contraste de médias na forma geral:</p>
 <p><span class="math display">\[
@@ -293,8 +302,8 @@ Y_2=m_1+m_2-m_3-m_4,
 \hat{Y_2}=\hat{m_1}+\hat{m_2}-\hat{m_3}-\hat{m_4} = 280+250-320-275 = -65
 \]</span></p>
 </div>
-<div id="covariância-entre-dois-contrastes" class="section level3">
-<h3><span class="header-section-number">2.1.3</span> COVARIÂNCIA ENTRE DOIS CONTRASTES</h3>
+<div id="covariância-entre-dois-contrastes" class="section level2">
+<h2><span class="header-section-number">4.4</span> Covariância entre dois contrastes</h2>
 <p>Considerando as duas estimativas de contrastes:</p>
 <p><span class="math display">\[
 \hat{Y_1}=a_1 \hat{m_1} + a_2\hat{m_2} + \cdots + a_I \hat{m_I}
@@ -325,8 +334,8 @@ Y_2=m_1+m_2-m_3-m_4,
 \hat{COV}(\hat{Y_1},\hat{Y_2}) = (a_1b_1 + a_2b_2 + \cdots + a_Ib_I) \frac{s^2}{r} = (a_1b_1 + a_2b_2 + \cdots + a_Ib_I) \frac{QM_{Resíduo}}{r}
 \]</span></p>
 </div>
-<div id="contrastes-ortogonais" class="section level3">
-<h3><span class="header-section-number">2.1.4</span> CONTRASTES ORTOGONAIS</h3>
+<div id="contrastes-ortogonais" class="section level2">
+<h2><span class="header-section-number">4.5</span> Contrastes ortogonais</h2>
 <p>A ortogonalidade entre dois contrastes traduz uma independência entre eles, isso é, a variação de um é completamente independente da variação do outro.</p>
 <p>Dizemos que dois contrastes são ortogonais entre si se a convariância entre eles for nula. Assim, a condição de ortoganilidade é dada por:</p>
 <p><span class="math display">\[
@@ -394,8 +403,8 @@ Y_2 = m_1+m_2-2m_3
 <li>Num experimento qualquer, o número máximo de contrastes ortogonais que podemos obter é igual ao número de graus de liberdade de tratamentos do experimento.</li>
 </ol>
 </div>
-<div id="variância-de-um-contraste" class="section level3">
-<h3><span class="header-section-number">2.1.5</span> VARIÂNCIA DE UM CONTRASTE</h3>
+<div id="variância-de-um-contraste" class="section level2">
+<h2><span class="header-section-number">4.6</span> Variância de um contraste</h2>
 <p>Considere um contraste na forma</p>
 <p><span class="math display">\[
 Y= c_1m_1+c_2m_2+ \cdot + c_Im_I,
@@ -426,16 +435,15 @@ Y= c_1m_1+c_2m_2+ \cdot + c_Im_I,
 \hat{V}(\hat{Y}) = \left( {c^2_1} + {c_2^2} + \cdots + {c^2_I} \right) \frac{QM_{Resíduo}}{r}
 \]</span></p>
 </div>
-<div id="erro-padrão-do-contraste" class="section level3">
-<h3><span class="header-section-number">2.1.6</span> ERRO PADRÃO DO CONTRASTE</h3>
+<div id="erro-padrão-do-contraste" class="section level2">
+<h2><span class="header-section-number">4.7</span> Erro padrão do contraste</h2>
 <p>O erro padrão de um contraste, representado por <span class="math inline">\(s(\hat{Y})\)</span>, é a raiz quadrada da estimativa da variância da estimativa do contraste, ou seja:</p>
 <p><span class="math display">\[
 s(\hat{Y}) = \sqrt{\hat{V}(\hat{Y})}
 \]</span></p>
 </div>
-</div>
 <div id="teste-t-de-student" class="section level2">
-<h2><span class="header-section-number">2.2</span> TESTE t DE STUDENT</h2>
+<h2><span class="header-section-number">4.8</span> Teste t de Student</h2>
 <p>O teste t é um teste que serve para comparar médias ou dois grupos de médias e, portanto, implica na utilização de contrastes de médias.</p>
 <p>Admitindo então, um contraste na sua forma geral:</p>
 <p><span class="math display">\[
@@ -471,8 +479,9 @@ t_{obs} = \frac{\hat{Y}-A}{\sqrt{\hat{V}(\hat{Y})}} = \frac{\hat{Y}-A}{s(\hat{Y}
 <p>Para a aplicação exata do teste t, são necessárias duas condições básicas:</p>
 <p>1 - Que os contrastes sejam estabelecidos <strong>“a priori”</strong>, ou seja, que os mesmos <strong>não sejam sugeridos pelos resultados</strong>.</p>
 <p>2 - Que os contrastes a serem testados <strong>sejam ortogonais entre si</strong></p>
-<div id="exemplo-de-aplicação-do-teste-t-de-student" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> EXEMPLO DE APLICAÇÃO DO TESTE t de STUDENT</h3>
+</div>
+<div id="exemplo-de-aplicação-do-teste-t-de-student" class="section level2">
+<h2><span class="header-section-number">4.9</span> Exemplo de aplicação do teste t de Student</h2>
 <p>Como exemplo de aplicação, utilizaremos os dados do trabalho: “Competição de adubos nitrogenados no abacaxizeiro”, realizado por BRASIL SOBRINHO et al. (<em>Boletim Técnico Científico</em>, ESALQ, n. 12, 1962), cujo ensaio foi instalado no delineamento em blocos casualizados com 6 tratamentos e 4 repetições, sendo que os blocos controlaram diferenças de fatores ambientais.</p>
 <p>Cada parcela constituiu-se de 20 plantas úteis no espaçamento de 1,5 m entre linhas e 0,4 m entre plantas. Os tratamentos utilizados, com as respectivas médias de produção no 1º no agrícola, em kg, foram:</p>
 <table>
@@ -654,46 +663,46 @@ t_{obs} = \frac{\hat{Y_1}}{s(\hat{Y_1})} = \frac{-7,99}{0,98} = -8,15^{**}
 <p><strong>7. Conclusão do teste</strong></p>
 <p>Como <span class="math inline">\(t_{obs} \in RC\)</span> pois <span class="math inline">\(-8,15 &lt; - 2,95\)</span>, ou seja, o teste foi significativo ao nível de 1% de probabilidade. Neste caso, rejeitamos <span class="math inline">\(H_0\)</span> e concluímos que o grupo Salitre difere do grupo Nitrocálcio a esse nível de probabilidade, sendo o grupo Nitrocálcio o mais recomendado pois apresentou uma maior produção.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="testes-para-comparação-de-médias.html#cb1-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="testes-para-comparação-de-médias.html#cb1-2"></a>I &lt;-<span class="st"> </span><span class="dv">6</span> <span class="co"># Número de tratamentos</span></span>
-<span id="cb1-3"><a href="testes-para-comparação-de-médias.html#cb1-3"></a>r &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># Número de repetições com que cada média foi calculada</span></span>
-<span id="cb1-4"><a href="testes-para-comparação-de-médias.html#cb1-4"></a>GLres &lt;-<span class="st"> </span><span class="dv">15</span> <span class="co"># Graus de liberdade do Resíduo (6-1)*(4-1) = 15</span></span>
-<span id="cb1-5"><a href="testes-para-comparação-de-médias.html#cb1-5"></a>QMres &lt;-<span class="st"> </span><span class="fl">0.64</span> <span class="co"># Quadrado médio do resíduo da análise de variância</span></span>
-<span id="cb1-6"><a href="testes-para-comparação-de-médias.html#cb1-6"></a>medias&lt;-<span class="kw">c</span>(<span class="fl">21.57</span>,<span class="fl">27.76</span>,<span class="fl">24.58</span>,<span class="fl">28.44</span>,<span class="fl">28.85</span>,<span class="fl">28.30</span>) <span class="co"># vetor de médias</span></span>
-<span id="cb1-7"><a href="testes-para-comparação-de-médias.html#cb1-7"></a>c1&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></span>
-<span id="cb1-8"><a href="testes-para-comparação-de-médias.html#cb1-8"></a>Y1 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c1) <span class="co"># Definindo o primeiro contraste</span></span>
-<span id="cb1-9"><a href="testes-para-comparação-de-médias.html#cb1-9"></a>Y1</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="testes-para-comparação-de-médias.html#cb31-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb31-2"><a href="testes-para-comparação-de-médias.html#cb31-2"></a>I &lt;-<span class="st"> </span><span class="dv">6</span> <span class="co"># Número de tratamentos</span></span>
+<span id="cb31-3"><a href="testes-para-comparação-de-médias.html#cb31-3"></a>r &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># Número de repetições com que cada média foi calculada</span></span>
+<span id="cb31-4"><a href="testes-para-comparação-de-médias.html#cb31-4"></a>GLres &lt;-<span class="st"> </span><span class="dv">15</span> <span class="co"># Graus de liberdade do Resíduo (6-1)*(4-1) = 15</span></span>
+<span id="cb31-5"><a href="testes-para-comparação-de-médias.html#cb31-5"></a>QMres &lt;-<span class="st"> </span><span class="fl">0.64</span> <span class="co"># Quadrado médio do resíduo da análise de variância</span></span>
+<span id="cb31-6"><a href="testes-para-comparação-de-médias.html#cb31-6"></a>medias&lt;-<span class="kw">c</span>(<span class="fl">21.57</span>,<span class="fl">27.76</span>,<span class="fl">24.58</span>,<span class="fl">28.44</span>,<span class="fl">28.85</span>,<span class="fl">28.30</span>) <span class="co"># vetor de médias</span></span>
+<span id="cb31-7"><a href="testes-para-comparação-de-médias.html#cb31-7"></a>c1&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></span>
+<span id="cb31-8"><a href="testes-para-comparação-de-médias.html#cb31-8"></a>Y1 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c1) <span class="co"># Definindo o primeiro contraste</span></span>
+<span id="cb31-9"><a href="testes-para-comparação-de-médias.html#cb31-9"></a>Y1</span></code></pre></div>
 <pre><code>## [1] -7.99</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="testes-para-comparação-de-médias.html#cb3-1"></a><span class="co">#calculando a estatística do teste</span></span>
-<span id="cb3-2"><a href="testes-para-comparação-de-médias.html#cb3-2"></a>tobs &lt;-<span class="st"> </span>Y1<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c1<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</span>
-<span id="cb3-3"><a href="testes-para-comparação-de-médias.html#cb3-3"></a>tobs</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="testes-para-comparação-de-médias.html#cb33-1"></a><span class="co">#calculando a estatística do teste</span></span>
+<span id="cb33-2"><a href="testes-para-comparação-de-médias.html#cb33-2"></a>tobs &lt;-<span class="st"> </span>Y1<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c1<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</span>
+<span id="cb33-3"><a href="testes-para-comparação-de-médias.html#cb33-3"></a>tobs</span></code></pre></div>
 <pre><code>## [1] -8.15476</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="testes-para-comparação-de-médias.html#cb5-1"></a><span class="co"># limite crítico ao nível de 5%</span></span>
-<span id="cb5-2"><a href="testes-para-comparação-de-médias.html#cb5-2"></a>tc5&lt;-<span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="op">/</span><span class="dv">2</span>,GLres)</span>
-<span id="cb5-3"><a href="testes-para-comparação-de-médias.html#cb5-3"></a>tc5</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="testes-para-comparação-de-médias.html#cb35-1"></a><span class="co"># limite crítico ao nível de 5%</span></span>
+<span id="cb35-2"><a href="testes-para-comparação-de-médias.html#cb35-2"></a>tc5&lt;-<span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="op">/</span><span class="dv">2</span>,GLres)</span>
+<span id="cb35-3"><a href="testes-para-comparação-de-médias.html#cb35-3"></a>tc5</span></code></pre></div>
 <pre><code>## [1] 2.13145</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="testes-para-comparação-de-médias.html#cb7-1"></a><span class="co"># limite crítico ao nível de 1%</span></span>
-<span id="cb7-2"><a href="testes-para-comparação-de-médias.html#cb7-2"></a>tc1 &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>,GLres)</span>
-<span id="cb7-3"><a href="testes-para-comparação-de-médias.html#cb7-3"></a>tc1</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="testes-para-comparação-de-médias.html#cb37-1"></a><span class="co"># limite crítico ao nível de 1%</span></span>
+<span id="cb37-2"><a href="testes-para-comparação-de-médias.html#cb37-2"></a>tc1 &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>,GLres)</span>
+<span id="cb37-3"><a href="testes-para-comparação-de-médias.html#cb37-3"></a>tc1</span></code></pre></div>
 <pre><code>## [1] 2.946713</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="testes-para-comparação-de-médias.html#cb9-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb9-2"><a href="testes-para-comparação-de-médias.html#cb9-2"></a><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-3"><a href="testes-para-comparação-de-médias.html#cb9-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb9-4"><a href="testes-para-comparação-de-médias.html#cb9-4"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-5"><a href="testes-para-comparação-de-médias.html#cb9-5"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></span>
-<span id="cb9-6"><a href="testes-para-comparação-de-médias.html#cb9-6"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></span>
-<span id="cb9-7"><a href="testes-para-comparação-de-médias.html#cb9-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></span>
-<span id="cb9-8"><a href="testes-para-comparação-de-médias.html#cb9-8"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-9"><a href="testes-para-comparação-de-médias.html#cb9-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-10"><a href="testes-para-comparação-de-médias.html#cb9-10"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-11"><a href="testes-para-comparação-de-médias.html#cb9-11"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-12"><a href="testes-para-comparação-de-médias.html#cb9-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-13"><a href="testes-para-comparação-de-médias.html#cb9-13"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-14"><a href="testes-para-comparação-de-médias.html#cb9-14"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-15"><a href="testes-para-comparação-de-médias.html#cb9-15"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb9-16"><a href="testes-para-comparação-de-médias.html#cb9-16"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
-<span id="cb9-17"><a href="testes-para-comparação-de-médias.html#cb9-17"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="testes-para-comparação-de-médias.html#cb39-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
+<span id="cb39-2"><a href="testes-para-comparação-de-médias.html#cb39-2"></a><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb39-3"><a href="testes-para-comparação-de-médias.html#cb39-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb39-4"><a href="testes-para-comparação-de-médias.html#cb39-4"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-5"><a href="testes-para-comparação-de-médias.html#cb39-5"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></span>
+<span id="cb39-6"><a href="testes-para-comparação-de-médias.html#cb39-6"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb39-7"><a href="testes-para-comparação-de-médias.html#cb39-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></span>
+<span id="cb39-8"><a href="testes-para-comparação-de-médias.html#cb39-8"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-9"><a href="testes-para-comparação-de-médias.html#cb39-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-10"><a href="testes-para-comparação-de-médias.html#cb39-10"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-11"><a href="testes-para-comparação-de-médias.html#cb39-11"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-12"><a href="testes-para-comparação-de-médias.html#cb39-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-13"><a href="testes-para-comparação-de-médias.html#cb39-13"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-14"><a href="testes-para-comparação-de-médias.html#cb39-14"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-15"><a href="testes-para-comparação-de-médias.html#cb39-15"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb39-16"><a href="testes-para-comparação-de-médias.html#cb39-16"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
+<span id="cb39-17"><a href="testes-para-comparação-de-médias.html#cb39-17"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p><strong>b) Nitrocálcio vs. Nitrocálcio + Enxofre</strong></p>
 <p><strong>1. Hipóteses</strong></p>
 <p><span class="math display">\[ 
@@ -723,37 +732,36 @@ t_{obs} = \frac{\hat{Y_2}}{s(\hat{Y_2})} = \frac{0,55}{0,57} = 0,96^{NS}
 <p><strong>7. Conclusão do teste</strong></p>
 <p>Como <span class="math inline">\(t_{obs} \not\in RC\)</span> pois <span class="math inline">\(0,96 &lt; 2,13\)</span>, ou seja, o teste foi não significativo ao nível de 5% de probabilidade. Neste caso, não rejeitamos <span class="math inline">\(H_0\)</span> e concluímos que a média do tratamento Nitrocálcio não difere da média do tratamento Nitrocálcio + Enxofre a esse nível de probabilidade.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="testes-para-comparação-de-médias.html#cb10-1"></a>c2&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></span>
-<span id="cb10-2"><a href="testes-para-comparação-de-médias.html#cb10-2"></a>Y2 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c2) <span class="co"># Definindo o primeiro contraste</span></span>
-<span id="cb10-3"><a href="testes-para-comparação-de-médias.html#cb10-3"></a>Y2</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="testes-para-comparação-de-médias.html#cb40-1"></a>c2&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># coeficientes do primeiro contraste</span></span>
+<span id="cb40-2"><a href="testes-para-comparação-de-médias.html#cb40-2"></a>Y2 &lt;-<span class="st"> </span><span class="kw">sum</span>(medias<span class="op">*</span>c2) <span class="co"># Definindo o primeiro contraste</span></span>
+<span id="cb40-3"><a href="testes-para-comparação-de-médias.html#cb40-3"></a>Y2</span></code></pre></div>
 <pre><code>## [1] 0.55</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="testes-para-comparação-de-médias.html#cb12-1"></a><span class="co">#calculando a estatística do teste</span></span>
-<span id="cb12-2"><a href="testes-para-comparação-de-médias.html#cb12-2"></a>tobs &lt;-<span class="st"> </span>Y2<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c2<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</span>
-<span id="cb12-3"><a href="testes-para-comparação-de-médias.html#cb12-3"></a>tobs</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="testes-para-comparação-de-médias.html#cb42-1"></a><span class="co">#calculando a estatística do teste</span></span>
+<span id="cb42-2"><a href="testes-para-comparação-de-médias.html#cb42-2"></a>tobs &lt;-<span class="st"> </span>Y2<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c2<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>QMres<span class="op">/</span>r)</span>
+<span id="cb42-3"><a href="testes-para-comparação-de-médias.html#cb42-3"></a>tobs</span></code></pre></div>
 <pre><code>## [1] 0.9722718</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="testes-para-comparação-de-médias.html#cb14-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb14-2"><a href="testes-para-comparação-de-médias.html#cb14-2"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb14-3"><a href="testes-para-comparação-de-médias.html#cb14-3"></a><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb14-4"><a href="testes-para-comparação-de-médias.html#cb14-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb14-5"><a href="testes-para-comparação-de-médias.html#cb14-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-6"><a href="testes-para-comparação-de-médias.html#cb14-6"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></span>
-<span id="cb14-7"><a href="testes-para-comparação-de-médias.html#cb14-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></span>
-<span id="cb14-8"><a href="testes-para-comparação-de-médias.html#cb14-8"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></span>
-<span id="cb14-9"><a href="testes-para-comparação-de-médias.html#cb14-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-10"><a href="testes-para-comparação-de-médias.html#cb14-10"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-11"><a href="testes-para-comparação-de-médias.html#cb14-11"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-12"><a href="testes-para-comparação-de-médias.html#cb14-12"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-13"><a href="testes-para-comparação-de-médias.html#cb14-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-14"><a href="testes-para-comparação-de-médias.html#cb14-14"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-15"><a href="testes-para-comparação-de-médias.html#cb14-15"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-16"><a href="testes-para-comparação-de-médias.html#cb14-16"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb14-17"><a href="testes-para-comparação-de-médias.html#cb14-17"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
-<span id="cb14-18"><a href="testes-para-comparação-de-médias.html#cb14-18"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-</div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="testes-para-comparação-de-médias.html#cb44-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
+<span id="cb44-2"><a href="testes-para-comparação-de-médias.html#cb44-2"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
+<span id="cb44-3"><a href="testes-para-comparação-de-médias.html#cb44-3"></a><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb44-4"><a href="testes-para-comparação-de-médias.html#cb44-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb44-5"><a href="testes-para-comparação-de-médias.html#cb44-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(.x) <span class="kw">dt</span>(.x,GLres),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-6"><a href="testes-para-comparação-de-médias.html#cb44-6"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">9</span>,<span class="dv">9</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,.<span class="dv">5</span>)<span class="op">+</span></span>
+<span id="cb44-7"><a href="testes-para-comparação-de-médias.html#cb44-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qt</span>(<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="fl">0.005</span>,<span class="fl">0.995</span>),GLres),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb44-8"><a href="testes-para-comparação-de-médias.html#cb44-8"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>)<span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)<span class="op">+</span></span>
+<span id="cb44-9"><a href="testes-para-comparação-de-médias.html#cb44-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-10"><a href="testes-para-comparação-de-médias.html#cb44-10"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;2,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-2.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-11"><a href="testes-para-comparação-de-médias.html#cb44-11"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-12"><a href="testes-para-comparação-de-médias.html#cb44-12"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;0,5%&quot;</span>)), <span class="dt">x =</span> <span class="fl">-6.7</span>, <span class="dt">y =</span> <span class="fl">.08</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-13"><a href="testes-para-comparação-de-médias.html#cb44-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">x=</span><span class="st">&quot;t&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-14"><a href="testes-para-comparação-de-médias.html#cb44-14"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="fl">6.6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-15"><a href="testes-para-comparação-de-médias.html#cb44-15"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="st">&quot;Região crítica&quot;</span>, <span class="dt">x =</span> <span class="dv">-6</span>, <span class="dt">y =</span> <span class="fl">0.15</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-16"><a href="testes-para-comparação-de-médias.html#cb44-16"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> tobs, <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb44-17"><a href="testes-para-comparação-de-médias.html#cb44-17"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(t[obs])), <span class="dt">x =</span> tobs<span class="fl">+.8</span>, <span class="dt">y =</span> <span class="fl">.02</span>,<span class="dt">size=</span><span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
+<span id="cb44-18"><a href="testes-para-comparação-de-médias.html#cb44-18"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 <div id="teste-de-tukey" class="section level2">
-<h2><span class="header-section-number">2.3</span> TESTE DE TUKEY</h2>
+<h2><span class="header-section-number">4.10</span> Teste de Tukey</h2>
 <p>O Teste de Tukey também pode ser usado como um complemento ao Teste F da análise de variância. Ele serve para testar todo e qualquer contraste <strong>entre 2 médias de tratamentos</strong>. Assim, num experimento com <span class="math inline">\(I\)</span> tratamentos, o número de comparações de médias duas a duas, é a combinação dessas <span class="math inline">\(I\)</span> médias 2 a 2, ou seja:</p>
 <p><span class="math display">\[
 C_I^2 = \begin{pmatrix} I \\ 2\end{pmatrix} = \frac{I!}{2!.(I-2)!} = \frac{I(I-1)}{2}\;contrastes
@@ -781,9 +789,10 @@ C_I^2 = \begin{pmatrix} I \\ 2\end{pmatrix} = \frac{I!}{2!.(I-2)!} = \frac{I(I-1
 <p><span class="math display">\[
 \Delta&#39;_{i\;vs.\;j} = q.\sqrt{\frac{1}{2}.\left( \frac{1}{r_i} + \frac{1}{r_j} \right).QM_{Resíduo}}
 \]</span></p>
-<div id="exemplo-de-aplicação-do-teste-de-tukey" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> EXEMPLO DE APLICAÇÃO DO TESTE DE TUKEY</h3>
-<p>Considerando-se os dados do exemplo anterior, <strong>4.2.1</strong>, temos:</p>
+</div>
+<div id="exemplo-de-aplicação-do-teste-de-tukey" class="section level2">
+<h2><span class="header-section-number">4.11</span> Exemplo de aplicação do teste de Tukey</h2>
+<p>Considerando-se os dados do exemplo anterior, temos:</p>
 <p><span class="math display">\[
 s^2 = QM_{Resíduo} = 0,64
 \]</span></p>
@@ -899,19 +908,19 @@ C_6^2 = \frac{I.(I-1)}{2} =\frac{6.(6-1)}{2} = \frac{30}{2} = 15 \;contrastes
 \]</span></p>
 <p><strong>Obs:</strong> Médias seguidas pela mesma letra não diferem entre si pelo teste de Tukey ao nível de 5% de probabilidade.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="testes-para-comparação-de-médias.html#cb15-1"></a><span class="co"># Carregue, instale se necessário, o pacote &quot;agricolae&quot;</span></span>
-<span id="cb15-2"><a href="testes-para-comparação-de-médias.html#cb15-2"></a><span class="kw">library</span>(agricolae)</span>
-<span id="cb15-3"><a href="testes-para-comparação-de-médias.html#cb15-3"></a></span>
-<span id="cb15-4"><a href="testes-para-comparação-de-médias.html#cb15-4"></a><span class="co"># Contrução do vetor com o nome dos tratamentos</span></span>
-<span id="cb15-5"><a href="testes-para-comparação-de-médias.html#cb15-5"></a>trat&lt;-<span class="kw">c</span>(<span class="st">&quot;Test.&quot;</span>,<span class="st">&quot;Sulf. amônio&quot;</span>,<span class="st">&quot;Sal. Chile&quot;</span>,<span class="st">&quot;Ureia&quot;</span>,<span class="st">&quot;Nitc.&quot;</span>,<span class="st">&quot;Nitc.+S&quot;</span>)</span>
-<span id="cb15-6"><a href="testes-para-comparação-de-médias.html#cb15-6"></a></span>
-<span id="cb15-7"><a href="testes-para-comparação-de-médias.html#cb15-7"></a><span class="co"># Utilizar a função &#39;HDS.test&#39; do pacote agricolae</span></span>
-<span id="cb15-8"><a href="testes-para-comparação-de-médias.html#cb15-8"></a>tukey&lt;-<span class="kw">HSD.test</span>(medias, <span class="co"># vetor de média</span></span>
-<span id="cb15-9"><a href="testes-para-comparação-de-médias.html#cb15-9"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
-<span id="cb15-10"><a href="testes-para-comparação-de-médias.html#cb15-10"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
-<span id="cb15-11"><a href="testes-para-comparação-de-médias.html#cb15-11"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
-<span id="cb15-12"><a href="testes-para-comparação-de-médias.html#cb15-12"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
-<span id="cb15-13"><a href="testes-para-comparação-de-médias.html#cb15-13"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="testes-para-comparação-de-médias.html#cb45-1"></a><span class="co"># Carregue, instale se necessário, o pacote &quot;agricolae&quot;</span></span>
+<span id="cb45-2"><a href="testes-para-comparação-de-médias.html#cb45-2"></a><span class="kw">library</span>(agricolae)</span>
+<span id="cb45-3"><a href="testes-para-comparação-de-médias.html#cb45-3"></a></span>
+<span id="cb45-4"><a href="testes-para-comparação-de-médias.html#cb45-4"></a><span class="co"># Contrução do vetor com o nome dos tratamentos</span></span>
+<span id="cb45-5"><a href="testes-para-comparação-de-médias.html#cb45-5"></a>trat&lt;-<span class="kw">c</span>(<span class="st">&quot;Test.&quot;</span>,<span class="st">&quot;Sulf. amônio&quot;</span>,<span class="st">&quot;Sal. Chile&quot;</span>,<span class="st">&quot;Ureia&quot;</span>,<span class="st">&quot;Nitc.&quot;</span>,<span class="st">&quot;Nitc.+S&quot;</span>)</span>
+<span id="cb45-6"><a href="testes-para-comparação-de-médias.html#cb45-6"></a></span>
+<span id="cb45-7"><a href="testes-para-comparação-de-médias.html#cb45-7"></a><span class="co"># Utilizar a função &#39;HDS.test&#39; do pacote agricolae</span></span>
+<span id="cb45-8"><a href="testes-para-comparação-de-médias.html#cb45-8"></a>tukey&lt;-<span class="kw">HSD.test</span>(medias, <span class="co"># vetor de média</span></span>
+<span id="cb45-9"><a href="testes-para-comparação-de-médias.html#cb45-9"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
+<span id="cb45-10"><a href="testes-para-comparação-de-médias.html#cb45-10"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
+<span id="cb45-11"><a href="testes-para-comparação-de-médias.html#cb45-11"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
+<span id="cb45-12"><a href="testes-para-comparação-de-médias.html#cb45-12"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
+<span id="cb45-13"><a href="testes-para-comparação-de-médias.html#cb45-13"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
 <pre><code>## 
 ## Study: medias ~ trat
 ## 
@@ -943,18 +952,17 @@ C_6^2 = \frac{I.(I-1)}{2} =\frac{6.(6-1)}{2} = \frac{30}{2} = 15 \;contrastes
 ## Sulf. amônio  27.76      a
 ## Sal. Chile    24.58      b
 ## Test.         21.57      c</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="testes-para-comparação-de-médias.html#cb17-1"></a><span class="co"># Construção do gráfico de colunas</span></span>
-<span id="cb17-2"><a href="testes-para-comparação-de-médias.html#cb17-2"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
-<span id="cb17-3"><a href="testes-para-comparação-de-médias.html#cb17-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
-<span id="cb17-4"><a href="testes-para-comparação-de-médias.html#cb17-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb17-5"><a href="testes-para-comparação-de-médias.html#cb17-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
-<span id="cb17-6"><a href="testes-para-comparação-de-médias.html#cb17-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
-<span id="cb17-7"><a href="testes-para-comparação-de-médias.html#cb17-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="testes-para-comparação-de-médias.html#cb47-1"></a><span class="co"># Construção do gráfico de colunas</span></span>
+<span id="cb47-2"><a href="testes-para-comparação-de-médias.html#cb47-2"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
+<span id="cb47-3"><a href="testes-para-comparação-de-médias.html#cb47-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
+<span id="cb47-4"><a href="testes-para-comparação-de-médias.html#cb47-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb47-5"><a href="testes-para-comparação-de-médias.html#cb47-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
+<span id="cb47-6"><a href="testes-para-comparação-de-médias.html#cb47-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
+<span id="cb47-7"><a href="testes-para-comparação-de-médias.html#cb47-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 <div id="teste-de-duncan" class="section level2">
-<h2><span class="header-section-number">2.4</span> TESTE DE DUNCAN</h2>
+<h2><span class="header-section-number">4.12</span> Teste de Duncan</h2>
 <p>O teste de Duncan também pode ser utilizado como um complemento ao teste F da análise de variância. Ele é menos rigoroso que o teste de Tukey, e serve para comparar as médias duas a duas. Para ser exato, este teste também exige que as médias possuam todas o mesmo número de repetições.</p>
 <p>O teste de Duncan baseia-se na <strong>amplitude total mínima significativa</strong>, representada por <span class="math inline">\(D\)</span> e dada por:</p>
 <p><span class="math display">\[
@@ -980,9 +988,10 @@ C_6^2 = \frac{I.(I-1)}{2} =\frac{6.(6-1)}{2} = \frac{30}{2} = 15 \;contrastes
 <p><span class="math display">\[
 D&#39; = z_\alpha . \sqrt{\frac{1}{2} \hat{V}(\hat{Y})}
 \]</span></p>
-<div id="exemplo-de-aplicação-do-teste-de-duncan" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> EXEMPLO DE APLICAÇÃO DO TESTE DE DUNCAN</h3>
-<p>Para exemplificar a aplicação do teste de Duncan, vamos utilizar os dados do exemplo <strong>4.2.1</strong> de “Competição de adubos nitrogenados no abacaxizeiro”. Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:</p>
+</div>
+<div id="exemplo-de-aplicação-do-teste-de-duncan" class="section level2">
+<h2><span class="header-section-number">4.13</span> Exemplo de aplicação do teste de Duncan</h2>
+<p>Para exemplificar a aplicação do teste de Duncan, vamos utilizar os dados do exemplo anterior, de “Competição de adubos nitrogenados no abacaxizeiro”. Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:</p>
 <table>
 <thead>
 <tr class="header">
@@ -1093,7 +1102,7 @@ D_{2} = z_2.\frac{s}{\sqrt{r}} = 3,01.\frac{\sqrt{0,64}}{\sqrt{4}} = 1,20\;kg
 <p><strong>7 - Resultado:</strong></p>
 <p>Portanto, o resultado final do teste pode ser representado da seguinte maneira:</p>
 <p><img src="docs//m4_1.png" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="testes-para-comparação-de-médias.html#cb18-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;m4_1.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="testes-para-comparação-de-médias.html#cb48-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;m4_1.png&quot;</span>)</span></code></pre></div>
 <p><img src="m4_1.png" width="463" /></p>
 <p><strong>Conclusão</strong>: As médias ligadas por uma mesma barra não diferem entre si pelo teste de Duncan ao nível de 5% de probabilidade.</p>
 <p>O resultado final pode também ser apresentado com a utilização das letras ao invés da barra:</p>
@@ -1107,13 +1116,13 @@ D_{2} = z_2.\frac{s}{\sqrt{r}} = 3,01.\frac{\sqrt{0,64}}{\sqrt{4}} = 1,20\;kg
 \]</span></p>
 <p><strong>Obs:</strong> Médias seguidas pela mesma letra não diferem entre si pelo teste de Duncan ao nível de 5% de probabilidade.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="testes-para-comparação-de-médias.html#cb19-1"></a><span class="co"># Utilizar a função &#39;duncan.test&#39; do pacote agricolae</span></span>
-<span id="cb19-2"><a href="testes-para-comparação-de-médias.html#cb19-2"></a>duncan&lt;-<span class="kw">duncan.test</span>(medias, <span class="co"># vetor de média</span></span>
-<span id="cb19-3"><a href="testes-para-comparação-de-médias.html#cb19-3"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
-<span id="cb19-4"><a href="testes-para-comparação-de-médias.html#cb19-4"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
-<span id="cb19-5"><a href="testes-para-comparação-de-médias.html#cb19-5"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
-<span id="cb19-6"><a href="testes-para-comparação-de-médias.html#cb19-6"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
-<span id="cb19-7"><a href="testes-para-comparação-de-médias.html#cb19-7"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="testes-para-comparação-de-médias.html#cb49-1"></a><span class="co"># Utilizar a função &#39;duncan.test&#39; do pacote agricolae</span></span>
+<span id="cb49-2"><a href="testes-para-comparação-de-médias.html#cb49-2"></a>duncan&lt;-<span class="kw">duncan.test</span>(medias, <span class="co"># vetor de média</span></span>
+<span id="cb49-3"><a href="testes-para-comparação-de-médias.html#cb49-3"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
+<span id="cb49-4"><a href="testes-para-comparação-de-médias.html#cb49-4"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
+<span id="cb49-5"><a href="testes-para-comparação-de-médias.html#cb49-5"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
+<span id="cb49-6"><a href="testes-para-comparação-de-médias.html#cb49-6"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
+<span id="cb49-7"><a href="testes-para-comparação-de-médias.html#cb49-7"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
 <pre><code>## 
 ## Study: medias ~ trat
 ## 
@@ -1147,18 +1156,17 @@ D_{2} = z_2.\frac{s}{\sqrt{r}} = 3,01.\frac{\sqrt{0,64}}{\sqrt{4}} = 1,20\;kg
 ## Sulf. amônio  27.76      a
 ## Sal. Chile    24.58      b
 ## Test.         21.57      c</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="testes-para-comparação-de-médias.html#cb21-1"></a><span class="co"># Conatrução do gráfico de colunas</span></span>
-<span id="cb21-2"><a href="testes-para-comparação-de-médias.html#cb21-2"></a><span class="kw">bar.group</span>(duncan<span class="op">$</span>groups,</span>
-<span id="cb21-3"><a href="testes-para-comparação-de-médias.html#cb21-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
-<span id="cb21-4"><a href="testes-para-comparação-de-médias.html#cb21-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb21-5"><a href="testes-para-comparação-de-médias.html#cb21-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
-<span id="cb21-6"><a href="testes-para-comparação-de-médias.html#cb21-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
-<span id="cb21-7"><a href="testes-para-comparação-de-médias.html#cb21-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Duncan (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-</div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="testes-para-comparação-de-médias.html#cb51-1"></a><span class="co"># Conatrução do gráfico de colunas</span></span>
+<span id="cb51-2"><a href="testes-para-comparação-de-médias.html#cb51-2"></a><span class="kw">bar.group</span>(duncan<span class="op">$</span>groups,</span>
+<span id="cb51-3"><a href="testes-para-comparação-de-médias.html#cb51-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
+<span id="cb51-4"><a href="testes-para-comparação-de-médias.html#cb51-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb51-5"><a href="testes-para-comparação-de-médias.html#cb51-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
+<span id="cb51-6"><a href="testes-para-comparação-de-médias.html#cb51-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
+<span id="cb51-7"><a href="testes-para-comparação-de-médias.html#cb51-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Duncan (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 </div>
 <div id="teste-de-scheffé" class="section level2">
-<h2><span class="header-section-number">2.5</span> TESTE DE SCHEFFÉ</h2>
+<h2><span class="header-section-number">4.14</span> Teste de Scheffé</h2>
 <p>Quando, numa análise de variância, encontramos um valor significativo para o teste F, isto nos indica a existência de pelo menos um contraste significativo entre as médias dos tratamentos.</p>
 <p>O Teste de Scheffé se apresenta para testar contrastes, mesmo que estabelecidos “a posteriori”.</p>
 <p>É um teste mais rigoroso que o Teste t, porém é mais flexível, pois <strong>não exige que os contrastes sejam estabelecidos “a priori”</strong>, <strong>nem mesmo que sejam ortogonais entre si</strong>.</p>
@@ -1193,9 +1201,10 @@ S=\sqrt{(I-1).F.\hat{V}(\hat{Y})}
 <p><span class="math inline">\(^{ns}-\)</span> Não significativo ao nível de 5% de probabilidade.</p>
 <p><span class="math inline">\(^{*}-\)</span> Significativo ao nível de 5% de probabilidade.</p>
 <p><span class="math inline">\(^{**}-\)</span> Significativo ao nível de 1% de probabilidade.</p>
-<div id="exemplo-de-aplicação-do-teste-de-scheffé" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> EXEMPLO DE APLICAÇÃO DO TESTE DE SCHEFFÉ</h3>
-<p>Para exemplificar a palicação do teste de Scheffé, vamos utilizar os dados do exemplo <strong>4.2.1</strong> de “Competição de adubos nitrogenados no abacaxizeiro”. Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:</p>
+</div>
+<div id="exemplo-de-aplicação-do-teste-de-scheffé" class="section level2">
+<h2><span class="header-section-number">4.15</span> Exemplo de aplicação do teste de Scheffé</h2>
+<p>Para exemplificar a palicação do teste de Scheffé, vamos utilizar os dados do exemplo anterior, de “Competição de adubos nitrogenados no abacaxizeiro”. Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:</p>
 <table>
 <thead>
 <tr class="header">
@@ -1280,13 +1289,13 @@ S = \sqrt{(I-1).F.\hat{V}(\hat{Y})} =  \sqrt{(6-1).(2,90).(4,80)} = \sqrt{69,6} 
 \]</span></p>
 <p><strong>Conclusão</strong>: Como <span class="math inline">\(|\hat{Y}| &gt; S\)</span>, o teste foi significativo ao nível de 5% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que, em média, o grupo dos tratamentos com adubo apresenta uma produção superior à testemunha (sem adubo).</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="testes-para-comparação-de-médias.html#cb22-1"></a><span class="co"># Utilizar a função &#39;scheffe.test&#39; do pacote agricolae</span></span>
-<span id="cb22-2"><a href="testes-para-comparação-de-médias.html#cb22-2"></a>scheffe&lt;-<span class="kw">scheffe.test</span>(medias, <span class="co"># vetor de média</span></span>
-<span id="cb22-3"><a href="testes-para-comparação-de-médias.html#cb22-3"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
-<span id="cb22-4"><a href="testes-para-comparação-de-médias.html#cb22-4"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
-<span id="cb22-5"><a href="testes-para-comparação-de-médias.html#cb22-5"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
-<span id="cb22-6"><a href="testes-para-comparação-de-médias.html#cb22-6"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
-<span id="cb22-7"><a href="testes-para-comparação-de-médias.html#cb22-7"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="testes-para-comparação-de-médias.html#cb52-1"></a><span class="co"># Utilizar a função &#39;scheffe.test&#39; do pacote agricolae</span></span>
+<span id="cb52-2"><a href="testes-para-comparação-de-médias.html#cb52-2"></a>scheffe&lt;-<span class="kw">scheffe.test</span>(medias, <span class="co"># vetor de média</span></span>
+<span id="cb52-3"><a href="testes-para-comparação-de-médias.html#cb52-3"></a>                trat, <span class="co"># nomes de tratamentos</span></span>
+<span id="cb52-4"><a href="testes-para-comparação-de-médias.html#cb52-4"></a>                GLres, <span class="co"># graus de liberdade de resíduos</span></span>
+<span id="cb52-5"><a href="testes-para-comparação-de-médias.html#cb52-5"></a>                QMres<span class="op">/</span>r, <span class="co"># variância amostral</span></span>
+<span id="cb52-6"><a href="testes-para-comparação-de-médias.html#cb52-6"></a>                <span class="dt">alpha=</span><span class="fl">0.05</span>, <span class="co"># probabilidade de erro tipo I</span></span>
+<span id="cb52-7"><a href="testes-para-comparação-de-médias.html#cb52-7"></a>                <span class="dt">console =</span> <span class="ot">TRUE</span>) <span class="co"># resultado na tela</span></span></code></pre></div>
 <pre><code>## 
 ## Study: medias ~ trat
 ## 
@@ -1318,16 +1327,15 @@ S = \sqrt{(I-1).F.\hat{V}(\hat{Y})} =  \sqrt{(6-1).(2,90).(4,80)} = \sqrt{69,6} 
 ## Sulf. amônio  27.76      a
 ## Sal. Chile    24.58      b
 ## Test.         21.57      c</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="testes-para-comparação-de-médias.html#cb24-1"></a><span class="co"># Construção do gráfico de colunas</span></span>
-<span id="cb24-2"><a href="testes-para-comparação-de-médias.html#cb24-2"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
-<span id="cb24-3"><a href="testes-para-comparação-de-médias.html#cb24-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
-<span id="cb24-4"><a href="testes-para-comparação-de-médias.html#cb24-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb24-5"><a href="testes-para-comparação-de-médias.html#cb24-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
-<span id="cb24-6"><a href="testes-para-comparação-de-médias.html#cb24-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
-<span id="cb24-7"><a href="testes-para-comparação-de-médias.html#cb24-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Scheffé (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="testes-para-comparação-de-médias.html#cb54-1"></a><span class="co"># Construção do gráfico de colunas</span></span>
+<span id="cb54-2"><a href="testes-para-comparação-de-médias.html#cb54-2"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
+<span id="cb54-3"><a href="testes-para-comparação-de-médias.html#cb54-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(medias))<span class="op">*</span><span class="fl">1.2</span>,</span>
+<span id="cb54-4"><a href="testes-para-comparação-de-médias.html#cb54-4"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb54-5"><a href="testes-para-comparação-de-médias.html#cb54-5"></a>          <span class="dt">xlab=</span><span class="st">&quot;Tratamentos&quot;</span>,</span>
+<span id="cb54-6"><a href="testes-para-comparação-de-médias.html#cb54-6"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg)&quot;</span>,</span>
+<span id="cb54-7"><a href="testes-para-comparação-de-médias.html#cb54-7"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Scheffé (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 
-</div>
 </div>
 </div>
             </section>
@@ -1335,7 +1343,7 @@ S = \sqrt{(I-1).F.\hat{V}(\hat{Y})} =  \sqrt{(6-1).(2,90).(4,80)} = \sqrt{69,6} 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="planejamento-de-experimentos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="delineamento-inteiramente-casualizado.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

@@ -1,399 +1,6 @@
-# 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO
+# DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO
 
-## 5.1 CARACTERIZAÇÃO
-
-O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos interiamente casualizados ou experimentos inteiramente ao acaso.
-
-Este delineamento apresenta as seguintes características:
-
-1. Leva em consideração os princípios da **repetição** e da **casualização**, deixando de lado o princípio do controle local e, portanto, as repetições não são organizadas em blocos.
-
-2. Os tratamentos são designados às parcelas de forma inteiramente casual, com qualquer número de repetições.
-
-**As principais vantagens desse delineamento são as seguintes:**
-
-1) Flexibilidade, uma vez que o número de repetições pode variar de um tratamento para outro, sem causar sérios problemas na análise.
-
-2) Proporciona o maior número de graus de liberdade possível para o resíduo.
-    
-**As principais desvantagens desse delineamento são:**
-   
-1) As parcelas experimentais devem ser homogêneas.
-  
-2) Leva a uma alta estimativa da variância residual $QM_{Res}$, uma vez que todas as variações, exceto aquela devido ao efeito de tratamentos, são tomadas como variação do acaso.
-  
-  
-Para a instalação desse experimento devemos ter certeza da homogeneidade das condições experimentais. Este delineamento é bastante utilizado em ensaios de laboratório e em ensaios com vasos, realizados dentro de casas de vegetação, em que as condições experimentais podem ser perfeitamente controladas.
-
-A distribuição casual dos tratamentos a todas as parcelas do experimento é a principal característica deste delineamento. Por exemplo, num experimento no delineamento inteiramente casualizado com 5 tratamentos e 5 repetições, a casualização dos tratamentos seria feita sorteando-se para cada uma das 20 parcelas do experimento uma combinação de tratamento e repetição, ou seja:
-
-$$
-\begin{matrix}
-A1 & A2 & A3 & A4 \\
-B1 & B2 & B3 & B4 \\
-C1 & C2 & C3 & C4 \\
-D1 & D2 & D3 & D4 \\
-E1 & E2 & E3 & E4 
-\end{matrix}
-$$
-
-Assim, um sorteio para distribuição dos tratamento às parcelas poderia ser o seguinte:
-
-$$
-\begin{matrix}
-B4 & D1 & B1 & A2 & D4\\
-D2 & A1 & C4 & D3 & B3\\
-E1 & E3 & B2 & C2 & C2\\
-A4 & C1 & E4 & E2 & E2
-\end{matrix}
-$$
-
-# 5.2 MODELO MATEMÁTICO
-
-Todo delineamento experimental possui um modelo matemático que o representa, que deve ser levado em conta na análise de variância, **aceitando algumas hipóteses básicas necessárias para a validade da análise.** No caso do DIC.
-
-$$
-x_{ij}= \mu + \tau_i + \epsilon_{ij}
-$$
-onde:
-$x{ij}$: é o valor observado na parcela que recebeu o tratamento *i* na repetição *j*,
-
-$\mu$: é a média geral do experimento,
-
-$\tau_i$ é o efeito devido ao tratamento *i* que foi aplicado à parcela,
-
-$\epsilon_{ij}$ é o efeito dos fatores não controlados na parcela que recebeu o tratamento *i* na repetição *j*.
-
-# 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA
-
-As hipóteses básicas que devemos admitir para tornar válida a aplicação da análise de variância são as seguintes:
-
-1) **Aditividade**: Os efeitos dos fatores do modelo são aditivos.
-  
-2) **Independência**: Os erros (desvios) $\epsilon_{ij}$, devido aos efeitos de fatores não controlados ou acaso devem ser independentes.
-  
-3) **Homocedasticidade (homogeneidade de variâncias)**: Os erros (desvios) $\epsilon_{ij}$, devido ao acaso devem possuir variância comum $\sigma^2$
-  
-4) **Normalidade dos desvios**: Os erros ou desvios $\epsilon_{ij}$ devido ao acaso devem possuir distribuição normal de probabilidades.
-
-Uma forma resumida de apresentar estas quatro pressuposições é apresentada a seguir:
-
-$$
-\epsilon_{ij} \overset{iid}{\tilde{}} N(0,\sigma^2) \\
-$$
-  
-Quando as hipóteses básicas não são satisfeitas, como no caso mais frequente a homocedasticidade, deve-se utilizar uma transformação dos dados para contormar o problema.
-
-**1. Raiz Quadrada:** $y=\sqrt{x}$
-
-Geralmente utilizada para dados de contagem, que frequentemente seguem a distribuição de Poisson, em que a média e a variância são iguais. Exemplo, número de ácaros por folha, número de frutos atacados, número de plantas doentes por parcela, etc. No caso de ocorrência de valores nulos ou baixos, recomenda-se $y=\sqrt{x+0,5}$ ou $y=\sqrt{x+1}$.
-
-**2. Arco Seno:** $y=arcoseno\sqrt{\frac{x}{100}}$
-
-Recomendada para dados de porcentagem, proveniente de contagem, que geralmente seguem a distribuição binomial, como exemplo, % de plantas atacadas, % de germinação, etc.
-
-**3. Transformação Logarítmica:** $y=log{(x)}$
-
-Quando é constatada uma certa proporcionalidade entre as médias e os desvios padrões dos tratamentos. Exemplo: No caso de contagem de insetos, se a população é numerora, as contagens serão altas para a testemunha e para os tratamentos que não controlam a praga, enquanto que, para os tratamentos que controlam a praga, a amplitude de variação será baixa.
-
-Quando houver zeros entre as contagens, utiliza-se $y=log(x+1)$.
-
-## 5.4 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA
-
-Para a obtenção da análise de variância, vamos considerar um experimento inteiramente casualizado com **I** tratamentos e **J** repetições.
-
-|Trat `\` Repetição |$1$|$2$|...|$j$|...|$J$|Total|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|$1$|$x_{11}$|$x_{12}$|...|$x_{1j}$|...|$x_{1J}$|$T_1 = \sum_{j=1}^J x_{1j}$|
-|$2$|$x_{21}$|$x_{22}$|...|$x_{2j}$||$x_{2J}$|$T_2 = \sum_{j=1}^J x_{2j}$|
-|...|...|...|...|...|...|...|...|
-|$i$|$x_{i1}$|$x_{i2}$|...|$x_{ij}$|---|$x_{iJ}$|$T_i = \sum_{j=1}^J x_{ij}$|
-|...|...|...|...|...|...|...|...|
-|$I$|$x_{I1}$|$x_{I2}$|...|$x_{Ij}$|...|$x_{IJ}$|$T_I = \sum_{j=1}^J x_{Ij}$|
-|**Total**|||||||$G = \sum_{i=1}^I\sum_{j=1}^J x_{ij}$|
-
-
-De acordo com o modelo matemático deste delienamento, o valor observado na parcela que recebeu o tratamento *I* na repetição *J* é representado por:
-
-$$
-x_{ij}= \mu + \tau_i + \epsilon_{ij}
-$$
-
-Porém, os parâmetros do modelo são desconhecido. Assim, devemos incialmente, obter estimativas desses parâmetros.
-
-O método utilizado para obtenção das estimativas desses parâmetros é chamado de método dos mínimos quadrados, e consiste em obter as estimativas que minimizam a soma dos quadrados dos erros $\epsilon_{ij}$
-
-Utilizamos o Métodos dos Mínimos Quadrados, para minimizar a soma dos quadrados dos erros $\epsilon_{ij}$:
-
-$$
-\epsilon_{ij}= x_{ij} - \mu - \tau_i
-$$
-
-$$
-\epsilon_{ij}^2= (x_{ij} - \mu - \tau_i)^2
-$$
-
-$$
-\sum_{i=1}^I\sum_{j=i}^j\epsilon_{ij}^2=\sum_{i=1}^I\sum_{j=i}^j( x_{ij} - \mu - \tau_i)^2
-$$
-Fazendo $z=\sum_{i=1}^I\sum_{j=i}^j\epsilon_{ij}^2$, derivando em relação a $\mu$ e em relação $\tau_i$ e igualando as equações a 0, temos:
-
-$$
-\begin{cases} \sum_{i=1}^I\sum_{j=i}^Jx_{ij} - IJ\hat{m} -J\sum_{i=1}^I \hat{\tau_i} =0 \\ \sum_{j=1}^Jx_{ij}-J\hat{m}-J\hat{\tau_i}=0 \end{cases}
-$$
-
-Impondo a restrição $\sum_{i=1}^I \hat{\tau_i}=0$, temos:
-
-$$
-\begin{cases} \sum_{i=1}^I\sum_{j=i}^Jx_{ij} - IJ\hat{m} =0 \\ \sum_{j=1}^Jx_{ij}-J\hat{m}-J\hat{\tau_i}=0 \end{cases}
-$$
-Então:
-$$
-\hat{m} = \frac{\sum_{i=1}^I\sum_{j=i}^Jx_{ij}}{IJ}=\frac{G}{IJ}
-$$
-e, fazendo $T_i=\sum_{j=1}^Jx_{ij}$, sendo o total para o tratamento específico *i*:
-
-$$
-\hat{\tau_i} =\frac{T_i}{J} - \hat{m}
-$$
-
-**Podemos agora obter as somas de quadrados:**
-
-**1. Soma de Quadrados Total**: $SQ_{Total}$ - é definida como a soma dos quadrados dos desvios em relação à média aritmética:
-
-$$
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^J(x_{ij} - \hat{m})^2 \\
-$$
-Manipulando algebricamente, temos:
-
-$$
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{IJ}
-$$
-
-Ao fazermos $C = \frac{G^2}{IJ}$ temos portanto:
-
-$$
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C
-$$
-
-**2. Soma de Quadrados de Tratamentos**: $SQ_{Trat}$ - é definida como a soma dos quadrados dos efeitos dos tratamentos:
-
-$$
-SQ_{Trat} = \frac{\sum_{i=1}^IT_i^2}{J} - C
-$$
-
-Lembrando que:
-
-$$
-T_i^2 = \left ( \sum_{j=1}^J{x_{ij}} \right)^2
-$$
-
-e
-
-$$
-C = \frac{G^2}{IJ}
-$$
-
-**3. Soma de Quadrados do resíduo**: $SQ_{Res}$ - é definida como a soma dos quadrados do efeito do acaso. Lembrando que no delineamento inteiramente casualizado a variância total é dividida em duas partes, uma devido ao efeito dos tratamentos e outra devido ao efeito dos fatores não controlados ou acaso (Resíduo), então, a soma de quadrados do resíduo pode ser obtida por diferença, ou seja
-
-$$
-SQ_{Res} = SQ_{Total} - SQ_{Trat}
-$$
-
-Podemos, a seguir, montar o seguinte quadro de análise de variância:
-
-Causas de Variação |GL | SQ | QM | F 
--------------------|---|----|----|---
-Tratamento | I-1| $SQ_{Trat}$ | $SQ_{Trat}$/(I-1) | $QM_{Trat}$/$QM_{Res}$
-Resíduo | I(J-1)| $SQ_{Res}$ | $SQ_{Res}$/[I(J-1)] | 
-**Total** | **IJ-1**| $SQ_{Total}$ |  | 
-
-As hipóteses testadas são:
-
-$$
-\begin{cases} H_0: \tau_i = 0, i=1,2,...,I. \\ 
-H_1: \text{pelo menos um valor } \tau_i \neq 0
-\end{cases}
-$$
-
-**CRITÉRIO DO TESTE**: Comparamos o valor F calculado para tratamentos com o valor de F tabelado em função do número de graus de liberdade (GL) de tratamentos e do resíduo, ao nível $\alpha$ de significância.
-
-Se $F_{Trat} > F_{Tab}$, concluímos que o teste é significativo, portanto, rejeitamos $H_0$ e devemos concluir que existe diferença significativa entre os efeitos dos tratamentos testados em relação às variáveis (característica) em estudo.
-
-## 5.5 EXEMPLO DE APLICAÇÃO
-
-Num experimento inteiramente casualizado, de competição de variedades de mandioca, realizado numa área perfeitamente homogênea quanto às condições experimentais, foram utilizadas 5 repetições das seguintes variedades:
-
-1 - IAC 5
-
-2 - IAC 7
-
-3 - IAC 11
-
-4 - IRACEMA
-
-5 - MANTIQUEIRA
-
-A designação dos tratamentos às parcelas no campo, juntamente com as produções, expressa em t/ha, foi a seguinte:
-
-![](Delin1.png)
-
-Com estes dados, podemos organizar o quadro seguinte:
-
-Tratamentos|Rep.1|Rep.2|Rep.3|Rep.4|Rep. 5|Total
-----------------|-----|-----|-----|-----|-----|-----
-1 - IAC 5|38,9|25,4|20,3|25,7|29,3|139,6
-2 - IAC 7 |20,9|26,2|32,3|28,3|28,7|136,4
-3 - IAC 11|28,1|27,0|25,8|26,9|22,3|130,1
-4 - IRACEMA|38,7|43,2|41,7|39,0|40,3|202,9
-5 - MANTIQUEIRA|47,8|47,8|44,7|50,5|56,4|247,2
-Total||||||856,2
-
-As hipóteses que desejamos testar são:
-
-$H_0$: As variedades de mandioca testadas não são diferentes entre si quanto à produção.
-
-$H_1$: As variedade de mandioca testadas diferem entre si quanto à produção.
-
-
-**Cálculo das Somas de Quadrados**
-
-**a) Soma de Quadrados Total**:
-
-$$
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C \\
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{IJ} \\
-SQ_{Total} = (38,9^2+25,4^2+...+56,4^2) - \frac{856,2^2}{5\cdot5}\\
-SQ_{Total} = 2509,46
-$$
-
-**b) Soma de Quadrados devido ao efeito de Tratamentos**:
-
-$$
-SQ_{Trat} = \frac{\sum_{i=1}^IT_i^2}{J} - C \\
-SQ_{Trat} = \frac{T_1^2+T_2^2+...+T_I^2}{J} - \frac{G^2}{IJ}\\
-SQ_{Trat} = \frac{139,6^2+136,4^2+...+247,2^2}{5} - \frac{856,2^2}{5\cdot5}\\ 
-SQ_{Trat}= 2135,94
-$$
-
-**Soma de Quadrados do Resíduo**:
-$$
-SQ_{Res} = SQ_{Total} - SQ_{Trat} \\
-SQ_{Res} = 2509,46 - 2135,94 = 373,52
-$$
-
-Então, podemos montar o seguinte quadro de análise de variância:
-
-Causas de Variação |GL | SQ | QM | F 
--------------------|---|----|----|---
-Tratamento | 4| 2135,94 | 533,99 | 28.59**
-Resíduo | 20| 373,52 | 18,68 | -
-**Total** | 24| **2509,46**| - | - |- 
-
-Valores de F da tabela para (4 x 20 GL):$\begin{cases} 5\%=2,87 \\ 1\%=4,43 \end{cases}$
-
-**Conclusão**: O teste F foi significativo ao nível de 1% de probabilidade, indicando que devemos rejeitar $H_0$ e concluir que as variedades diferem entre si em relação à produção de mandioca, com um grau de confiança de $99\%$ de probabilidade.
-
-Conclusões específicas sobre o comportamento das variedades, devemos utilizar um teste de compração de médias.
-
-
-**a) Cálculo das médias de cada tratamento e erros padrões das médias**:
-
-$$
-\hat{m_1} = \frac{T_1}{J} = \frac{139,6}{5} = 27,9\;t/ha\\
-\hat{m_2} = \frac{T_2}{J}= \frac{136,4}{5} = 27,3\;t/ha\\
-\hat{m_3} = \frac{T_3}{J}= \frac{130,1}{5} = 26,0\;t/ha\\
-\hat{m_4} = \frac{T_4}{J}= \frac{202,9}{5} = 40,6\;t/ha\\
-\hat{m_5} =\frac{T_5}{J}= \frac{247,2}{5} = 49,4\;t/ha
-$$
-
-E o erro padrão das médias será:
-
-$$
-s(\hat{m_1}) = s(\hat{m_2})=s(\hat{m_3})=s(\hat{m_4})=s(\hat{m_5})= \sqrt{\frac{QM_{Res}}{J}} = \sqrt{\frac{18,68}{5}} = 1,93 \; t/ha 
-$$
-
-**b) Aplicação do teste de Tukey para a comparação das médias de tratamentos**
-
-**b.1) Cálculo do valor de $\Delta$**:
-
-$$
-q_{(5\;Trat \times 20 gl\;Resíduo)}(5\%) = 4.23
-$$
-Então, temos:
-
-$$
-\Delta = q \cdot \sqrt{\frac{QM_{Res}}{J}} = 4,23 \cdot 1,93 = 8,2\;t/ha
-$$
-
-**b.2) Organizar a médias em ordem decrescente**:
-
-$$
-\hat{m_5} = 49,4\;t/ha\\
-\hat{m_4} = 40,6\;t/ha\\
-\hat{m_1} = 27,9\;t/ha\\
-\hat{m_2} = 27,3\;t/ha\\
-\hat{m_3} = 26,0\;t/ha
-$$
-
-**b.3) Cálculo das estimativas de contrastes entre duas médias**:
-
-||$\hat{m_4}$|$\hat{m_1}$|$\hat{m_2}$|$\hat{m_3}$|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|$\hat{m_5}$|$8,8^{*}$|$21,5^{*}$|$22,1^{*}$|$23,4^{*}$|
-|$\hat{m_4}$||$12,7^{*}$|$13,3^{*}$|$14,6^{*}$|
-|$\hat{m_1}$|||$0,60^{ns}$|$1,9^{ns}$|
-|$\hat{m_2}$||||$1,3^{ns}$|
-
-**b.4) Conclusão**: Médias seguidas pela mesma letra, não diferem entre si, pelo teste de Tukey ao nível de 5% de probabilidade. 
-
-$$
-\hat{m_5} = 49,4-a\\
-\hat{m_4} = 40,6-b\\
-\hat{m_1} = 27,9-c\\
-\hat{m_2} = 27,3-c\\
-\hat{m_3} = 26,0-c
-$$
-
-Portanto, a melhor variedade é a Mantiqueira, pois difere de todas as outras pelo teste e Tukey e apresenta maior produção de mandioca.
-
-**c) Cálculo do coeficiente de variação do experimento:**
-
-$$
-\hat{m} = \frac{G}{IJ} = \frac{856,2}{5 \cdot 5} = 34,2 \;t/ha \\
-s = \sqrt{QM_{res}} = \sqrt{18,64} = 4,32\;t/ha \\
-CV = 100 \cdot \frac{s}{\hat{m}} = 100 \cdot \frac{4,32}{34,2} = 12,63\%
-$$
-
-
-Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: [Mandioca](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt).
-
-![](Rlogo.png)
-```{r}
-# Carregando o pacote para a análise
-library(ExpDes.pt)
-
-# Caminho dos dados
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt"
-
-# Lendo o arquivo de dados
-dados<-read.table(caminho,h=T,sep="\t")
-
-# verificando os 6 primeiros registros
-head(dados)
-
-# Análise de variância e teste de Tukey com a função dic
-trat <- dados$Trat # Criando o vetor de tratamentos
-prod <- dados$Y # Criando o vetor com a variável resposta
-
-# Utilizando a função
-dic(trat,prod,mcomp = "tukey")
-```
-
-
-# 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO
-
-## 5.6.1 INTRODUÇÃO
+## Introdução
 
 Muitas vezes pode acontecer de chegarmos ao final do experimento e não conseguirmos obter os dados de algumas parcelas do experimento. Quando isso ocorre, dizemos que temos **parcelas perdidas**.
 
@@ -406,7 +13,7 @@ Algumas razões para a ocorrência de parcelas perdidas:
     + impossibilidade de acesso à parcela, ou ao bloco devido à condições meteorológicas;
     + falha no equipamento (muito comum na utilização de sensores).
   
-## 5.6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA
+## Obtenção da análise de variância
 
 Todo o delineamento experimental é estruturado para que haja um perfeito balanceamento, e a perda de parcelas causa um quebra neste balanceamento, acarretando modificações no método de análise estatística.
 
@@ -496,7 +103,7 @@ Valores de F da tabela para (4 x 22 GL):$\begin{cases} 5\%=2,82 \\ 1\%=4,31 \end
 
 Para tirar conclusões mais específicas sobre o comportamento das cultivares, devemos utilizar um teste de compração de médias.
 
-## 5.6.3 CÁLCULO DAS MÉDIAS E ERROS PADRÕES DAS MÉDIAS:
+## Cálculo das médias e error padrôes das médias
 
 A média do Tratamento $i$ é dada por:
 
@@ -529,7 +136,7 @@ s(\hat{m_4})=\sqrt{\frac{0,4510}{5}} = 0,30\;t/ha.
 $$
 
 
-## 5.6.4 TESTE DE TUKEY PARA COMPARAÇÃO DAS MÉDIAS
+## Teste de Tukey para comparação das médias
 
 Como os tratamentos não possuem o mesmo número de repetições, vamos ter diversos casos a considerar:
 
@@ -603,6 +210,7 @@ $$
 \hat{Y_8} = \hat{m_2} - \hat{m_3} = 0,49^{ns}\;t/ha \\
 \hat{Y_9} = \hat{m_5} - \hat{m_3} = 10,94^{*}\;t/ha 
 $$
+
 **d. Comparação entre médias com 5 repetições com média com 4 repetições:**
 
 Neste caso, a dms será calculada por:
@@ -657,7 +265,7 @@ kable(tb) %>%
 kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
 ```
 
-## 5.6.5 CÁLCULO DO COEFICIENTE DE VARIAÇÃO DO EXPERIMENTO
+## Cálculo do coeficiente de variação do experimento
 
 $$
 \hat{m} = \frac{G}{N} = \frac{400,49}{27} = 14,82\;t/ha \\
@@ -695,7 +303,7 @@ massa_seca <- dados$Y[!is.na(dados$Y)] # Criando o vetor com a variável respost
 dic(trat,massa_seca,mcomp = "tukey", sigT = .01)
 ```
 
-## 5.6.6 APLICAÇÃO DO TESTE t DE STUDENT A UM CONTRASTE
+## Aplicação do teste t de Student a um contraste
 
 Para exemplificar, vamos estudar o seguinte contraste:
 
@@ -768,7 +376,7 @@ text(-4,.02,expression(paste(alpha,"=0.5%")))
 text(tobs,.05,"tobs")
 ```
 
-## 5.6.7  TESTE DE DUNCAN PARA A COMPARAÇÃO DAS MÉDIAS
+## Teste de Duncan para a comparação das médias
 
 Para a aplicação do teste de Duncan, devemos colocar as médias em ordem decresecente, acompanhadas do número de repetições com que foram calculadas, ou seja
 
@@ -872,7 +480,7 @@ kable(tb) %>%
 kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
 ```
 
-### Utilizando o R
+**Utilizando o R**
 
 ![](Rlogo.png)
 ```{r}

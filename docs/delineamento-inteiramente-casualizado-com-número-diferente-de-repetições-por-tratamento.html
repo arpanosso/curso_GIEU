@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU</title>
+  <title>Capítulo 6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU</title>
   <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU" />
+  <meta property="og:title" content="Capítulo 6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU" />
+  <meta name="twitter:title" content="Capítulo 6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU" />
   
   <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-08" />
+<meta name="date" content="2020-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"/>
+<link rel="prev" href="delineamento-inteiramente-casualizado.html"/>
 <link rel="next" href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -136,73 +136,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">curso_GIEU</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução ao Curso</a></li>
-<li class="chapter" data-level="2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>2</b> Testes para Comparação de médias</a><ul>
-<li class="chapter" data-level="2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>2.1</b> INTRODUÇÃO</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>2.1.1</b> CONTRASTES DE MÉDIAS</a></li>
-<li class="chapter" data-level="2.1.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contraste"><i class="fa fa-check"></i><b>2.1.2</b> ESTIMATIVA DO CONTRASTE</a></li>
-<li class="chapter" data-level="2.1.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>2.1.3</b> COVARIÂNCIA ENTRE DOIS CONTRASTES</a></li>
-<li class="chapter" data-level="2.1.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>2.1.4</b> CONTRASTES ORTOGONAIS</a></li>
-<li class="chapter" data-level="2.1.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>2.1.5</b> VARIÂNCIA DE UM CONTRASTE</a></li>
-<li class="chapter" data-level="2.1.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>2.1.6</b> ERRO PADRÃO DO CONTRASTE</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUÇÃO AO CURSO</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#alguns-conceitos-básicos"><i class="fa fa-check"></i><b>1.1</b> Alguns conceitos básicos</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#medidas-de-posição-e-de-tendência-central"><i class="fa fa-check"></i><b>1.2</b> Medidas de posição e de tendência central</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>2.2</b> TESTE t DE STUDENT</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>2.2.1</b> EXEMPLO DE APLICAÇÃO DO TESTE t de STUDENT</a></li>
+<li class="chapter" data-level="2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html"><i class="fa fa-check"></i><b>2</b> COMPARAÇÕES DE PARÂMETROS DE DUAS POPULAÇÕES</a><ul>
+<li class="chapter" data-level="2.1" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-da-variância-de-duas-populações-normais"><i class="fa fa-check"></i><b>2.1</b> Comparação da variância de duas populações normais</a></li>
+<li class="chapter" data-level="2.2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-de-duas-médias-de-populações-normais-amostras-independentes"><i class="fa fa-check"></i><b>2.2</b> Comparação de duas médias de populações normais: amostras independentes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>2.3</b> TESTE DE TUKEY</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>2.3.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE TUKEY</a></li>
+<li class="chapter" data-level="3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html"><i class="fa fa-check"></i><b>3</b> PLANEJAMENTO DE EXPERIMENTOS</a><ul>
+<li class="chapter" data-level="3.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>3.1</b> Introdução</a></li>
+<li class="chapter" data-level="3.2" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#unidade-experimental-ou-parcela"><i class="fa fa-check"></i><b>3.2</b> Unidade Experimental ou Parcela</a></li>
+<li class="chapter" data-level="3.3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>3.3</b> Princípios Básicos da Experimentação</a></li>
+<li class="chapter" data-level="3.4" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#relação-entre-os-princípios-básico-da-experimentação-e-os-delineamentos-experimentais"><i class="fa fa-check"></i><b>3.4</b> Relação entre os princípios básico da experimentação e os delineamentos experimentais</a></li>
+<li class="chapter" data-level="3.5" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#testes-de-significância"><i class="fa fa-check"></i><b>3.5</b> Testes de Significância</a></li>
+<li class="chapter" data-level="3.6" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#teste-f-de-snedecor-para-análise-de-variância"><i class="fa fa-check"></i><b>3.6</b> Teste F de Snedecor para Análise de Variância</a></li>
+<li class="chapter" data-level="3.7" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#exemplo-de-aplicação-do-teste-f"><i class="fa fa-check"></i><b>3.7</b> Exemplo de aplicação do teste F</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>2.4</b> TESTE DE DUNCAN</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>2.4.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE DUNCAN</a></li>
+<li class="chapter" data-level="4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>4</b> TESTES PARA COMPARAÇÃO DE MÉDIAS</a><ul>
+<li class="chapter" data-level="4.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
+<li class="chapter" data-level="4.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>4.2</b> Contrastes de Médias</a></li>
+<li class="chapter" data-level="4.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contrastes"><i class="fa fa-check"></i><b>4.3</b> Estimativa do Contrastes</a></li>
+<li class="chapter" data-level="4.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>4.4</b> Covariância entre dois contrastes</a></li>
+<li class="chapter" data-level="4.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>4.5</b> Contrastes ortogonais</a></li>
+<li class="chapter" data-level="4.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>4.6</b> Variância de um contraste</a></li>
+<li class="chapter" data-level="4.7" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>4.7</b> Erro padrão do contraste</a></li>
+<li class="chapter" data-level="4.8" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>4.8</b> Teste t de Student</a></li>
+<li class="chapter" data-level="4.9" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>4.9</b> Exemplo de aplicação do teste t de Student</a></li>
+<li class="chapter" data-level="4.10" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>4.10</b> Teste de Tukey</a></li>
+<li class="chapter" data-level="4.11" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>4.11</b> Exemplo de aplicação do teste de Tukey</a></li>
+<li class="chapter" data-level="4.12" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>4.12</b> Teste de Duncan</a></li>
+<li class="chapter" data-level="4.13" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>4.13</b> Exemplo de aplicação do teste de Duncan</a></li>
+<li class="chapter" data-level="4.14" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>4.14</b> Teste de Scheffé</a></li>
+<li class="chapter" data-level="4.15" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>4.15</b> Exemplo de aplicação do teste de Scheffé</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>2.5</b> TESTE DE SCHEFFÉ</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>2.5.1</b> EXEMPLO DE APLICAÇÃO DO TESTE DE SCHEFFÉ</a></li>
+<li class="chapter" data-level="5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>5</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="5.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>5.1</b> Caracterização</a></li>
+<li class="chapter" data-level="5.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>5.2</b> Modelo Matemático</a></li>
+<li class="chapter" data-level="5.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>5.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
+<li class="chapter" data-level="5.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="5.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.5</b> Exemplo de aplicação</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
+<li class="chapter" data-level="6.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
+<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>6.2</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-error-padrôes-das-médias"><i class="fa fa-check"></i><b>6.3</b> Cálculo das médias e error padrôes das médias</a></li>
+<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> Teste de Tukey para comparação das médias</a></li>
+<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> Cálculo do coeficiente de variação do experimento</a></li>
+<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> Aplicação do teste t de Student a um contraste</a></li>
+<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> Teste de Duncan para a comparação das médias</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>3</b> 5. DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
-<li class="chapter" data-level="3.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>3.1</b> 5.1 CARACTERIZAÇÃO</a></li>
+<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
+<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos</a></li>
+<li class="chapter" data-level="7.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.3</b> Método dos contrastes de totais de tratamentos</a></li>
+<li class="chapter" data-level="7.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.4</b> Método dos totais de tratamentos (sem utilizar contrastes)</a></li>
+<li class="chapter" data-level="7.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.5.1</b> <strong>Conclusões</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="modelo-matemático.html"><a href="modelo-matemático.html"><i class="fa fa-check"></i><b>4</b> 5.2 MODELO MATEMÁTICO</a></li>
-<li class="chapter" data-level="5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><i class="fa fa-check"></i><b>5</b> 5.3 HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLISE DE VARIÂNCIA</a><ul>
-<li class="chapter" data-level="5.1" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.1</b> 5.4 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="5.2" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.2</b> 5.5 EXEMPLO DE APLICAÇÃO</a></li>
+<li class="chapter" data-level="7.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-maisde-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.6</b> Componentes com maisde um grau de liberdade</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
-<li class="chapter" data-level="6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>6.1</b> 5.6.1 INTRODUÇÃO</a></li>
-<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>6.2</b> 5.6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.3</b> 5.6.3 CÁLCULO DAS MÉDIAS E ERROS PADRÕES DAS MÉDIAS:</a></li>
-<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> 5.6.4 TESTE DE TUKEY PARA COMPARAÇÃO DAS MÉDIAS</a></li>
-<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> 5.6.5 CÁLCULO DO COEFICIENTE DE VARIAÇÃO DO EXPERIMENTO</a></li>
-<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> 5.6.6 APLICAÇÃO DO TESTE t DE STUDENT A UM CONTRASTE</a></li>
-<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> 5.6.7 TESTE DE DUNCAN PARA A COMPARAÇÃO DAS MÉDIAS</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#utilizando-o-r"><i class="fa fa-check"></i><b>6.7.1</b> Utilizando o R</a></li>
+<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> Caracterização</a></li>
+<li class="chapter" data-level="8.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> Modelo matemático</a></li>
+<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> Hipóteses básicas</a></li>
+<li class="chapter" data-level="8.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="8.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> Exemplo de aplicação</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
-<li class="chapter" data-level="7.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>7.1</b> 6.1 INTRODUÇÃO</a></li>
-<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> 6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.2.1</b> 6.2.1. MÉTODO DOS CONTRASTES DE TOTAIS DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="7.2.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.2.2</b> 6.2.2. MÉTODO DOS TOTAIS DE TRATAMENTOS (SEM UTILIZAR CONTRASTES)</a></li>
-<li class="chapter" data-level="7.2.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2.3</b> 6.2.3. ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="7.2.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.2.4</b> <strong>Conclusões</strong></a></li>
-<li class="chapter" data-level="7.2.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.2.5</b> 6.2.4. COMPONENTES COM MAIS DE UM GRAU DE LIBERDADE</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> 7. DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
-<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> 7.1. CARACTERIZAÇÃO</a></li>
-<li class="chapter" data-level="8.2" data-path="modelo-matemático.html"><a href="modelo-matemático.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> 7.2. MODELO MATEMÁTICO</a></li>
-<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> 7.3. HIPÓTESES BÁSICAS</a></li>
-<li class="chapter" data-level="8.4" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> 7.4. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="8.5" data-path="hipóteses-básicas-para-aplicação-da-análise-de-variância.html"><a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> 7.5. EXEMPLO DE APLICAÇÃO</a></li>
-<li class="chapter" data-level="8.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#delineamento-em-blocos-csualizados-com-uma-parcela-perdida"><i class="fa fa-check"></i><b>8.6</b> 7.6. DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#introdução"><i class="fa fa-check"></i><b>8.6.1</b> 7.6.1. INTRODUÇÃO</a></li>
-<li class="chapter" data-level="8.6.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>8.6.2</b> 7.6.2. ESTIMATIVA DA PARCELA PERDIDA</a></li>
-<li class="chapter" data-level="8.6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>8.6.3</b> 7.6.3. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</a></li>
-<li class="chapter" data-level="8.6.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.4</b> 7.6.4. MÉDIAS DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="8.6.5" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#erros-padrões-das-médias-de-tratamentos"><i class="fa fa-check"></i><b>8.6.5</b> 7.6.5. ERROS PADRÕES DAS MÉDIAS DE TRATAMENTOS</a></li>
-<li class="chapter" data-level="8.6.6" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#comparação-das-médias-para-o-teste-de-tukey"><i class="fa fa-check"></i><b>8.6.6</b> 7.6.6. COMPARAÇÃO DAS MÉDIAS PARA O TESTE DE TUKEY</a></li>
-<li class="chapter" data-level="8.6.7" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>8.6.7</b> 7.6.7. EXEMPLO DE APLICAÇÃO</a></li>
-</ul></li>
+<li class="chapter" data-level="9" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><i class="fa fa-check"></i><b>9</b> DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
+<li class="chapter" data-level="9.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
+<li class="chapter" data-level="9.2" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>9.2</b> Estimativa da parcela perdida</a></li>
+<li class="chapter" data-level="9.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>9.3</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="9.4" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>9.4</b> Médias de tratamentos</a></li>
+<li class="chapter" data-level="9.5" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>9.5</b> Erros padrões das médias</a></li>
+<li class="chapter" data-level="9.6" data-path="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-csualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>9.6</b> Comparação de médias pelo teste de Tukey</a></li>
+<li class="chapter" data-level="9.7" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>9.7</b> Exemplo de aplicação</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -225,9 +233,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento" class="section level1">
-<h1><span class="header-section-number">Capítulo 6</span> 5.6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</h1>
+<h1><span class="header-section-number">Capítulo 6</span> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</h1>
 <div id="introdução" class="section level2">
-<h2><span class="header-section-number">6.1</span> 5.6.1 INTRODUÇÃO</h2>
+<h2><span class="header-section-number">6.1</span> Introdução</h2>
 <p>Muitas vezes pode acontecer de chegarmos ao final do experimento e não conseguirmos obter os dados de algumas parcelas do experimento. Quando isso ocorre, dizemos que temos <strong>parcelas perdidas</strong>.</p>
 <p>Algumas razões para a ocorrência de parcelas perdidas:</p>
 <pre><code>+ morte das plantas responsáveis pela parcela;
@@ -237,8 +245,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 + impossibilidade de acesso à parcela, ou ao bloco devido à condições meteorológicas;
 + falha no equipamento (muito comum na utilização de sensores).</code></pre>
 </div>
-<div id="obtenção-da-análise-de-variância-1" class="section level2">
-<h2><span class="header-section-number">6.2</span> 5.6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</h2>
+<div id="obtenção-da-análise-de-variância" class="section level2">
+<h2><span class="header-section-number">6.2</span> Obtenção da análise de variância</h2>
 <p>Todo o delineamento experimental é estruturado para que haja um perfeito balanceamento, e a perda de parcelas causa um quebra neste balanceamento, acarretando modificações no método de análise estatística.</p>
 <p>Para ilustrar o procedimento de análise de um experimento inteiramente casualizado, não balanceado, vamos utilizar o exemplo seguinte, referente a dados adaptados do trabalho de <strong><em>CARDOSO FILHO (1974)</em></strong> e se referem a produção de matéria seca de cultivares de sorgo, em t/ha.</p>
 <p>Experimento de produção de matéria seca de cultivares de sorgo, em t/ha. Para os cultivares, <em>H</em> = <em>Híbrido</em> e <em>V</em> = <em>Variedade</em>.</p>
@@ -535,8 +543,8 @@ Total
 <p><strong>Conclusão</strong>: O teste F foi significativo ao nível de 1% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as cultivares de sorgo possuem efeitos diferentes sobre a produção de matéria seca, com um grau de confiança de <span class="math inline">\(99\%\)</span> de probabilidade.</p>
 <p>Para tirar conclusões mais específicas sobre o comportamento das cultivares, devemos utilizar um teste de compração de médias.</p>
 </div>
-<div id="cálculo-das-médias-e-erros-padrões-das-médias" class="section level2">
-<h2><span class="header-section-number">6.3</span> 5.6.3 CÁLCULO DAS MÉDIAS E ERROS PADRÕES DAS MÉDIAS:</h2>
+<div id="cálculo-das-médias-e-error-padrôes-das-médias" class="section level2">
+<h2><span class="header-section-number">6.3</span> Cálculo das médias e error padrôes das médias</h2>
 <p>A média do Tratamento <span class="math inline">\(i\)</span> é dada por:</p>
 <p><span class="math display">\[
 \hat{m_i} = \frac{T_i}{r_i},
@@ -561,7 +569,7 @@ s(\hat{m_4})=\sqrt{\frac{0,4510}{5}} = 0,30\;t/ha.
 \]</span></p>
 </div>
 <div id="teste-de-tukey-para-comparação-das-médias" class="section level2">
-<h2><span class="header-section-number">6.4</span> 5.6.4 TESTE DE TUKEY PARA COMPARAÇÃO DAS MÉDIAS</h2>
+<h2><span class="header-section-number">6.4</span> Teste de Tukey para comparação das médias</h2>
 <p>Como os tratamentos não possuem o mesmo número de repetições, vamos ter diversos casos a considerar:</p>
 <p>Para a aplicação do teste de Tukey, devemos colocar as médias em ordem decresecente, acompanhadas do número de repetições com que foram calculadas, ou seja</p>
 <p><span class="math display">\[
@@ -613,8 +621,8 @@ Os contrastes que envolve comparações são:</p>
 \hat{Y_7} = \hat{m_1} - \hat{m_3} = 1,25^{ns}\;t/ha \\
 \hat{Y_8} = \hat{m_2} - \hat{m_3} = 0,49^{ns}\;t/ha \\
 \hat{Y_9} = \hat{m_5} - \hat{m_3} = 10,94^{*}\;t/ha 
-\]</span>
-<strong>d. Comparação entre médias com 5 repetições com média com 4 repetições:</strong></p>
+\]</span></p>
+<p><strong>d. Comparação entre médias com 5 repetições com média com 4 repetições:</strong></p>
 <p>Neste caso, a dms será calculada por:</p>
 <p><span class="math display">\[
 \Delta = q\cdot\sqrt{\frac{1}{2}\hat{V(\hat{Y})}}, onde \\
@@ -775,7 +783,7 @@ a
 </table>
 </div>
 <div id="cálculo-do-coeficiente-de-variação-do-experimento" class="section level2">
-<h2><span class="header-section-number">6.5</span> 5.6.5 CÁLCULO DO COEFICIENTE DE VARIAÇÃO DO EXPERIMENTO</h2>
+<h2><span class="header-section-number">6.5</span> Cálculo do coeficiente de variação do experimento</h2>
 <p><span class="math display">\[
 \hat{m} = \frac{G}{N} = \frac{400,49}{27} = 14,82\;t/ha \\
 s = \sqrt{QM_{Res}}=\sqrt{0,4510}=0,6716\;t/ha\\
@@ -787,17 +795,17 @@ CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{0,6716}{14,83}=4,53\%
 <p>Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em:
 <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt">sorgo</a>.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
-<span id="cb35-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb35-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-3"></a></span>
-<span id="cb35-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-4"></a><span class="co"># Caminho dos dados</span></span>
-<span id="cb35-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-5"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt&quot;</span></span>
-<span id="cb35-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-6"></a></span>
-<span id="cb35-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-7"></a><span class="co"># Lendo o arquivo de dados</span></span>
-<span id="cb35-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-8"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb35-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-9"></a></span>
-<span id="cb35-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-10"></a><span class="co"># verificando os 6 primeiros registros</span></span>
-<span id="cb35-11"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb35-11"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
+<span id="cb65-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
+<span id="cb65-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-3"></a></span>
+<span id="cb65-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-4"></a><span class="co"># Caminho dos dados</span></span>
+<span id="cb65-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-5"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt&quot;</span></span>
+<span id="cb65-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-6"></a></span>
+<span id="cb65-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-7"></a><span class="co"># Lendo o arquivo de dados</span></span>
+<span id="cb65-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-8"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb65-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-9"></a></span>
+<span id="cb65-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-10"></a><span class="co"># verificando os 6 primeiros registros</span></span>
+<span id="cb65-11"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-11"></a><span class="kw">head</span>(dados)</span></code></pre></div>
 <pre><code>##          Trat     Y
 ## 1      NK300H 10.27
 ## 2   Sordan67H  9.77
@@ -805,12 +813,12 @@ CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{0,6716}{14,83}=4,53\%
 ## 4  Pionner93H 21.22
 ## 5       SartV 20.20
 ## 6      NK300H 11.55</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb37-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
-<span id="cb37-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb37-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor de tratamentos sem os valores perdidos</span></span>
-<span id="cb37-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb37-3"></a>massa_seca &lt;-<span class="st"> </span>dados<span class="op">$</span>Y[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor com a variável resposta semos valores perdidos</span></span>
-<span id="cb37-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb37-4"></a></span>
-<span id="cb37-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb37-5"></a><span class="co"># Utilizando a função</span></span>
-<span id="cb37-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb37-6"></a><span class="kw">dic</span>(trat,massa_seca,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>, <span class="dt">sigT =</span> <span class="fl">.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
+<span id="cb67-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor de tratamentos sem os valores perdidos</span></span>
+<span id="cb67-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-3"></a>massa_seca &lt;-<span class="st"> </span>dados<span class="op">$</span>Y[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor com a variável resposta semos valores perdidos</span></span>
+<span id="cb67-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-4"></a></span>
+<span id="cb67-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-5"></a><span class="co"># Utilizando a função</span></span>
+<span id="cb67-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-6"></a><span class="kw">dic</span>(trat,massa_seca,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>, <span class="dt">sigT =</span> <span class="fl">.01</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
@@ -844,7 +852,7 @@ CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{0,6716}{14,83}=4,53\%
 ## ------------------------------------------------------------------------</code></pre>
 </div>
 <div id="aplicação-do-teste-t-de-student-a-um-contraste" class="section level2">
-<h2><span class="header-section-number">6.6</span> 5.6.6 APLICAÇÃO DO TESTE t DE STUDENT A UM CONTRASTE</h2>
+<h2><span class="header-section-number">6.6</span> Aplicação do teste t de Student a um contraste</h2>
 <p>Para exemplificar, vamos estudar o seguinte contraste:</p>
 <p><span class="math display">\[
 Y=m_1+m_2+m_3+m_4-4m_5
@@ -876,40 +884,40 @@ t_{obs} = \frac{\hat{Y}}{s(\hat{Y})}=\frac{-30,98}{1.25}=-24,78^{**} \\
 t_{tab (22 GLres)} \begin{cases}5\%=2,07\\1\%=2,82 \end{cases}
 \]</span></p>
 <p><strong>Conclusão</strong>: Como <span class="math inline">\(t_{obs} &gt; t_{tab}\)</span>, rejeitamos <span class="math inline">\(H_0\)</span> e concluímos que a média do grupo de híbridos diferem da média da variedade SART, sendo que, em médias, a variedade possui maior produção de matéria seca que os híbridos.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-1"></a><span class="kw">require</span>(agricolae)</span>
-<span id="cb39-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-2"></a>m &lt;-<span class="st"> </span><span class="kw">tapply</span>(massa_seca,trat,mean,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
-<span id="cb39-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-3"></a>r &lt;-<span class="st"> </span><span class="kw">tapply</span>(massa_seca,trat, .nac&lt;-<span class="cf">function</span>(x) {x&lt;-<span class="kw">na.omit</span>(x);<span class="kw">length</span>(x)})</span>
-<span id="cb39-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-4"></a>QMRes &lt;-<span class="st"> </span><span class="fl">0.4510</span></span>
-<span id="cb39-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-5"></a>glRes &lt;-<span class="st"> </span><span class="dv">22</span></span>
-<span id="cb39-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-6"></a></span>
-<span id="cb39-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-7"></a></span>
-<span id="cb39-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-8"></a><span class="co">#Híbridos vs Variedades</span></span>
-<span id="cb39-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb39-9"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-1"></a><span class="kw">require</span>(agricolae)</span>
+<span id="cb69-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-2"></a>m &lt;-<span class="st"> </span><span class="kw">tapply</span>(massa_seca,trat,mean,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
+<span id="cb69-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-3"></a>r &lt;-<span class="st"> </span><span class="kw">tapply</span>(massa_seca,trat, .nac&lt;-<span class="cf">function</span>(x) {x&lt;-<span class="kw">na.omit</span>(x);<span class="kw">length</span>(x)})</span>
+<span id="cb69-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-4"></a>QMRes &lt;-<span class="st"> </span><span class="fl">0.4510</span></span>
+<span id="cb69-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-5"></a>glRes &lt;-<span class="st"> </span><span class="dv">22</span></span>
+<span id="cb69-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-6"></a></span>
+<span id="cb69-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-7"></a></span>
+<span id="cb69-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-8"></a><span class="co">#Híbridos vs Variedades</span></span>
+<span id="cb69-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-9"></a>m</span></code></pre></div>
 <pre><code>##      NK300H  Pionner93H Pionner988H       SartV   Sordan67H 
 ##    11.22000    21.01200     9.96750    20.91167    10.46167</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb41-1"></a>c1&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">1</span>) <span class="co"># atribua os coeficientes de acordo com a ordem das médias</span></span>
-<span id="cb41-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb41-2"></a>(<span class="dt">Y1=</span><span class="kw">sum</span>(m<span class="op">*</span>c1))</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb71-1"></a>c1&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">1</span>) <span class="co"># atribua os coeficientes de acordo com a ordem das médias</span></span>
+<span id="cb71-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb71-2"></a>(<span class="dt">Y1=</span><span class="kw">sum</span>(m<span class="op">*</span>c1))</span></code></pre></div>
 <pre><code>## [1] -30.9855</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb43-1"></a>(<span class="dt">tobs=</span>Y1<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c1<span class="op">^</span><span class="dv">2</span><span class="op">/</span>r)<span class="op">*</span>QMRes))</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb73-1"></a>(<span class="dt">tobs=</span>Y1<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c1<span class="op">^</span><span class="dv">2</span><span class="op">/</span>r)<span class="op">*</span>QMRes))</span></code></pre></div>
 <pre><code>## [1] -24.84052</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb45-1"></a>(<span class="dt">tc5=</span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="op">/</span><span class="dv">2</span>,glRes))</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb75-1"></a>(<span class="dt">tc5=</span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="op">/</span><span class="dv">2</span>,glRes))</span></code></pre></div>
 <pre><code>## [1] 2.073873</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb47-1"></a>(<span class="dt">tc1=</span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>,glRes))</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb77-1"></a>(<span class="dt">tc1=</span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>,glRes))</span></code></pre></div>
 <pre><code>## [1] 2.818756</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb49-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-2"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,glRes),<span class="op">-</span><span class="dv">30</span>,<span class="dv">9</span>,<span class="dt">xlab=</span><span class="st">&quot;t&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;D(t)&quot;</span>,<span class="dt">las=</span><span class="dv">1</span>)</span>
-<span id="cb49-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-3"></a><span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>)</span>
-<span id="cb49-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-4"></a><span class="kw">abline</span>(<span class="dt">v=</span><span class="kw">c</span>(tc5,<span class="op">-</span>tc5,tc1,<span class="op">-</span>tc1),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb49-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-5"></a><span class="kw">abline</span>(<span class="dt">v=</span>tobs,<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lty=</span><span class="dv">1</span>)</span>
-<span id="cb49-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-6"></a><span class="kw">text</span>(<span class="fl">2.8</span>,.<span class="dv">1</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=2.5%&quot;</span>)))</span>
-<span id="cb49-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-7"></a><span class="kw">text</span>(<span class="dv">4</span>,.<span class="dv">02</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=0.5%&quot;</span>)))</span>
-<span id="cb49-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-8"></a><span class="kw">text</span>(<span class="op">-</span><span class="fl">2.8</span>,.<span class="dv">1</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=2.5%&quot;</span>)))</span>
-<span id="cb49-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-9"></a><span class="kw">text</span>(<span class="op">-</span><span class="dv">4</span>,.<span class="dv">02</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=0.5%&quot;</span>)))</span>
-<span id="cb49-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb49-10"></a><span class="kw">text</span>(tobs,.<span class="dv">05</span>,<span class="st">&quot;tobs&quot;</span>)</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
+<span id="cb79-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-2"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,glRes),<span class="op">-</span><span class="dv">30</span>,<span class="dv">9</span>,<span class="dt">xlab=</span><span class="st">&quot;t&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;D(t)&quot;</span>,<span class="dt">las=</span><span class="dv">1</span>)</span>
+<span id="cb79-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-3"></a><span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>)</span>
+<span id="cb79-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-4"></a><span class="kw">abline</span>(<span class="dt">v=</span><span class="kw">c</span>(tc5,<span class="op">-</span>tc5,tc1,<span class="op">-</span>tc1),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
+<span id="cb79-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-5"></a><span class="kw">abline</span>(<span class="dt">v=</span>tobs,<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lty=</span><span class="dv">1</span>)</span>
+<span id="cb79-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-6"></a><span class="kw">text</span>(<span class="fl">2.8</span>,.<span class="dv">1</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=2.5%&quot;</span>)))</span>
+<span id="cb79-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-7"></a><span class="kw">text</span>(<span class="dv">4</span>,.<span class="dv">02</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=0.5%&quot;</span>)))</span>
+<span id="cb79-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-8"></a><span class="kw">text</span>(<span class="op">-</span><span class="fl">2.8</span>,.<span class="dv">1</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=2.5%&quot;</span>)))</span>
+<span id="cb79-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-9"></a><span class="kw">text</span>(<span class="op">-</span><span class="dv">4</span>,.<span class="dv">02</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=0.5%&quot;</span>)))</span>
+<span id="cb79-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-10"></a><span class="kw">text</span>(tobs,.<span class="dv">05</span>,<span class="st">&quot;tobs&quot;</span>)</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 </div>
 <div id="teste-de-duncan-para-a-comparação-das-médias" class="section level2">
-<h2><span class="header-section-number">6.7</span> 5.6.7 TESTE DE DUNCAN PARA A COMPARAÇÃO DAS MÉDIAS</h2>
+<h2><span class="header-section-number">6.7</span> Teste de Duncan para a comparação das médias</h2>
 <p>Para a aplicação do teste de Duncan, devemos colocar as médias em ordem decresecente, acompanhadas do número de repetições com que foram calculadas, ou seja</p>
 <p><span class="math display">\[
 \hat{m_4}=21,01 \:\:\:\:\:\: r_4=5\\
@@ -1053,20 +1061,19 @@ Pionner988H
 </tr>
 </tbody>
 </table>
-<div id="utilizando-o-r" class="section level3">
-<h3><span class="header-section-number">6.7.1</span> Utilizando o R</h3>
+<p><strong>Utilizando o R</strong></p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
-<span id="cb50-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb50-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-3"></a></span>
-<span id="cb50-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-4"></a><span class="co"># Caminho dos dados</span></span>
-<span id="cb50-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-5"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt&quot;</span></span>
-<span id="cb50-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-6"></a></span>
-<span id="cb50-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-7"></a><span class="co"># Lendo o arquivo de dados</span></span>
-<span id="cb50-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-8"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb50-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-9"></a></span>
-<span id="cb50-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-10"></a><span class="co"># verificando os 6 primeiros registros</span></span>
-<span id="cb50-11"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb50-11"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
+<span id="cb80-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
+<span id="cb80-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-3"></a></span>
+<span id="cb80-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-4"></a><span class="co"># Caminho dos dados</span></span>
+<span id="cb80-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-5"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt&quot;</span></span>
+<span id="cb80-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-6"></a></span>
+<span id="cb80-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-7"></a><span class="co"># Lendo o arquivo de dados</span></span>
+<span id="cb80-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-8"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb80-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-9"></a></span>
+<span id="cb80-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-10"></a><span class="co"># verificando os 6 primeiros registros</span></span>
+<span id="cb80-11"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-11"></a><span class="kw">head</span>(dados)</span></code></pre></div>
 <pre><code>##          Trat     Y
 ## 1      NK300H 10.27
 ## 2   Sordan67H  9.77
@@ -1074,12 +1081,12 @@ Pionner988H
 ## 4  Pionner93H 21.22
 ## 5       SartV 20.20
 ## 6      NK300H 11.55</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb52-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
-<span id="cb52-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb52-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor de tratamentos sem os valores perdidos</span></span>
-<span id="cb52-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb52-3"></a>massa_seca &lt;-<span class="st"> </span>dados<span class="op">$</span>Y[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor com a variável resposta semos valores perdidos</span></span>
-<span id="cb52-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb52-4"></a></span>
-<span id="cb52-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb52-5"></a><span class="co"># Utilizando a função</span></span>
-<span id="cb52-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb52-6"></a><span class="kw">dic</span>(trat,massa_seca,<span class="dt">mcomp =</span> <span class="st">&quot;duncan&quot;</span>, <span class="dt">sigT =</span> <span class="fl">.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
+<span id="cb82-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor de tratamentos sem os valores perdidos</span></span>
+<span id="cb82-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-3"></a>massa_seca &lt;-<span class="st"> </span>dados<span class="op">$</span>Y[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor com a variável resposta semos valores perdidos</span></span>
+<span id="cb82-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-4"></a></span>
+<span id="cb82-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-5"></a><span class="co"># Utilizando a função</span></span>
+<span id="cb82-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-6"></a><span class="kw">dic</span>(trat,massa_seca,<span class="dt">mcomp =</span> <span class="st">&quot;duncan&quot;</span>, <span class="dt">sigT =</span> <span class="fl">.01</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
@@ -1114,13 +1121,12 @@ Pionner988H
 
 </div>
 </div>
-</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="hipóteses-básicas-para-aplicação-da-análise-de-variância.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="delineamento-inteiramente-casualizado.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

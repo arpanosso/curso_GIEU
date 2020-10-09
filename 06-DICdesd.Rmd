@@ -1,6 +1,6 @@
-# 6 DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS
+# DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS
 
-## 6.1 INTRODUÇÃO
+## Introdução
 
 Quando planejamos um experimento, normalmente, o fazemos de tal forma que o mesmo nos forneça respostas a uma série de perguntas. Então, com um único experimento, o pesquisador deseja testar várias hipóteses relacionadas com os efeitos dos tratamentos utilizados. Isso pode ser feito, decompondo-se os graus de liberdade de tratamentos, isolando-se o efeito devido a cada um dos graus de liberdade, ou então, a cada grupo de graus de liberdade.
 
@@ -21,7 +21,7 @@ Existem dois métodos que nos permitem calcular as somas de quadrados correspond
 
 O procedimento utilizado para o desdobramento dos graus de liberdade de tratamentos será apresentado por meio de um exemplo numérico.
 
-## 6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS
+## Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos
 
 Vamos considerar os dados do trabalho "Ação de microrganismos do solo sobre o desenvolvimento de mudas de *Eucalyptus grandis* Hill Ex Maiden em tubetes" (Korari, 1990), realizado no delineamento inteiramente casualizado, com 5 tratamentos e 5 repetições. Os tratamentos utilizados foram:
 
@@ -134,7 +134,7 @@ Note que os contrastes são ortogonais entre si, uma vez que são ortogonais doi
 
 Para o cálculo das somas de quadrados correspondentes a cada componente do desdobramento, podemos utilizar um dos dois métodos seguintes
 
-### 6.2.1. MÉTODO DOS CONTRASTES DE TOTAIS DE TRATAMENTOS
+## Método dos contrastes de totais de tratamentos
 
 Para aplicação deste método, devemos, inicialmente, estabelecer os contrastes correspondentes a cada um dos componentes do desdobramento, tomando-se o cuidado de trabalhar com contrastes ortogonais entre si. Esses contrastes diferem dos que utilizamos normalmente, por serem funções lineares de totais de tratamentos e não de médias de tratamentos.
 
@@ -233,7 +233,7 @@ SQY_1+SQY_2+SQY_3+SQY_4=SQ_{Trat} \\
 203,3042+1,5459+1,0304+3,6603=209,5808
 $$
 
-### 6.2.2. MÉTODO DOS TOTAIS DE TRATAMENTOS (SEM UTILIZAR CONTRASTES)
+## Método dos totais de tratamentos (sem utilizar contrastes)
 
 Embora a técnica do desdobramento seja baseada em contrastes ortogonais, para o cálculo das somas de quadrados dos componentes do desdobramento por este método, necessitamos apenas conhecer os totais de tratamentos e o número de parcelas somadas para obter cada total de tratamento, não nos preocupando em utilizar os contrastes.
 
@@ -320,7 +320,7 @@ $$
 SQ_{PM\;vs.\;T}=\frac{85,88^2}{5}+\frac{91,93^2}{5}-\frac{177,81^2}{10}=3,6603
 $$
 
-### 6.2.3. ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS
+## Análise de variância com desdobramento dos graus de liberdade de tratamentos
 
 Uma vez obtidas as somas de quadrados, para cada componente do desdobramento, por qualquer dos dois métodos apresentados anteriormente, podemos montar o quadro de análise de variância com o desdobramento:
 
@@ -423,7 +423,7 @@ paste(round(CV,2),"%",sep="")
 ```
 
 
-### 6.2.4. COMPONENTES COM MAIS DE UM GRAU DE LIBERDADE
+## Componentes com maisde um grau de liberdade
 
 Em alguns casos, o experimentador pode estar interessado em realizar um desdobramento incompleto, como o seguinte:
 

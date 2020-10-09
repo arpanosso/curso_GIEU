@@ -1,12 +1,12 @@
-# Testes para Comparação de médias
+# TESTES PARA COMPARAÇÃO DE MÉDIAS
 
-## INTRODUÇÃO
+## Introdução
 
 O Teste F nos permite apenas tirar conclusões gerais relacionadas ao comportamento dos tratamentos como um todo, indicando se eles se comportam da mesma maneira ou de maneira diferente, nada nos informando com relação a quais os melhores tratamentos. Para verificar quais são os melhores tratamentos, devemos utilizar os teste de **comparação de médias**.
 
 Antes de entrarmos no estudo dos testes de comparação de médias, devemos abordar conceitos relacionados com estes testes.
 
-### CONTRASTES DE MÉDIAS
+## Contrastes de Médias
 
 Contraste de médias são relações lineares entre as médias verdadeiras dos tratamentos, de forma qua a soma algébrica dos coeficientes dessa função seja nula (igual a Zero).
 
@@ -39,7 +39,7 @@ não é um contraste.
 
 O número de contrastes que podemos formar com um grupo de médias é grande, e numa análise estatística, formamos aqueles que realmente são de interesse do pesquisador.
 
-### ESTIMATIVA DO CONTRASTE
+## Estimativa do Contrastes
 
 Geralmente, não conhecemos as médias verdadeiras, de forma que o verdadeiro valor do contraste também nos é desconhecido. Porém, como conhecemos as estimativas das médias, podemos calcular as estimativas dos contrastes.
 
@@ -98,7 +98,7 @@ $$
 \hat{Y_2}=\hat{m_1}+\hat{m_2}-\hat{m_3}-\hat{m_4} = 280+250-320-275 = -65
 $$
 
-### COVARIÂNCIA ENTRE DOIS CONTRASTES
+## Covariância entre dois contrastes
 
 Considerando as duas estimativas de contrastes:
 
@@ -143,7 +143,7 @@ $$
 \hat{COV}(\hat{Y_1},\hat{Y_2}) = (a_1b_1 + a_2b_2 + \cdots + a_Ib_I) \frac{s^2}{r} = (a_1b_1 + a_2b_2 + \cdots + a_Ib_I) \frac{QM_{Resíduo}}{r}
 $$
 
-### CONTRASTES ORTOGONAIS
+## Contrastes ortogonais
 
 A ortogonalidade entre dois contrastes traduz uma independência entre eles, isso é, a variação de um é completamente independente da variação do outro.
 
@@ -196,7 +196,7 @@ Portanto, $Y_1$ e $Y_2$ são ortogonais entre si.
 
 3) Num experimento qualquer, o número máximo de contrastes ortogonais que podemos obter é igual ao número de graus de liberdade de tratamentos do experimento.
 
-### VARIÂNCIA DE UM CONTRASTE
+## Variância de um contraste
 
 Considere um contraste na forma
 
@@ -243,7 +243,7 @@ $$
 \hat{V}(\hat{Y}) = \left( {c^2_1} + {c_2^2} + \cdots + {c^2_I} \right) \frac{QM_{Resíduo}}{r}
 $$
 
-### ERRO PADRÃO DO CONTRASTE
+## Erro padrão do contraste
 
 O erro padrão de um contraste, representado por $s(\hat{Y})$, é a raiz quadrada da estimativa da variância da estimativa do contraste, ou seja:
 
@@ -252,7 +252,7 @@ s(\hat{Y}) = \sqrt{\hat{V}(\hat{Y})}
 $$
 
 
-## TESTE t DE STUDENT
+## Teste t de Student
 
 O teste t é um teste que serve para comparar médias ou dois grupos de médias e, portanto, implica na utilização de contrastes de médias.
 
@@ -307,7 +307,7 @@ Para a aplicação exata do teste t, são necessárias duas condições básicas
 
 2 - Que os contrastes a serem testados **sejam ortogonais entre si**
 
-### EXEMPLO DE APLICAÇÃO DO TESTE t de STUDENT
+## Exemplo de aplicação do teste t de Student
 
 Como exemplo de aplicação, utilizaremos os dados do trabalho: "Competição de adubos nitrogenados no abacaxizeiro", realizado por BRASIL SOBRINHO et al. (*Boletim Técnico Científico*, ESALQ, n. 12, 1962), cujo ensaio foi instalado no delineamento em blocos casualizados com 6 tratamentos e 4 repetições, sendo que os blocos controlaram diferenças de fatores ambientais.
 
@@ -525,7 +525,7 @@ data.frame(x=0,y=1) %>%
 ```
 
 
-## TESTE DE TUKEY
+## Teste de Tukey
 
 O Teste de Tukey também pode ser usado como um complemento ao Teste F da análise de variância. Ele serve para testar todo e qualquer contraste **entre 2 médias de tratamentos**. Assim, num experimento com $I$ tratamentos, o número de comparações de médias duas a duas, é a combinação dessas $I$ médias 2 a 2, ou seja:
 
@@ -570,9 +570,9 @@ $$
 \Delta'_{i\;vs.\;j} = q.\sqrt{\frac{1}{2}.\left( \frac{1}{r_i} + \frac{1}{r_j} \right).QM_{Resíduo}}
 $$
 
-### EXEMPLO DE APLICAÇÃO DO TESTE DE TUKEY
+## Exemplo de aplicação do teste de Tukey
 
-Considerando-se os dados do exemplo anterior, **4.2.1**, temos:
+Considerando-se os dados do exemplo anterior, temos:
 
 $$
 s^2 = QM_{Resíduo} = 0,64
@@ -691,7 +691,7 @@ bar.group(tukey$groups,
 ```
 
 
-## TESTE DE DUNCAN
+## Teste de Duncan
 
 O teste de Duncan também pode ser utilizado como um complemento ao teste F da análise de variância. Ele é menos rigoroso que o teste de Tukey, e serve para comparar as médias duas a duas. Para ser exato, este teste também exige que as médias possuam todas o mesmo número de repetições.
 
@@ -736,9 +736,9 @@ $$
 D' = z_\alpha . \sqrt{\frac{1}{2} \hat{V}(\hat{Y})}
 $$
 
-### EXEMPLO DE APLICAÇÃO DO TESTE DE DUNCAN
+## Exemplo de aplicação do teste de Duncan
 
-Para exemplificar a aplicação do teste de Duncan, vamos utilizar os dados do exemplo **4.2.1** de "Competição de adubos nitrogenados no abacaxizeiro". Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:
+Para exemplificar a aplicação do teste de Duncan, vamos utilizar os dados do exemplo anterior, de "Competição de adubos nitrogenados no abacaxizeiro". Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:
 
 |TRATAMENTO| MÉDIAS ESTIMADAS|
 |:---|:---:|
@@ -903,7 +903,7 @@ bar.group(duncan$groups,
           main="Teste de Duncan (5%)");box()
 ```
 
-## TESTE DE SCHEFFÉ
+## Teste de Scheffé
 
 Quando, numa análise de variância, encontramos um valor significativo para o teste F, isto nos indica a existência de pelo menos um contraste significativo entre as médias dos tratamentos.
 
@@ -965,9 +965,9 @@ $^{*}-$ Significativo ao nível de 5% de probabilidade.
 
 $^{**}-$ Significativo ao nível de 1% de probabilidade.
 
-### EXEMPLO DE APLICAÇÃO DO TESTE DE SCHEFFÉ
+## Exemplo de aplicação do teste de Scheffé
 
-Para exemplificar a palicação do teste de Scheffé, vamos utilizar os dados do exemplo **4.2.1** de "Competição de adubos nitrogenados no abacaxizeiro". Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:
+Para exemplificar a palicação do teste de Scheffé, vamos utilizar os dados do exemplo anterior, de "Competição de adubos nitrogenados no abacaxizeiro". Neste exemplo os tratamentos, com suas respectivas médias de produção de abacai em kg/parcela, foram:
 
 |TRATAMENTO| MÉDIAS ESTIMADAS|
 |:---|:---:|
