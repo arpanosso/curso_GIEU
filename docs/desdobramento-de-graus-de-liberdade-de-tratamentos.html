@@ -52,7 +52,6 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -211,6 +210,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>9.5</b> Erros padrões das médias</a></li>
 <li class="chapter" data-level="9.6" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>9.6</b> Comparação de médias pelo teste de Tukey</a></li>
 <li class="chapter" data-level="9.7" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>9.7</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>10</b> EXPERIMENTOS FATORIAIS</a><ul>
+<li class="chapter" data-level="10.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
+<li class="chapter" data-level="10.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-simples-de-um-fator"><i class="fa fa-check"></i><b>10.2</b> Efeito simples de um fator</a></li>
+<li class="chapter" data-level="10.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-principal-de-um-fator"><i class="fa fa-check"></i><b>10.3</b> Efeito principal de um fator</a></li>
+<li class="chapter" data-level="10.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-da-interação-entre-fatores"><i class="fa fa-check"></i><b>10.4</b> Efeito da interação entre fatores</a></li>
+<li class="chapter" data-level="10.5" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#vantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.5</b> Vantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#desvantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.6</b> Desvantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.7" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>10.7</b> Classificação dos Experementos Fatoriais</a></li>
+<li class="chapter" data-level="10.8" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>10.8</b> Casualização dos tratamentos</a></li>
+<li class="chapter" data-level="10.9" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#análise-de-variância-de-um-experimento-fatorial-com-2-fatores-com-interação-não-significativa"><i class="fa fa-check"></i><b>10.9</b> Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</a></li>
+<li class="chapter" data-level="10.10" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="10.11" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-tratamento-do-solo-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.11</b> Cálculo das média de Tratamento do Solo e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.12" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-fungicidas-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.12</b> Cálculo das média de Fungicidas e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.13" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>10.13</b> Cálculo do coeficiente de variação do experimento</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -835,22 +849,22 @@ CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{3,45}{21,27}=16,22\%
 \]</span></p>
 <p><strong>Resolvendo no R</strong></p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-1"></a><span class="co"># Caminho dos dados</span></span>
-<span id="cb84-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/eucalyptus.txt&quot;</span></span>
-<span id="cb84-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-3"></a></span>
-<span id="cb84-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-4"></a><span class="co"># Carregando os dados no programa</span></span>
-<span id="cb84-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb84-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-6"></a></span>
-<span id="cb84-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-7"></a><span class="co">#Extraindo o fator tratamento e a variável resposta </span></span>
-<span id="cb84-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-8"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>TRAT)</span>
-<span id="cb84-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-9"></a>y&lt;-dados<span class="op">$</span>Y</span>
-<span id="cb84-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-10"></a></span>
-<span id="cb84-11"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-11"></a></span>
-<span id="cb84-12"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-12"></a><span class="co"># definindo o modelo para a análise de variância preliminar</span></span>
-<span id="cb84-13"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-13"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
-<span id="cb84-14"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-14"></a></span>
-<span id="cb84-15"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-15"></a><span class="co">#Quadro da análise de variância preliminar</span></span>
-<span id="cb84-16"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb84-16"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-1"></a><span class="co"># Caminho dos dados</span></span>
+<span id="cb83-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/eucalyptus.txt&quot;</span></span>
+<span id="cb83-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-3"></a></span>
+<span id="cb83-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-4"></a><span class="co"># Carregando os dados no programa</span></span>
+<span id="cb83-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb83-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-6"></a></span>
+<span id="cb83-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-7"></a><span class="co">#Extraindo o fator tratamento e a variável resposta </span></span>
+<span id="cb83-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-8"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>TRAT)</span>
+<span id="cb83-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-9"></a>y&lt;-dados<span class="op">$</span>Y</span>
+<span id="cb83-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-10"></a></span>
+<span id="cb83-11"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-11"></a></span>
+<span id="cb83-12"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-12"></a><span class="co"># definindo o modelo para a análise de variância preliminar</span></span>
+<span id="cb83-13"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-13"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
+<span id="cb83-14"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-14"></a></span>
+<span id="cb83-15"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-15"></a><span class="co">#Quadro da análise de variância preliminar</span></span>
+<span id="cb83-16"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb83-16"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: y
@@ -859,45 +873,45 @@ CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{3,45}{21,27}=16,22\%
 ## Residuals 20 237.60  11.880                  
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb86-1"></a><span class="co"># Os coeficientes do contraste devem ser atribuídos de acordo com a ordem dos tratamentos definidos por:</span></span>
-<span id="cb86-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb86-2"></a><span class="kw">levels</span>(trat)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb85-1"></a><span class="co"># Os coeficientes do contraste devem ser atribuídos de acordo com a ordem dos tratamentos definidos por:</span></span>
+<span id="cb85-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb85-2"></a><span class="kw">levels</span>(trat)</span></code></pre></div>
 <pre><code>## [1] &quot;1_ST&quot; &quot;2_AC&quot; &quot;3_AP&quot; &quot;4_PM&quot; &quot;5_T&quot;</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-1"></a><span class="co">#Então os contrastes serão:</span></span>
-<span id="cb88-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-2"></a>contrastes&lt;-<span class="kw">cbind</span>(</span>
-<span id="cb88-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-3"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>),</span>
-<span id="cb88-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-4"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb88-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-5"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb88-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-6"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb88-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-7"></a>                    )</span>
-<span id="cb88-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-8"></a><span class="co">#Visualização dos contrastes</span></span>
-<span id="cb88-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb88-9"></a>contrastes</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-1"></a><span class="co">#Então os contrastes serão:</span></span>
+<span id="cb87-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-2"></a>contrastes&lt;-<span class="kw">cbind</span>(</span>
+<span id="cb87-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-3"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>),</span>
+<span id="cb87-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-4"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb87-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-5"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb87-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-6"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb87-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-7"></a>                    )</span>
+<span id="cb87-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-8"></a><span class="co">#Visualização dos contrastes</span></span>
+<span id="cb87-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb87-9"></a>contrastes</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    2    2    0    0
 ## [2,]    2   -1    1    0
 ## [3,]    2   -1   -1    0
 ## [4,]   -3    0    0    1
 ## [5,]   -3    0    0   -1</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb90-1"></a><span class="co">#Atribuição dos contrastes ao fator trat</span></span>
-<span id="cb90-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb90-2"></a><span class="kw">contrasts</span>(trat)&lt;-contrastes</span>
-<span id="cb90-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb90-3"></a></span>
-<span id="cb90-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb90-4"></a><span class="co">#Verificação dos contrastes</span></span>
-<span id="cb90-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb90-5"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb89-1"></a><span class="co">#Atribuição dos contrastes ao fator trat</span></span>
+<span id="cb89-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb89-2"></a><span class="kw">contrasts</span>(trat)&lt;-contrastes</span>
+<span id="cb89-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb89-3"></a></span>
+<span id="cb89-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb89-4"></a><span class="co">#Verificação dos contrastes</span></span>
+<span id="cb89-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb89-5"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## 1_ST    2    2    0    0
 ## 2_AC    2   -1    1    0
 ## 3_AP    2   -1   -1    0
 ## 4_PM   -3    0    0    1
 ## 5_T    -3    0    0   -1</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-1"></a><span class="co">#Definição do novo modelo para o desdobramento dos graus de liberdade</span></span>
-<span id="cb92-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-2"></a>modelo.contrastes&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
-<span id="cb92-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-3"></a></span>
-<span id="cb92-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-4"></a><span class="co">#Desdobramento dos graus de Liberdade</span></span>
-<span id="cb92-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-5"></a><span class="kw">summary</span>(modelo.contrastes, </span>
-<span id="cb92-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-6"></a>        <span class="dt">split=</span> <span class="kw">list</span>(<span class="dt">trat=</span> </span>
-<span id="cb92-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-7"></a>                      <span class="kw">list</span>(<span class="st">&quot;(ST+AC+AP) vs. (PM+T)&quot;</span>=<span class="st"> </span><span class="dv">1</span>, </span>
-<span id="cb92-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-8"></a>                           <span class="st">&quot;ST vs. (AC+AP)&quot;</span>=<span class="st"> </span><span class="dv">2</span>, </span>
-<span id="cb92-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-9"></a>                           <span class="st">&quot;AC vs. AP&quot;</span>=<span class="st"> </span><span class="dv">3</span>, </span>
-<span id="cb92-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb92-10"></a>                           <span class="st">&quot;PM vs T&quot;</span>=<span class="st"> </span><span class="dv">4</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-1"></a><span class="co">#Definição do novo modelo para o desdobramento dos graus de liberdade</span></span>
+<span id="cb91-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-2"></a>modelo.contrastes&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
+<span id="cb91-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-3"></a></span>
+<span id="cb91-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-4"></a><span class="co">#Desdobramento dos graus de Liberdade</span></span>
+<span id="cb91-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-5"></a><span class="kw">summary</span>(modelo.contrastes, </span>
+<span id="cb91-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-6"></a>        <span class="dt">split=</span> <span class="kw">list</span>(<span class="dt">trat=</span> </span>
+<span id="cb91-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-7"></a>                      <span class="kw">list</span>(<span class="st">&quot;(ST+AC+AP) vs. (PM+T)&quot;</span>=<span class="st"> </span><span class="dv">1</span>, </span>
+<span id="cb91-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-8"></a>                           <span class="st">&quot;ST vs. (AC+AP)&quot;</span>=<span class="st"> </span><span class="dv">2</span>, </span>
+<span id="cb91-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-9"></a>                           <span class="st">&quot;AC vs. AP&quot;</span>=<span class="st"> </span><span class="dv">3</span>, </span>
+<span id="cb91-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb91-10"></a>                           <span class="st">&quot;PM vs T&quot;</span>=<span class="st"> </span><span class="dv">4</span>)))</span></code></pre></div>
 <pre><code>##                               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## trat                           4 209.54   52.39   4.410 0.010205 *  
 ##   trat: (ST+AC+AP) vs. (PM+T)  1 203.30  203.30  17.113 0.000511 ***
@@ -907,11 +921,11 @@ CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{3,45}{21,27}=16,22\%
 ## Residuals                     20 237.60   11.88                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb94-1"></a><span class="co"># Coeficiente de variação do ensaio</span></span>
-<span id="cb94-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb94-2"></a>media&lt;-<span class="kw">mean</span>(y)</span>
-<span id="cb94-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb94-3"></a>QMres&lt;-<span class="kw">deviance</span>(modelo)<span class="op">/</span><span class="kw">df.residual</span>(modelo)</span>
-<span id="cb94-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb94-4"></a>CV&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMres)<span class="op">/</span>media</span>
-<span id="cb94-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb94-5"></a><span class="kw">paste</span>(<span class="kw">round</span>(CV,<span class="dv">2</span>),<span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb93-1"></a><span class="co"># Coeficiente de variação do ensaio</span></span>
+<span id="cb93-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb93-2"></a>media&lt;-<span class="kw">mean</span>(y)</span>
+<span id="cb93-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb93-3"></a>QMres&lt;-<span class="kw">deviance</span>(modelo)<span class="op">/</span><span class="kw">df.residual</span>(modelo)</span>
+<span id="cb93-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb93-4"></a>CV&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMres)<span class="op">/</span>media</span>
+<span id="cb93-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb93-5"></a><span class="kw">paste</span>(<span class="kw">round</span>(CV,<span class="dv">2</span>),<span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;16.2%&quot;</code></pre>
 </div>
 </div>
@@ -1060,42 +1074,42 @@ Total
 </tbody>
 </table>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb96-1"></a><span class="co"># Criando, novamente o fator tratamento.</span></span>
-<span id="cb96-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb96-2"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>TRAT)</span>
-<span id="cb96-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb96-3"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb95-1"></a><span class="co"># Criando, novamente o fator tratamento.</span></span>
+<span id="cb95-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb95-2"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>TRAT)</span>
+<span id="cb95-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb95-3"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
 <pre><code>##      2_AC 3_AP 4_PM 5_T
 ## 1_ST    0    0    0   0
 ## 2_AC    1    0    0   0
 ## 3_AP    0    1    0   0
 ## 4_PM    0    0    1   0
 ## 5_T     0    0    0   1</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-1"></a><span class="co">#Então os contrastes serão:</span></span>
-<span id="cb98-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-2"></a>contrastes&lt;-<span class="kw">cbind</span>(</span>
-<span id="cb98-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-3"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>),</span>
-<span id="cb98-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-4"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb98-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-5"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb98-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-6"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb98-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-7"></a>                    )</span>
-<span id="cb98-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-8"></a><span class="co">#Atribuição dos contrastes ao fator trat</span></span>
-<span id="cb98-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-9"></a><span class="kw">contrasts</span>(trat)&lt;-contrastes</span>
-<span id="cb98-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-10"></a></span>
-<span id="cb98-11"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-11"></a><span class="co">#Verificação dos contrastes</span></span>
-<span id="cb98-12"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb98-12"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-1"></a><span class="co">#Então os contrastes serão:</span></span>
+<span id="cb97-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-2"></a>contrastes&lt;-<span class="kw">cbind</span>(</span>
+<span id="cb97-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-3"></a>                  <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>),</span>
+<span id="cb97-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-4"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb97-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-5"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb97-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-6"></a>                  <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb97-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-7"></a>                    )</span>
+<span id="cb97-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-8"></a><span class="co">#Atribuição dos contrastes ao fator trat</span></span>
+<span id="cb97-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-9"></a><span class="kw">contrasts</span>(trat)&lt;-contrastes</span>
+<span id="cb97-10"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-10"></a></span>
+<span id="cb97-11"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-11"></a><span class="co">#Verificação dos contrastes</span></span>
+<span id="cb97-12"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb97-12"></a><span class="kw">contrasts</span>(trat)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## 1_ST    2    0    0    0
 ## 2_AC    2    1    0    0
 ## 3_AP    2    0    1    0
 ## 4_PM   -3    0    0    1
 ## 5_T    -3    0    0   -1</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-1"></a><span class="co">#Definição do novo modelo para o desdobramento dos graus de liberdade</span></span>
-<span id="cb100-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-2"></a>modelo.contrastes&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
-<span id="cb100-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-3"></a></span>
-<span id="cb100-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-4"></a><span class="co">#Desdobramento dos graus de Liberdade</span></span>
-<span id="cb100-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-5"></a><span class="kw">summary</span>(modelo.contrastes, </span>
-<span id="cb100-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-6"></a>        <span class="dt">split=</span> <span class="kw">list</span>(<span class="dt">trat=</span> </span>
-<span id="cb100-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-7"></a>                      <span class="kw">list</span>(<span class="st">&quot;(ST+AC+AP) vs. (PM+T)&quot;</span>=<span class="st"> </span><span class="dv">1</span>, </span>
-<span id="cb100-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-8"></a>                           <span class="st">&quot;Entre Inoculantes (AC, AP, ST)&quot;</span>=<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), </span>
-<span id="cb100-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb100-9"></a>                           <span class="st">&quot;PM vs T&quot;</span>=<span class="st"> </span><span class="dv">4</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-1"></a><span class="co">#Definição do novo modelo para o desdobramento dos graus de liberdade</span></span>
+<span id="cb99-2"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-2"></a>modelo.contrastes&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat)</span>
+<span id="cb99-3"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-3"></a></span>
+<span id="cb99-4"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-4"></a><span class="co">#Desdobramento dos graus de Liberdade</span></span>
+<span id="cb99-5"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-5"></a><span class="kw">summary</span>(modelo.contrastes, </span>
+<span id="cb99-6"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-6"></a>        <span class="dt">split=</span> <span class="kw">list</span>(<span class="dt">trat=</span> </span>
+<span id="cb99-7"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-7"></a>                      <span class="kw">list</span>(<span class="st">&quot;(ST+AC+AP) vs. (PM+T)&quot;</span>=<span class="st"> </span><span class="dv">1</span>, </span>
+<span id="cb99-8"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-8"></a>                           <span class="st">&quot;Entre Inoculantes (AC, AP, ST)&quot;</span>=<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), </span>
+<span id="cb99-9"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#cb99-9"></a>                           <span class="st">&quot;PM vs T&quot;</span>=<span class="st"> </span><span class="dv">4</span>)))</span></code></pre></div>
 <pre><code>##                                        Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## trat                                    4 209.54   52.39   4.410 0.010205 *  
 ##   trat: (ST+AC+AP) vs. (PM+T)           1 203.30  203.30  17.113 0.000511 ***

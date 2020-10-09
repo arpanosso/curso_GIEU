@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="delineamento-em-blocos-casualizados.html"/>
-
+<link rel="next" href="experimentos-fatoriais.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,7 +52,6 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -211,6 +210,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>9.5</b> Erros padrões das médias</a></li>
 <li class="chapter" data-level="9.6" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>9.6</b> Comparação de médias pelo teste de Tukey</a></li>
 <li class="chapter" data-level="9.7" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>9.7</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>10</b> EXPERIMENTOS FATORIAIS</a><ul>
+<li class="chapter" data-level="10.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
+<li class="chapter" data-level="10.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-simples-de-um-fator"><i class="fa fa-check"></i><b>10.2</b> Efeito simples de um fator</a></li>
+<li class="chapter" data-level="10.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-principal-de-um-fator"><i class="fa fa-check"></i><b>10.3</b> Efeito principal de um fator</a></li>
+<li class="chapter" data-level="10.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-da-interação-entre-fatores"><i class="fa fa-check"></i><b>10.4</b> Efeito da interação entre fatores</a></li>
+<li class="chapter" data-level="10.5" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#vantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.5</b> Vantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#desvantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.6</b> Desvantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.7" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>10.7</b> Classificação dos Experementos Fatoriais</a></li>
+<li class="chapter" data-level="10.8" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>10.8</b> Casualização dos tratamentos</a></li>
+<li class="chapter" data-level="10.9" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#análise-de-variância-de-um-experimento-fatorial-com-2-fatores-com-interação-não-significativa"><i class="fa fa-check"></i><b>10.9</b> Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</a></li>
+<li class="chapter" data-level="10.10" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="10.11" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-tratamento-do-solo-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.11</b> Cálculo das média de Tratamento do Solo e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.12" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-fungicidas-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.12</b> Cálculo das média de Fungicidas e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.13" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>10.13</b> Cálculo do coeficiente de variação do experimento</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -999,18 +1013,18 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot4,8681}{142,16}=3,42\%.
 \]</span></p>
 <p>Aplicação no R.</p>
 <p><img src="R.png" /></p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/macieira.txt&quot;</span></span>
-<span id="cb115-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-2"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
-<span id="cb115-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-3"></a></span>
-<span id="cb115-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-4"></a><span class="co"># Extraindo os fatores e a variável resposta</span></span>
-<span id="cb115-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-5"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>trat)</span>
-<span id="cb115-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-6"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>bloco)</span>
-<span id="cb115-7"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-7"></a>y&lt;-dados<span class="op">$</span>y</span>
-<span id="cb115-8"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-8"></a>B&lt;-<span class="kw">tapply</span>(y,bloco,sum,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)[<span class="kw">is.na</span>(B&lt;-<span class="kw">tapply</span>(y,bloco,sum))]</span>
-<span id="cb115-9"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-9"></a></span>
-<span id="cb115-10"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-10"></a><span class="co"># Definindo o modelo para análise preliminar com a parcela perdida</span></span>
-<span id="cb115-11"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-11"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
-<span id="cb115-12"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb115-12"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/macieira.txt&quot;</span></span>
+<span id="cb114-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-2"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
+<span id="cb114-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-3"></a></span>
+<span id="cb114-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-4"></a><span class="co"># Extraindo os fatores e a variável resposta</span></span>
+<span id="cb114-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-5"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>trat)</span>
+<span id="cb114-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-6"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>bloco)</span>
+<span id="cb114-7"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-7"></a>y&lt;-dados<span class="op">$</span>y</span>
+<span id="cb114-8"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-8"></a>B&lt;-<span class="kw">tapply</span>(y,bloco,sum,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)[<span class="kw">is.na</span>(B&lt;-<span class="kw">tapply</span>(y,bloco,sum))]</span>
+<span id="cb114-9"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-9"></a></span>
+<span id="cb114-10"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-10"></a><span class="co"># Definindo o modelo para análise preliminar com a parcela perdida</span></span>
+<span id="cb114-11"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-11"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
+<span id="cb114-12"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb114-12"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: y
@@ -1020,34 +1034,34 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot4,8681}{142,16}=3,42\%.
 ## Residuals 11 260.68  23.698                  
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb117-1"></a><span class="co"># Estimando a parcela perdida</span></span>
-<span id="cb117-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb117-2"></a>xij&lt;-<span class="kw">predict</span>(modelo,<span class="dt">newdata =</span> dados<span class="op">$</span>bloco&lt;-<span class="kw">as.factor</span>(bloco))[<span class="kw">is.na</span>(y)]</span>
-<span id="cb117-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb117-3"></a></span>
-<span id="cb117-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb117-4"></a><span class="co"># valor estimado</span></span>
-<span id="cb117-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb117-5"></a>xij</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb116-1"></a><span class="co"># Estimando a parcela perdida</span></span>
+<span id="cb116-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb116-2"></a>xij&lt;-<span class="kw">predict</span>(modelo,<span class="dt">newdata =</span> dados<span class="op">$</span>bloco&lt;-<span class="kw">as.factor</span>(bloco))[<span class="kw">is.na</span>(y)]</span>
+<span id="cb116-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb116-3"></a></span>
+<span id="cb116-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb116-4"></a><span class="co"># valor estimado</span></span>
+<span id="cb116-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb116-5"></a>xij</span></code></pre></div>
 <pre><code>##     18 
 ## 149.44</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-1"></a><span class="co"># Substituindo a parcela perdida pelo valor estimado</span></span>
-<span id="cb119-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-2"></a>y[<span class="kw">is.na</span>(y)]&lt;-xij</span>
-<span id="cb119-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-3"></a></span>
-<span id="cb119-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-4"></a><span class="co"># Definindo o novo modelo</span></span>
-<span id="cb119-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-5"></a>modeloC&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
-<span id="cb119-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-6"></a>anava&lt;-<span class="kw">anova</span>(modeloC)</span>
-<span id="cb119-7"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-7"></a></span>
-<span id="cb119-8"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-8"></a><span class="co"># Calculando o fator de correção para o ajuste das soma de quadrados dos tratamentos</span></span>
-<span id="cb119-9"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-9"></a>I&lt;-<span class="kw">length</span>(<span class="kw">levels</span>(trat))</span>
-<span id="cb119-10"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-10"></a>QMRes&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
-<span id="cb119-11"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb119-11"></a>(U&lt;-(I<span class="dv">-1</span>)<span class="op">/</span>(I)<span class="op">*</span>(xij<span class="op">-</span>B<span class="op">/</span>(I<span class="dv">-1</span>))<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-1"></a><span class="co"># Substituindo a parcela perdida pelo valor estimado</span></span>
+<span id="cb118-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-2"></a>y[<span class="kw">is.na</span>(y)]&lt;-xij</span>
+<span id="cb118-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-3"></a></span>
+<span id="cb118-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-4"></a><span class="co"># Definindo o novo modelo</span></span>
+<span id="cb118-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-5"></a>modeloC&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
+<span id="cb118-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-6"></a>anava&lt;-<span class="kw">anova</span>(modeloC)</span>
+<span id="cb118-7"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-7"></a></span>
+<span id="cb118-8"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-8"></a><span class="co"># Calculando o fator de correção para o ajuste das soma de quadrados dos tratamentos</span></span>
+<span id="cb118-9"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-9"></a>I&lt;-<span class="kw">length</span>(<span class="kw">levels</span>(trat))</span>
+<span id="cb118-10"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-10"></a>QMRes&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb118-11"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb118-11"></a>(U&lt;-(I<span class="dv">-1</span>)<span class="op">/</span>(I)<span class="op">*</span>(xij<span class="op">-</span>B<span class="op">/</span>(I<span class="dv">-1</span>))<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##       18 
 ## 102.6951</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-1"></a>anava<span class="op">$</span>Df[<span class="dv">3</span>]&lt;-anava<span class="op">$</span>Df[<span class="dv">3</span>]<span class="op">-</span><span class="dv">1</span></span>
-<span id="cb121-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-2"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span>[<span class="dv">1</span>]<span class="op">-</span>U</span>
-<span id="cb121-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-3"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span><span class="op">/</span>anava<span class="op">$</span>Df</span>
-<span id="cb121-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-4"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">F value</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">1</span>]<span class="op">/</span>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
-<span id="cb121-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-5"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-<span class="kw">pf</span>(anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>],anava<span class="op">$</span>Df[<span class="dv">1</span>],anava<span class="op">$</span>Df[<span class="dv">3</span>])</span>
-<span id="cb121-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-6"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">F value</span><span class="st">`</span>[<span class="dv">2</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">2</span>]<span class="op">/</span>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
-<span id="cb121-7"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-7"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">2</span>]&lt;-<span class="kw">pf</span>(anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">2</span>],anava<span class="op">$</span>Df[<span class="dv">2</span>],anava<span class="op">$</span>Df[<span class="dv">3</span>])</span>
-<span id="cb121-8"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb121-8"></a>anava</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-1"></a>anava<span class="op">$</span>Df[<span class="dv">3</span>]&lt;-anava<span class="op">$</span>Df[<span class="dv">3</span>]<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb120-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-2"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span>[<span class="dv">1</span>]<span class="op">-</span>U</span>
+<span id="cb120-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-3"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span><span class="op">/</span>anava<span class="op">$</span>Df</span>
+<span id="cb120-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-4"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">F value</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">1</span>]<span class="op">/</span>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb120-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-5"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>]&lt;-<span class="kw">pf</span>(anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>],anava<span class="op">$</span>Df[<span class="dv">1</span>],anava<span class="op">$</span>Df[<span class="dv">3</span>])</span>
+<span id="cb120-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-6"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">F value</span><span class="st">`</span>[<span class="dv">2</span>]&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">2</span>]<span class="op">/</span>anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb120-7"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-7"></a>anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">2</span>]&lt;-<span class="kw">pf</span>(anava<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">2</span>],anava<span class="op">$</span>Df[<span class="dv">2</span>],anava<span class="op">$</span>Df[<span class="dv">3</span>])</span>
+<span id="cb120-8"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb120-8"></a>anava</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: y
@@ -1057,9 +1071,9 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot4,8681}{142,16}=3,42\%.
 ## Residuals 11 260.68  23.698                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb123-1"></a><span class="co">## Comparações múltiplas para as médias Tukey</span></span>
-<span id="cb123-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb123-2"></a><span class="kw">require</span>(<span class="st">&quot;agricolae&quot;</span>)</span>
-<span id="cb123-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb123-3"></a>tukey &lt;-<span class="st"> </span><span class="kw">HSD.test</span>(modelo,<span class="st">&quot;trat&quot;</span>, <span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb122-1"></a><span class="co">## Comparações múltiplas para as médias Tukey</span></span>
+<span id="cb122-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb122-2"></a><span class="kw">require</span>(<span class="st">&quot;agricolae&quot;</span>)</span>
+<span id="cb122-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb122-3"></a>tukey &lt;-<span class="st"> </span><span class="kw">HSD.test</span>(modelo,<span class="st">&quot;trat&quot;</span>, <span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Study: modelo ~ &quot;trat&quot;
 ## 
@@ -1089,17 +1103,17 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot4,8681}{142,16}=3,42\%.
 ## T4 140.0100     ab
 ## T3 138.7425      b
 ## T2 138.0250      b</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-1"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
-<span id="cb125-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-2"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb125-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(y)<span class="op">*</span><span class="fl">1.10</span>),</span>
-<span id="cb125-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-4"></a>          <span class="dt">xlab=</span><span class="st">&quot;Cultivares&quot;</span>,</span>
-<span id="cb125-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-5"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg por ha)&quot;</span>,</span>
-<span id="cb125-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-6"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb124-1"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
+<span id="cb124-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb124-2"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb124-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb124-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(y)<span class="op">*</span><span class="fl">1.10</span>),</span>
+<span id="cb124-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb124-4"></a>          <span class="dt">xlab=</span><span class="st">&quot;Cultivares&quot;</span>,</span>
+<span id="cb124-5"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb124-5"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg por ha)&quot;</span>,</span>
+<span id="cb124-6"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb124-6"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb126-1"></a><span class="co"># Cálculo do CV</span></span>
-<span id="cb126-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb126-2"></a>QMRes&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
-<span id="cb126-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb126-3"></a>cv&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMRes)<span class="op">/</span><span class="kw">mean</span>(y)</span>
-<span id="cb126-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb126-4"></a><span class="kw">round</span>(cv,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-1"></a><span class="co"># Cálculo do CV</span></span>
+<span id="cb125-2"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-2"></a>QMRes&lt;-anava<span class="op">$</span><span class="st">`</span><span class="dt">Mean Sq</span><span class="st">`</span>[<span class="dv">3</span>]</span>
+<span id="cb125-3"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-3"></a>cv&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMRes)<span class="op">/</span><span class="kw">mean</span>(y)</span>
+<span id="cb125-4"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#cb125-4"></a><span class="kw">round</span>(cv,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3.42</code></pre>
 
 </div>
@@ -1109,8 +1123,8 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot4,8681}{142,16}=3,42\%.
           </div>
         </div>
       </div>
-<a href="delineamento-em-blocos-casualizados.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="delineamento-em-blocos-casualizados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="experimentos-fatoriais.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
