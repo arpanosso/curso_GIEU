@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Curso do R do GIEU</title>
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Curso do R do GIEU" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Curso do R do GIEU" />
+  
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+<meta name="author" content="Alan R. Panosso" />
+
+
+<meta name="date" content="2020-10-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="comparações-de-parâmetros-de-duas-populações.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">curso_GIEU</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUÇÃO AO CURSO</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#alguns-conceitos-básicos"><i class="fa fa-check"></i><b>1.1</b> Alguns conceitos básicos</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#medidas-de-posição-e-de-tendência-central"><i class="fa fa-check"></i><b>1.2</b> Medidas de posição e de tendência central</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html"><i class="fa fa-check"></i><b>2</b> COMPARAÇÕES DE PARÂMETROS DE DUAS POPULAÇÕES</a><ul>
+<li class="chapter" data-level="2.1" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-da-variância-de-duas-populações-normais"><i class="fa fa-check"></i><b>2.1</b> Comparação da variância de duas populações normais</a></li>
+<li class="chapter" data-level="2.2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-de-duas-médias-de-populações-normais-amostras-independentes"><i class="fa fa-check"></i><b>2.2</b> Comparação de duas médias de populações normais: amostras independentes</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html"><i class="fa fa-check"></i><b>3</b> PLANEJAMENTO DE EXPERIMENTOS</a><ul>
+<li class="chapter" data-level="3.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>3.1</b> Introdução</a></li>
+<li class="chapter" data-level="3.2" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#unidade-experimental-ou-parcela"><i class="fa fa-check"></i><b>3.2</b> Unidade Experimental ou Parcela</a></li>
+<li class="chapter" data-level="3.3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>3.3</b> Princípios Básicos da Experimentação</a></li>
+<li class="chapter" data-level="3.4" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#relação-entre-os-princípios-básico-da-experimentação-e-os-delineamentos-experimentais"><i class="fa fa-check"></i><b>3.4</b> Relação entre os princípios básico da experimentação e os delineamentos experimentais</a></li>
+<li class="chapter" data-level="3.5" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#testes-de-significância"><i class="fa fa-check"></i><b>3.5</b> Testes de Significância</a></li>
+<li class="chapter" data-level="3.6" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#teste-f-de-snedecor-para-análise-de-variância"><i class="fa fa-check"></i><b>3.6</b> Teste F de Snedecor para Análise de Variância</a></li>
+<li class="chapter" data-level="3.7" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#exemplo-de-aplicação-do-teste-f"><i class="fa fa-check"></i><b>3.7</b> Exemplo de aplicação do teste F</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>4</b> TESTES PARA COMPARAÇÃO DE MÉDIAS</a><ul>
+<li class="chapter" data-level="4.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
+<li class="chapter" data-level="4.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>4.2</b> Contrastes de Médias</a></li>
+<li class="chapter" data-level="4.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contrastes"><i class="fa fa-check"></i><b>4.3</b> Estimativa do Contrastes</a></li>
+<li class="chapter" data-level="4.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>4.4</b> Covariância entre dois contrastes</a></li>
+<li class="chapter" data-level="4.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>4.5</b> Contrastes ortogonais</a></li>
+<li class="chapter" data-level="4.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>4.6</b> Variância de um contraste</a></li>
+<li class="chapter" data-level="4.7" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>4.7</b> Erro padrão do contraste</a></li>
+<li class="chapter" data-level="4.8" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>4.8</b> Teste t de Student</a></li>
+<li class="chapter" data-level="4.9" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>4.9</b> Exemplo de aplicação do teste t de Student</a></li>
+<li class="chapter" data-level="4.10" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>4.10</b> Teste de Tukey</a></li>
+<li class="chapter" data-level="4.11" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>4.11</b> Exemplo de aplicação do teste de Tukey</a></li>
+<li class="chapter" data-level="4.12" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>4.12</b> Teste de Duncan</a></li>
+<li class="chapter" data-level="4.13" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>4.13</b> Exemplo de aplicação do teste de Duncan</a></li>
+<li class="chapter" data-level="4.14" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>4.14</b> Teste de Scheffé</a></li>
+<li class="chapter" data-level="4.15" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>4.15</b> Exemplo de aplicação do teste de Scheffé</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>5</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="5.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>5.1</b> Caracterização</a></li>
+<li class="chapter" data-level="5.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>5.2</b> Modelo Matemático</a></li>
+<li class="chapter" data-level="5.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>5.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
+<li class="chapter" data-level="5.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="5.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.5</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
+<li class="chapter" data-level="6.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
+<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>6.2</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-error-padrôes-das-médias"><i class="fa fa-check"></i><b>6.3</b> Cálculo das médias e error padrôes das médias</a></li>
+<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> Teste de Tukey para comparação das médias</a></li>
+<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> Cálculo do coeficiente de variação do experimento</a></li>
+<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> Aplicação do teste t de Student a um contraste</a></li>
+<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> Teste de Duncan para a comparação das médias</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
+<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos</a></li>
+<li class="chapter" data-level="7.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.3</b> Método dos contrastes de totais de tratamentos</a></li>
+<li class="chapter" data-level="7.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.4</b> Método dos totais de tratamentos (sem utilizar contrastes)</a></li>
+<li class="chapter" data-level="7.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.5.1</b> <strong>Conclusões</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-maisde-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.6</b> Componentes com maisde um grau de liberdade</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> Caracterização</a></li>
+<li class="chapter" data-level="8.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> Modelo matemático</a></li>
+<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> Hipóteses básicas</a></li>
+<li class="chapter" data-level="8.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="8.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><i class="fa fa-check"></i><b>9</b> DELINEAMENTO EM BLOCOS CASUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
+<li class="chapter" data-level="9.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
+<li class="chapter" data-level="9.2" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>9.2</b> Estimativa da parcela perdida</a></li>
+<li class="chapter" data-level="9.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>9.3</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="9.4" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>9.4</b> Médias de tratamentos</a></li>
+<li class="chapter" data-level="9.5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>9.5</b> Erros padrões das médias</a></li>
+<li class="chapter" data-level="9.6" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>9.6</b> Comparação de médias pelo teste de Tukey</a></li>
+<li class="chapter" data-level="9.7" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>9.7</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>10</b> EXPERIMENTOS FATORIAIS</a><ul>
+<li class="chapter" data-level="10.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
+<li class="chapter" data-level="10.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-simples-de-um-fator"><i class="fa fa-check"></i><b>10.2</b> Efeito simples de um fator</a></li>
+<li class="chapter" data-level="10.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-principal-de-um-fator"><i class="fa fa-check"></i><b>10.3</b> Efeito principal de um fator</a></li>
+<li class="chapter" data-level="10.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-da-interação-entre-fatores"><i class="fa fa-check"></i><b>10.4</b> Efeito da interação entre fatores</a></li>
+<li class="chapter" data-level="10.5" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#vantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.5</b> Vantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#desvantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.6</b> Desvantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.7" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>10.7</b> Classificação dos Experementos Fatoriais</a></li>
+<li class="chapter" data-level="10.8" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>10.8</b> Casualização dos tratamentos</a></li>
+<li class="chapter" data-level="10.9" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#análise-de-variância-de-um-experimento-fatorial-com-2-fatores-com-interação-não-significativa"><i class="fa fa-check"></i><b>10.9</b> Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</a></li>
+<li class="chapter" data-level="10.10" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="10.11" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-tratamento-do-solo-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.11</b> Cálculo das média de Tratamento do Solo e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.12" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-fungicidas-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.12</b> Cálculo das média de Fungicidas e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.13" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>10.13</b> Cálculo do coeficiente de variação do experimento</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><i class="fa fa-check"></i><b>11</b> ANÁLISE DE UM EXPERIMENTO FATORIAL COM 2 FATORES, COM INTERAÇÃO SIGNIFICATIVA</a><ul>
+<li class="chapter" data-level="11.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>11.1</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="11.2" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#desdobrando-a-interação-itimes-d-para-estudar-os-efeitos-do-fator-doses-em-cada-nível-do-fator-inseticida-d-d.-i"><i class="fa fa-check"></i><b>11.2</b> Desdobrando a interação <span class="math inline">\(I\times D\)</span>, para estudar os efeitos do fator <strong>DOSES</strong> em cada nível do fator <strong>INSETICIDA</strong> (D d. I):</a></li>
+<li class="chapter" data-level="11.3" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#desdobrando-a-interação-i-times-d-para-estudar-os-efeitos-do-fator-inseticidas-dentro-de-cada-nível-do-fator-dose-d-d.-i"><i class="fa fa-check"></i><b>11.3</b> Desdobrando a interação <span class="math inline">\(I \times D\)</span>, para estudar os efeitos do fator <strong>INSETICIDAS</strong> dentro de cada nível do fator <strong>DOSE</strong> (D d. I):</a></li>
+<li class="chapter" data-level="11.4" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#teste-de-tukey-para-a-comparação-de-médias"><i class="fa fa-check"></i><b>11.4</b> Teste de Tukey para a comparação de médias</a></li>
+<li class="chapter" data-level="11.5" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#para-comparar-médias-de-inseticidas-na-dose-1-i-d.-d_1"><i class="fa fa-check"></i><b>11.5</b> Para comparar médias de Inseticidas na Dose 1 (I d. <span class="math inline">\(D_1\)</span>)</a></li>
+<li class="chapter" data-level="11.6" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#para-comparar-médias-de-inseticidas-na-dose-2-i-d.-d_2"><i class="fa fa-check"></i><b>11.6</b> Para comparar médias de Inseticidas na Dose 2 (I d. <span class="math inline">\(D_2\)</span>)</a></li>
+<li class="chapter" data-level="11.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>11.7</b> Cálculo do coeficiente de variação do experimento</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html"><i class="fa fa-check"></i><b>12</b> Estudo do Fatorial <span class="math inline">\(3^2\)</span></a><ul>
+<li class="chapter" data-level="12.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>12.1</b> Obtenção da análise de variância</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-espaçamento-em-cada-nível-do-fator-densidade-e-d.-d"><i class="fa fa-check"></i><b>12.1.1</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Espaçamento</strong> em cada nível do fator <strong>Densidade</strong> (E d. D):</a></li>
+<li class="chapter" data-level="12.1.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-densidade-em-cada-nível-do-fator-espaçamentos-d-d.-e"><i class="fa fa-check"></i><b>12.1.2</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Densidade</strong> em cada nível do fator <strong>Espaçamentos</strong> (D d. E):</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#teste-de-tukey-para-a-comparação-de-médias-1"><i class="fa fa-check"></i><b>12.2</b> Teste de Tukey para a comparação de médias</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#para-comparar-médias-de-espaçamento-na-densidade-15-e-d.-d_15"><i class="fa fa-check"></i><b>12.2.1</b> 1. Para comparar médias de Espaçamento na Densidade 15 (E d. <span class="math inline">\(D_15\)</span>)</a></li>
+<li class="chapter" data-level="12.2.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#para-comparar-médias-de-densidades-no-espaçamento-25-d-d.-e_25"><i class="fa fa-check"></i><b>12.2.2</b> 2. Para comparar médias de densidades no Espaçamento 25 (D d. <span class="math inline">\(E_25\)</span>)</a></li>
+<li class="chapter" data-level="12.2.3" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#resultado-do-teste-de-tukey"><i class="fa fa-check"></i><b>12.2.3</b> Resultado do teste de Tukey</a></li>
+<li class="chapter" data-level="12.2.4" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#cálculo-do-coeficiente-de-variação-do-experimento-1"><i class="fa fa-check"></i><b>12.2.4</b> Cálculo do coeficiente de variação do experimento</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso do R do GIEU</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Curso do R do GIEU</h1>
+<p class="author"><em>Alan R. Panosso</em></p>
+<p class="date"><em>2020-10-11</em></p>
+</div>
+<div id="introdução-ao-curso" class="section level1">
+<h1><span class="header-section-number">Capítulo 1</span> INTRODUÇÃO AO CURSO</h1>
+<p>A Estatística Experimental tem como objetivo o estudo dos experimentos, isto é, seu planejamneto, execução, análise dos dados e interpretação dos resultados obtidos.</p>
+<p>Para que um experimentador conduza e avalie uma pesquisa corretamente, é essencial um certo conhecimento de estatística, principalmente no que se refere às potencialidades e às limitações das técnicas utilizadas. Assim sendo, o curso de Experimentação Agrícola visa apresentar aos alunos os métodos estatística mais usado em Agronomia.</p>
+<p>Vejamos então, alguns conceitos básicos necessários para um bom entendimento da estatística Experimental</p>
+<div id="alguns-conceitos-básicos" class="section level2">
+<h2><span class="header-section-number">1.1</span> Alguns conceitos básicos</h2>
+<p><strong>POPULAÇÃO</strong></p>
+<p>Boa parte do conhecimento humano está baseado em um número relativamente reduzido de informações. Isto é verdadeiro, tanto no que se refere aos problemas do cotidiano, como no que se refere à pesquisa científica.</p>
+<p>Por definição <strong>POPULAÇÃO</strong> é o conjunto de elementos que têm em comum uma determinada característica. Todo o subconjunto não vazio e com menor número de elemento do que o conjunto definido como <strong>população</strong> constitui, por definição, uma <strong>AMOSTRA</strong> desta população.</p>
+<p>Uma população em ecologia é o número total de indivíduos de uma determinada espécie em uma área definida. Por exemplo, o número total de lagartas de <em>Spodoptera frugiperda</em> em uma cultura de milho constitui uma população. Esta população, embora finita, é considerada para fins de amostragem como uma população infinita.</p>
+<p>Uma vez definida a unidade amostral (1 planta, um conjunto de 5 plantas, ou um quadrado no qual será contado o número de lagartas), a população pode ser considerada como um conjunto de unidades amostrais e um subconjunto tomado aleatoriamente deste subconjunto é chamado de <strong>AMOSTRA ALEATÓRIA DE TAMANHO N</strong>.</p>
+<p>Assim sendo, as observações são obtidas através de contagens do número de indivíduos em cada unidade amostral. Estas observações são chamadas de <strong>VARIÁVEL EM ESTUDO</strong>.</p>
+<p><strong>TRATAMENTO</strong></p>
+<p>É o método, elemento ou material, cujo efeito se deseja medir ou comparar em um experimento. Por exemplo, um tratamento pode ser: Uma variedade de cana-de-açúcar, um híbrido de sorgo, uma dose de um adubo para a cultura do milho, um espaçamento para cultura do algodão, um recipiente para produção de mudas de eucalipto, um inseticida para controle de pragas, etc.</p>
+<p><strong>EXPERIMENTO OU ENSAIO</strong></p>
+<p>Experimento é um trabalho previamente planejado, no qual se faz comparação dos efeitos dos tratamentos.</p>
+<p><strong>UNIDADE EXPERIMENTAL OU PARCELA</strong></p>
+<p>É a unidade na qual o tratamento é aplicado. É na parcela que obtemos os dados que deverão refletir o efeito de cada tratamento no ensaio. A parcela pode ser constituída por uma planta, uma área om um grupo de plantas, uma placa de petri com um meio de cultura, um animal, um lote de animais, etc.</p>
+<p><strong>DELINEAMENTO EXPERIMENTAL</strong></p>
+<p>É o plano utilizado na experimentação, e implica na forma como os tratamento deverão ser distribuídos nas unidades experimentais e como serão analisados os dados a serem obtidos. Como exemplo, temos o delineamento inteiramente casualizado (DIC), o delineamento em blocos casualizados (DBC) o delineamento em quadrado latino (DQL), entre outros.</p>
+</div>
+<div id="medidas-de-posição-e-de-tendência-central" class="section level2">
+<h2><span class="header-section-number">1.2</span> Medidas de posição e de tendência central</h2>
+<p>As populações são descritas por certas características chamadas de <strong>Parâmetros</strong>. A amostras são descritas pelas mesmas características, que, neste caso, são chamadas de <strong>Estimativas de Parâmetros</strong>, <strong>Estatísticas da amostra</strong>. Alguns destes parâmetros são chamado de <strong>medidas de posição</strong> e outros de <strong>medida de dispersão</strong></p>
+<p><strong>MEDIDAS DE POSIÇÃO OU DE TENDÊNCIA CENTRAL</strong></p>
+<p>Uma característica comum a todas as populações ou amostras é a varaibilidade dos indivíduos que as constituem.</p>
+<p>Geralmente, os dados de uma população ou amostra tendem a ser mais numerosos em torno de um valor central e vão se tornando mais raros à medida que no afatamos desse valor. A medida de posição representa o valor em torno do qual os dados observados tendem a se agrupar.</p>
+<p>Das medidas de posição, a mais utilizada é a Média Aritmética, que pode se definida como: <code>A Soma de todas as observações divididas pelo número delas</code></p>
+<p>Assim, para uma população com <span class="math inline">\(N\)</span> elementos, ditos <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, … , <span class="math inline">\(x_N\)</span>, a média aritmética será:</p>
+<p><span class="math display">\[
+m = \frac{\sum_{i=1}^{N}x_i}{N} = \frac{x_1+x_2+...+x_N}{N}
+\]</span>
+Para uma amostra com <span class="math inline">\(n\)</span> elementos, ditos <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, … , <span class="math inline">\(x_n\)</span>, a média aritmética será:</p>
+<p><span class="math display">\[
+\bar{x}=\hat{m} = \frac{\sum_{i=1}^{N}x_i}{N} = \frac{x_1+x_2+...+x_N}{n}
+\]</span>
+<strong>exemplo</strong></p>
+<p>Considere como exemplo os dados abaixo, referente à altura de plantas daninha (em cm) em uma amostra de 5 plantas em uma área de pastagem.</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_1\)</span></th>
+<th><span class="math inline">\(x_2\)</span></th>
+<th><span class="math inline">\(x_3\)</span></th>
+<th><span class="math inline">\(x_4\)</span></th>
+<th><span class="math inline">\(x_5\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>3</td>
+<td>2</td>
+<td>4</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Então, para estes dados, a estimativa da média aritmética será:</p>
+<p><span class="math display">\[
+\hat{m} = \frac{\sum_{i=1}^{N}x_i}{N} = \frac{5+3+2+4+3}{5} = \frac{17}{5} = 3,4\;cm
+\]</span></p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="co"># Defina o vetor de dados</span></span>
+<span id="cb1-2"><a href="index.html#cb1-2"></a>X &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span>
+<span id="cb1-3"><a href="index.html#cb1-3"></a></span>
+<span id="cb1-4"><a href="index.html#cb1-4"></a><span class="co"># Calculando a soma dos elementos de X (G)</span></span>
+<span id="cb1-5"><a href="index.html#cb1-5"></a>G=<span class="kw">sum</span>(X)</span>
+<span id="cb1-6"><a href="index.html#cb1-6"></a>G</span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a><span class="co"># Encontrando o número total de elementos de X</span></span>
+<span id="cb3-2"><a href="index.html#cb3-2"></a>n=<span class="kw">length</span>(X)</span>
+<span id="cb3-3"><a href="index.html#cb3-3"></a>n</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1"></a><span class="co"># Calculando diretamente a média aritmética</span></span>
+<span id="cb5-2"><a href="index.html#cb5-2"></a><span class="kw">mean</span>(X)</span></code></pre></div>
+<pre><code>## [1] 3.4</code></pre>
+<p>A diferença entre um valor observado (<span class="math inline">\(x_i\)</span>) e a média aritmética (<span class="math inline">\(\hat{m}\)</span>) é denominado de desvio (<span class="math inline">\(d_i\)</span>), ou seja:</p>
+<p><span class="math display">\[
+ d_i = x_i - \hat{m}, \text{ para  i =1, 2, ...,n  }
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(d_1 = 5-3.4\)</span></th>
+<th><span class="math inline">\(d_2=3-3.4\)</span></th>
+<th><span class="math inline">\(d_3 = 2-3.4\)</span></th>
+<th><span class="math inline">\(d_4 = 4-3.4\)</span></th>
+<th><span class="math inline">\(d_5 = 3-3.4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1,6</td>
+<td>-0,4</td>
+<td>-1,4</td>
+<td>0,6</td>
+<td>-0,4</td>
+</tr>
+</tbody>
+</table>
+<p>Podemos mostrar que a soma dos desvios é igual a zero, para qualquer conjunto de dados.</p>
+<p><span class="math display">\[
+\sum_{i=1}^{N}d_i = 0
+\]</span></p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1"></a><span class="co"># Calculando os desvios</span></span>
+<span id="cb7-2"><a href="index.html#cb7-2"></a>d&lt;-X<span class="op">-</span><span class="kw">mean</span>(X)</span>
+<span id="cb7-3"><a href="index.html#cb7-3"></a></span>
+<span id="cb7-4"><a href="index.html#cb7-4"></a><span class="co"># Apresentando os valores de desvios</span></span>
+<span id="cb7-5"><a href="index.html#cb7-5"></a>d</span></code></pre></div>
+<pre><code>## [1]  1.6 -0.4 -1.4  0.6 -0.4</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1"></a><span class="co"># Prova de que o A Soma dos Desvios é igual a Zero</span></span>
+<span id="cb9-2"><a href="index.html#cb9-2"></a><span class="kw">round</span>(<span class="kw">sum</span>(d))  <span class="co"># a função rond arredonda a saida da função soma para 0 casas decimais</span></span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p><strong>MEDIDAS DE DISPERSÃO</strong></p>
+<p>As medidas de dispersão são também chamadas de <strong>medidas de variação</strong>, e medem o grau com que os dados tendem a se afastar de um valor central, que geralmente é a média aritmética.</p>
+<p>Como em todas as amostras (ou populações) ocorre variabilidade dos elementos que as constituem, amostra com mesma média pode apresentar distribuições diferentes, e portanto, somente a média não fornece informação clara de como os dados se distribuem. Assim, para representar melhor a maneira pela qual os dados se distribuem, são utilizadas as medidas de dispersão ou de variação.</p>
+<p>Dentre as medidas de dispersão, discutiremos a Variância, o Desvio PAdrão, o Erro padrão da Média e o Coeficiente de variação.</p>
+<p><strong>VARIÂNCIA</strong></p>
+<p>A variância é uma medida de dispersão que leva em conta todas as observações. É indiscutivelmente, a melhor medida de dispersão.</p>
+<p>A variância de uma população é representada por <span class="math inline">\(\sigma^2\)</span>, lê-se sigma dois, e pode ser definida como “A média dos quadrados dos desvios de todos os dados em relação à média aritmética”.</p>
+<p>Então, para uma população com <span class="math inline">\(N\)</span> temos:</p>
+<p><span class="math display">\[
+\sigma^2 = \frac{SQD}{N} = \frac{d_1+d_2+...+d_N}{N} =\frac{\sum_{i=1}^Nd_i^2}{N} \\
+\sigma^2 =\frac{\sum_{i=1}^N(x_i-m)^2}{N}
+\]</span></p>
+<p>Note que utilizando esta fórmula o cálculo da variancia seria bastante trabalhoso, no caso de N ser um número muito grande.</p>
+<p>Existe porém um método mais prático de se calcular a variância, que pode ser obtido desenvolvendo-se as fórmula da soma de quadrados dos desvios (SQD) . Assim, temos:</p>
+<p><span class="math display">\[
+SQD = \sum_{i=1}^N(x_i-m)^2 = \sum_{i=1}^Nx_i^2-\frac{(\sum_{i=1}^N x_i)^2}{N}
+\]</span></p>
+<p>Então, a fórmula simplificada da variância será:</p>
+<p><span class="math display">\[
+\sigma^2 =\frac{\sum_{i=1}^Nx_i^2-\frac{(\sum_{i=1}^N x_i)^2}{N}}{N}
+\]</span></p>
+<p>A vantagem desta fórmula é que trabalhamos diretamente com os dados originais, não havendo necessidade de calcularmos a média e os desvios em relação a ela.</p>
+<p>O termo <span class="math inline">\(\frac{(\sum_{i=1}^Nx_i)^2}{N}\)</span> é denomidado de Correção devido à média ou simplesmente <strong>Correção</strong>, representado por <span class="math inline">\(C\)</span> e é de grande utilização nas futuras análise de variâncias.</p>
+<p>Normalmente, na prática, trabalhamos com amostras, e a estimativa da variância, representada por <span class="math inline">\(s^2\)</span>, é calculada, para uma <strong>amostra</strong> com <span class="math inline">\(n\)</span> elementos, representados por <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, …,<span class="math inline">\(x_n\)</span>, por:</p>
+<p><span class="math display">\[
+s^2 = \frac{SQD}{n-1} = \frac{d_1+d_2+...+d_n}{n-1} =\frac{\sum_{i=1}^nd_i^2}{n-1} \\
+s^2 =\frac{\sum_{i=1}^n(x_i-\hat{m})^2}{n-1}
+\]</span></p>
+<p>ou ainda,</p>
+<p><span class="math display">\[
+s^2 =\frac{\sum_{i=1}^nx_i^2-\frac{(\sum_{i=1}^n x_i)^2}{n}}{n-1}
+\]</span></p>
+<p><strong>Observações:</strong></p>
+<p>1 - A variância tem sempre valor positivo, e sua unidade é quadrática.</p>
+<p>2 - O denominador utilizado do nálculo da variância é chamado de <strong>grau de liberdade</strong> da estimativa da variância, sempre dado por <span class="math inline">\(n-1\)</span></p>
+<p><strong>exemplo</strong>
+No exemplo anterior de altura de plantas daninhas:</p>
+<p>No caso temos</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(d_1 = 5-3.4\)</span></th>
+<th><span class="math inline">\(d_2=3-3.4\)</span></th>
+<th><span class="math inline">\(d_3 = 2-3.4\)</span></th>
+<th><span class="math inline">\(d_4 = 4-3.4\)</span></th>
+<th><span class="math inline">\(d_5 = 3-3.4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1,6</td>
+<td>-0,4</td>
+<td>-1,4</td>
+<td>0,6</td>
+<td>-0,4</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+s^2 =\frac{(1,6^2+(-0.4)^2+(-1,4)^2+0,6^2+(-0,4)^2)^2}{5-1} = \frac{5.2}{4} = 1,3 \;cm^2
+\]</span></p>
+<p>Pela fórmula que não utiliza os desvios teríamos:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_1\)</span></th>
+<th><span class="math inline">\(x_2\)</span></th>
+<th><span class="math inline">\(x_3\)</span></th>
+<th><span class="math inline">\(x_4\)</span></th>
+<th><span class="math inline">\(x_5\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>3</td>
+<td>2</td>
+<td>4</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+s^2 =\frac{\sum_{i=1}^nx_i^2-\frac{(\sum_{i=1}^n x_i)^2}{n}}{n-1} = \frac{(5^2+3^2+2^2+4^2+3^2)-\frac{(5+3+2+4+3)^2}{5}}{5-1} = \frac{63-\frac{(17)^2}{5}}{5-1} = \frac{63-57,8}{4}=1,3 \;cm^2
+\]</span></p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1"></a><span class="co"># Forma mais simples de calcular a variância amostral</span></span>
+<span id="cb11-2"><a href="index.html#cb11-2"></a><span class="kw">var</span>(X)</span></code></pre></div>
+<pre><code>## [1] 1.3</code></pre>
+<p><strong>DESVIO PADRÃO</strong></p>
+<p>A variância, pela sua natureza, tem a unidade quadrática. A sua raiz quadrada, que ainda é uma medida de dispersão é denominada desvio padrão:</p>
+<p>A vantagem do desvio padrão é ter a mesma unidade dos dados originais e, consequentemente, da média.</p>
+<p>É a mais utilizada das medidas de dispersão, e é representada por <span class="math inline">\(\sigma\)</span> para a população, com estimativa <span class="math inline">\(s\)</span> para a amostra. Então:</p>
+<p><span class="math display">\[
+\sigma = \sqrt{\sigma^2} \text{   e    } s = \sqrt{s^2}
+\]</span></p>
+<p><strong>exemplo</strong></p>
+<p><span class="math display">\[
+s = \sqrt{1,3} = 1,140175\;cm
+\]</span></p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1"></a><span class="co"># Forma mais simples de calcular o desvio padrão</span></span>
+<span id="cb13-2"><a href="index.html#cb13-2"></a><span class="kw">sd</span>(X)</span></code></pre></div>
+<pre><code>## [1] 1.140175</code></pre>
+<p><strong>ERRO PADRÃO DA MÉDIA</strong></p>
+<p>Se em vez de uma amostra tivéssemos várias, provenientes de uma mesma população, obteríamos diversas estimativas da média, e provavelmente distintas umas das outras.</p>
+<p>A partir dessas diversas estimativas da média, poderíamos estimar uma variância, considerandos-e os desvios de cada média individual, em relação à média de todas elas. Seria então uma estimativa da variância das médias.</p>
+<p>Entretanto, demonstra-se que a partir de uma única amostra, podemos estimar essa variância, através da fórmula:</p>
+<p><span class="math display">\[
+Var(\bar{X}) = \hat{V}(\hat{m}) = \frac{s^2}{n}
+\]</span></p>
+<p>onde <span class="math inline">\(s^2\)</span> é a estimativa da variância dos <span class="math inline">\(n\)</span> dados, calculada de maneira usual</p>
+<p>A sua raiz quadrada é denominada Erro Padrão da Média, ou seja:</p>
+<p><span class="math display">\[
+s(\hat{m}) = \frac{s}{\sqrt{n}}
+\]</span></p>
+<p>O erro padrão da média fornece uma idéia da precisão da estimativa da média, isto é quanto menor ele for, maior precisão terá a estimativa da média.</p>
+<p>Assim para os dados de altura de plantas daninhas temos:</p>
+<p><strong>exemplo</strong></p>
+<p><span class="math display">\[
+s(\hat{m}) = \frac{s}{\sqrt{n}} = \frac{1,140175}{\sqrt{5}} = 0,599\;cm
+\]</span></p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="index.html#cb15-1"></a><span class="co"># Erro padrão da média</span></span>
+<span id="cb15-2"><a href="index.html#cb15-2"></a><span class="kw">sd</span>(X)<span class="op">/</span><span class="kw">sqrt</span>(n)</span></code></pre></div>
+<pre><code>## [1] 0.509902</code></pre>
+<p>Sempre que apresentarmos uma média, é conveniente apresentar também o seu erro padrão. Assim, no exemplo poderíamos apresentar a média e o seu erro padrão, da seguinte maneira:</p>
+<p><span class="math display">\[
+3,4 \pm 0,599\;cm
+\]</span></p>
+<p>Quanto menor o valor do erro padrão da média, mais precisa foi a estimativa da média.</p>
+<p><strong>COEFICIENTE DE VARIAÇÃO</strong></p>
+<p>É uma medida de dispersão que expressa percentualmente o desvio padrão por unidade de média, ou seja:</p>
+<p><span class="math display">\[
+CV = \frac{100 \cdot s}{\hat{m}}
+\]</span></p>
+<p>Como <span class="math inline">\(s\)</span> e <span class="math inline">\(\hat{m}\)</span> são expressos na mesma unidade dos dados, o coeficiente de variação é um número abstrato, isto é, não tem unidade e portanto é expresso em porcentagem da média.</p>
+<p>Nos ensaios agrícolas de campo, esperam-se coeficientes de variação da ordem de 10 a 20%. Porém em ensaios de levantamento de pragas, normalmente os coeficientes de variação são maiores que 30%.</p>
+<p>No exemplo de altura de plantas daninhas, temos:</p>
+<p><strong>exemplo</strong></p>
+<p><span class="math display">\[
+CV = \frac{100 \cdot s}{\hat{m}} = \frac{100 \cdot 1,140175}{3,4} = 33,53\%
+\]</span>
+<img src="R.png" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1"></a><span class="co"># Coeficiente de Variação</span></span>
+<span id="cb17-2"><a href="index.html#cb17-2"></a><span class="dv">100</span><span class="op">*</span><span class="kw">sd</span>(X)<span class="op">/</span><span class="kw">mean</span>(X)</span></code></pre></div>
+<pre><code>## [1] 33.53457</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="comparações-de-parâmetros-de-duas-populações.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso_GIEU.pdf", "curso_GIEU.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

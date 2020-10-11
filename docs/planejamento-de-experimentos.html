@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 PLANEJAMENTO DE EXPERIMENTOS | Curso do R do GIEU</title>
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 PLANEJAMENTO DE EXPERIMENTOS | Curso do R do GIEU" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 PLANEJAMENTO DE EXPERIMENTOS | Curso do R do GIEU" />
+  
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+<meta name="author" content="Alan R. Panosso" />
+
+
+<meta name="date" content="2020-10-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="comparações-de-parâmetros-de-duas-populações.html"/>
+<link rel="next" href="testes-para-comparação-de-médias.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">curso_GIEU</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUÇÃO AO CURSO</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#alguns-conceitos-básicos"><i class="fa fa-check"></i><b>1.1</b> Alguns conceitos básicos</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#medidas-de-posição-e-de-tendência-central"><i class="fa fa-check"></i><b>1.2</b> Medidas de posição e de tendência central</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html"><i class="fa fa-check"></i><b>2</b> COMPARAÇÕES DE PARÂMETROS DE DUAS POPULAÇÕES</a><ul>
+<li class="chapter" data-level="2.1" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-da-variância-de-duas-populações-normais"><i class="fa fa-check"></i><b>2.1</b> Comparação da variância de duas populações normais</a></li>
+<li class="chapter" data-level="2.2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-de-duas-médias-de-populações-normais-amostras-independentes"><i class="fa fa-check"></i><b>2.2</b> Comparação de duas médias de populações normais: amostras independentes</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html"><i class="fa fa-check"></i><b>3</b> PLANEJAMENTO DE EXPERIMENTOS</a><ul>
+<li class="chapter" data-level="3.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>3.1</b> Introdução</a></li>
+<li class="chapter" data-level="3.2" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#unidade-experimental-ou-parcela"><i class="fa fa-check"></i><b>3.2</b> Unidade Experimental ou Parcela</a></li>
+<li class="chapter" data-level="3.3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>3.3</b> Princípios Básicos da Experimentação</a></li>
+<li class="chapter" data-level="3.4" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#relação-entre-os-princípios-básico-da-experimentação-e-os-delineamentos-experimentais"><i class="fa fa-check"></i><b>3.4</b> Relação entre os princípios básico da experimentação e os delineamentos experimentais</a></li>
+<li class="chapter" data-level="3.5" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#testes-de-significância"><i class="fa fa-check"></i><b>3.5</b> Testes de Significância</a></li>
+<li class="chapter" data-level="3.6" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#teste-f-de-snedecor-para-análise-de-variância"><i class="fa fa-check"></i><b>3.6</b> Teste F de Snedecor para Análise de Variância</a></li>
+<li class="chapter" data-level="3.7" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#exemplo-de-aplicação-do-teste-f"><i class="fa fa-check"></i><b>3.7</b> Exemplo de aplicação do teste F</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>4</b> TESTES PARA COMPARAÇÃO DE MÉDIAS</a><ul>
+<li class="chapter" data-level="4.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
+<li class="chapter" data-level="4.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>4.2</b> Contrastes de Médias</a></li>
+<li class="chapter" data-level="4.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contrastes"><i class="fa fa-check"></i><b>4.3</b> Estimativa do Contrastes</a></li>
+<li class="chapter" data-level="4.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>4.4</b> Covariância entre dois contrastes</a></li>
+<li class="chapter" data-level="4.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>4.5</b> Contrastes ortogonais</a></li>
+<li class="chapter" data-level="4.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>4.6</b> Variância de um contraste</a></li>
+<li class="chapter" data-level="4.7" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>4.7</b> Erro padrão do contraste</a></li>
+<li class="chapter" data-level="4.8" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>4.8</b> Teste t de Student</a></li>
+<li class="chapter" data-level="4.9" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>4.9</b> Exemplo de aplicação do teste t de Student</a></li>
+<li class="chapter" data-level="4.10" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>4.10</b> Teste de Tukey</a></li>
+<li class="chapter" data-level="4.11" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>4.11</b> Exemplo de aplicação do teste de Tukey</a></li>
+<li class="chapter" data-level="4.12" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>4.12</b> Teste de Duncan</a></li>
+<li class="chapter" data-level="4.13" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>4.13</b> Exemplo de aplicação do teste de Duncan</a></li>
+<li class="chapter" data-level="4.14" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>4.14</b> Teste de Scheffé</a></li>
+<li class="chapter" data-level="4.15" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>4.15</b> Exemplo de aplicação do teste de Scheffé</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>5</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="5.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>5.1</b> Caracterização</a></li>
+<li class="chapter" data-level="5.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>5.2</b> Modelo Matemático</a></li>
+<li class="chapter" data-level="5.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>5.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
+<li class="chapter" data-level="5.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="5.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.5</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
+<li class="chapter" data-level="6.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
+<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>6.2</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-error-padrôes-das-médias"><i class="fa fa-check"></i><b>6.3</b> Cálculo das médias e error padrôes das médias</a></li>
+<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> Teste de Tukey para comparação das médias</a></li>
+<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> Cálculo do coeficiente de variação do experimento</a></li>
+<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> Aplicação do teste t de Student a um contraste</a></li>
+<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> Teste de Duncan para a comparação das médias</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="7.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
+<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos</a></li>
+<li class="chapter" data-level="7.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.3</b> Método dos contrastes de totais de tratamentos</a></li>
+<li class="chapter" data-level="7.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.4</b> Método dos totais de tratamentos (sem utilizar contrastes)</a></li>
+<li class="chapter" data-level="7.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.5.1</b> <strong>Conclusões</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-maisde-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.6</b> Componentes com maisde um grau de liberdade</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> Caracterização</a></li>
+<li class="chapter" data-level="8.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> Modelo matemático</a></li>
+<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> Hipóteses básicas</a></li>
+<li class="chapter" data-level="8.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="8.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><i class="fa fa-check"></i><b>9</b> DELINEAMENTO EM BLOCOS CASUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
+<li class="chapter" data-level="9.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
+<li class="chapter" data-level="9.2" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>9.2</b> Estimativa da parcela perdida</a></li>
+<li class="chapter" data-level="9.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>9.3</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="9.4" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>9.4</b> Médias de tratamentos</a></li>
+<li class="chapter" data-level="9.5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>9.5</b> Erros padrões das médias</a></li>
+<li class="chapter" data-level="9.6" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>9.6</b> Comparação de médias pelo teste de Tukey</a></li>
+<li class="chapter" data-level="9.7" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>9.7</b> Exemplo de aplicação</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>10</b> EXPERIMENTOS FATORIAIS</a><ul>
+<li class="chapter" data-level="10.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
+<li class="chapter" data-level="10.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-simples-de-um-fator"><i class="fa fa-check"></i><b>10.2</b> Efeito simples de um fator</a></li>
+<li class="chapter" data-level="10.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-principal-de-um-fator"><i class="fa fa-check"></i><b>10.3</b> Efeito principal de um fator</a></li>
+<li class="chapter" data-level="10.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-da-interação-entre-fatores"><i class="fa fa-check"></i><b>10.4</b> Efeito da interação entre fatores</a></li>
+<li class="chapter" data-level="10.5" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#vantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.5</b> Vantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#desvantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.6</b> Desvantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="10.7" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>10.7</b> Classificação dos Experementos Fatoriais</a></li>
+<li class="chapter" data-level="10.8" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>10.8</b> Casualização dos tratamentos</a></li>
+<li class="chapter" data-level="10.9" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#análise-de-variância-de-um-experimento-fatorial-com-2-fatores-com-interação-não-significativa"><i class="fa fa-check"></i><b>10.9</b> Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</a></li>
+<li class="chapter" data-level="10.10" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="10.11" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-tratamento-do-solo-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.11</b> Cálculo das média de Tratamento do Solo e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.12" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-fungicidas-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.12</b> Cálculo das média de Fungicidas e erros padrões das médias</a></li>
+<li class="chapter" data-level="10.13" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>10.13</b> Cálculo do coeficiente de variação do experimento</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><i class="fa fa-check"></i><b>11</b> ANÁLISE DE UM EXPERIMENTO FATORIAL COM 2 FATORES, COM INTERAÇÃO SIGNIFICATIVA</a><ul>
+<li class="chapter" data-level="11.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>11.1</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="11.2" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#desdobrando-a-interação-itimes-d-para-estudar-os-efeitos-do-fator-doses-em-cada-nível-do-fator-inseticida-d-d.-i"><i class="fa fa-check"></i><b>11.2</b> Desdobrando a interação <span class="math inline">\(I\times D\)</span>, para estudar os efeitos do fator <strong>DOSES</strong> em cada nível do fator <strong>INSETICIDA</strong> (D d. I):</a></li>
+<li class="chapter" data-level="11.3" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#desdobrando-a-interação-i-times-d-para-estudar-os-efeitos-do-fator-inseticidas-dentro-de-cada-nível-do-fator-dose-d-d.-i"><i class="fa fa-check"></i><b>11.3</b> Desdobrando a interação <span class="math inline">\(I \times D\)</span>, para estudar os efeitos do fator <strong>INSETICIDAS</strong> dentro de cada nível do fator <strong>DOSE</strong> (D d. I):</a></li>
+<li class="chapter" data-level="11.4" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#teste-de-tukey-para-a-comparação-de-médias"><i class="fa fa-check"></i><b>11.4</b> Teste de Tukey para a comparação de médias</a></li>
+<li class="chapter" data-level="11.5" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#para-comparar-médias-de-inseticidas-na-dose-1-i-d.-d_1"><i class="fa fa-check"></i><b>11.5</b> Para comparar médias de Inseticidas na Dose 1 (I d. <span class="math inline">\(D_1\)</span>)</a></li>
+<li class="chapter" data-level="11.6" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#para-comparar-médias-de-inseticidas-na-dose-2-i-d.-d_2"><i class="fa fa-check"></i><b>11.6</b> Para comparar médias de Inseticidas na Dose 2 (I d. <span class="math inline">\(D_2\)</span>)</a></li>
+<li class="chapter" data-level="11.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>11.7</b> Cálculo do coeficiente de variação do experimento</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html"><i class="fa fa-check"></i><b>12</b> Estudo do Fatorial <span class="math inline">\(3^2\)</span></a><ul>
+<li class="chapter" data-level="12.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>12.1</b> Obtenção da análise de variância</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-espaçamento-em-cada-nível-do-fator-densidade-e-d.-d"><i class="fa fa-check"></i><b>12.1.1</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Espaçamento</strong> em cada nível do fator <strong>Densidade</strong> (E d. D):</a></li>
+<li class="chapter" data-level="12.1.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-densidade-em-cada-nível-do-fator-espaçamentos-d-d.-e"><i class="fa fa-check"></i><b>12.1.2</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Densidade</strong> em cada nível do fator <strong>Espaçamentos</strong> (D d. E):</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#teste-de-tukey-para-a-comparação-de-médias-1"><i class="fa fa-check"></i><b>12.2</b> Teste de Tukey para a comparação de médias</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#para-comparar-médias-de-espaçamento-na-densidade-15-e-d.-d_15"><i class="fa fa-check"></i><b>12.2.1</b> 1. Para comparar médias de Espaçamento na Densidade 15 (E d. <span class="math inline">\(D_15\)</span>)</a></li>
+<li class="chapter" data-level="12.2.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#para-comparar-médias-de-densidades-no-espaçamento-25-d-d.-e_25"><i class="fa fa-check"></i><b>12.2.2</b> 2. Para comparar médias de densidades no Espaçamento 25 (D d. <span class="math inline">\(E_25\)</span>)</a></li>
+<li class="chapter" data-level="12.2.3" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#resultado-do-teste-de-tukey"><i class="fa fa-check"></i><b>12.2.3</b> Resultado do teste de Tukey</a></li>
+<li class="chapter" data-level="12.2.4" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#cálculo-do-coeficiente-de-variação-do-experimento-1"><i class="fa fa-check"></i><b>12.2.4</b> Cálculo do coeficiente de variação do experimento</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso do R do GIEU</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="planejamento-de-experimentos" class="section level1">
+<h1><span class="header-section-number">Capítulo 3</span> PLANEJAMENTO DE EXPERIMENTOS</h1>
+<div id="introdução" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introdução</h2>
+<p>O principal objetivo da Estatística Experimental é o estudo dos experimentos, seu planejamento, execução, análise e interpretação dos resultados obtidos.</p>
+<p>Os dados que empregamos na análise estatística constituem uma amostra da população em estudo, e são obtidos de trabalhos previamente planejados, que são os EXPERIMENTOS, sendo por isso chamados de <strong>dados experimentais.</strong></p>
+<p>O que nos obriga utilizar a análise estatística é a presença em todos os dados experimentais, de efeitos de fatores não controlados (que podem ou não ser controláveis) e que causam a variação. Entre os fatores que não podem ser controlados, podemos citar: pequenas variações nas dosagens de inseticidas, pequenas variações na infestação das parcelas pelas pragas de estudo, variação na constituição genética das plantas, pequenas variações na fertilidade do solo, profundidade de semeadura, etc.</p>
+<p>Esses efeitos, que estão sempre presentes, não podem ser conhecidos individualmente e, no conjunto alteram, pouco ou muito, os resultados obtidos.</p>
+<p>Os efeitos desses fatores que não podem ser controlados são chamados de <strong>variação do acaso</strong> ou <strong>variação aleatória</strong>.</p>
+<p>Procurando tornar mínima a variação do acaso, o experimentador deve fazer o planejamento do experimento de tal forma que consiga isolar os efeitos de todos os fatores que podem ser controlados.</p>
+<p>O planejamento constitui a etapa inicial de qualquer trabalho, e, portanto, um experimento também deve ser devidamente planejado, de modo a atender aos interesses do experimentador e às hipóteses básicas necessárias para a validade da análise estatística.</p>
+<p>Frequentemente o estatístico é consultado para tirar conclusões com base em dados experimentais. Como as conclusões dependem da forma como foi realizado o experimento, o estatístico solicitará uma descrição detalhada do experimento e de seus objetivos. Muitas vezes, ocorrem casos em que, após a descrição do experimento, o estatístico verifica que não pode chegar a conclusão alguma, uma vez que o experimentador não utilizou um delineamento adequado ou não atendeu às hipóteses básica necessárias para a validade da análise estatística. Para evitar essa perda de tempo e de recursos, é primordial o planejamento adequado do experimento.</p>
+<p>Ao iniciar o planejamento de um experimento, o experimentador deve formular e responder a uma série de perguntas. Como exemplo, podemos citar:</p>
+<p><strong>1. Quais as características que serão analisadas?</strong></p>
+<p>Num mesmo experimento, várias características podem ser estudadas. Por exemplo, num experimento com a cultura do milho, podemos determinar a altura das plantas, a porcentagem de plantas acamadas, a produção de grãos, o peso de 100 grãos, o comprimento da espiga, o diâmetro da espiga, etc. Portanto, devemos definir adequadamente as características de interesse, para que as mesmas possam ser determinadas no decorrer do experimento.</p>
+<p><strong>2. Quais os fatores que afetam essas características?</strong></p>
+<p>Relacionar todos os fatores que possuem efeito sobre as características que serão estudadas, como por exemplo: variedade, adubação, espaçamento, irrigação, tratos culturais, controle de pragas e doenças, etc.</p>
+<p><strong>3. Quais desses fatores serão estudados no experimento?</strong></p>
+<p>Nos experimentos simples, apenas um tipo de tratamento ou fator pode ser estudado de cada vez, sendo os demais fatores mantidos constantes. Por exemplo, quando fazemos um experimento de competição de variedades, todos os outros fatores tais como espaçamento, adubação, irrigação, tratos culturais devem ser os mesmos para todas as variedades. No caso de experimentos mais complexos, como os experimentos fatoriais e em parcelas subdivididas, podemos simultaneamente estudar os efeitos de dois ou mais tipos de tratamentos ou fatores.</p>
+<p><strong>4. Como será a unidade experimental ou parcela?</strong></p>
+<p>A escolha da parcela deve ser feita de forma a minimizar o erro experimental. Devido à importância da definição de unidade experimental, faremos uma discussão mais detalhada sobre o assunto em seguida.</p>
+<p><strong>5. Quantas repetições deverão ser utilizadas?</strong></p>
+<p>O número de repetições de um experimento depende do número de tratamentos a serem utilizados e do delineamento experimental escolhido. De modo geral, recomenda-se que o número de parcelas do experimento não seja inferior a 20 e que o número de graus de liberdade associado aos efeitos dos fatores não controlado ou acaso não seja inferior a 10.</p>
+</div>
+<div id="unidade-experimental-ou-parcela" class="section level2">
+<h2><span class="header-section-number">3.2</span> Unidade Experimental ou Parcela</h2>
+<p>Um dos aspectos mais importantes a ser considerado durante o planejamento do experimento é a definição de unidade experimental ou parcela. De um modo geral a escolha da parcela deve ser feita de forma a minimizar o erro experimental, isto é, as parcelas devem ser o mais uniforme possível, para que as mesmas consigam refletir o efeito dos tratamentos aplicados.</p>
+<p><strong>TAMANHO DA PARCELA</strong></p>
+<p>Em experimentos de campo, o tamanho das parcelas pode variar bastante, em função dos seguintes fatores:</p>
+<p><strong>1. Material com que se está trabalhando</strong>: Dependendo da cultura que está sendo estudada, devemos aumentar ou diminuis o tamanho das parcelas. Por exemplo parcelas da cultura da soja geralmente são menores que as parcelas para a cultura da cana-de-açúcar ou para a cultura da Laranja.</p>
+<p><strong>2. O objetivo da pesquisa</strong>: O objetivo do trabalho experimental também influencia no tamanho da parcela. Por exemplo, se desejamos estudar o efeito da profundidade de semeadura do sorgo granífero sobre o desenvolvimento inicial das plantas, não necessitamos trabalhar com parcelas tão grandes quanto as que seriam necessárias para um estudo de produção da cultura.</p>
+<p><strong>3. Número de tratamentos em estudo</strong>: Quando o número de tratamentos é muito grande, como ocorre com os experimentos de melhoramento vegetal, o tamanho das parcelas deve ser reduzido, para diminuir a distância entre as parcelas extremas, visando a homogeneidade entre elas.</p>
+<p><strong>4. Quantidade disponível de sementes</strong>: Nos experimentos de melhoramento genético vegetal, este é um fator limitante para o tamanho das parcelas.</p>
+<p><strong>5. Uso de máquinas agrícolas</strong>: Nos experimentos em que é necessária a utilização de máquinas agrícolas, tais como tratores e colhedoras, o tamanho das parcelas deve ser, obrigatoriamente, grande.</p>
+<p><strong>6. Área total disponível para a pesquisa</strong>: Frequentemente, o pesquisador tem que ajustar seu experimento ao tamanho da área disponível, que em geral é pequeno, o que resulta na utilização de parcelas pequenas.</p>
+<p><strong>7. Custo tempo e mão-de-obra</strong>: São os principais fatores que limitam o tamanho das parcelas.</p>
+<p><strong>FORMA DA PARCELA</strong></p>
+<p>No que se refere à forma das parcelas, experimentos realizados em diversos países, como diferentes culturas, têm mostrado que, para se obter maior precisão, as parcelas devem ser compridas e estreitas, evitando-se que todas a parcela ocupe uma mancha de alta ou baixa fertilidade do solo, que possa existir na área experimental.</p>
+<p>Para parcelas de tamanho pequeno, o efeito da forma é muito pequeno. O tamanho e a forma ideais para a parcela são aqueles que resultem em maior homogeneidade das parcelas.</p>
+<p>Em alguns experimentos, devemos utilizar bordaduras nas parcelas, para se evitar a influência sobre a parcela, dos tratamentos aplicados nas parcelas vizinhas. Neste caso, teremos a <strong>área total</strong> e a <strong>área útil</strong> da parcela, sendo que os dados a serem utilizados na análise estatística serão aqueles coletados na <strong>área útil da parcela</strong>.</p>
+<p>Nos experimentos em <strong>casa-de-vegetação</strong>, para a constituição de cada parcela, podemos utilizar um conjunto de vasos ou, então, um único vaso com duas ou três plantas e, às vezes, uma única planta constituindo a unidade experimental.</p>
+<p>Em experimentos de <strong>laboratório</strong>, uma amostra simples do material poderá constituir a parcela, porém, às vezes é necessário utilizar uma amostra composta. Quando são feitas várias determinações em uma mesma amostra, o valor da parcela será a média das várias determinações. Não devemos confundir as diversas determinações da mesma amostra, com as repetições do experimento.</p>
+</div>
+<div id="princípios-básicos-da-experimentação" class="section level2">
+<h2><span class="header-section-number">3.3</span> Princípios Básicos da Experimentação</h2>
+<p>Para assegurar que os dados serão obtidos de forma a propiciar uma análise correta e que conduza a conclusões válidas com relação ao problema em estudo, o experimentador deve levar com conta alguns princípios básicos ao planejar o experimento.</p>
+<p><strong>PRINCÍPIO DA REPETIÇÃO</strong></p>
+<p>O princípio da repetição consiste na reprodução do experimento básico. Sejam, por exemplo e variedade, A e B, plantadas em 2 parcelas o mais semelhante possível. O fato da variedade A se comportar melhor que a B, pouco ou nada significa, pois a variedade A pode ter tido um melhor comportamento por simples acaso.</p>
+<p>Podemos tentar contornar o problema, plantando as variedades A e B em diversas parcelas, e considerando o comportamento médio de cada variedade. Aqui intervém o princípio da repetição, ou seja, a reprodução do experimento básico.</p>
+<p>Entretanto, apenas esse princípio não resolve totalmente o problema, pois se todas as parcelas com a variedade A estiverem agrupadas, e aquelas com a variedade B também, o efeito de fatores não controlados continuará a ser uma hipótese possível para o melhor comportamento da variedade A.</p>
+<p><strong>PRINCÍPIO DA CASUALIZAÇÃO</strong></p>
+<p>Princípio da casualização consiste na distribuição dos tratamentos às parcelas de forma casual, para evitar que um determinado tratamento venha a ser beneficiado por sucessivas repetições em parcelas melhores.</p>
+<p>Se, por exemplo, temos as duas variedades A e B distribuídas ao acaso em 6 parcelas cada, teremos:</p>
+<p><img src="tab1.png" />
+Então, se a variedade A se comportar melhor que a B em qualquer das parcelas, pela teoria de probabilidades, a probabilidade de que isso ocorra por acaso é:</p>
+<p><span class="math display">\[
+p = \frac{6! \cdot 6!}{12!} = \frac{1}{924} = 0,1\% \Rightarrow q=1-p=99,9\%
+\]</span>
+Isso significa que o resultado obtido ainda pode ser devido ao acaso, porém a probabilidade de que isso ocorra por acaso é apenas de <span class="math inline">\(0,1\%\)</span>, ou seja, existe uma probabilidade de <span class="math inline">\(99,9\%\)</span> de que haja realmente um melhor comportamento de um dos tratamentos.</p>
+<p><img src="tab2.png" /></p>
+<p><strong>PRINCÍPIO DO CONTROLE LOCAL</strong></p>
+<p>Este princípio é frequentemente utilizado, mas não é de uso obrigatório. A função do controle local é tornar o delineamento mais eficiente, reduzindo o erro experimental.</p>
+<p>O controle local consiste na formação de grupos de parcelas o mais homogêneos possível, de modo a reduzir o erro experimental. Cada grupo constitui um bloco, sendo que os tratamentos devem ser sorteados dentro de cada bloco. Por exemplo:</p>
+</div>
+<div id="relação-entre-os-princípios-básico-da-experimentação-e-os-delineamentos-experimentais" class="section level2">
+<h2><span class="header-section-number">3.4</span> Relação entre os princípios básico da experimentação e os delineamentos experimentais</h2>
+<p>A análise de variância consiste na decomposição da variância total de um material heterogêneo em partes atribuídas a causas conhecidas e independentes e a uma porção residual de origem desconhecida e de natureza aleatória.</p>
+<p>Quando planejamos um experimento, levando em conta apenas o princípio da repetição e da casualização, sem considerar o princípio do controle local, temos o <strong>Delineamento Inteiramente Casualizado (DIC)</strong> ou Delineamento Inteiramente ao Acaso.</p>
+<p>Só devemos utilizar esse delineamento, quando temos certeza da homogeneidade das condições experimentais. É frequentemente utilizado em experimentos de laboratório onde as condições experimentais podem ser perfeitamente controladas.</p>
+<p>Num experimento inteiramente Casualizado, com 5 tratamentos, cada um dos quais foi repetido 5 vezes, teremos o seguinte esquema de análise de variância:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas de Variação
+</th>
+<th style="text-align:left;">
+G.L.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamentos
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;">
+24
+</td>
+</tr>
+</tbody>
+</table>
+<p>O resíduo ou erro, é a causa de variação que reflete o efeito dos fatores não controlados, também chamado de acaso.</p>
+<p>Quando não há homogeneidade entre parcelas, devemos utilizar o princípio do controle local, estabelecendo blocos. Neste caso, o delineamento a ser utilizado é o <strong>Delineamento de Blocos ao Acaso (DBC)</strong>.</p>
+<p>O esquema de análise de variância de um experimento em blocos causalizados com 5 tratamento de 5 repetições é dado por:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas de Variação
+</th>
+<th style="text-align:left;">
+G.L.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamentos
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;">
+24
+</td>
+</tr>
+</tbody>
+</table>
+<p>Quando necessitamos controlar 2 tipos de heterogeneidade, devemos utilizar o <strong>Delineamento em Quadrados Latino (DQL)</strong>. Neste delineamento, os tratamentos sofrem um duplo controle local, sendo dispostos em linhas e colunas.</p>
+<p>Para um experimento em quadrado latino com 5 tratamento, o esquema de análise de variância será:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas de Variação
+</th>
+<th style="text-align:left;">
+G.L.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamentos
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Linhas
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Colunas
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;">
+24
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="testes-de-significância" class="section level2">
+<h2><span class="header-section-number">3.5</span> Testes de Significância</h2>
+<p><strong>INTRODUÇÃO</strong></p>
+<p>Um dos principais objetivos da estatística é a tomada de decisão a respeito da população, com base nas observações de amostra, ou seja, a obtenção de conclusões válidas para toda a população com base em amostra retiradas dessas populações.</p>
+<p>Ao tentarmos tomar decisões, é conveniente a formulação de hipóteses ou suposições relativas às populações. Essas suposições, que podem ou não ser verdadeiras são chamadas de <strong>hipóteses estatísticas</strong> e consistem, geralmente, em considerações a respeito das distribuições de probabilidade das populações.</p>
+<p>Em muitos casos formulamos uma hipótese estatística com o objetivo de rejeitá-la ou invalida-la. Por exemplo, quando realizamos um experimento com o objetivo de verificar qual é a variedade de cana-de-açúcar mais produtiva, formulamos a hipótese de que não existem diferenças entre as variedades em relação à produção (isto é, que quaisquer diferenças observadas são devidas unicamente aos fatores não controlado ou acaso). Essa hipótese inicial que formulamos, é denominada de **hipótese da nulidade* e é representada por <span class="math inline">\(H_0\)</span>*.</p>
+<p>Admitindo-se está hipótese como verdadeira, se verificarmos que os resultados obtidos ao final do experimento em uma amostra aleatória diferem acentuadamente dos resultados esperados para essa hipótese, com ase na teoria das probabilidades, podemos concluir que as diferenças observadas são significativas, e rejeitar essa hipótese <span class="math inline">\(H_0\)</span>.</p>
+<p>Então, rejeitamos a hipótese da nulidade em favor de uma outra, que é representada por <span class="math inline">\(H_1\)</span> e denominada de <strong>hipótese alternativa</strong>. Por exemplo, no caso da comparação entre variedade, a hipótese alternativa seria: As variedades testadas se comportam de maneira diferente em relação à produção de cana-de-açúcar.</p>
+<p>Os métodos que nos permitem decidir se aceitamos ou rejeitamos uma determinada hipótese, ou se a amostra observada difere significativamente dos valores esperados, são denominados <strong>testes de significância</strong> ou <strong>testes de hipóteses</strong>.</p>
+<p>Porém, ao tomarmos decisões de rejeitar ou aceitar uma determinada hipótese, estamos sujeitos a incorrer em dois tipos de erros:</p>
+<p><strong>ERRO TIPO I</strong>: é o erro que cometemos ao rejeitar uma determinada hipótese verdadeira, que deveria ser aceita.</p>
+<p><strong>ERRO TIPO II</strong>: é o erro que cometemos ao aceitar uma hipótese falsa, que deveria ser rejeitada.</p>
+<p>Esses dois tipos de erros são associados de tal forma que à medida que diminuímos a probabilidade de ocorrência de um deles, automaticamente aumentamos a probabilidade de ocorrência de outro.</p>
+<p>Geralmente, em estatística controla apenas o <strong>erro Tipo I</strong>, por meio do nível de significância do teste.</p>
+<p><strong>O nível de significância do teste</strong>, representado por <span class="math inline">\(\alpha\)</span> é a probabilidade máxima com que nos sujeitamos a correr o risco de cometer o <strong>erro Tipo I</strong>, ao testarmos uma hipótese.</p>
+<p>Na prática é usual fixarmos esse nível de significância em 5% ou em 1%, ou seja <span class="math inline">\(\alpha = 0,05\)</span> ou <span class="math inline">\(\alpha = 0,01\)</span>.</p>
+<p>Então, se por exemplo, escolhermos o nível de significância de 5%<span class="math inline">\((\alpha=0,05)\)</span>, isto indica que temos 5 chances em 100 de rejeitarmos uma hipótese que deveria ser aceita, isto é, há uma confiança de 95% de que tenhamos tomado uma decisão correta.</p>
+<p>Esta confiança que temos de termos tomada uma decisão correta é denominada de <strong>Grau de Confiança do Teste</strong>, e é dada por <span class="math inline">\(100 \cdot (1-\alpha) \%\)</span>.</p>
+<p>O teste de significância mais utilizado em estatística experimental é o <strong>Teste F</strong>, que estudaremos a seguir.</p>
+</div>
+<div id="teste-f-de-snedecor-para-análise-de-variância" class="section level2">
+<h2><span class="header-section-number">3.6</span> Teste F de Snedecor para Análise de Variância</h2>
+<p>A <strong>Análise de Variância</strong> é uma técnica que nos permite fazer a decomposição da variância total em parte atribuídas a causas conhecidas e independentes e uma porção residual de origem desconhecida e de natureza aleatória.</p>
+<p>O teste F tem por finalidade comparar estimativas de variâncias.</p>
+<p>Na análise de variância, as estimativas de variância são dadas pelos <strong>quadrados médios</strong> (Q.M.) e obtemos um Q.M. para cada causa de variação. Assim, em um experimento inteiramente casualizado, temos duas estimativas de variância: uma devido aos efeitos de tratamentos (dadas pelo <strong>QM Tratamentos</strong>) e outra devida aos efeitos dos fatorem não controlados ou acaso (dada pelo <strong>QM Resíduo</strong>).</p>
+<p>Para aplicar o teste F na análise de variância, utilizamos sempre no denominador, o <strong>QM Resíduo</strong>, ou seja, comparamos sempre uma variância devida aos efeitos do fator controlado (Tratamentos, Blocos, Linhas, Colunas, etc.), com a variância devida aos efeitos dos fatores não controlados ou acaso (Resíduos)</p>
+<p>Então:</p>
+<p><span class="math display">\[
+F= \frac{QM_{Tratamentos} }{ QM_{Resíduos}}
+\]</span></p>
+<p>Sob a hipótese da nulidade, isto é, supondo-se que os efeitos dos tratamentos são todos equivalentes, teríamos duas estimativas de variância (<strong>QM Tratamentos</strong> e <strong>QM Resíduo</strong>) que não deveriam diferir, a não ser por flutuações amostrais, pois ambas estimam a variação do acaso.</p>
+<p>Assim,</p>
+<p><span class="math inline">\(QM_{Resíduo}\)</span> - estima a variação do acaso: <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><span class="math inline">\(QM_{Tratamentos}\)</span> - estima a variação do acaso mais a variação devida ao efeito de tratamentos: <span class="math inline">\(\sigma^2 + K \sigma^2_T\)</span></p>
+<p>Portanto,</p>
+<p><span class="math display">\[
+F=\frac{QM_{Tratamentos}}{QM_{Resíduo} } = \frac{\sigma^2+K\sigma^2_t}{\sigma^2}
+\]</span></p>
+<p>A seguir, comparamos o valor de F calculado com os valores da tabela de distribuição F (geralmente aos níveis de 5% e 1%). Os valores críticos são obtidos na tabela da distribuição F, em função do número de graus de liberdade de tratamentos (ou blocos), na horizontal (numerador) e do número de graus de liberdade do resíduo, na vertical (denominador).</p>
+<p>O critério do teste é o seguinte:</p>
+<p>Se <span class="math inline">\(F\;calculado \ge F\;tabelado\)</span> o teste é significativo ao nível testado. Então, devemos rejeitar a hipótese da nulidade (<span class="math inline">\(H_0\)</span>), e concluir que os efeitos dos tratamentos diferem entre si a esse nível de probabilidade, e essas diferenças não devem ser atribuídas ao acaso, mas sim aos efeitos dos tratamentos testatos, com um grau de confiância <span class="math inline">\(100 \cdot(1-\alpha)\%\)</span>.</p>
+<p>Se <span class="math inline">\(F\;calculado \le F\;tabelado\)</span> o teste é não significativo ao nível testado. Então, não devemos rejeitar a hipótese da nulidade (<span class="math inline">\(H_0\)</span>). Neste caso concluímos que os efeitos dos tratamentos não diferem entre si a esse nível de probabilidae. Abaixo segue o esquema da distribuição F.</p>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Resumidamente, temos:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>Fcalc &lt; Ftab(5%)</strong> - O teste F é não significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade. Aceitamos <span class="math inline">\(H_0\)</span> - Utiliza-se a notação <span class="math inline">\(Fcalc^{NS}\)</span>.</p></li>
+<li><p><strong>Ftab(5%) &lt; Fcalc &lt; Ftab(1%)</strong> - O teste é significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade. Rejeitamos <span class="math inline">\(H_0\)</span> com um grau de confiança superior a <span class="math inline">\(95\%\)</span>. Utiliza-se a notação: <span class="math inline">\(Fcalc^*\)</span>.</p></li>
+<li><p><strong>Fcalc &gt; Ftab(1%)</strong> - O teste é significativo ao nível de <span class="math inline">\(1\%\)</span>de probabilidade. Rejeitamos <span class="math inline">\(H_0\)</span> com um grau de confiança superior a <span class="math inline">\(99\%\)</span>. Utiliza-se a notação: <span class="math inline">\(Fcalc^{**}\)</span>.</p></li>
+</ol>
+</div>
+<div id="exemplo-de-aplicação-do-teste-f" class="section level2">
+<h2><span class="header-section-number">3.7</span> Exemplo de aplicação do teste F</h2>
+<p>Num experimento de competição de cultivares de cana-de-açúcar foram utilizados 6 Tratamentos e 4 repetições. As cultivares testadas foram:</p>
+<ol style="list-style-type: decimal">
+<li>Co 413</li>
+<li>Co 419</li>
+<li>CB 40/19</li>
+<li>CB 40/69</li>
+<li>CB 41/70</li>
+<li>CB 41/76</li>
+</ol>
+<p>O delineamento experimental utilizado foi em blocos casualizados, com os blocos controlando diferenças na fertilidade do solo entre terraços.</p>
+<p>Para a produção da cultura da cana-de-açúcar, em t/ha foram estimados os seguintes valores de soma de quadrados para a análise de variância.</p>
+<p><span class="math inline">\(SQ{Trat} =37,59\)</span></p>
+<p><span class="math inline">\(SQ{Bloco} =58,22\)</span></p>
+<p><span class="math inline">\(SQ{Total} =124,39\)</span></p>
+<p>As hipóteses que desejamos testar, para tratamentos são:</p>
+<p><span class="math inline">\(H_0\)</span>: As cultivares de cana-de-açúcar testadas não diferem entre si quanto à produção de cana-de-açúcar.</p>
+<p><span class="math inline">\(H_1\)</span>: As cultivares de cana-de-açúcar testadas possuem efeitos diferentes quanto à produção de cana-de-açúcar.</p>
+<p>Para testar estas hipóteses, podemos montar o seguinte quadro de análise de variância:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas de Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamentos
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+37,59
+</td>
+<td style="text-align:left;">
+7,52
+</td>
+<td style="text-align:left;">
+3,94*
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+58,22
+</td>
+<td style="text-align:left;">
+19,41
+</td>
+<td style="text-align:left;">
+10,16**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+28,58
+</td>
+<td style="text-align:left;">
+1,91
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;">
+23
+</td>
+<td style="text-align:left;font-weight: bold;">
+124,39
+</td>
+<td style="text-align:left;font-weight: bold;">
+</td>
+<td style="text-align:left;font-weight: bold;">
+</td>
+</tr>
+</tbody>
+</table>
+<p>Valores de F da Tabela:</p>
+<p>Para Tratamentos <span class="math inline">\((5 \times 15\; gl): \begin{cases} 5\%=2,90 \\ 1\% = 4,56\end{cases}\)</span></p>
+<p>Para Blocos <span class="math inline">\((3 \times 15\; gl): \begin{cases} 5\%=3,29 \\ 1\% = 5,42\end{cases}\)</span></p>
+<p><strong>Conclusão para Tratamento:</strong></p>
+<p>O teste foi significativo ao nível de 5% de probabilidade. Rejeitamos a hipótese <span class="math inline">\(H_{0}\)</span> e concluímos que as cultivares (pelo menos 2) testadas possuem efeitos diferentes quanto à produção de cana-de-açúcar, a esse nível de probabilidade, com um grau de confiança superior a 95% de probabilidade.</p>
+<p><strong>Conclusão para Blocos:</strong></p>
+<p>O teste foi significativo ao nível de 1% de probabilidade. Rejeitamos a hipótese <span class="math inline">\(H_{0}\)</span> e concluímos que os terraços utilizados como blocos (pelo menos 2) diferem entre si em relação à produção de cana-de-açúcar, a esse nível de probabilidade, com um grau de confiança superior a 99% de probabilidade.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comparações-de-parâmetros-de-duas-populações.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="testes-para-comparação-de-médias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso_GIEU.pdf", "curso_GIEU.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
