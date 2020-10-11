@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU</title>
+  <title>Capítulo 13 Estudo do Fatorial \(2^3\) | Curso do R do GIEU</title>
   <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU" />
+  <meta property="og:title" content="Capítulo 13 Estudo do Fatorial \(2^3\) | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO | Curso do R do GIEU" />
+  <meta name="twitter:title" content="Capítulo 13 Estudo do Fatorial \(2^3\) | Curso do R do GIEU" />
   
   <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="delineamento-inteiramente-casualizado.html"/>
-<link rel="next" href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"/>
+<link rel="prev" href="estudo-do-fatorial-32.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -271,244 +271,372 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento" class="section level1">
-<h1><span class="header-section-number">Capítulo 6</span> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</h1>
-<div id="introdução" class="section level2">
-<h2><span class="header-section-number">6.1</span> Introdução</h2>
-<p>Muitas vezes pode acontecer de chegarmos ao final do experimento e não conseguirmos obter os dados de algumas parcelas do experimento. Quando isso ocorre, dizemos que temos <strong>parcelas perdidas</strong>.</p>
-<p>Algumas razões para a ocorrência de parcelas perdidas:</p>
-<pre><code>+ morte das plantas responsáveis pela parcela;
-+ falha do experimentador na coleta dos dados (erro de anotação);
-+ perda da ficha onde estão anotados os dados da parcela;
-+ a parcela apresenta um valor muito discrepante dos demais e não é considerada para efeito de análise;
-+ impossibilidade de acesso à parcela, ou ao bloco devido à condições meteorológicas;
-+ falha no equipamento (muito comum na utilização de sensores).</code></pre>
-</div>
-<div id="obtenção-da-análise-de-variância" class="section level2">
-<h2><span class="header-section-number">6.2</span> Obtenção da análise de variância</h2>
-<p>Todo o delineamento experimental é estruturado para que haja um perfeito balanceamento, e a perda de parcelas causa um quebra neste balanceamento, acarretando modificações no método de análise estatística.</p>
-<p>Para ilustrar o procedimento de análise de um experimento inteiramente casualizado, não balanceado, vamos utilizar o exemplo seguinte, referente a dados adaptados do trabalho de <strong><em>CARDOSO FILHO (1974)</em></strong> e se referem a produção de matéria seca de cultivares de sorgo, em t/ha.</p>
-<p>Experimento de produção de matéria seca de cultivares de sorgo, em t/ha. Para os cultivares, <em>H</em> = <em>Híbrido</em> e <em>V</em> = <em>Variedade</em>.</p>
-<pre><code>## Warning: package &#39;knitr&#39; was built under R version 4.0.2</code></pre>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="estudo-do-fatorial-23" class="section level1">
+<h1><span class="header-section-number">Capítulo 13</span> Estudo do Fatorial <span class="math inline">\(2^3\)</span></h1>
+<p>No fatorial <span class="math inline">\(2^3\)</span>, podemos estudar os efeitos de 3 fatores, cada um dos quais em 2 níveis. Assim, por exemplo, num ensaio de adubação NPK, podemos ter:</p>
+<p>Fatores:</p>
+<ul>
+<li><strong>N</strong> - Nitrogênio<br />
+</li>
+<li><strong>P</strong> - Fósforo<br />
+</li>
+<li><strong>K</strong> - Potássio</li>
+</ul>
+<p>Níveis:</p>
+<ul>
+<li><strong>0</strong> - Ausência do nutriente<br />
+</li>
+<li><strong>1</strong> - Presença do nutriente</li>
+</ul>
+<p>Neste caso, teremos os seguintes tratamentos:</p>
+<p><span class="math inline">\(N_0 P_0 K_0\)</span> - 000 - Testemunha<br />
+<span class="math inline">\(N_1 P_0 K_0\)</span> - 100 - N<br />
+<span class="math inline">\(N_0 P_1 K_0\)</span> - 010 - P<br />
+<span class="math inline">\(N_0 P_0 K_1\)</span> - 001 - K<br />
+<span class="math inline">\(N_1 P_1 K_0\)</span> - 110 - NP<br />
+<span class="math inline">\(N_1 P_0 K_1\)</span> - 101 - NK<br />
+<span class="math inline">\(N_0 P_1 K_1\)</span> - 011 - PK<br />
+<span class="math inline">\(N_1 P_1 K_1\)</span> - 111 - NPK</p>
+<p>Estes 8 tratamentos devem ser ditribuídos de acosrdo com um delineamento experimental qualquer, como por exemplo, DIC, DBC, etc, e após a análise de variância preliminar, realizada de acordo com o delineamento adotado, devemos desdobrar os graus 7 graus de liberdade de tratamentos da seguinte forma:</p>
+<p>Efeito de <span class="math inline">\(N\)</span>……………………………..1 g.l.<br />
+Efeito de <span class="math inline">\(P\)</span>……………………………..1 g.l.<br />
+Efeito de <span class="math inline">\(K\)</span>……………………………..1 g.l.<br />
+Efeito da Interação <span class="math inline">\(N \times P\)</span>…………..1 g.l.<br />
+Efeito da Interação <span class="math inline">\(N \times K\)</span>………….1 g.l.<br />
+Efeito da Interação <span class="math inline">\(P \times K\)</span>…………..1 g.l.<br />
+Efeito da Interação <span class="math inline">\(N \times P \times K\)</span>……1 g.l.<br />
+_____________________________________<br />
+(Tratamentos) ………………………..(7 g.l.)</p>
+<div id="análise-de-variância-de-um-experimento-fatorial-23" class="section level2">
+<h2><span class="header-section-number">13.1</span> Análise de variância de um experimento fatorial <span class="math inline">\(2^3\)</span></h2>
+<p>Para obtenção da análise de variância, vamos supor o seguinte ensaio em que se estudou o efeito da adubação NPK na cultura do cafeeiro. As produções de café coco, em kg por parcela de 105 <span class="math inline">\(m^2\)</span> (12 covas no espaçamento de <span class="math inline">\(3,5 \times 2,5\;m\)</span>) foram:</p>
+<table>
 <thead>
-<tr>
-<th style="text-align:left;">
-Cultivares
-</th>
-<th style="text-align:left;">
-Rep.1
-</th>
-<th style="text-align:left;">
-Rep.2
-</th>
-<th style="text-align:left;">
-Rep.3
-</th>
-<th style="text-align:left;">
-Rep.4
-</th>
-<th style="text-align:left;">
-Rep.5
-</th>
-<th style="text-align:left;">
-Rep.6
-</th>
-<th style="text-align:left;">
-Totais
-</th>
+<tr class="header">
+<th align="center">Tratamentos</th>
+<th align="center">Bloco 1</th>
+<th align="center">Bloco 2</th>
+<th align="center">Bloco 3</th>
+<th align="center">Bloco 4</th>
+<th align="center">Bloco 5</th>
+<th align="center">Bloco 6</th>
+<th align="center">Total</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-NK300H
-</td>
-<td style="text-align:left;">
-10.27
-</td>
-<td style="text-align:left;">
-11.55
-</td>
-<td style="text-align:left;">
-11.68
-</td>
-<td style="text-align:left;">
-11.38
-</td>
-<td style="text-align:left;">
-11.20
-</td>
-<td style="text-align:left;">
-11.24
-</td>
-<td style="text-align:left;">
-67.32
-</td>
+<tr class="odd">
+<td align="center"><span class="math inline">\(N_0P_0K_0\)</span></td>
+<td align="center">31,8</td>
+<td align="center">40,5</td>
+<td align="center">25,7</td>
+<td align="center">25,7</td>
+<td align="center">37,2</td>
+<td align="center">45,3</td>
+<td align="center"><strong>206,2</strong></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sordan67H
-</td>
-<td style="text-align:left;">
-9.77
-</td>
-<td style="text-align:left;">
-9.96
-</td>
-<td style="text-align:left;">
-11.94
-</td>
-<td style="text-align:left;">
-10.18
-</td>
-<td style="text-align:left;">
-10.43
-</td>
-<td style="text-align:left;">
-10.49
-</td>
-<td style="text-align:left;">
-62.77
-</td>
+<tr class="even">
+<td align="center"><span class="math inline">\(N_1P_0K_0\)</span></td>
+<td align="center">35,3</td>
+<td align="center">39,0</td>
+<td align="center">36,0</td>
+<td align="center">33,5</td>
+<td align="center">28,2</td>
+<td align="center">42,4</td>
+<td align="center"><strong>214,4</strong></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Pionner988H
-</td>
-<td style="text-align:left;">
-9.86
-</td>
-<td style="text-align:left;">
-9.59
-</td>
-<td style="text-align:left;">
-10.43
-</td>
-<td style="text-align:left;">
-9.99
-</td>
-<td style="text-align:left;">
-–
-</td>
-<td style="text-align:left;">
-–
-</td>
-<td style="text-align:left;">
-39.87
-</td>
+<tr class="odd">
+<td align="center"><span class="math inline">\(N_0P_1K_0\)</span></td>
+<td align="center">36,2</td>
+<td align="center">37,8</td>
+<td align="center">40,9</td>
+<td align="center">44,8</td>
+<td align="center">32,4</td>
+<td align="center">38,4</td>
+<td align="center"><strong>230,5</strong></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Pionner93H
-</td>
-<td style="text-align:left;">
-21.22
-</td>
-<td style="text-align:left;">
-20.62
-</td>
-<td style="text-align:left;">
-22.33
-</td>
-<td style="text-align:left;">
-19.89
-</td>
-<td style="text-align:left;">
-21.00
-</td>
-<td style="text-align:left;">
-–
-</td>
-<td style="text-align:left;">
-105.06
-</td>
+<tr class="even">
+<td align="center"><span class="math inline">\(N_0P_0K_1\)</span></td>
+<td align="center">25,6</td>
+<td align="center">32,4</td>
+<td align="center">39,6</td>
+<td align="center">48,9</td>
+<td align="center">20,6</td>
+<td align="center">33,7</td>
+<td align="center"><strong>200,8</strong></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SartV
-</td>
-<td style="text-align:left;">
-20.20
-</td>
-<td style="text-align:left;">
-20.55
-</td>
-<td style="text-align:left;">
-22.12
-</td>
-<td style="text-align:left;">
-20.78
-</td>
-<td style="text-align:left;">
-20.90
-</td>
-<td style="text-align:left;">
-20.92
-</td>
-<td style="text-align:left;">
-125.47
-</td>
+<tr class="odd">
+<td align="center"><span class="math inline">\(N_1P_1K_0\)</span></td>
+<td align="center">43,8</td>
+<td align="center">32,7</td>
+<td align="center">43,3</td>
+<td align="center">41,8</td>
+<td align="center">31,9</td>
+<td align="center">37,7</td>
+<td align="center"><strong>231,2</strong></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-400.49
-</td>
+<tr class="even">
+<td align="center"><span class="math inline">\(N_1P_0K_1\)</span></td>
+<td align="center">51,5</td>
+<td align="center">66,1</td>
+<td align="center">51,7</td>
+<td align="center">52,0</td>
+<td align="center">56,5</td>
+<td align="center">58,2</td>
+<td align="center"><strong>336,0</strong></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(N_0P_1K_1\)</span></td>
+<td align="center">37,1</td>
+<td align="center">53,0</td>
+<td align="center">36,4</td>
+<td align="center">43,0</td>
+<td align="center">19,7</td>
+<td align="center">30,4</td>
+<td align="center"><strong>219,6</strong></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(N_1P_1K_1\)</span></td>
+<td align="center">47,0|4</td>
+<td align="center">49,9</td>
+<td align="center">50,9</td>
+<td align="center">49,1</td>
+<td align="center">71,7</td>
+<td align="center">39,6</td>
+<td align="center"><strong>308,2</strong></td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Total</strong></td>
+<td align="center"><strong>308,3</strong></td>
+<td align="center"><strong>351,4</strong></td>
+<td align="center"><strong>324,5</strong></td>
+<td align="center"><strong>338,8</strong></td>
+<td align="center"><strong>298,2</strong></td>
+<td align="center"><strong>325,7</strong>|*</td>
+<td align="center"><strong>1946,9</strong></td>
 </tr>
 </tbody>
 </table>
-<p>As hipóteses testadas são:</p>
+<p>O ensaio foi montado de acordo com o delineamento em blocos casualizados e, portanto, a análise de variância preliminar, obtida da maneira usual, foi a seguinte:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Causas de Variação</th>
+<th align="center">GL</th>
+<th align="center">SQ</th>
+<th align="center">QM</th>
+<th align="center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Tratamentos</td>
+<td align="center">7</td>
+<td align="center">2949,18</td>
+<td align="center">421,31</td>
+<td align="center">6,38**</td>
+</tr>
+<tr class="even">
+<td align="center">Blocos</td>
+<td align="center">5</td>
+<td align="center">235,45</td>
+<td align="center">47,09</td>
+<td align="center">0,71</td>
+</tr>
+<tr class="odd">
+<td align="center">Resíduo</td>
+<td align="center">35</td>
+<td align="center">2310,92</td>
+<td align="center">66,03</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Total</strong></td>
+<td align="center"><strong>47</strong></td>
+<td align="center"><strong>5495.55</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão</strong>: O teste F para tratamentos foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, logo, rejeitamos a hipótese da nulidade (<span class="math inline">\(H_0\)</span>), e concluímos que os efeitos dos tratamentos diferem entre si em relação à produção da cultura do cafeeiro, com um grau de confiança superior a <span class="math inline">\(99\%\)</span> de probabilidade.</p>
+<p>Devemos agora, desdobrar a soma de quadrado e os graus de liberdade de tratamentos para estudar os efeitos principais e os efeitos das interações entre os fatores.</p>
+<p>Para estudo do fatorial <span class="math inline">\(2^3\)</span>, podemos utilizar o método dos contrastes de totais de tratamentos ou o método dos totais de tratamentos (sem utilizar contraste) para a obtenção das somas de quadrados.</p>
+</div>
+<div id="cálculo-das-somas-de-quadrados-pelo-método-dos-contrastes-de-totais-de-tratamentos." class="section level2">
+<h2><span class="header-section-number">13.2</span> Cálculo das somas de quadrados pelo método dos contrastes de totais de tratamentos.</h2>
+<p>Para a obtenção dos contrastes, organizamos uma tabela de dupla entrada onde as linhas correspondem aos efeitos e as colunas aos tratamentos. Então, no nosso exemplo, temos:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="6%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Efeitos</th>
+<th align="center"><span class="math inline">\(N_0P_0K_0\)</span></th>
+<th align="center"><span class="math inline">\(N_1P_0K_0\)</span></th>
+<th align="center"><span class="math inline">\(N_0P_1K_0\)</span></th>
+<th align="center"><span class="math inline">\(N_0P_0K_1\)</span></th>
+<th align="center"><span class="math inline">\(N_1P_1K_0\)</span></th>
+<th align="center"><span class="math inline">\(N_1P_0K_1\)</span></th>
+<th align="center"><span class="math inline">\(N_0P_1K_1\)</span></th>
+<th align="center"><span class="math inline">\(N_1P_1K_1\)</span></th>
+<th align="center"><span class="math inline">\(\hat{Y}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N</strong></td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">232.70</td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">32.1</td>
+</tr>
+<tr class="odd">
+<td><strong>K</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">182.3</td>
+</tr>
+<tr class="even">
+<td><strong>NxP</strong></td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-54.1</td>
+</tr>
+<tr class="odd">
+<td><strong>NxK</strong></td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">214.9</td>
+</tr>
+<tr class="even">
+<td><strong>PxK</strong></td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-50.1</td>
+</tr>
+<tr class="odd">
+<td><strong>NxPxK</strong></td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-39.1</td>
+</tr>
+<tr class="even">
+<td>Totais</td>
+<td align="center">206,2</td>
+<td align="center">214,4</td>
+<td align="center">230,5</td>
+<td align="center">200,8</td>
+<td align="center">231,2</td>
+<td align="center">336,0</td>
+<td align="center">219,6</td>
+<td align="center">308,2</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Neste quadro, os contrastes são obtidos, tomando-se para cada efeito, os totais dos tratamentos, com os quais os sinais correspondentes, ou seja:</p>
+<p><strong>Contraste para N</strong>:<br />
+<span class="math inline">\(\hat{Y}_{N}= -T_{N_0P_0K_0} +T_{N_1P_0K_0} -T_{N_0P_1K_0} -T_{N_0P_0K_1} +T_{N_1P_1K_0} +T_{N_1P_0K_1} -T_{N_0P_1K_1} +T_{N_1P_1K_1}\)</span>
+<span class="math inline">\(\hat{Y}_{N}= -206,2 +214,4 -230,5 -200,8 +231,2 +336 -219,6 +308,2 \\ \hat{Y}_{N} = 232,7\)</span></p>
+<p><strong>Contraste para P</strong>:<br />
+<span class="math inline">\(\hat{Y}_{P}= -T_{N_0P_0K_0} -T_{N_1P_0K_0} +T_{N_0P_1K_0} -T_{N_0P_0K_1} +T_{N_1P_1K_0} -T_{N_1P_0K_1} +T_{N_0P_1K_1} +T_{N_1P_1K_1}\)</span>
+<span class="math inline">\(\hat{Y}_{P}= -206,2 -214,4 +230,5 -200,8 +231,2 -336 +219,6 +308,2 \\ \hat{Y}_{P} = 32,1\)</span></p>
+<p><strong>Contraste para K</strong>:<br />
+<span class="math inline">\(\hat{Y}_{K}= -T_{N_0P_0K_0} -T_{N_1P_0K_0} -T_{N_0P_1K_0} +T_{N_0P_0K_1} -T_{N_1P_1K_0} +T_{N_1P_0K_1} +T_{N_0P_1K_1} +T_{N_1P_1K_1}\)</span>
+<span class="math inline">\(\hat{Y}_{K}= -206,2 -214,4 -230,5 +200,8 -231,2 +336 +219,6 +308,2 \\ \hat{Y}_{K}= 182,3\)</span></p>
+<p><strong>Contraste para NP</strong>:<br />
+<span class="math inline">\(\hat{Y}_{NP}= +T_{N_0P_0K_0} -T_{N_1P_0K_0} -T_{N_0P_1K_0} +T_{N_0P_0K_1} +T_{N_1P_1K_0} -T_{N_1P_0K_1} -T_{N_0P_1K_1} +T_{N_1P_1K_1}\)</span>
+<span class="math inline">\(\hat{Y}_{NP}= +206,2 -214,4 -230,5 +200,8 +231,2 -336 -219,6 +308,2 \\ \hat{Y}_{NP}= -54,1\)</span></p>
+<p><strong>Contraste para NK</strong>:<br />
+<span class="math inline">\(\hat{Y}_{NK}= +T_{N_0P_0K_0} -T_{N_1P_0K_0} +T_{N_0P_1K_0} -T_{N_0P_0K_1} -T_{N_1P_1K_0} +T_{N_1P_0K_1} -T_{N_0P_1K_1} +T_{N_1P_1K_1}\)</span>
+<span class="math inline">\(\hat{Y}_{NK}= +206,2 -214,4 +230,5 -200,8 -231,2 +336 -219,6 +308,2 \\ \hat{Y}_{NK}= 214,9\)</span></p>
+<p><strong>Contraste para PK</strong>:<br />
+<span class="math inline">\(\hat{Y}_{PK}= +T_{N_0P_0K_0} +T_{N_1P_0K_0} -T_{N_0P_1K_0} -T_{N_0P_0K_1} -T_{N_1P_1K_0} -T_{N_1P_0K_1} +T_{N_0P_1K_1} +T_{N_1P_1K_1}\)</span>
+<span class="math inline">\(\hat{Y}_{PK}= +206,2 +214,4 -230,5 -200,8 -231,2 -336 +219,6 +308,2 \\ \hat{Y}_{PK}= -50,1\)</span></p>
+<p><strong>Contraste para NPK</strong>:<br />
+<span class="math inline">\(\hat{Y}_{NPK}= -T_{N_0P_0K_0} +T_{N_1P_0K_0} +T_{N_0P_1K_0} +T_{N_0P_0K_1} -T_{N_1P_1K_0} -T_{N_1P_0K_1} -T_{N_0P_1K_1} +T_{N_1P_1K_1}\)</span>
+<span class="math inline">\(\hat{Y}_{NPK}= -206,2 +214,4 +230,5 +200,8 -231,2 -336 -219,6 +308,2 \\ \hat{Y}_{NPK}= -39,1\)</span></p>
+<p>E a soma de quadrados correspondente a um dado contraste <span class="math inline">\(Y_i\)</span> é dadi por:</p>
 <p><span class="math display">\[
-\begin{cases} H_0: As\;cultivares\; não\; diferem\; entre\; si\; quanto\; à\; produção\; de\; matéria\; seca.\\ 
-H_1: As\;cultivares\; diferem\; entre\; si\; quanto\; à\; produção\; de\; matéria\; seca.
-\end{cases}
-\]</span></p>
-<p><strong>a) Cálculo das Somas de Quadrados</strong>:</p>
-<p><strong>a.1) Cálculo da Soma de Quadrados Total</strong>:</p>
+SQ_{Y_{i}} = \frac{\hat{Y}_i^2}{r\sum_{i=1}^Ic_i^2}
+\]</span>
+onde,
+<span class="math inline">\(\hat{Y}_i\)</span> é a estimativa do contraste.
+<span class="math inline">\(r\)</span> é o número de repetições com que foram obtidos os totais de tratamentos.
+<span class="math inline">\(\sum_{i=1}^Ic_i^2\)</span> é a soma dos quadrados dos coeficientes dos totais de tratamentos no contraste.</p>
+<p>Então, no nosso exemplo, temos:</p>
 <p><span class="math display">\[
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C \\
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{N} \\
-SQ_{Total} = (10,27^2+11,55^2+...+20,92^2) - \frac{400,49^2}{27}\\
-SQ_{Total} = 710,1902
+SQ_{N} = \frac{\hat{Y}_N^2}{8\cdot r}=\frac{(232,70)^2}{8\cdot 6}=1128,11 \\
+SQ_{P} = \frac{\hat{Y}_P^2}{8\cdot r}=\frac{(31,10)^2}{8\cdot 6}=21,47 \\
+SQ_{K} = \frac{\hat{Y}_K^2}{8\cdot r}=\frac{(182,30)^2}{8\cdot 6}=692,36 \\
+SQ_{NP} = \frac{\hat{Y}_{NP}^2}{8\cdot r}=\frac{(-54,10)^2}{8\cdot 6}=60,98 \\
+SQ_{NK} = \frac{\hat{Y}_{NK}^2}{8\cdot r}=\frac{(214,90)^2}{8\cdot 6}=962,13 \\
+SQ_{PK} = \frac{\hat{Y}_{PK}^2}{8\cdot r}=\frac{(-50,10)^2}{8\cdot 6}=52,29 \\
+SQ_{NPK} = \frac{\hat{Y}_{NPK}^2}{8\cdot r}=\frac{(-39,10)^2}{8\cdot 6}=31,85 
 \]</span></p>
-<p><strong>a.2) Cálculo da Soma de Quadrados de Tratamentos</strong>:</p>
-<p>Como os tratamento não são igualmente repetidos, devemos calcular a <span class="math inline">\(SQ_{trat}\)</span> por:</p>
-<p><span class="math display">\[
-SQ_{Trat} =\left[ {\frac{T_1^2}{r_1}+\frac{T_2^2}{r_2}+...+\frac{T_I^2}{r_I}} \right] - \frac{G^2}{N}\\
-onde,\; N=\sum_{i=1}^Ir_i\\
-\]</span></p>
-<p>Assim, no nosso exemplo, temos:</p>
-<p><span class="math display">\[
-SQ_{Trat} =\left[ {\frac{62,32^2}{6}+\frac{62,77^2}{6}+\frac{39,87^2}{4}+\frac{105,06^2}{5}+\frac{125,47^2}{6}} \right] - \frac{400,49^2}{27}\\ 
-SQ_{Trat}= 700,2677
-\]</span></p>
-<p><strong>a.2) Cálculo da Soma de Quadrados do Resíduo</strong>:</p>
-<p><span class="math display">\[
-SQ_{Res} = SQ_{Total} - SQ_{Trat} \\
-SQ_{Res} = 710,1902 - 700,2677 \\
-SQ_{Res} = 9,9225
-\]</span></p>
-<p>Então, podemos montar o seguinte quadro de análise de variância:</p>
+<p>Uma vez obtidas as somas de quadrados, podemos montar o seguine quadro de análise de variância</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-Causas.de.Variação
+Causas de Variação
 </th>
 <th style="text-align:left;">
 GL
@@ -527,19 +655,155 @@ F
 <tbody>
 <tr>
 <td style="text-align:left;">
-Tratamento
+Efeito de N
 </td>
 <td style="text-align:left;">
-4
+1
 </td>
 <td style="text-align:left;">
-700,2677
+11238,11
 </td>
 <td style="text-align:left;">
-175,0669
+11238,11
 </td>
 <td style="text-align:left;">
-388,17**
+17,08**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de P
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+21,47
+</td>
+<td style="text-align:left;">
+21,47
+</td>
+<td style="text-align:left;">
+0,33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de K
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+692,36
+</td>
+<td style="text-align:left;">
+692,36
+</td>
+<td style="text-align:left;">
+10,49**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de NP
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+60,98
+</td>
+<td style="text-align:left;">
+60,98
+</td>
+<td style="text-align:left;">
+0,92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito NK
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+962,13
+</td>
+<td style="text-align:left;">
+962,13
+</td>
+<td style="text-align:left;">
+14,57**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de PK
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+52,29
+</td>
+<td style="text-align:left;">
+52,29
+</td>
+<td style="text-align:left;">
+0,79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de NPK
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+31,84
+</td>
+<td style="text-align:left;">
+31,84
+</td>
+<td style="text-align:left;">
+0,48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+(Tratamentos)
+</td>
+<td style="text-align:left;font-weight: bold;">
+7
+</td>
+<td style="text-align:left;font-weight: bold;">
+2949,18
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+235,45
+</td>
+<td style="text-align:left;">
+47,09
+</td>
+<td style="text-align:left;">
+0,71
 </td>
 </tr>
 <tr>
@@ -547,615 +811,729 @@ Tratamento
 Resíduo
 </td>
 <td style="text-align:left;">
-22
+35
 </td>
 <td style="text-align:left;">
-9,9225
+2310,92
 </td>
 <td style="text-align:left;">
-0,4510
+66,03
 </td>
 <td style="text-align:left;">
 –
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-weight: bold;">
 Total
 </td>
-<td style="text-align:left;">
-26
+<td style="text-align:left;font-weight: bold;">
+47
 </td>
-<td style="text-align:left;">
-710,1902
+<td style="text-align:left;font-weight: bold;">
+5495,55
 </td>
-<td style="text-align:left;">
+<td style="text-align:left;font-weight: bold;">
 –
 </td>
-<td style="text-align:left;">
+<td style="text-align:left;font-weight: bold;">
 –
 </td>
 </tr>
 </tbody>
 </table>
-<p>Valores de F da tabela para (4 x 22 GL):<span class="math inline">\(\begin{cases} 5\%=2,82 \\ 1\%=4,31 \end{cases}\)</span></p>
-<p><strong>Conclusão</strong>: O teste F foi significativo ao nível de 1% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as cultivares de sorgo possuem efeitos diferentes sobre a produção de matéria seca, com um grau de confiança de <span class="math inline">\(99\%\)</span> de probabilidade.</p>
-<p>Para tirar conclusões mais específicas sobre o comportamento das cultivares, devemos utilizar um teste de compração de médias.</p>
+<p>Valores de F da tabela (<span class="math inline">\(1 \times 35 GL\)</span>): <span class="math inline">\(\begin{cases}5\%=4,12 \\ 1\%=7,43 \end{cases}\)</span></p>
+<p><strong>Conclusões</strong></p>
+<p><strong>a) Para efeito de N</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span>, e concluir que os níveis de <span class="math inline">\(N_0\)</span> e <span class="math inline">\(N_1\)</span> possuem efeitos diferentes sobres a produção do cafeeiro.</p>
+<p><strong>b) Para efeito de P</strong>: O teste F foi não significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeitar <span class="math inline">\(H_0\)</span>, e concluir que os níveis de <span class="math inline">\(P_0\)</span> e <span class="math inline">\(P_1\)</span> não diferem entre si em relação à produção do cafeeiro.</p>
+<p><strong>c) Para efeito de K</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span>, e concluir que os níveis de <span class="math inline">\(K_0\)</span> e <span class="math inline">\(K_1\)</span> possuem efeitos diferentes sobres a produção do cafeeiro.</p>
+<p><strong>d) Para efeito da interação NP</strong>: O teste F foi não significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeitar <span class="math inline">\(H_0\)</span>, e concluir que os os fatores <span class="math inline">\(N\)</span> e <span class="math inline">\(P\)</span> agem independentemente sobre a produção do cafeeiro.</p>
+<p><strong>e) Para efeito da interação NK</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span>, e concluir que os os fatores <span class="math inline">\(N\)</span> e <span class="math inline">\(K\)</span> não agem independentemente sobre a produção do cafeeiro.</p>
+<p><strong>f) Para efeito da interação PK</strong>: O teste F foi não significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeitar <span class="math inline">\(H_0\)</span>, e concluir que os os fatores <span class="math inline">\(P\)</span> e <span class="math inline">\(K\)</span> agem independentemente sobre a produção do cafeeiro.</p>
+<p><strong>g) Para efeito da interação NPK</strong>: O teste F foi não significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeitar <span class="math inline">\(H_0\)</span>, e concluir que os os fatores <span class="math inline">\(N\)</span>, <span class="math inline">\(P\)</span> e <span class="math inline">\(K\)</span> agem independentemente sobre a produção do cafeeiro.</p>
+<p>Como o teste F para a interação <span class="math inline">\(N \times K\)</span> foi significativa, isto indica que o efeito de N depende de qual o nível de K que está sendo utilizado, e o efeito de K depende de qual nível de N que está sendo utilizado. Assim sendo, devemos desdobrar os graus de liberdade da interação <span class="math inline">\(N \times K\)</span>, para estudar os efeitos de N dentro de cada nível de K, e os efeitos de K dentro de cada nível de N.</p>
 </div>
-<div id="cálculo-das-médias-e-error-padrôes-das-médias" class="section level2">
-<h2><span class="header-section-number">6.3</span> Cálculo das médias e error padrôes das médias</h2>
-<p>A média do Tratamento <span class="math inline">\(i\)</span> é dada por:</p>
-<p><span class="math display">\[
-\hat{m_i} = \frac{T_i}{r_i},
-\]</span></p>
-<p>e seu erro padrão, por:</p>
-<p><span class="math display">\[
-s(\hat{m_i})=\frac{s}{\sqrt{r_i}} = \sqrt{\frac{QM_{Resíduo}}{r_i}}.
-\]</span></p>
-<p>Então, no nosso exemplo, temos:</p>
-<p><span class="math display">\[
-\hat{m_1} = \frac{T_1}{r_1}=\frac{67,32}{6}=11,22\;t/ha\\
-\hat{m_2} = \frac{T_2}{r_2}=\frac{62,77}{6}=10,46\;t/ha\\
-\hat{m_3} = \frac{T_3}{r_3}=\frac{39,87}{4}=9,97\;t/ha\\
-\hat{m_4} = \frac{T_4}{r_4}=\frac{105,06}{5}=21,01\;t/ha\\
-\hat{m_5} = \frac{T_5}{r_5}=\frac{125,47}{6}=20,91\;t/ha\\
-\]</span></p>
-<p>E os erros padrões dessas médias serão:</p>
-<p><span class="math display">\[
-s(\hat{m_1})=s(\hat{m_2})=s(\hat{m_5})=\sqrt{\frac{0,4510}{6}} = 0,27\;t/ha.\\
-s(\hat{m_3})=\sqrt{\frac{0,4510}{4}} = 0,34\;t/ha.\\
-s(\hat{m_4})=\sqrt{\frac{0,4510}{5}} = 0,30\;t/ha.
-\]</span></p>
-</div>
-<div id="teste-de-tukey-para-comparação-das-médias" class="section level2">
-<h2><span class="header-section-number">6.4</span> Teste de Tukey para comparação das médias</h2>
-<p>Como os tratamentos não possuem o mesmo número de repetições, vamos ter diversos casos a considerar:</p>
-<p>Para a aplicação do teste de Tukey, devemos colocar as médias em ordem decresecente, acompanhadas do número de repetições com que foram calculadas, ou seja</p>
-<p><span class="math display">\[
-\hat{m_4}=21,01 \:\:\:\:\:\: r_4=5\\
-\hat{m_5}=20,91 \:\:\:\:\:\: r_5=6\\
-\hat{m_1}=11,22 \:\:\:\:\:\: r_1=6\\
-\hat{m_2}=10,46 \:\:\:\:\:\: r_2=6\\
-\hat{m_3}=9,97 \:\:\:\:\:\:\:\: r_3=4\\
-\]</span></p>
-<p><strong>a. Comparação entre médias com 6 repetições entre si:</strong></p>
-<p>Neste caso, como as médias são igualmente repetidas, a dms é dada por:</p>
-<p><span class="math display">\[
-q_{(5\times 22\;GLres)} = 4,20,\;então \\
-\Delta=q\cdot\sqrt{\frac{0,4510}{6}}=1,13\;t/ha
-\]</span></p>
-<p>Os contrastes que envolvem comparações são:</p>
-<p><span class="math display">\[
-\hat{Y_1} = \hat{m_5} - \hat{m_1} = 9,69^*\;t/ha \\
-\hat{Y_2} = \hat{m_5} - \hat{m_2} = 10,45^*\;t/ha \\
-\hat{Y_3} = \hat{m_1} - \hat{m_2} = 0,76^{ns}\;t/ha 
-\]</span></p>
-<p><strong>b. Comparação entre médias com 6 repetições com média com 5 repetições:</strong></p>
-<p>Neste caso, a dms será calculada por:</p>
-<p><span class="math display">\[
-\Delta = q\cdot\sqrt{\frac{1}{2}\hat{V(\hat{Y})}}, onde\;\\ \hat{V(\hat{Y})}= \left( \frac{1}{6}+\frac{1}{5} \right)\cdot0,4510 = 0,1654
-\]</span></p>
-<p>Portanto:</p>
-<p><span class="math display">\[
-\Delta = 4.20\cdot\sqrt{\frac{1}{2}\cdot0,1654} = 1,21\;t/ha
-\]</span></p>
-<p>Os contrastes que envolvem comparações são:</p>
-<p><span class="math display">\[
-\hat{Y_4} = \hat{m_4} - \hat{m_1} = 9,79^*\;t/ha \\
-\hat{Y_5} = \hat{m_4} - \hat{m_2} = 10,55^*\;t/ha \\
-\hat{Y_6} = \hat{m_4} - \hat{m_5} = 0,10^{ns}\;t/ha 
-\]</span></p>
-<p><strong>c. Comparação entre médias com 6 repetições com média com 4 repetições:</strong></p>
-<p>Neste caso, a dms será calculada por:</p>
-<p><span class="math display">\[
-\Delta = q\cdot\sqrt{\frac{1}{2}\hat{V(\hat{Y})}}, onde\;\\
-\hat{V(\hat{Y})}= \left( \frac{1}{6}+\frac{1}{4} \right)\cdot0,4510 = 0,1879
-\]</span></p>
-<p>Portanto:</p>
-<p><span class="math display">\[
-\Delta = 4.20\cdot\sqrt{\frac{1}{2}\cdot0,1879} = 1,29\;t/ha
-\]</span>
-Os contrastes que envolve comparações são:</p>
-<p><span class="math display">\[
-\hat{Y_7} = \hat{m_1} - \hat{m_3} = 1,25^{ns}\;t/ha \\
-\hat{Y_8} = \hat{m_2} - \hat{m_3} = 0,49^{ns}\;t/ha \\
-\hat{Y_9} = \hat{m_5} - \hat{m_3} = 10,94^{*}\;t/ha 
-\]</span></p>
-<p><strong>d. Comparação entre médias com 5 repetições com média com 4 repetições:</strong></p>
-<p>Neste caso, a dms será calculada por:</p>
-<p><span class="math display">\[
-\Delta = q\cdot\sqrt{\frac{1}{2}\hat{V(\hat{Y})}}, onde \\
-\hat{V(\hat{Y})}= \left( \frac{1}{5}+\frac{1}{4} \right)\cdot0,4510 = 0,2030
-\]</span></p>
-<p>Portanto:</p>
-<p><span class="math display">\[
-\Delta = 4.20\cdot\sqrt{\frac{1}{2}\cdot0,2030} = 1,34\;t/ha
-\]</span></p>
-<p>O contraste que envolvem comparação é:</p>
-<p><span class="math display">\[
-\hat{Y_{10}} = \hat{m_4} - \hat{m_3} = 11,04^{*}\;t/ha 
-\]</span></p>
-<p>Podemos agora montar um quadro com todos os contrastes:</p>
+<div id="desdobramento-da-interação-n-times-k" class="section level2">
+<h2><span class="header-section-number">13.3</span> Desdobramento da Interação <span class="math inline">\(N \times K\)</span></h2>
+<p>Para obter as somas de quadrados para o desdobramento da interação <span class="math inline">\(N \times K\)</span>, vamos utilizar o quadro auxilliar.</p>
 <table>
 <thead>
 <tr class="header">
-<th align="center"></th>
-<th align="center"><span class="math inline">\(\hat{m_5}\)</span></th>
-<th align="center"><span class="math inline">\(\hat{m_1}\)</span></th>
-<th align="center"><span class="math inline">\(\hat{m_2}\)</span></th>
-<th align="center"><span class="math inline">\(\hat{m_3}\)</span></th>
-<th align="center"></th>
+<th align="center">(12)</th>
+<th align="center"><span class="math inline">\(K_0\)</span></th>
+<th align="center"><span class="math inline">\(K_1\)</span></th>
+<th align="center">TOTAL</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\hat{m_4}\)</span></td>
-<td align="center"><span class="math inline">\(0,10^{ns}\)</span></td>
-<td align="center"><span class="math inline">\(9,79^{*}\)</span></td>
-<td align="center"><span class="math inline">\(10,55^{*}\)</span></td>
-<td align="center"><span class="math inline">\(11,04^{*}\)</span></td>
-<td align="center"></td>
+<td align="center"><span class="math inline">\(N_0\)</span></td>
+<td align="center">436,70</td>
+<td align="center">420,40</td>
+<td align="center">857,10</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\hat{m_5}\)</span></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(9,69^{*}\)</span></td>
-<td align="center"><span class="math inline">\(10,45^{*}\)</span></td>
-<td align="center"><span class="math inline">\(10,94^{*}\)</span></td>
-<td align="center"></td>
+<td align="center"><span class="math inline">\(N_1\)</span></td>
+<td align="center">445,60</td>
+<td align="center">644,20</td>
+<td align="center">1089,80</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\hat{m_1}\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(0,76^{ns}\)</span></td>
-<td align="center"><span class="math inline">\(1,25^{ns}\)</span></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\hat{m_2}\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(0,49^{ns}\)</span></td>
-<td align="center"></td>
+<td align="center"><strong>TOTAL</strong></td>
+<td align="center"><strong>882,30</strong></td>
+<td align="center"><strong>1064,60</strong></td>
+<td align="center"><strong>1946,90</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>1) Desdobramento da Interação NK para estudar os efeitos de N dentro de K (N d. K)</strong></p>
 <p><span class="math display">\[
-\hat{m_4}=21,01 \:\:\:\:\:\: a\\
-\hat{m_5}=20,91 \:\:\:\:\:\: a\\
-\hat{m_1}=11,22 \:\:\:\:\:\: b\\
-\hat{m_2}=10,46 \:\:\:\:\:\: b\\
-\hat{m_3}=9,97 \:\:\:\:\:\:\:\:b 
+\begin{align}
+SQ_{N\;d.\;K_0}&amp;=\frac{1}{2 \cdot r}(T_{N_0K_0}^2+T_{N_1K_0}^2) - \frac{T_{K_0}^2}{4 \cdot r} \\
+&amp;= \frac{1}{12}(436,70^2+445,60^2) - \frac{882,30^2}{24} \\
+&amp;=3,30
+\end{align}
+\]</span>
+<span class="math display">\[
+\begin{align}
+SQ_{N\;d.\;K_1}&amp;=\frac{1}{2 \cdot r}(T_{N_0K_1}^2+T_{N_1K_1}^2) - \frac{T_{K_1}^2}{4 \cdot r} \\
+&amp;= \frac{1}{12}(420,40^2+644,20^2) - \frac{1064,60^2}{24} \\
+&amp;=2086,93
+\end{align}
 \]</span></p>
-<p>Resumo dos resultados obtidos no Teste de Tukey:</p>
+<p>Então, o quadro de análise de variância com o desdobramento da interação NK para estudar os efeitos de N d. K, será o seguinte:</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-Cultivares
+Causas de Variação
 </th>
 <th style="text-align:left;">
-Médias
+GL
 </th>
 <th style="text-align:left;">
-Tukey
+SQ
 </th>
 <th style="text-align:left;">
-Erros padrões
+QM
+</th>
+<th style="text-align:left;">
+F
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-NK300H
+Efeito de N d K0
 </td>
 <td style="text-align:left;">
-11.22
+1
 </td>
 <td style="text-align:left;">
-b
+3,30
 </td>
 <td style="text-align:left;">
-0.27
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sordan67H
+3,30
 </td>
 <td style="text-align:left;">
-10.46
-</td>
-<td style="text-align:left;">
-b
-</td>
-<td style="text-align:left;">
-0.27
+0,05
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Pionner988H
+Efeito de N d K1
 </td>
 <td style="text-align:left;">
-9.97
+1
 </td>
 <td style="text-align:left;">
-b
+2086,93
 </td>
 <td style="text-align:left;">
-0.34
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Pionner93H
+2086,93
 </td>
 <td style="text-align:left;">
-21.01
-</td>
-<td style="text-align:left;">
-a
-</td>
-<td style="text-align:left;">
-0.30
+31,61
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-SartV
+Efeito de P
 </td>
 <td style="text-align:left;">
-20.91
+1
 </td>
 <td style="text-align:left;">
-a
+21,47
 </td>
 <td style="text-align:left;">
-0.27
+21,47
+</td>
+<td style="text-align:left;">
+0,33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de K
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+692,36
+</td>
+<td style="text-align:left;">
+692,36
+</td>
+<td style="text-align:left;">
+10,49**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de NP
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+60,98
+</td>
+<td style="text-align:left;">
+60,98
+</td>
+<td style="text-align:left;">
+0,92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de PK
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+52,29
+</td>
+<td style="text-align:left;">
+52,29
+</td>
+<td style="text-align:left;">
+0,79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de NPK
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+31,84
+</td>
+<td style="text-align:left;">
+31,84
+</td>
+<td style="text-align:left;">
+0,48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+(Tratamentos)
+</td>
+<td style="text-align:left;font-weight: bold;">
+7
+</td>
+<td style="text-align:left;font-weight: bold;">
+2949,18
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+235,45
+</td>
+<td style="text-align:left;">
+47,09
+</td>
+<td style="text-align:left;">
+0,71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+35
+</td>
+<td style="text-align:left;">
+2310,92
+</td>
+<td style="text-align:left;">
+66,03
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;">
+47
+</td>
+<td style="text-align:left;font-weight: bold;">
+5495,55
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="cálculo-do-coeficiente-de-variação-do-experimento" class="section level2">
-<h2><span class="header-section-number">6.5</span> Cálculo do coeficiente de variação do experimento</h2>
+<p>Valores de F da tabela (<span class="math inline">\(1 \times 35 GL\)</span>): <span class="math inline">\(\begin{cases}5\%=4,12 \\ 1\%=7,43 \end{cases}\)</span></p>
+<p><strong>Conclusões</strong></p>
+<p><strong>Para Efeito de N d. K0</strong>: O teste F foi não significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeita <span class="math inline">\(H_0\)</span>, e concluir que o nível de <span class="math inline">\(N_0\)</span> e <span class="math inline">\(N_1\)</span> não diferem entre si, na ausência de K, em relação à produção do cafeeiro.</p>
+<p><strong>Para Efeito de N d. K1</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeita <span class="math inline">\(H_0\)</span>, e concluir que o nível de <span class="math inline">\(N_0\)</span> e <span class="math inline">\(N_1\)</span> diferem entre si, na presença de K, em relação à produção do cafeeiro.</p>
+<p><strong>2) Desdobramento da Interação NK para estudar os efeitos de K dentro de N (K d. N)</strong></p>
 <p><span class="math display">\[
-\hat{m} = \frac{G}{N} = \frac{400,49}{27} = 14,82\;t/ha \\
-s = \sqrt{QM_{Res}}=\sqrt{0,4510}=0,6716\;t/ha\\
-\]</span></p>
-<p>Portanto:
+\begin{align}
+SQ_{K\;d.\;N_0}&amp;=\frac{1}{2 \cdot r}(T_{N_0K_0}^2+T_{N_0K_1}^2) - \frac{T_{N_0}^2}{4 \cdot r} \\
+&amp;= \frac{1}{12}(436,70^2+420,40^2) - \frac{857,10^2}{24} \\
+&amp;=11,07
+\end{align}
+\]</span>
 <span class="math display">\[
-CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{0,6716}{14,83}=4,53\%
+\begin{align}
+SQ_{K\;d.\;N_1}&amp;=\frac{1}{2 \cdot r}(T_{N_1K_0}^2+T_{N_1K_1}^2) - \frac{T_{N_1}^2}{4 \cdot r} \\
+&amp;= \frac{1}{12}(445,60^2+644,20^2) - \frac{1089,80^2}{24} \\
+&amp;=1643,41
+\end{align}
 \]</span></p>
-<p>Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em:
-<a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt">sorgo</a>.</p>
-<p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
-<span id="cb65-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb65-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-3"></a></span>
-<span id="cb65-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-4"></a><span class="co"># Caminho dos dados</span></span>
-<span id="cb65-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-5"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt&quot;</span></span>
-<span id="cb65-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-6"></a></span>
-<span id="cb65-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-7"></a><span class="co"># Lendo o arquivo de dados</span></span>
-<span id="cb65-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-8"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb65-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-9"></a></span>
-<span id="cb65-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-10"></a><span class="co"># verificando os 6 primeiros registros</span></span>
-<span id="cb65-11"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb65-11"></a><span class="kw">head</span>(dados)</span></code></pre></div>
-<pre><code>##          Trat     Y
-## 1      NK300H 10.27
-## 2   Sordan67H  9.77
-## 3 Pionner988H  9.86
-## 4  Pionner93H 21.22
-## 5       SartV 20.20
-## 6      NK300H 11.55</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
-<span id="cb67-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor de tratamentos sem os valores perdidos</span></span>
-<span id="cb67-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-3"></a>massa_seca &lt;-<span class="st"> </span>dados<span class="op">$</span>Y[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor com a variável resposta semos valores perdidos</span></span>
-<span id="cb67-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-4"></a></span>
-<span id="cb67-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-5"></a><span class="co"># Utilizando a função</span></span>
-<span id="cb67-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb67-6"></a><span class="kw">dic</span>(trat,massa_seca,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>, <span class="dt">sigT =</span> <span class="fl">.01</span>)</span></code></pre></div>
+<p>Então, o quadro de análise de variância com o desdobramento da interação NK para estudar os efeitos de K d. N, será o seguinte:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas de Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Efeito de N
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1128,11
+</td>
+<td style="text-align:left;">
+1128,11
+</td>
+<td style="text-align:left;">
+17,08**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de P
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+21,47
+</td>
+<td style="text-align:left;">
+21,47
+</td>
+<td style="text-align:left;">
+0,33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de K d N0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11,07
+</td>
+<td style="text-align:left;">
+11,07
+</td>
+<td style="text-align:left;">
+0,17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de K d N1
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1643,41
+</td>
+<td style="text-align:left;">
+1643,41
+</td>
+<td style="text-align:left;">
+24,89**
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de NP
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+60,98
+</td>
+<td style="text-align:left;">
+60,98
+</td>
+<td style="text-align:left;">
+0,92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de PK
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+52,29
+</td>
+<td style="text-align:left;">
+52,29
+</td>
+<td style="text-align:left;">
+0,79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Efeito de NPK
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+31,84
+</td>
+<td style="text-align:left;">
+31,84
+</td>
+<td style="text-align:left;">
+0,48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+(Tratamentos)
+</td>
+<td style="text-align:left;font-weight: bold;">
+7
+</td>
+<td style="text-align:left;font-weight: bold;">
+2949,18
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+235,45
+</td>
+<td style="text-align:left;">
+47,09
+</td>
+<td style="text-align:left;">
+0,71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+35
+</td>
+<td style="text-align:left;">
+2310,92
+</td>
+<td style="text-align:left;">
+66,03
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Total
+</td>
+<td style="text-align:left;font-weight: bold;">
+47
+</td>
+<td style="text-align:left;font-weight: bold;">
+5495,55
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+<td style="text-align:left;font-weight: bold;">
+–
+</td>
+</tr>
+</tbody>
+</table>
+<p>Valores de F da tabela (<span class="math inline">\(1 \times 35 GL\)</span>): <span class="math inline">\(\begin{cases}5\%=4,12 \\ 1\%=7,43 \end{cases}\)</span></p>
+<p><strong>Conclusões</strong></p>
+<p><strong>Para Efeito de K d. N0</strong>: O teste F foi não significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que não devemos rejeita <span class="math inline">\(H_0\)</span>, e concluir que o nível de <span class="math inline">\(K_0\)</span> e <span class="math inline">\(K_1\)</span> não diferem entre si, na ausência de N, em relação à produção do cafeeiro.</p>
+<p><strong>Para Efeito de K d. N1</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeita <span class="math inline">\(H_0\)</span>, e concluir que o nível de <span class="math inline">\(K_0\)</span> e <span class="math inline">\(K_1\)</span> diferem entre si, na presença de N, em relação à produção do cafeeiro.</p>
+</div>
+<div id="cálculo-das-médias-e-erros-padrões-das-médias" class="section level2">
+<h2><span class="header-section-number">13.4</span> Cálculo das médias e erros padrões das médias</h2>
+<p><strong>As médias dos efeitos principais de N, P e K serão obtidas por</strong>:</p>
+<p><span class="math display">\[
+\hat{m}_{N_0} = \frac{T_{N_0}}{4\cdot r} = \frac{857,10}{4\cdot 6} = 35,71\;kg\;parcela^{-1}  \\
+\hat{m}_{N_1} = \frac{T_{N_1}}{4\cdot r} = \frac{1089,80}{4\cdot 6} = 45,41\;kg\;parcela^{-1}  \\
+\hat{m}_{P_0} = \frac{T_{P_0}}{4\cdot r} = \frac{957,4}{4\cdot 6} = 39,89\;kg\;parcela^{-1}  \\
+\hat{m}_{P_1} = \frac{T_{P_1}}{4\cdot r} = \frac{989,50}{4\cdot 6} = 41,23\;kg\;parcela^{-1}  \\
+\hat{m}_{K_0} = \frac{T_{K_0}}{4\cdot r} = \frac{882,30}{4\cdot 6} = 36,76\;kg\;parcela^{-1}  \\
+\hat{m}_{K_1} = \frac{T_{K_1}}{4\cdot r} = \frac{1064,60}{4\cdot 6} = 44,36\;kg\;parcela^{-1}
+\]</span></p>
+<p>Erro padrão das médias</p>
+<p><span class="math display">\[
+s(\hat{m})=\frac{s}{\sqrt{4\cdot r}} = \sqrt{\frac{QM_{Res}}{4\cdot6}}=\sqrt{\frac{66,03}{24}}=1,66\;kg\;parcela^{-1} 
+\]</span></p>
+<p><strong>Como a interação NK foi significativa, é interessante obter também, as médias dos níveis de N d. K ou dos níveis de K d. N, ou seja</strong>:</p>
+<p><span class="math display">\[
+\hat{m}_{N_0\;d.\;K_0} = \frac{T_{N_0K_0}}{2\cdot r} = \frac{436,70}{2\cdot 6} = 36,39\;kg\;parcela^{-1} \\
+\hat{m}_{N_1\;d.\;K_0} = \frac{T_{N_1K_0}}{2\cdot r} = \frac{445,60}{2\cdot 6} = 37,13\;kg\;parcela^{-1} \\
+\hat{m}_{N_0\;d.\;K_1} = \frac{T_{N_0K_1}}{2\cdot r} = \frac{420,40}{2\cdot 6} = 35,03\;kg\;parcela^{-1} \\
+\hat{m}_{N_1\;d.\;K_1} = \frac{T_{N_1K_1}}{2\cdot r} = \frac{644,20}{2\cdot 6} = 53,68\;kg\;parcela^{-1} 
+\]</span></p>
+<p>Erro padrão das médias</p>
+<p><span class="math display">\[
+s(\hat{m})=\frac{s}{\sqrt{2\cdot r}} = \sqrt{\frac{QM_{Res}}{2\cdot6}}=\sqrt{\frac{66,03}{12}}=2,35\;kg\;parcela^{-1} 
+\]</span></p>
+</div>
+<div id="cálculo-do-coeficiente-de-variação" class="section level2">
+<h2><span class="header-section-number">13.5</span> Cálculo do coeficiente de variação</h2>
+<p><span class="math display">\[
+\hat{m} = \frac{G}{IJ} = \frac{1946,90}{8\cdot6} = 40,56\;kg\;parcela^{-1} \\
+s=\sqrt{QM_{Res}}=\sqrt{66,03}=8,13\;kg\;parcela^{-1} \\
+CV=100\cdot \frac{8,13}{40,56}=20,04\%
+\]</span></p>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="estudo-do-fatorial-23.html#cb192-1"></a><span class="co"># Análise prelinimar</span></span>
+<span id="cb192-2"><a href="estudo-do-fatorial-23.html#cb192-2"></a><span class="kw">require</span>(ExpDes.pt)</span>
+<span id="cb192-3"><a href="estudo-do-fatorial-23.html#cb192-3"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/cafeeiro3fatores.txt&quot;</span></span>
+<span id="cb192-4"><a href="estudo-do-fatorial-23.html#cb192-4"></a>dados&lt;-<span class="kw">read.table</span>(caminho, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb192-5"><a href="estudo-do-fatorial-23.html#cb192-5"></a>dados<span class="op">$</span>Trat&lt;-<span class="kw">paste</span>(dados<span class="op">$</span>N,dados<span class="op">$</span>P,dados<span class="op">$</span>K,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb192-6"><a href="estudo-do-fatorial-23.html#cb192-6"></a><span class="kw">dbc</span>(dados<span class="op">$</span>Trat,dados<span class="op">$</span>Bloco,dados<span class="op">$</span>Y)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
-##            GL     SQ QM     Fc      Pr&gt;Fc
-## Tratamento  4 700.27  3 388.15 4.6914e-20
-## Residuo    22   9.92  2                  
-## Total      26 710.19  1                  
+##            GL     SQ QM     Fc   Pr&gt;Fc
+## Tratamento  7 2949.2  2 6.3810 0.00007
+## Bloco       5  235.5  3 0.7132 0.61765
+## Residuo    35 2310.9  4               
+## Total      47 5495.6  1               
 ## ------------------------------------------------------------------------
-## CV = 4.53 %
+## CV = 20.03 %
 ## 
 ## ------------------------------------------------------------------------
 ## Teste de normalidade dos residuos 
-## Valor-p:  0.05636895 
+## valor-p:  0.1204836 
 ## De acordo com o teste de Shapiro-Wilk a 5% de significancia, os residuos podem ser considerados normais.
 ## ------------------------------------------------------------------------
 ## 
 ## ------------------------------------------------------------------------
 ## Teste de homogeneidade de variancia 
-## valor-p:  0.9943713 
-## De acordo com o teste de bartlett a 5% de significancia, as variancias podem ser consideradas homogeneas.
+## valor-p:  0.4223185 
+## De acordo com o teste de oneillmathews a 5% de significancia, as variancias podem ser consideradas homogeneas.
 ## ------------------------------------------------------------------------
 ## 
 ## Teste de Tukey
 ## ------------------------------------------------------------------------
 ## Grupos Tratamentos Medias
-## a 	 Pionner93H 	 21.012 
-## a 	 SartV 	 20.91167 
-##  b 	 NK300H 	 11.22 
-##  b 	 Sordan67H 	 10.46167 
-##  b 	 Pionner988H 	 9.9675 
+## a 	 101 	 56 
+## ab 	 111 	 51.36667 
+##  bc 	 110 	 38.53333 
+##  bc 	 010 	 38.41667 
+##  bc 	 011 	 36.6 
+##   c 	 100 	 35.73333 
+##   c 	 000 	 34.36667 
+##   c 	 001 	 33.46667 
 ## ------------------------------------------------------------------------</code></pre>
-</div>
-<div id="aplicação-do-teste-t-de-student-a-um-contraste" class="section level2">
-<h2><span class="header-section-number">6.6</span> Aplicação do teste t de Student a um contraste</h2>
-<p>Para exemplificar, vamos estudar o seguinte contraste:</p>
-<p><span class="math display">\[
-Y=m_1+m_2+m_3+m_4-4m_5
-\]</span></p>
-<p>que permite testar se a média dos híbridos difere da média da variedade. Neste caso, as hipóteses a serem restada serão:</p>
-<p><span class="math display">\[
-\begin{cases}  H_0:\frac{m_1+m_2+m_3+m_4}{4}=m_5 \\
-H_1: \frac{m_1+m_2+m_3+m_4}{4} \neq m_5 \end{cases}
-\]</span></p>
-<p>A estimativa do contraste será:
-<span class="math display">\[
-\hat{Y} = \hat{m_1}+\hat{m_2}+\hat{m_3}+\hat{m_4}-4\hat{m_5} \\
-\hat{Y} = 11,22+10,46+9,97+21,01-4\cdot20,91 \\
-\hat{Y} = -30,98
-\]</span></p>
-<p>A estimativa da variância do contraste será:</p>
-<p><span class="math display">\[
-\hat{V}(\hat{Y}) = \left(\frac{c_1^2}{r_1}+\frac{c_2^2}{r_2}+...+\frac{c_I^2}{r_I} \right)s^2 \\
-\hat{V}(\hat{Y}) = \left(\frac{1^2}{6}+\frac{1^2}{6}+\frac{1^2}{4}+\frac{1^2}{5}+\frac{(-4)^2}{6} \right)0,4510^2 \\
-\hat{V}(\hat{Y}) = 1,5560
-\]</span></p>
-<p>Assim, o erro padrão do contraste será:</p>
-<p><span class="math display">\[
-s(\hat{Y})=\sqrt{\hat{V}(\hat{Y})} = \sqrt{1,5560}=1,25
-\]</span></p>
-<p>e o valor da estatística do teste t será:</p>
-<p><span class="math display">\[
-t_{obs} = \frac{\hat{Y}}{s(\hat{Y})}=\frac{-30,98}{1.25}=-24,78^{**} \\
-t_{tab (22 GLres)} \begin{cases}5\%=2,07\\1\%=2,82 \end{cases}
-\]</span></p>
-<p><strong>Conclusão</strong>: Como <span class="math inline">\(t_{obs} &gt; t_{tab}\)</span>, rejeitamos <span class="math inline">\(H_0\)</span> e concluímos que a média do grupo de híbridos diferem da média da variedade SART, sendo que, em médias, a variedade possui maior produção de matéria seca que os híbridos.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-1"></a><span class="kw">require</span>(agricolae)</span>
-<span id="cb69-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-2"></a>m &lt;-<span class="st"> </span><span class="kw">tapply</span>(massa_seca,trat,mean,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
-<span id="cb69-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-3"></a>r &lt;-<span class="st"> </span><span class="kw">tapply</span>(massa_seca,trat, .nac&lt;-<span class="cf">function</span>(x) {x&lt;-<span class="kw">na.omit</span>(x);<span class="kw">length</span>(x)})</span>
-<span id="cb69-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-4"></a>QMRes &lt;-<span class="st"> </span><span class="fl">0.4510</span></span>
-<span id="cb69-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-5"></a>glRes &lt;-<span class="st"> </span><span class="dv">22</span></span>
-<span id="cb69-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-6"></a></span>
-<span id="cb69-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-7"></a></span>
-<span id="cb69-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-8"></a><span class="co">#Híbridos vs Variedades</span></span>
-<span id="cb69-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb69-9"></a>m</span></code></pre></div>
-<pre><code>##      NK300H  Pionner93H Pionner988H       SartV   Sordan67H 
-##    11.22000    21.01200     9.96750    20.91167    10.46167</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb71-1"></a>c1&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">1</span>) <span class="co"># atribua os coeficientes de acordo com a ordem das médias</span></span>
-<span id="cb71-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb71-2"></a>(<span class="dt">Y1=</span><span class="kw">sum</span>(m<span class="op">*</span>c1))</span></code></pre></div>
-<pre><code>## [1] -30.9855</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb73-1"></a>(<span class="dt">tobs=</span>Y1<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">sum</span>(c1<span class="op">^</span><span class="dv">2</span><span class="op">/</span>r)<span class="op">*</span>QMRes))</span></code></pre></div>
-<pre><code>## [1] -24.84052</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb75-1"></a>(<span class="dt">tc5=</span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="op">/</span><span class="dv">2</span>,glRes))</span></code></pre></div>
-<pre><code>## [1] 2.073873</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb77-1"></a>(<span class="dt">tc1=</span><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>,glRes))</span></code></pre></div>
-<pre><code>## [1] 2.818756</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-1"></a><span class="co"># Construção do Gráfico para interpretação</span></span>
-<span id="cb79-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-2"></a><span class="kw">curve</span>(<span class="kw">dt</span>(x,glRes),<span class="op">-</span><span class="dv">30</span>,<span class="dv">9</span>,<span class="dt">xlab=</span><span class="st">&quot;t&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;D(t)&quot;</span>,<span class="dt">las=</span><span class="dv">1</span>)</span>
-<span id="cb79-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-3"></a><span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>)</span>
-<span id="cb79-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-4"></a><span class="kw">abline</span>(<span class="dt">v=</span><span class="kw">c</span>(tc5,<span class="op">-</span>tc5,tc1,<span class="op">-</span>tc1),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb79-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-5"></a><span class="kw">abline</span>(<span class="dt">v=</span>tobs,<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lty=</span><span class="dv">1</span>)</span>
-<span id="cb79-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-6"></a><span class="kw">text</span>(<span class="fl">2.8</span>,.<span class="dv">1</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=2.5%&quot;</span>)))</span>
-<span id="cb79-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-7"></a><span class="kw">text</span>(<span class="dv">4</span>,.<span class="dv">02</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=0.5%&quot;</span>)))</span>
-<span id="cb79-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-8"></a><span class="kw">text</span>(<span class="op">-</span><span class="fl">2.8</span>,.<span class="dv">1</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=2.5%&quot;</span>)))</span>
-<span id="cb79-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-9"></a><span class="kw">text</span>(<span class="op">-</span><span class="dv">4</span>,.<span class="dv">02</span>,<span class="kw">expression</span>(<span class="kw">paste</span>(alpha,<span class="st">&quot;=0.5%&quot;</span>)))</span>
-<span id="cb79-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb79-10"></a><span class="kw">text</span>(tobs,.<span class="dv">05</span>,<span class="st">&quot;tobs&quot;</span>)</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
-</div>
-<div id="teste-de-duncan-para-a-comparação-das-médias" class="section level2">
-<h2><span class="header-section-number">6.7</span> Teste de Duncan para a comparação das médias</h2>
-<p>Para a aplicação do teste de Duncan, devemos colocar as médias em ordem decresecente, acompanhadas do número de repetições com que foram calculadas, ou seja</p>
-<p><span class="math display">\[
-\hat{m_4}=21,01 \:\:\:\:\:\: r_4=5\\
-\hat{m_5}=20,91 \:\:\:\:\:\: r_5=6\\
-\hat{m_1}=11,22 \:\:\:\:\:\: r_1=6\\
-\hat{m_2}=10,46 \:\:\:\:\:\: r_2=6\\
-\hat{m_3}=9,97 \:\:\:\:\:\:\:\: r_3=4\\
-\]</span></p>
-<p><strong>Amplitude total estudentizada (z), encontradas na tabela para uso no teste de Duncan, ao nível de 5% de significância</strong>.</p>
-<table>
-<thead>
-<tr class="header">
-<th>n´ / n</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>22</td>
-<td>2.93</td>
-<td>3.08</td>
-<td>3.17</td>
-<td>3.24</td>
-</tr>
-</tbody>
-</table>
-<p><strong>a) Contrastes que abrangem 5 médias</strong>:</p>
-<p><span class="math display">\[
-\hat{Y_1}=\hat{m_4}-\hat{m_3} = 21,01-9,97 = 11,04\;t/ha \\
-\hat{V}(\hat{Y_1})= \left( \frac{1}{r_4} + \frac{1}{r_3}\right)s^2 = \left( \frac{1}{5} + \frac{1}{4}\right)0,4510 = 0,2030\\
-D_5 = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y})}= 3,24\sqrt{\frac{1}{2}\cdot0,2030} = 1,03\; t/ha
-\]</span></p>
-<p>Como <span class="math inline">\(\hat{Y_1} &gt; D_5&#39;\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_4}\)</span> difere de <span class="math inline">\(\hat{m_3}\)</span>.</p>
-<p><strong>b) Contrastes que abrangem 4 médias</strong>:</p>
-<p><span class="math display">\[
-\begin{cases} \hat{Y_2}=\hat{m_4}-\hat{m_2} = 21,01-10,46 = 10,55\;t/ha \\
-\hat{Y_3}=\hat{m_5}-\hat{m_3} = 20,91-9,97 = 10,94\;t/ha \end{cases} \\
-\hat{V}(\hat{Y_2})= \left( \frac{1}{r_4} + \frac{1}{r_2}\right)s^2 = \left( \frac{1}{5} + \frac{1}{6}\right)0,4510 = 0,1654\\
-D_4&#39; = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y_2})}= 3,17\sqrt{\frac{1}{2}\cdot0,1654} = 0,91\; t/ha \\
-\]</span>
-Como <span class="math inline">\(\hat{Y_2} &gt; D_4&#39;\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_4}\)</span> difere de <span class="math inline">\(\hat{m_2}\)</span>.</p>
-<p><span class="math display">\[
-\hat{V}(\hat{Y_3})= \left( \frac{1}{r_5} + \frac{1}{r_3}\right)s^2 = \left( \frac{1}{6} + \frac{1}{4}\right)0,4510 = 0,1879\\
-D&#39;_4 = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y_3})}= 3,17\sqrt{\frac{1}{2}\cdot0,1879} = 0,97\; t/ha \\
-\]</span>
-Como <span class="math inline">\(\hat{Y_3} &gt; D&#39;&#39;_4\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_5}\)</span> difere de <span class="math inline">\(\hat{m_3}\)</span>.</p>
-<p><strong>c) Contrastes que abrangem 3 médias</strong>:</p>
-<p><span class="math display">\[
-\begin{cases} \hat{Y_4}=\hat{m_4}-\hat{m_1} = 21,01-11,22 = 9,79\;t/ha \\
-\hat{Y_5}=\hat{m_5}-\hat{m_2} = 20,91-10,46 = 10,45\;t/ha \\
-\hat{Y_6}=\hat{m_4}-\hat{m_1} = 11,22-9,97 = 1,25\;t/ha \end{cases} \\
-\hat{V}(\hat{Y_4})= \left( \frac{1}{r_4} + \frac{1}{r_1}\right)s^2 = \left( \frac{1}{5} + \frac{1}{6}\right)0,4510 = 0,1654\\
-D&#39;_3 = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y_4})}= 3,08\sqrt{\frac{1}{2}\cdot0,1654} = 0,89\; t/ha \\
-\]</span>
-Como <span class="math inline">\(\hat{Y_4} &gt; D&#39;_3\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_4}\)</span> difere de <span class="math inline">\(\hat{m_1}\)</span>.</p>
-<p><span class="math display">\[
-D_3 = z_\alpha \sqrt{\frac{QM_{Res}}{r}} = 3,08 \sqrt{\frac{0,4510}{6}} = 0,84\; t/ha
-\]</span>
-Como <span class="math inline">\(\hat{Y_5} &gt; D_3\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_5}\)</span> difere de <span class="math inline">\(\hat{m_2}\)</span>.</p>
-<p><span class="math display">\[
-\hat{V}(\hat{Y_6})= \left( \frac{1}{r_1} + \frac{1}{r_3}\right)s^2 = \left( \frac{1}{6} + \frac{1}{4}\right)0,4510 = 0,1879\\
-D&#39;&#39;_3 = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y_C})}= 3,08\sqrt{\frac{1}{2}\cdot0,1879} = 0,94\; t/ha \\
-\]</span>
-Como <span class="math inline">\(\hat{Y_6} &gt; D&#39;&#39;_3\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_1}\)</span> difere de <span class="math inline">\(\hat{m_3}\)</span>.</p>
-<p><strong>d) Contrastes que abrangem 2 médias</strong>:</p>
-<p><span class="math display">\[
-\begin{cases} 
-\hat{Y_7}=\hat{m_4}-\hat{m_5} = 21,01-20,91 = 0,10\;t/ha \\
-\hat{Y_8}=\hat{m_5}-\hat{m_1} = 20,91-11,22 = 9,69\;t/ha \\
-\hat{Y_9}=\hat{m_1}-\hat{m_2} = 11,22-10,46 = 0,76\;t/ha \\
-\hat{Y_{10}}=\hat{m_2}-\hat{m_3} = 10,46-9,97 = 0,49\;t/ha 
-\end{cases} \\
-\hat{V}(\hat{Y_7})= \left( \frac{1}{r_4} + \frac{1}{r_5}\right)s^2 = \left( \frac{1}{5} + \frac{1}{6}\right)0,4510 = 0,1654\\
-D_2&#39; = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y_7})}= 2,93\sqrt{\frac{1}{2}\cdot0,1654} = 0,84\; t/ha \\
-\]</span>
-Como <span class="math inline">\(\hat{Y_7} &lt; D&#39;_2\)</span>, não rejeita-se <span class="math inline">\(H_0\)</span>, o contraste não é significativo, indicando que <span class="math inline">\(\hat{m_4}\)</span> não difere de <span class="math inline">\(\hat{m_5}\)</span>. As médias devem ser unidas por uma barra.</p>
-<p><span class="math display">\[
-D_2 = z_\alpha \sqrt{\frac{QM_{Res}}{r}} = 2,93 \sqrt{\frac{0,4510}{6}} = 0,80\; t/ha
-\]</span>
-Como <span class="math inline">\(\hat{Y_8} &gt; D_2\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_5}\)</span> difere de <span class="math inline">\(\hat{m_1}\)</span>.</p>
-<p>Como <span class="math inline">\(\hat{Y_9} &lt; D_2\)</span>, não rejeita-se <span class="math inline">\(H_0\)</span>, o contraste não é significativo, indicando que <span class="math inline">\(\hat{m_1}\)</span> não difere de <span class="math inline">\(\hat{m_2}\)</span>. As médias devem ser unidas por uma barra.</p>
-<p><span class="math display">\[
-\hat{V}(\hat{Y_{10}})= \left( \frac{1}{r_2} + \frac{1}{r_3}\right)s^2 = \left( \frac{1}{6} + \frac{1}{4}\right)0,4510 = 0,1879\\
-D&#39;&#39;_2 = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y_{10}})}= 2,93\sqrt{\frac{1}{2}\cdot0,1879} = 0,90\; t/ha \\
-\]</span>
-Como <span class="math inline">\(\hat{Y_{10}} &lt; D&#39;&#39;_2\)</span>, não rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é não significativo, indicando que <span class="math inline">\(\hat{m_2}\)</span> não difere de <span class="math inline">\(\hat{m_3}\)</span>. As médias devem ser unidas por uma barra.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Cultivares
-</th>
-<th style="text-align:left;">
-Médias
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Pionner93H
-</td>
-<td style="text-align:left;">
-21.01 a
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SartV
-</td>
-<td style="text-align:left;">
-20.91 a
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NK300H
-</td>
-<td style="text-align:left;">
-11.22 b
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sordan67H
-</td>
-<td style="text-align:left;">
-10.46 bc
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Pionner988H
-</td>
-<td style="text-align:left;">
-9.97 c
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Utilizando o R</strong></p>
-<p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
-<span id="cb80-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb80-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-3"></a></span>
-<span id="cb80-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-4"></a><span class="co"># Caminho dos dados</span></span>
-<span id="cb80-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-5"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt&quot;</span></span>
-<span id="cb80-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-6"></a></span>
-<span id="cb80-7"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-7"></a><span class="co"># Lendo o arquivo de dados</span></span>
-<span id="cb80-8"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-8"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb80-9"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-9"></a></span>
-<span id="cb80-10"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-10"></a><span class="co"># verificando os 6 primeiros registros</span></span>
-<span id="cb80-11"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb80-11"></a><span class="kw">head</span>(dados)</span></code></pre></div>
-<pre><code>##          Trat     Y
-## 1      NK300H 10.27
-## 2   Sordan67H  9.77
-## 3 Pionner988H  9.86
-## 4  Pionner93H 21.22
-## 5       SartV 20.20
-## 6      NK300H 11.55</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
-<span id="cb82-2"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor de tratamentos sem os valores perdidos</span></span>
-<span id="cb82-3"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-3"></a>massa_seca &lt;-<span class="st"> </span>dados<span class="op">$</span>Y[<span class="op">!</span><span class="kw">is.na</span>(dados<span class="op">$</span>Y)] <span class="co"># Criando o vetor com a variável resposta semos valores perdidos</span></span>
-<span id="cb82-4"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-4"></a></span>
-<span id="cb82-5"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-5"></a><span class="co"># Utilizando a função</span></span>
-<span id="cb82-6"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cb82-6"></a><span class="kw">dic</span>(trat,massa_seca,<span class="dt">mcomp =</span> <span class="st">&quot;duncan&quot;</span>, <span class="dt">sigT =</span> <span class="fl">.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="estudo-do-fatorial-23.html#cb194-1"></a><span class="co"># Análise com desdobramento para estudo dos fatores e interações</span></span>
+<span id="cb194-2"><a href="estudo-do-fatorial-23.html#cb194-2"></a><span class="kw">fat3.dbc</span>(dados<span class="op">$</span>N,dados<span class="op">$</span>P,dados<span class="op">$</span>K,dados<span class="op">$</span>Bloco,dados<span class="op">$</span>Y,<span class="dt">fac.names =</span> <span class="kw">c</span>(<span class="st">&quot;N&quot;</span>,<span class="st">&quot;P&quot;</span>,<span class="st">&quot;K&quot;</span>))</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
-## Quadro da analise de variancia
+## Legenda:
+## FATOR 1:  N 
+## FATOR 2:  P 
+## FATOR 3:  K 
 ## ------------------------------------------------------------------------
-##            GL     SQ QM     Fc      Pr&gt;Fc
-## Tratamento  4 700.27  3 388.15 4.6914e-20
-## Residuo    22   9.92  2                  
-## Total      26 710.19  1                  
-## ------------------------------------------------------------------------
-## CV = 4.53 %
 ## 
 ## ------------------------------------------------------------------------
-## Teste de normalidade dos residuos 
-## Valor-p:  0.05636895 
+## Quadro da analise de variancia
+## ------------------------------------------------------------------------
+##         GL         SQ         QM      Fc  Pr&gt;Fc
+## Bloco    5  235.45854   47.09171  0.7132 0.6177
+## N        1 1128.11021 1128.11021 17.0858  2e-04
+## P        1   21.46688   21.46688  0.3251 0.5722
+## K        1  692.36021  692.36021 10.4861 0.0026
+## N*P      1   60.97521   60.97521  0.9235 0.3431
+## N*K      1  962.12521  962.12521 14.5719  5e-04
+## P*K      1   52.29188   52.29188   0.792 0.3796
+## N*P*K    1   31.85021   31.85021  0.4824 0.4919
+## Residuo 35 2310.91646   66.02618               
+## Total   42 5495.55479                          
+## ------------------------------------------------------------------------
+## CV = 20.03 %
+## 
+## ------------------------------------------------------------------------
+## Teste de normalidade dos residuos (Shapiro-Wilk)
+## valor-p:  0.1204836 
 ## De acordo com o teste de Shapiro-Wilk a 5% de significancia, os residuos podem ser considerados normais.
 ## ------------------------------------------------------------------------
 ## 
-## ------------------------------------------------------------------------
-## Teste de homogeneidade de variancia 
-## valor-p:  0.9943713 
-## De acordo com o teste de bartlett a 5% de significancia, as variancias podem ser consideradas homogeneas.
+## 
+## 
+## Interacao N*K  significativa: desdobrando a interacao
 ## ------------------------------------------------------------------------
 ## 
-## Teste de Duncan 
+## Desdobrando  N  dentro de cada nivel de  K 
 ## ------------------------------------------------------------------------
-## Grupos  Tratamentos  Medias
-## a 	 Pionner93H 	     21.012 
-## a 	 SartV 	     20.91167 
-##  b 	 NK300H 	     11.22 
-##  bc 	 Sordan67H 	     10.46167 
-##   c 	 Pionner988H 	     9.9675 
+## ------------------------------------------------------------------------
+## Quadro da analise de variancia
+## ------------------------------------------------------------------------
+##         GL         SQ         QM      Fc  Pr&gt;Fc
+## N:K 0    1    3.30042    3.30042    0.05 0.8244
+## N:K 1    1 2086.93500 2086.93500 31.6077      0
+## Residuo 35 2310.91646   66.02618               
+## ------------------------------------------------------------------------
+## 
+## 
+## 
+##  N  dentro do nivel  0  de  K 
+## 
+## De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
+## ------------------------------------------------------------------------
+##     Niveis     Medias
+## 1        0   36.39167
+## 2        1   37.13333
+## ------------------------------------------------------------------------
+## 
+## 
+##  N  dentro do nivel  1  de  K 
+## ------------------------------------------------------------------------
+## Teste de Tukey
+## ------------------------------------------------------------------------
+## Grupos Tratamentos Medias
+## a 	 1 	 53.68333 
+##  b 	 0 	 35.03333 
+## ------------------------------------------------------------------------
+## 
+## 
+## 
+## Desdobrando  K  dentro de cada nivel de  N 
+## ------------------------------------------------------------------------
+## ------------------------------------------------------------------------
+## Quadro da analise de variancia
+## ------------------------------------------------------------------------
+##         GL         SQ         QM      Fc  Pr&gt;Fc
+## K:N 0    1   11.07042   11.07042  0.1677 0.6847
+## K:N 1    1 1643.41500 1643.41500 24.8904      0
+## Residuo 35 2310.91646   66.02618               
+## ------------------------------------------------------------------------
+## 
+## 
+## 
+##  K  dentro do nivel  0  de  N 
+## 
+## De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
+## ------------------------------------------------------------------------
+##     Niveis     Medias
+## 1        0   36.39167
+## 2        1   35.03333
+## ------------------------------------------------------------------------
+## 
+## 
+##  K  dentro do nivel  1  de  N 
+## ------------------------------------------------------------------------
+## Teste de Tukey
+## ------------------------------------------------------------------------
+## Grupos Tratamentos Medias
+## a 	 1 	 53.68333 
+##  b 	 0 	 37.13333 
+## ------------------------------------------------------------------------
+## 
+## Analisando os efeitos simples do fator  P 
+## ------------------------------------------------------------------------
+## P
+## De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
+## ------------------------------------------------------------------------
+##   Niveis   Medias
+## 1      0 39.89167
+## 2      1 41.22917
 ## ------------------------------------------------------------------------</code></pre>
 
 </div>
@@ -1165,8 +1543,8 @@ Pionner988H
           </div>
         </div>
       </div>
-<a href="delineamento-inteiramente-casualizado.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estudo-do-fatorial-32.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
