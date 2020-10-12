@@ -1,4 +1,6 @@
-# Introdução
+# Experimentos em Parcelas Subdivididas
+
+## Introdução
 
 Os experimento em parcelas subdivididas, também conhecidos como "Split-plot", são utilizados quado, num mesmo ensaio, queremos testar os efeitos de 2 ou mais fatores, mas em condições experimentais um pouco diferentes daquelas utilizadas nos experimentos fatoriais.
 
@@ -42,6 +44,7 @@ kable(df) %>%
 ```
 
 **Observação**: Caso este mesmo ensaio fosse montado de acordo com o esquema fatorial $2 \times 3$ em 5 blocos, a casualização seria feita de modo diferente e, como exemplo, apresentamos o sorteio do delineamento seguinte:
+
 ![](fat1.png)
 
 e o esquema da análise de variância do experimento de acordo com o esqeuma fatorial $2 \times 3$, seria o seguinte:
@@ -83,7 +86,8 @@ Para a obtenção da análise de variância de um experimento em parcelas subdiv
 |$E_8V_2$|2,0083|1,7833|1,7416|5,5332|
 |Total|44,3800|45,5242|42,2576|**132,1618**|
 
-## Pelo quadro de dados do experimento, podemos obter as somas de quadrados Total e de Blocos, utilizando:
+**Pelo quadro de dados do experimento, podemos obter as somas de quadrados Total e de Blocos, utilizando:**
+
   * $I$ (número de níveis de tratamentos principais).
   * $J$ (número de Blocos ou Repetições).
   * $K$ (número de níveis de tratamentos secundários).
@@ -194,7 +198,7 @@ Valores de F da tabela para Variedades ($1\times16GL$): $\begin{cases} 5\%=4,49 
 Valores de F da tabela para Interação E $\times$ V ($7\times16GL$): $\begin{cases} 5\%=2,66 \\ 1\%=4,03 \end{cases}$
 
 
-# Conclusões
+**Conclusões**
 
 **Para efeito de Épocas**: O teste foi significativo ao nível de $1\%$ de probabilidade, indicando que devemos rejeitar a hipótese da nulidade e concluir que as épocas de plantio diferem entre si em relação à produção da cultura da soja.
 
