@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   
 
-<meta name="author" content="Alan R. Panosso" />
+<meta name="author" content="José C. Barbosa &amp; Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-11" />
+<meta name="date" content="2020-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -844,8 +844,6 @@ R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}}{SQ_{Trat}}=\frac{423.15+1285.84}{1
 </tr>
 </tbody>
 </table>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
-<p>Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.</p>
 <p><img src="R.png" /></p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
 <span id="cb198-2"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt&quot;</span></span>
@@ -961,7 +959,8 @@ R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}}{SQ_{Trat}}=\frac{423.15+1285.84}{1
 <span id="cb200-8"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-8"></a>     <span class="dt">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span></span>
 <span id="cb200-9"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-9"></a>);<span class="kw">curve</span>(<span class="fl">140.7836+0.2737</span><span class="op">*</span>x<span class="fl">-0.000783</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span>
 <span id="cb200-10"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-10"></a><span class="kw">text</span>(<span class="dv">155</span>,<span class="dv">145</span>,<span class="st">&quot;140.7836+0.2737X-0.000783X²\nR²=0.8801&quot;</span>)</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<p>Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.</p>
 
 </div>
 </div>
