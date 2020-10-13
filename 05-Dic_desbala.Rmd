@@ -22,21 +22,22 @@ Para ilustrar o procedimento de análise de um experimento inteiramente casualiz
 
 Experimento de produção de matéria seca de cultivares de sorgo, em t/ha. Para os cultivares, *H* = *Híbrido* e *V* = *Variedade*.
 
-```{r echo=FALSE}
+```{r echo=FALSE,message=FALSE,error=FALSE,warning=FALSE}
 library(knitr)
 library(kableExtra)
 tb <-data.frame(Cultivares=c("NK300H","Sordan67H","Pionner988H","Pionner93H","SartV","Total"),
-                Rep.1=c("10.27","9.77","9.86","21.22","20.20",""),
-                Rep.2=c("11.55","9.96","9.59","20.62","20.55",""),
-                Rep.3=c("11.68","11.94","10.43","22.33","22.12",""),
-                Rep.4=c("11.38","10.18","9.99","19.89","20.78",""),
-                Rep.5=c("11.20","10.43","--","21.00","20.90",""),
-                Rep.6=c("11.24","10.49","--","--","20.92",""),
-                Totais=c("67.32","62.77","39.87","105.06","125.47","400.49")
+                "Rep1"=c("10,27","9,77","9,86","21,22","20,20",""),
+                "Rep2"=c("11,55","9,96","9,59","20,62","20,55",""),
+                "Rep3"=c("11,68","11,94","10,43","22,33","22,12",""),
+                "Rep4"=c("11,38","10,18","9,99","19,89","20,78",""),
+                "Rep5"=c("11,20","10,43","--","21,00","20,90",""),
+                "Rep6"=c("11,24","10,49","--","--","20,92",""),
+                Totais=c("67,32","62,77","39,87","105,06","125,47","400,49")
                   )
 kable(tb) %>%
 #kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
-kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+kable_styling(bootstrap_options = "striped", full_width = F, position = "center") %>% 
+  row_spec(c(6), bold = T)
 ```
 
 As hipóteses testadas são:
@@ -92,9 +93,12 @@ tb <-data.frame("Causas de Variação"=c("Tratamento","Resíduo","Total"),
                 QM=c("175,0669","0,4510","--"),
                 "F"=c("388,17**","--","--")
                 )
+names(tb) <- c("Causas de Variação", "Gl", "SQ", "QM", "F")
 kable(tb) %>%
 #kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
-kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+kable_styling(bootstrap_options = "striped", full_width = F, position = "center") %>% 
+  row_spec(c(3), bold = T)
+  
 ```
 
 Valores de F da tabela para (4 x 22 GL):$\begin{cases} 5\%=2,82 \\ 1\%=4,31 \end{cases}$
@@ -103,7 +107,7 @@ Valores de F da tabela para (4 x 22 GL):$\begin{cases} 5\%=2,82 \\ 1\%=4,31 \end
 
 Para tirar conclusões mais específicas sobre o comportamento das cultivares, devemos utilizar um teste de compração de médias.
 
-## Cálculo das médias e error padrôes das médias
+## Cálculo das médias e error padrões das médias
 
 A média do Tratamento $i$ é dada por:
 
@@ -264,6 +268,8 @@ kable(tb) %>%
 #kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
 ```
+
+
 
 ## Cálculo do coeficiente de variação do experimento
 
@@ -472,13 +478,13 @@ $$
 Como $\hat{Y_{10}} < D''_2$, não rejeita-se $H_0$, o contraste é não significativo, indicando que $\hat{m_2}$ não difere de $\hat{m_3}$. As médias devem ser unidas por uma barra.
 
 
-```{r echo=FALSE}
-tb <-data.frame(Cultivares=c("Pionner93H","SartV","NK300H","Sordan67H","Pionner988H"),
-                Médias=c("21.01 a","20.91 a","11.22 b","10.46 bc","9.97 c"))
-kable(tb) %>%
-#kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
-kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
-```
+$$
+\hat{m_4}=21,01 \:\:\:\:\:\: a\\
+\hat{m_5}=20,91 \:\:\:\:\:\: a\\
+\hat{m_1}=11,22 \:\:\:\:\:\: b\\
+\hat{m_2}=10,46 \:\:\:\:\:\: bc\\
+\hat{m_3}=9,97 \:\:\:\:\:\:\:\: c
+$$
 
 **Utilizando o R**
 

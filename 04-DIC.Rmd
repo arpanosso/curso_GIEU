@@ -102,12 +102,13 @@ Quando houver zeros entre as contagens, utiliza-se $y=log(x+1)$.
 
 Para a obtenção da análise de variância, vamos considerar um experimento inteiramente casualizado com **I** tratamentos e **J** repetições.
 
-|Trat `\` Repetição |$1$|$2$|...|$j$|...|$J$|Total|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  ||||Repetição||||
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|---:|
+|**Tratamento**|**1**|**2**|...|$j$|...|$J$|**Total**|
 |$1$|$x_{11}$|$x_{12}$|...|$x_{1j}$|...|$x_{1J}$|$T_1 = \sum_{j=1}^J x_{1j}$|
 |$2$|$x_{21}$|$x_{22}$|...|$x_{2j}$||$x_{2J}$|$T_2 = \sum_{j=1}^J x_{2j}$|
 |...|...|...|...|...|...|...|...|
-|$i$|$x_{i1}$|$x_{i2}$|...|$x_{ij}$|---|$x_{iJ}$|$T_i = \sum_{j=1}^J x_{ij}$|
+|$i$|$x_{i1}$|$x_{i2}$|...|$x_{ij}$|...|$x_{iJ}$|$T_i = \sum_{j=1}^J x_{ij}$|
 |...|...|...|...|...|...|...|...|
 |$I$|$x_{I1}$|$x_{I2}$|...|$x_{Ij}$|...|$x_{IJ}$|$T_I = \sum_{j=1}^J x_{Ij}$|
 |**Total**|||||||$G = \sum_{i=1}^I\sum_{j=1}^J x_{ij}$|
@@ -241,19 +242,19 @@ A designação dos tratamentos às parcelas no campo, juntamente com as produç�
 Com estes dados, podemos organizar o quadro seguinte:
 
 Tratamentos|Rep.1|Rep.2|Rep.3|Rep.4|Rep. 5|Total
-----------------|-----|-----|-----|-----|-----|-----
+:---|:---:|:---:|:---:|:---:|:---:|:---:
 1 - IAC 5|38,9|25,4|20,3|25,7|29,3|139,6
 2 - IAC 7 |20,9|26,2|32,3|28,3|28,7|136,4
 3 - IAC 11|28,1|27,0|25,8|26,9|22,3|130,1
 4 - IRACEMA|38,7|43,2|41,7|39,0|40,3|202,9
 5 - MANTIQUEIRA|47,8|47,8|44,7|50,5|56,4|247,2
-Total||||||856,2
+**Total**||||||**856,2**
 
 As hipóteses que desejamos testar são:
 
 $H_0$: As variedades de mandioca testadas não são diferentes entre si quanto à produção.
 
-$H_1$: As variedade de mandioca testadas diferem entre si quanto à produção.
+$H_1$: As variedades de mandioca testadas diferem entre si quanto à produção.
 
 
 **Cálculo das Somas de Quadrados**
@@ -285,10 +286,10 @@ $$
 Então, podemos montar o seguinte quadro de análise de variância:
 
 Causas de Variação |GL | SQ | QM | F 
--------------------|---|----|----|---
-Tratamento | 4| 2135,94 | 533,99 | 28.59**
-Resíduo | 20| 373,52 | 18,68 | -
-**Total** | 24| **2509,46**| - | - |- 
+:---|:---:|:---:|:---:|:---:
+Tratamento|4|2135,94|533,99|28.59**
+Resíduo|20|373,52|18,68|-
+**Total** |**24**|**2509,46**|-|-|- 
 
 Valores de F da tabela para (4 x 20 GL):$\begin{cases} 5\%=2,87 \\ 1\%=4,43 \end{cases}$
 

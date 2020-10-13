@@ -39,26 +39,15 @@ Os resultados obtido para a altura média das mudas de  *Eucalyptus grandis* (cm
 
 [eucalyptus](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/eucalyptus.txt).
  
-```{r echo=FALSE}
-# carregango pacotes
-library(knitr)
-library(kableExtra)
 
-# Caminho dos dados
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/eucalyptus.txt"
-dados<-read.table(caminho,h=T,sep="\t")
-ma<-matrix(dados$Y,ncol=5,byrow = T)
-tma<-as.data.frame(ma)
-Tratamentos<-c("1 - ST","2 - AC","3 - AP","4 - PM","5 - T")
-Total<-apply(ma,1,sum)
-tb<-cbind(Tratamentos, tma, Total)
-tb<-rbind(tb,c("Total","","","","","","531.84"))
-names(tb)<-c("Tratamentos","Rep.1","Rep.2","Rep.3","Rep.4","Rep.5","Total")
-
-kable(tb) %>%
-#kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
-kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
-```
+|Tratamentos|Rep 1|Rep 2|Rep 3|Rep 4|Rep 5|Total|
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+|1 - ST|25,6|25,48|25,06|20,58|19,02|115,74|
+|2 - AC|27,2|21,57|23,61|24,89|20,27|117,54|
+|3 - AP|25,36|31,07|27,30|18,93|18,09|120,75|
+|4 - PM|17,97|19,07|15,94|16,46|16,44|85,88|
+|5 - T|18,92|16,07|14,5|20,17|22,27|91,93|
+|Total||||||531,84| 
 
 Inicialmente, devemos fazer a análise de variância, denominada de análise de variância preliminar, de acordo com o delineamento inteiramente casualizado. Assim, temos:
 
@@ -91,13 +80,15 @@ $$
 Então, podemos montar o seguinte quadro de análise de variância:
 
 
-```{r echo=FALSE}
+```{r echo=FALSE,message=FALSE,error=FALSE,warning=FALSE}
 tb <-data.frame("Causas de Variação"=c("Tratamento","Resíduo","Total"),
                 GL=c("4","20","24"),
                 SQ=c("209,5408","237,5958","447,1366"),
                 QM=c("52,3852","11,8798","--"),
                 "F"=c("4,41*","--","--")
                 )
+names(tb)<-c("Causas de Variação","GL","SQ","QM","F")
+
 kable(tb) %>%
 #kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
@@ -331,15 +322,19 @@ tb <-data.frame("Causas de Variação"=c("(ST+AC+AP) vs. (PM+T)","ST vs. (AC+AP)
                 QM=c("203,3042","1,5459","1,0304","3,6603","--","11,8798","--"),
                 "F"=c("17,11**","0,13","0,09","0,31","--","--","--")
                 )
+names(tb)<-c("Causas de Variação","GL","SQ","QM","F")
 kable(tb) %>%
 #kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 kable_styling(bootstrap_options = "striped", full_width = F, position = "center") %>%
 row_spec(5:7, bold = T, color = "black", background = "#BBBBBB")
 ```
 
-Valores de F da tabela para (1 x 20 GL):$\begin{cases} 5\%=4.35 \\ 1\%=8.10 \end{cases}$
+Valores de F da tabela para (1 x 20 GL):$\begin{cases} 5\%=4,35 \\ 1\%=8,10 \end{cases}$
 
-**Verificação**: $\frac{17,11+0,13+0,09+0,31}{4}=4,41=F_{Trat}$
+**Verificação**: 
+$$
+Verificação = \frac{17,11+0,13+0,09+0,31}{4}=4,41=F_{Trat}
+$$
 
 ### **Conclusões**
 
@@ -423,7 +418,7 @@ paste(round(CV,2),"%",sep="")
 ```
 
 
-## Componentes com maisde um grau de liberdade
+## Componentes com mais de um grau de liberdade
 
 Em alguns casos, o experimentador pode estar interessado em realizar um desdobramento incompleto, como o seguinte:
 
@@ -458,6 +453,7 @@ tb <-data.frame("Causas de Variação"=c("(ST+AC+AP) vs. (PM+T)","Entre Inoculan
                 QM=c("203,3042","1,2882","3,6603","--","11,8798","--"),
                 "F"=c("17,11**","0,11","0,31","--","--","--")
                 )
+names(tb)<-c("Causas de Variação","GL","SQ","QM","F")
 kable(tb) %>%
 #kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 kable_styling(bootstrap_options = "striped", full_width = F, position = "center") %>%

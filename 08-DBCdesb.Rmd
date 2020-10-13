@@ -9,7 +9,7 @@ Um método de facilitar a análise consiste em obter uma estimativa da parcela p
 ## Estimativa da parcela perdida
               
 |  ||||Blocos||||
-|:-----------|:-:|:-:|:---:|:-:|:---:|:-:|-----:|
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|---:|
 |**Tratamentos**  |**1**|**2**|...|$j$|...|$J$|**Total**|
 |1|$x_{11}$|$x_{12}$|...|$x_{1j}$|...|$x_{1J}$| $T_1$ |
 |2|$x_{21}$|$x_{22}$|...|$x_{2j}$|...|$x_{2J}$| $T_2$ |

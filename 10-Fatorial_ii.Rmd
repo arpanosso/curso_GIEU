@@ -2,17 +2,17 @@
 
 Para obtenção da análise de variância, vamos supor o seguinte ensaio em que foram estudados os efeitos de 4 inseticidas em 2 doses diferentes sobre a produção da cultura do milho em kg/parcela. Dados estão disponíveis online em [inseticidas.txt](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/inseticidas.txt)
 
-|Trat|	Rep.1	|Rep.2|	Rep.3|	Total|
+|Trat|Rep.1|Rep.2|Rep.3|Total|
 |:--:|:--:|:--:|:--:|:--:|
-|	$I_1D_1$|	58|	45|	47|	**150**|
-|$I_1D_2$|	61|	65|	47|	**173**|
-|$I_2D_1$|	31|	35|	29|	**95**|
-|$I_2D_2$|	43|	51|	49|	**143**|
-|$I_3D_1$|	45|	55|	79|	**179**|
-|$I_3D_2$|	31|	37|	37|	**105**|
-|$I_4D_1$|	78|	83|	62|	**223**|
-|$I_4D_2$|	36|	34|	34|	**104**|
-|	**Total**|	**383**|	**405**|	**384**|	**1172**|
+|$I_1D_1$|58|45|47|**150**|
+|$I_1D_2$|61|65|47|**173**|
+|$I_2D_1$|31|35|29|**95**|
+|$I_2D_2$|43|51|49|**143**|
+|$I_3D_1$|45|55|79|**179**|
+|$I_3D_2$|31|37|37|**105**|
+|$I_4D_1$|78|83|62|**223**|
+|$I_4D_2$|36|34|34|**104**|
+|**Total**|**383**|**405**|**384**|**1172**|
 
 ## Obtenção da análise de variância
 
@@ -40,11 +40,11 @@ $$
 
 Quadro de Análise de Variância Preliminar:
 
-|Causas de Variação|	GL|	SQ|	QM|	F|
+|Causas de Variação|GL|SQ|QM|F|
 |---|---|----|----|----|
-|Trat.|	7|	4605,33|	657,90|	8,71*|
-|Res|	16|	1208,0|	75,50||	
-|Total|	23|	5813,13|	| 
+|Trat.|7|4605,33|657,90|8,71*|
+|Res|16|1208,0|75,50||
+|Total|23|5813,13|| 
 
 **Conclusão**: O teste é significativo ao nível de $1\%$ de probabilidade, logo, rejeitamos a hipótese da nulidade ($H_0$), e concluímos que os efeitos dos tratamentos diferem entre si em relação à característica analisada, com um grau de confiança superior a $99\%$ de probabilidade.
 

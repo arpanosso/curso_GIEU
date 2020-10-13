@@ -99,15 +99,16 @@ Os erros ou desvios $\epsilon_{ij}$ são independentes e identicamente distribu�
 
 Para a obtenção da análise de variância, vamos considerar um experimento genérico em blocos casualizados com $I$ tratamentos e $J$ blocos. Os dados obtidos podem ser dispostos num quadro como o seguinte:
 
-|Tratamentos|1|2|...|$j$|...|$J$|Total|
-|-----------|-|-|---|-|---|-|-----|
-|1|$x_{11}$|$x_{12}$|...|$x_{1j}$|...|$x_{1J}$| $T_1=\sum_{j=1}^Jx_{1j}$ |
-|2|$x_{21}$|$x_{22}$|...|$x_{2j}$|...|$x_{2J}$| $T_2=\sum_{j=1}^Jx_{2j}$ |
-|...| | |...| |...| |  |
-|$i$|$x_{i1}$|$x_{i2}$|...|$x_{ij}$|...|$x_{iJ}$| $T_i=\sum_{j=1}^Jx_{ij}$ |
-|...| | |...| |...| |  |
-|$I$|$x_{I1}$|$x_{I2}$|...|$x_{Ij}$|...|$x_{IJ}$| $T_I=\sum_{j=1}^Jx_{Ij}$ |
-|**Total**|$B_1=\sum_{i=1}^Ix_{i1}$ | $B_2=\sum_{i=1}^Ix_{i2}$|...| $B_j=\sum_{i=1}^Ix_{ij}$|...|$B_J=\sum_{i=1}^Ix_{iJ}$ | $G=\sum_{i=1}^I\sum_{j=1}^Jx_{ij}$ |
+||||Blocos||||
+|:---|:---:|:---:|:---:|:---:|:---:|---:|
+|**Tratamento**|**1**|...|$j$|...|$J$|**Total**|
+|1|$x_{11}$|...|$x_{1j}$|...|$x_{1J}$|$T_1=\sum \limits_{j=1}^Jx_{1j}$|
+|2|$x_{21}$|...|$x_{2j}$|...|$x_{2J}$|$T_2=\sum \limits_{j=1}^Jx_{2j}$|
+|...|||...||...|||
+|$i$|$x_{i1}$|...|$x_{ij}$|...|$x_{iJ}$|$T_i=\sum \limits_{j=1}^Jx_{ij}$|
+|...|||...||...|||
+|$I$|$x_{I1}$|...|$x_{Ij}$|...|$x_{IJ}$|$T_I=\sum \limits_{j=1}^Jx_{Ij}$|
+|**Total**|$B_1=\sum \limits_{i=1}^Ix_{i1}$|...| $B_j=\sum \limits_{i=1}^Ix_{ij}$|...|$B_J=\sum \limits_{i=1}^Ix_{iJ}$| $G=\sum \limits_{i=1}^I\sum \limits_{j=1}^Jx_{ij}$|
 
 Pelo método dos mínimos quadrados, devemos obter as estimativas de $\mu$, $\tau_i$ e $\beta_j$ que minimizam a soma de quadrados dos erros do modelo:
 
@@ -150,27 +151,27 @@ SQ_{Resíduo} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos}
 $$
 
 
-Causas de Variação |GL | SQ | QM | F 
--------------------|---|----|----|---
-Tratamentos | $I-1$| $SQ_{Trat}$ | $SQ_{Trat}$/(I-1) | $QM_{Trat}$/$QM_{Res}$
-Blocos | $J-1$| $SQ_{Blocos}$ | $SQ_{Blocos}$/(J-1) | $QM_{Blocos}$/$QM_{Res}$
-Resíduo | $(I-1)(J-1)$| $SQ_{Res}$ | $SQ_{Res}$/[(I-1)(J-1)] | 
-**Total** | $IJ-1$| $SQ_{Total}$ |  | 
+Causas de Variação|GL|SQ|QM|F 
+:---|:---:|:---:|:---:|:---:
+Tratamentos|$I-1$|$SQ_{Trat}$|$SQ_{Trat} / (I-1)$|$QM_{Trat}$/$QM_{Res}$
+Blocos|$J-1$|$SQ_{Blocos}$|$SQ_{Blocos} / (J-1)$|$QM_{Blocos}$/$QM_{Res}$
+Resíduo| $(I-1)(J-1)$| $SQ_{Res}$|$SQ_{Res} / [(I-1)(J-1)]$| 
+**Total**| $IJ-1$| $SQ_{Total}$|| 
 
 **HIPÓTESES TESTADAS:**
 
 **Para Tratamentos**:
 $$
-\begin{cases} H_0: t_i=0, i=1,2, ...,I. \\
-H_1:pelo\;menos\;um \;valor\;t_i \neq 0
+\begin{cases} H_0: \tau_i=0, i=1,2, ...,I. \\
+H_1:pelo\;menos\;um \;valor\;\tau_i \neq 0
 \end{cases}
 $$
 
 **Para Blocos**:
 
 $$
-\begin{cases} H_0: b_j=0, j=1,2, ...,J. \\
-H_1:pelo\;menos\;um \;valor\;b_j \neq 0
+\begin{cases} H_0: \beta_j=0,\; j=1,2, ...,J. \\
+H_1:pelo\;menos\;um \;valor\; \beta_j \neq 0
 \end{cases}
 $$
 
@@ -204,7 +205,7 @@ O ensaio foi montado de acordo com o delineamento em blocos casualizados, sendo 
 
 Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em [milho](https://github.com/arpanosso/ExpAgr_2020/blob/master/dados/milho.txt).
 
-```{r echo=F}
+```{r echo=F,message=FALSE,warning=FALSE,error=FALSE}
 caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt"
 dados<-read.table(caminho,h=T,sep="\t")
 md<-matrix(dados$y,ncol=5,byrow = T)
@@ -222,6 +223,8 @@ kable(tb) %>%
   row_spec(5:5, bold = T, color = "black", background = "lightgray") %>%
   column_spec(7, bold = T, color = "black", background = "lightgray")
 ```
+
+
 
 As hipóteses que desejamos testar são as seguintes:
 
@@ -276,6 +279,7 @@ tb <-data.frame("Causas de Variação"=c("Tratamento","Blocos","Resíduo","Total
                 QM=c("11800673,9","2305420,3","266110,83","--"),
                 "F"=c("44,34**","8,66**","--","--")
                 )
+names(tb) <- c("Causas de Variação","GL","SQ","QM","F")
 kable(tb) %>%
 #kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 kable_styling(bootstrap_options = "striped", full_width = F, position = "center")

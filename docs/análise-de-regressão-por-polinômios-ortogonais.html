@@ -180,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
 <li class="chapter" data-level="6.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
 <li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>6.2</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-error-padrôes-das-médias"><i class="fa fa-check"></i><b>6.3</b> Cálculo das médias e error padrôes das médias</a></li>
+<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-error-padrões-das-médias"><i class="fa fa-check"></i><b>6.3</b> Cálculo das médias e error padrões das médias</a></li>
 <li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> Teste de Tukey para comparação das médias</a></li>
 <li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> Cálculo do coeficiente de variação do experimento</a></li>
 <li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> Aplicação do teste t de Student a um contraste</a></li>
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.5.1</b> <strong>Conclusões</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-maisde-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.6</b> Componentes com maisde um grau de liberdade</a></li>
+<li class="chapter" data-level="7.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.6</b> Componentes com mais de um grau de liberdade</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
 <li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> Caracterização</a></li>
@@ -845,11 +845,11 @@ R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}}{SQ_{Trat}}=\frac{423.15+1285.84}{1
 </tbody>
 </table>
 <p><img src="R.png" /></p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
-<span id="cb198-2"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt&quot;</span></span>
-<span id="cb198-3"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-3"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
-<span id="cb198-4"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-4"></a><span class="co"># Análise de Variância</span></span>
-<span id="cb198-5"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-5"></a><span class="kw">dic</span>(d<span class="op">$</span>trat,d<span class="op">$</span>y,<span class="dt">quali =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb196-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
+<span id="cb196-2"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb196-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt&quot;</span></span>
+<span id="cb196-3"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb196-3"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
+<span id="cb196-4"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb196-4"></a><span class="co"># Análise de Variância</span></span>
+<span id="cb196-5"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb196-5"></a><span class="kw">dic</span>(d<span class="op">$</span>trat,d<span class="op">$</span>y,<span class="dt">quali =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
@@ -949,17 +949,17 @@ R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}}{SQ_{Trat}}=\frac{423.15+1285.84}{1
 ## Residuos             21  886.3375   42.2066                
 ## -----------------------------------------------------------
 ## ------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-1"></a><span class="co"># Construção do gráfico</span></span>
-<span id="cb200-2"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-2"></a>X&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">50</span>)</span>
-<span id="cb200-3"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-3"></a>Y&lt;-<span class="kw">tapply</span>(d<span class="op">$</span>y, d<span class="op">$</span>trat, mean)</span>
-<span id="cb200-4"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-4"></a><span class="kw">plot</span>(Y<span class="op">~</span>X,</span>
-<span id="cb200-5"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-5"></a>     <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb200-6"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-6"></a>     <span class="dt">pch=</span><span class="dv">21</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">bg=</span><span class="st">&quot;gray&quot;</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,</span>
-<span id="cb200-7"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-7"></a>     <span class="dt">xlab=</span><span class="st">&quot;Dose de Gesso (kg/ha)&quot;</span>,</span>
-<span id="cb200-8"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-8"></a>     <span class="dt">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span></span>
-<span id="cb200-9"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-9"></a>);<span class="kw">curve</span>(<span class="fl">140.7836+0.2737</span><span class="op">*</span>x<span class="fl">-0.000783</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb200-10"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb200-10"></a><span class="kw">text</span>(<span class="dv">155</span>,<span class="dv">145</span>,<span class="st">&quot;140.7836+0.2737X-0.000783X²\nR²=0.8801&quot;</span>)</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-1"></a><span class="co"># Construção do gráfico</span></span>
+<span id="cb198-2"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-2"></a>X&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">50</span>)</span>
+<span id="cb198-3"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-3"></a>Y&lt;-<span class="kw">tapply</span>(d<span class="op">$</span>y, d<span class="op">$</span>trat, mean)</span>
+<span id="cb198-4"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-4"></a><span class="kw">plot</span>(Y<span class="op">~</span>X,</span>
+<span id="cb198-5"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-5"></a>     <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb198-6"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-6"></a>     <span class="dt">pch=</span><span class="dv">21</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">bg=</span><span class="st">&quot;gray&quot;</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,</span>
+<span id="cb198-7"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-7"></a>     <span class="dt">xlab=</span><span class="st">&quot;Dose de Gesso (kg/ha)&quot;</span>,</span>
+<span id="cb198-8"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-8"></a>     <span class="dt">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span></span>
+<span id="cb198-9"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-9"></a>);<span class="kw">curve</span>(<span class="fl">140.7836+0.2737</span><span class="op">*</span>x<span class="fl">-0.000783</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb198-10"><a href="análise-de-regressão-por-polinômios-ortogonais.html#cb198-10"></a><span class="kw">text</span>(<span class="dv">155</span>,<span class="dv">145</span>,<span class="st">&quot;140.7836+0.2737X-0.000783X²\nR²=0.8801&quot;</span>)</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
 <p>Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.</p>
 
 </div>

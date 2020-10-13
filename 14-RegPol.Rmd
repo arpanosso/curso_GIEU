@@ -1,4 +1,4 @@
-# Análise de Regressão por Polinômios Ortogonais
+# ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS 
 
 ## Introdução
 

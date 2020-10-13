@@ -1,4 +1,4 @@
-# Estudo do Fatorial $2^3$
+# ESTUDO DO FATORIAL $2^3$
 
 No fatorial $2^3$, podemos estudar os efeitos de 3 fatores, cada um dos quais em 2 níveis. Assim, por exemplo, num ensaio de adubação NPK, podemos ter:
 

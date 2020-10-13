@@ -1,4 +1,4 @@
-# Estudo do Fatorial $3^2$
+# ESTUDO DO FATORIAL $3^2$
 
 Nos experimentos fatoriais $3^2$ ou $3 \times 3$, temos 2 fatores, cada um dos quais ocorre em 3 níveis. Os tratamentos são formados pelas combinações dos 3 níveis dos 2 fatores, resultando em 9 tratamentos.
 
