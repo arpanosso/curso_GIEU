@@ -304,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Os dados podem ser encontrados online em <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt">feijaoREG.txt</a></p>
+<p>Os dados podem ser encontrados online em <a href="https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt">feijaoREG.txt</a></p>
 <p>A análise de variância preliminar será realizada de acordo com o delineamento experimental utilizado. O Ensaio foi montado de acordo com o delineamento inteiramente casualizado, e portanto, a análise de variância preliminar, obtido de maneira usual,</p>
 <p>Quadro de análise de variância preliminar:</p>
 <table>
@@ -458,7 +458,7 @@ Os testes F para a regressão linear e regressão quadrática foram significativ
 <h2><span class="header-section-number">7.4</span> Aplicação em R - Análise de Regressão</h2>
 <p><img src="R.png" /></p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="análise-de-regressão.html#cb72-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
-<span id="cb72-2"><a href="análise-de-regressão.html#cb72-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt&quot;</span></span>
+<span id="cb72-2"><a href="análise-de-regressão.html#cb72-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt&quot;</span></span>
 <span id="cb72-3"><a href="análise-de-regressão.html#cb72-3"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
 <span id="cb72-4"><a href="análise-de-regressão.html#cb72-4"></a><span class="co"># Análise de Variância</span></span>
 <span id="cb72-5"><a href="análise-de-regressão.html#cb72-5"></a><span class="kw">dic</span>(d<span class="op">$</span>trat,d<span class="op">$</span>y,<span class="dt">quali =</span> <span class="ot">FALSE</span>)</span></code></pre></div>

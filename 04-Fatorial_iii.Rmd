@@ -17,7 +17,7 @@ Espaçamento|Densidade|Bloco 1|Bloco 2|Bloco 3|Totais|
 75|45|26,3297|24,0652|33,8482|**84,2431**|
  | |**Totais**|**284,2114**|**238,8484**|**260,5375**|**783,5973**|
 
-os dados estão disponíveis online em: [crotalaria.txt](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt).
+os dados estão disponíveis online em: [crotalaria.txt](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt).
 
 
 ## Aplicação em R - Fatorial com Interação Significativa
@@ -32,7 +32,7 @@ library(agricolae)
 library(tidyverse)
 
 # Definindo o caminho do banco de dados
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt"
 
 # Entrada da dados
 dados<-read.table(caminho,h=TRUE)
@@ -102,7 +102,7 @@ summary(modba,split=list("den:esp"=list(Den15=c(1,4),
 ```{r}
 # Carregando o pacote par análise de variância
 library(ExpDes.pt)
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt"
 d<-read.table(caminho,h=TRUE)
 esp<-factor(d$Espaçamento)
 den<-factor(d$Densidade)

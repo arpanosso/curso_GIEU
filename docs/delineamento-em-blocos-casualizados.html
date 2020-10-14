@@ -251,7 +251,7 @@ x_{ij} = \mu +\tau_i + \beta_j+\epsilon_{ij}
 <p><span class="math inline">\(C_3\)</span> = COMPOSTO FLINT</p>
 <p><span class="math inline">\(C_4\)</span> = AGROCERES AG-152</p>
 <p>O ensaio foi montado de acordo com o delineamento em blocos casualizados, sendo utilizados 5 blocos para controlar as diferenças de fertilidade do solo entre terraços.</p>
-<p>Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em <a href="https://github.com/arpanosso/ExpAgr_2020/blob/master/dados/milho.txt">milho</a>.</p>
+<p>Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em <a href="https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/milho.txt">milho</a>.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -406,9 +406,8 @@ H_1: As\;cultivares\;testadas\;diferem\;entre\;si\;em\;relação\;à\;produção
 <div id="aplicação-em-r---dbc" class="section level2">
 <h2><span class="header-section-number">3.4</span> Aplicação em R - DBC</h2>
 <p><img src="R.png" /></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="delineamento-em-blocos-casualizados.html#cb5-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt&quot;</span></span>
-<span id="cb5-2"><a href="delineamento-em-blocos-casualizados.html#cb5-2"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb5-3"><a href="delineamento-em-blocos-casualizados.html#cb5-3"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="delineamento-em-blocos-casualizados.html#cb5-1"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb5-2"><a href="delineamento-em-blocos-casualizados.html#cb5-2"></a><span class="kw">head</span>(dados)</span></code></pre></div>
 <pre><code>##      trat bloco    y
 ## 1  OPACO2     1 2812
 ## 2  OPACO2     2 2296

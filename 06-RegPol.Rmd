@@ -29,7 +29,7 @@ Para estudo da regressão, vamos utilizar os dados do trabalho: "Efeito de doses
 |300|154,5|160,4|148,8|154,0|617,7|
 |**Totais**|||||**4379,1**|
 
-Os dados podem ser encontrados online em [feijaoREG.txt](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt)
+Os dados podem ser encontrados online em [feijaoREG.txt](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt)
 
 
 A análise de variância preliminar será realizada de acordo com o delineamento experimental utilizado. O Ensaio foi montado de acordo com o delineamento inteiramente casualizado, e portanto, a análise de variância preliminar, obtido de maneira usual, 
@@ -107,7 +107,7 @@ No nosso exemplo, temos:
 
 ```{r}
 require(ExpDes.pt)
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt"
 d<-read.table(caminho,h=T)
 # Análise de Variância
 dic(d$trat,d$y,quali = FALSE)

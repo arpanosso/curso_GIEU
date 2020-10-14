@@ -57,14 +57,14 @@ Para a obtenção da análise de variância de um experimento em parcelas subdiv
 |$E_8V_2$|2,0083|1,7833|1,7416|5,5332|
 |Total|44,3800|45,5242|42,2576|**132,1618**|
 
-os dados estão disponíveis online em: [sojapsub.txt](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sojapsub.txt).
+os dados estão disponíveis online em: [sojapsub.txt](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt).
 
 ## Aplicação em R - Parcelas Sudivididas
 
 ![](R.png)
 ```{r}
 require(ExpDes.pt)
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sojapsub.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt"
 d<-read.table(caminho,h=T)
 psub2.dbc(d$E,d$V,d$Bloco,d$Y,fac.names = c("Épocas","Variedades"))
 ```

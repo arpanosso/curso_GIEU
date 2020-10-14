@@ -120,7 +120,7 @@ $H_1$: As variedades de mandioca testadas diferem entre si quanto à produção.
 
 ## Aplicação em R - DIC
 
-Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: [Mandioca](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt).
+Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: [Mandioca](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt).
 
 ![](Rlogo.png)
 ```{r,message=FALSE, error=FALSE, warning=FALSE}
@@ -130,7 +130,7 @@ library(tidyverse)
 
 
 # Caminho dos dados
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt"
 
 # Lendo o arquivo de dados
 dados<-read.table(caminho,h=T,sep="\t")

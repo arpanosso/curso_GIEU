@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt">crotalaria.txt</a>.</p>
+<p>os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt">crotalaria.txt</a>.</p>
 <div id="aplicação-em-r---fatorial-com-interação-significativa" class="section level2">
 <h2><span class="header-section-number">5.1</span> Aplicação em R - Fatorial com Interação Significativa</h2>
 <p><img src="R.png" /></p>
@@ -300,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb48-3"><a href="estudo-do-fatorial-32.html#cb48-3"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb48-4"><a href="estudo-do-fatorial-32.html#cb48-4"></a></span>
 <span id="cb48-5"><a href="estudo-do-fatorial-32.html#cb48-5"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
-<span id="cb48-6"><a href="estudo-do-fatorial-32.html#cb48-6"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt&quot;</span></span>
+<span id="cb48-6"><a href="estudo-do-fatorial-32.html#cb48-6"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt&quot;</span></span>
 <span id="cb48-7"><a href="estudo-do-fatorial-32.html#cb48-7"></a></span>
 <span id="cb48-8"><a href="estudo-do-fatorial-32.html#cb48-8"></a><span class="co"># Entrada da dados</span></span>
 <span id="cb48-9"><a href="estudo-do-fatorial-32.html#cb48-9"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
@@ -436,7 +436,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Utilizando o pacote ExpDes.pt, mais prático</strong></p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="estudo-do-fatorial-32.html#cb68-1"></a><span class="co"># Carregando o pacote par análise de variância</span></span>
 <span id="cb68-2"><a href="estudo-do-fatorial-32.html#cb68-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb68-3"><a href="estudo-do-fatorial-32.html#cb68-3"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt&quot;</span></span>
+<span id="cb68-3"><a href="estudo-do-fatorial-32.html#cb68-3"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt&quot;</span></span>
 <span id="cb68-4"><a href="estudo-do-fatorial-32.html#cb68-4"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
 <span id="cb68-5"><a href="estudo-do-fatorial-32.html#cb68-5"></a>esp&lt;-<span class="kw">factor</span>(d<span class="op">$</span>Espaçamento)</span>
 <span id="cb68-6"><a href="estudo-do-fatorial-32.html#cb68-6"></a>den&lt;-<span class="kw">factor</span>(d<span class="op">$</span>Densidade)</span>

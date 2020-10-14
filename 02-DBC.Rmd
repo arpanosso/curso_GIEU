@@ -90,10 +90,10 @@ $C_4$ = AGROCERES AG-152
 
 O ensaio foi montado de acordo com o delineamento em blocos casualizados, sendo utilizados 5 blocos para controlar as diferenças de fertilidade do solo entre terraços.
 
-Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em [milho](https://github.com/arpanosso/ExpAgr_2020/blob/master/dados/milho.txt).
+Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em [milho](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/milho.txt).
 
 ```{r echo=F,message=FALSE,warning=FALSE,error=FALSE}
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/milho.txt"
 dados<-read.table(caminho,h=T,sep="\t")
 md<-matrix(dados$y,ncol=5,byrow = T)
 md<-cbind(md,apply(md,1,sum))
@@ -126,7 +126,6 @@ $$
 ![](R.png)
 
 ```{r}
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt"
 dados<-read.table(caminho,h=T,sep="\t")
 head(dados)
 

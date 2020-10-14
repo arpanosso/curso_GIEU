@@ -101,7 +101,7 @@ As alturas médias de mudas (cm) 28 dias após a semeadura foram:
 |$S_4F_1$|2,65|2,47|2,83|7,95
 |**Total** ||||	**94,24**
 
-Os dados podem ser encontrados online em [solofungi.txt](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/solofungi.txt)
+Os dados podem ser encontrados online em [solofungi.txt](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt)
 
 
 ## Aplicação em R - Fatorial com Interação Não Significativa
@@ -115,7 +115,7 @@ library(agricolae)
 library(tidyverse)
 
 # Definindo o caminho do banco de dados
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/solofungi.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt"
 
 # Entrada da dados
 dados<-read.table(caminho,h=TRUE)
@@ -203,7 +203,7 @@ summary(modba,split=list("solos:fungicida"=list(Tsolo1=1, # tem solo 1
 library(ExpDes.pt)
 
 # Definindo o caminho do banco de dados
-caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/solofungi.txt"
+caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt"
 
 # Entrada da dados
 dados<-read.table(caminho,h=TRUE)

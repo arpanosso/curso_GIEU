@@ -359,13 +359,13 @@ etc.</li>
 </tr>
 </tbody>
 </table>
-<p>os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sojapsub.txt">sojapsub.txt</a>.</p>
+<p>os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt">sojapsub.txt</a>.</p>
 </div>
 <div id="aplicação-em-r---parcelas-sudivididas" class="section level2">
 <h2><span class="header-section-number">6.3</span> Aplicação em R - Parcelas Sudivididas</h2>
 <p><img src="R.png" /></p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="experimentos-em-parcelas-subdivididas.html#cb70-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
-<span id="cb70-2"><a href="experimentos-em-parcelas-subdivididas.html#cb70-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sojapsub.txt&quot;</span></span>
+<span id="cb70-2"><a href="experimentos-em-parcelas-subdivididas.html#cb70-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt&quot;</span></span>
 <span id="cb70-3"><a href="experimentos-em-parcelas-subdivididas.html#cb70-3"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
 <span id="cb70-4"><a href="experimentos-em-parcelas-subdivididas.html#cb70-4"></a><span class="kw">psub2.dbc</span>(d<span class="op">$</span>E,d<span class="op">$</span>V,d<span class="op">$</span>Bloco,d<span class="op">$</span>Y,<span class="dt">fac.names =</span> <span class="kw">c</span>(<span class="st">&quot;Épocas&quot;</span>,<span class="st">&quot;Variedades&quot;</span>))</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
