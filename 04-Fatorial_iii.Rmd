@@ -1,0 +1,112 @@
+# ESTUDO DO FATORIAL $3^2$
+
+Nos experimentos fatoriais $3^2$ ou $3 \times 3$, temos 2 fatores, cada um dos quais ocorre em 3 níveis. Os tratamentos são formados pelas combinações dos 3 níveis dos 2 fatores, resultando em 9 tratamentos.
+
+Como exemplo de um ensaio fatorial $3^2$, vamos utilizar os dados obtidos do trabalho de graduação intitulado "Efeitos do espaçamento e da densidade de semeadura na produção de massa verde e matéria seca em diferntes épocas e, na produção de sementes da cultura *Crotalaria juncea* L.", realizado por LAMERS (1981). Neste trabalho, foram utilizado 3 espaçamentos entre linhas (25 cm, 50 cm e 75 cm) e 3 densidade de plantas por metro linear (15, 30 e 45 plantas por metro linear). O delineamento foi instalado em blocos casualizados com 3 repetições, e os dados obtidos para produção de massa verde (t/ha), 139 dias após a semeadura, foram os seguintes:
+
+Espaçamento|Densidade|Bloco 1|Bloco 2|Bloco 3|Totais|
+:---|:---:|:---:|:---:|:---:|:---:|
+25|15|46,82|30,705|59,77|**137,295**|
+25|30|31,04|28,41|25,1|**84,55**|
+25|45|47,325|50,445|29,01|**126,78**|
+50|15|26,3875|15,61|15,12|**57,1175**|
+50|30|32,765|33,615|32,115|**98,495**|
+50|45|37,455|21,4125|21,21|**80,0775**|
+75|15|12,6116|10,4015|26,2095|**49,2226**|
+75|30|23,4776|24,1842|18,1548|**65,8166**|
+75|45|26,3297|24,0652|33,8482|**84,2431**|
+ | |**Totais**|**284,2114**|**238,8484**|**260,5375**|**783,5973**|
+
+os dados estão disponíveis online em: [crotalaria.txt](https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt).
+
+
+## Aplicação em R - Fatorial com Interação Significativa
+
+![](R.png)
+
+**Utilizando as funções básicas e o pacote agricolae**
+
+```{r}
+# Carregando o pacote para análise de variância
+library(agricolae)
+library(tidyverse)
+
+# Definindo o caminho do banco de dados
+caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt"
+
+# Entrada da dados
+dados<-read.table(caminho,h=TRUE)
+
+#Guardando os fatores e a variável resposta (y)
+esp<-as.factor(dados$Espaçamento)
+den<-as.factor(dados$Densidade)
+bloco<-as.factor(dados$Bloco)
+y<-dados$y
+
+# Gráfico da interação
+dados %>% 
+  group_by(Espaçamento,Densidade) %>% 
+  summarise(Y = mean(y)) %>% 
+  ggplot(aes(x=Espaçamento, y=Y,col=as.factor(Densidade)))+
+  geom_line()+
+  labs(x="Espaçamento",y="Variável Y",col="Densidade")
+
+dados %>% 
+  group_by(Espaçamento,Densidade) %>% 
+  summarise(Y = mean(y)) %>% 
+  ggplot(aes(x=Densidade, y=Y,col=as.factor(Espaçamento)))+
+  geom_line()+
+  labs(x="Densidade",y="Variável Y",col="Espaçamento")
+```
+**Analise considerando o delineamento de tratamentos**
+```{r}
+mod <- aov(y~den + esp + den:esp)
+anova(mod)
+```
+
+**Medias dos efeitos principais e da interação**
+```{r}
+model.tables(mod,type="means")
+```
+
+**SE A INTERAÇÃO FOR SIGNIFICATIVA**
+
+**Desdobramento de Doses dentro Inseticidas**
+
+```{r}
+# Redefinindo o modelo para o estudo das interações
+modab <- aov(y~esp/den) # Colocar os Controles locais, blocos, se for o caso
+effects(modab)
+effects(modab)[4:9]
+summary(modab,split=list("esp:den"=list(Esp25=c(1,4), 
+                                         Esp50=c(2,5),
+                                         Esp75=c(3,6)
+                                         ))) 
+```
+
+**Desdobramento de Inseticida dentro de Dose**
+
+```{r}
+# Redefinindo o modelo para o estudo das interações
+modba <- aov(y~den/esp) # Colocar os Controles locais, blocos, se for o caso
+effects(modba)
+effects(modba)[4:9]
+summary(modba,split=list("den:esp"=list(Den15=c(1,4),
+                                        Den30=c(2,5),
+                                        Den45=c(3,6)
+                                                ))) 
+```
+
+
+**Utilizando o pacote ExpDes.pt, mais prático**
+```{r}
+# Carregando o pacote par análise de variância
+library(ExpDes.pt)
+caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt"
+d<-read.table(caminho,h=TRUE)
+esp<-factor(d$Espaçamento)
+den<-factor(d$Densidade)
+bloco<-factor(d$Bloco)
+y<-d$y
+fat2.dbc(esp,den,bloco,y,fac.names = c("Espaçamento", "Densidade"))
+```

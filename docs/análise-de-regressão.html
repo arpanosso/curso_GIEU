@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 ANÁLISE DE REGRESSÃO | Curso do R do GIEU</title>
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 ANÁLISE DE REGRESSÃO | Curso do R do GIEU" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 ANÁLISE DE REGRESSÃO | Curso do R do GIEU" />
+  
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  
+
+<meta name="author" content="Alan R. Panosso" />
+
+
+<meta name="date" content="2020-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="experimentos-em-parcelas-subdivididas.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">curso_GIEU</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUÇÃO</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#alguns-conceitos-básicos"><i class="fa fa-check"></i><b>1.1</b> Alguns conceitos básicos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>2</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="2.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>2.1</b> Caracterização</a></li>
+<li class="chapter" data-level="2.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>2.2</b> Modelo Matemático</a></li>
+<li class="chapter" data-level="2.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>2.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
+<li class="chapter" data-level="2.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>2.4</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="2.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#aplicação-em-r---dic"><i class="fa fa-check"></i><b>2.5</b> Aplicação em R - DIC</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>3</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="3.1" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#caracterização-1"><i class="fa fa-check"></i><b>3.1</b> Caracterização</a></li>
+<li class="chapter" data-level="3.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#modelo-matemático-1"><i class="fa fa-check"></i><b>3.2</b> Modelo matemático</a></li>
+<li class="chapter" data-level="3.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>3.3</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="3.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#aplicação-em-r---dbc"><i class="fa fa-check"></i><b>3.4</b> Aplicação em R - DBC</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>4</b> EXPERIMENTOS FATORIAIS</a><ul>
+<li class="chapter" data-level="4.1" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#introdução-1"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
+<li class="chapter" data-level="4.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>4.2</b> Classificação dos Experementos Fatoriais</a></li>
+<li class="chapter" data-level="4.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>4.3</b> Casualização dos tratamentos</a></li>
+<li class="chapter" data-level="4.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#aplicação-em-r---fatorial-com-interação-não-significativa"><i class="fa fa-check"></i><b>4.4</b> Aplicação em R - Fatorial com Interação Não Significativa</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html"><i class="fa fa-check"></i><b>5</b> ESTUDO DO FATORIAL <span class="math inline">\(3^2\)</span></a><ul>
+<li class="chapter" data-level="5.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#aplicação-em-r---fatorial-com-interação-significativa"><i class="fa fa-check"></i><b>5.1</b> Aplicação em R - Fatorial com Interação Significativa</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html"><i class="fa fa-check"></i><b>6</b> EXPERIMENTOS EM PARCELAS SUBDIVIDIDAS</a><ul>
+<li class="chapter" data-level="6.1" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#introdução-2"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
+<li class="chapter" data-level="6.2" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#exemplo-de-aplicação-2"><i class="fa fa-check"></i><b>6.2</b> Exemplo de Aplicação</a></li>
+<li class="chapter" data-level="6.3" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#aplicação-em-r---parcelas-sudivididas"><i class="fa fa-check"></i><b>6.3</b> Aplicação em R - Parcelas Sudivididas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html"><i class="fa fa-check"></i><b>7</b> ANÁLISE DE REGRESSÃO</a><ul>
+<li class="chapter" data-level="7.1" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#introdução-3"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
+<li class="chapter" data-level="7.2" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#obtenção-da-análise-de-variância-estudando-se-os-efeitos-da-regressão"><i class="fa fa-check"></i><b>7.2</b> Obtenção da análise de variância, estudando-se os efeitos da regressão</a></li>
+<li class="chapter" data-level="7.3" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#gráfico-da-regressão-ajustada"><i class="fa fa-check"></i><b>7.3</b> Gráfico da Regressão Ajustada</a></li>
+<li class="chapter" data-level="7.4" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#aplicação-em-r---análise-de-regressão"><i class="fa fa-check"></i><b>7.4</b> Aplicação em R - Análise de Regressão</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso do R do GIEU</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="análise-de-regressão" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> ANÁLISE DE REGRESSÃO</h1>
+<div id="introdução-3" class="section level2">
+<h2><span class="header-section-number">7.1</span> Introdução</h2>
+<p>Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos (X) com os dados analisados (Y).</p>
+<p>Por exemplo, essa dependência pode ser notada no caso seguinte,onde X representa as doses de um adubo (<span class="math inline">\(kg\;h^{-1}\)</span>) e y a produção de milho (<span class="math inline">\(kg\;h^{-1}\)</span>).</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">X</th>
+<th align="center">0</th>
+<th align="center">25</th>
+<th align="center">50</th>
+<th align="center">75</th>
+<th align="center">100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Y</td>
+<td align="center">2100</td>
+<td align="center">2600</td>
+<td align="center">3000</td>
+<td align="center">3550</td>
+<td align="center">4150</td>
+</tr>
+</tbody>
+</table>
+<p>Verificamos, portanto ,que há uma tendência de aumento na produção à medida que aumentamos a quantidade de adubo aplicada.</p>
+<p>Vejamos então, como fazer a análise de variância para o estudo da regressão. O método utilizado é denominado de método dos polinômios ortogonais, e é de fácil aplicação quanto os níveis de X são equidistantes, poixs permitem a utilização de coeficientes obtidos em tabelas.</p>
+</div>
+<div id="obtenção-da-análise-de-variância-estudando-se-os-efeitos-da-regressão" class="section level2">
+<h2><span class="header-section-number">7.2</span> Obtenção da análise de variância, estudando-se os efeitos da regressão</h2>
+<p>Para estudo da regressão, vamos utilizar os dados do trabalho: “Efeito de doses de gesso na cultura do feijoeiro (<em>Phaseolu vulgaris</em> L.)”, realizado por RAGAZZI (1979). Neste trabalho foram utilizadas 7 doses de gesso 0, 50, 100, 150, 200, 250, e 300 <span class="math inline">\(kg\;ha^{-1}\)</span>. Os resultados obtidos para peso de 1000 sementes, em gramas, são apresentados a seguir:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Tratamentos</th>
+<th align="center">Rep. 1</th>
+<th align="center">Rep. 2</th>
+<th align="center">Rep. 3</th>
+<th align="center">Rep. 4</th>
+<th align="center">Totais</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="center">134,8</td>
+<td align="center">139,7</td>
+<td align="center">147,6</td>
+<td align="center">132,3</td>
+<td align="center">554,4</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="center">161,7</td>
+<td align="center">157,7</td>
+<td align="center">150,3</td>
+<td align="center">144,7</td>
+<td align="center">614,4</td>
+</tr>
+<tr class="odd">
+<td align="left">100</td>
+<td align="center">160,7</td>
+<td align="center">172,7</td>
+<td align="center">163,4</td>
+<td align="center">161,3</td>
+<td align="center">658,1</td>
+</tr>
+<tr class="even">
+<td align="left">150</td>
+<td align="center">169,8</td>
+<td align="center">168,2</td>
+<td align="center">160,7</td>
+<td align="center">161,0</td>
+<td align="center">659,7</td>
+</tr>
+<tr class="odd">
+<td align="left">200</td>
+<td align="center">165,7</td>
+<td align="center">160,0</td>
+<td align="center">158,2</td>
+<td align="center">151,0</td>
+<td align="center">634,9</td>
+</tr>
+<tr class="even">
+<td align="left">250</td>
+<td align="center">171,8</td>
+<td align="center">157,3</td>
+<td align="center">150,4</td>
+<td align="center">160,4</td>
+<td align="center">639,9</td>
+</tr>
+<tr class="odd">
+<td align="left">300</td>
+<td align="center">154,5</td>
+<td align="center">160,4</td>
+<td align="center">148,8</td>
+<td align="center">154,0</td>
+<td align="center">617,7</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Totais</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><strong>4379,1</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Os dados podem ser encontrados online em <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt">feijaoREG.txt</a></p>
+<p>A análise de variância preliminar será realizada de acordo com o delineamento experimental utilizado. O Ensaio foi montado de acordo com o delineamento inteiramente casualizado, e portanto, a análise de variância preliminar, obtido de maneira usual,</p>
+<p>Quadro de análise de variância preliminar:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Causas de Variação</th>
+<th align="center">GL</th>
+<th align="center">SQ</th>
+<th align="center">QM</th>
+<th align="center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Tratamentos</td>
+<td align="center">6</td>
+<td align="center">1941,83</td>
+<td align="center">323,64</td>
+<td align="center">7,67**</td>
+</tr>
+<tr class="even">
+<td align="left">Resíduo</td>
+<td align="center">21</td>
+<td align="center">886,34</td>
+<td align="center">42,21</td>
+<td align="center">–</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="center"><strong>27</strong></td>
+<td align="center"><strong>2828,17</strong></td>
+<td align="center"><strong>–</strong></td>
+<td align="center"><strong>–</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, logo, rejeitamos a hipótese da nulidade (<span class="math inline">\(H_0\)</span>), e concluímos que as doses de gesso aplicadas possuem efeitos diferentes sobre o peso de 1000 sementes.</p>
+<p>No entanto, um caso como este, em que os tratamentos são quantitativos, e em mais de 2 níveis, uma análise mais detalhada deve levar em conta a regressão, desdobrando-se os 6 graus de liberdade de tratamentos em:</p>
+<p>Regressão Linear……..1 GL<br />
+Regressão Quadrática…1 GL<br />
+Regressão Cúbica……..1 GL<br />
+Regressão de 4º grau…1 GL<br />
+Regressão de 5º grau…1 GL<br />
+Regressão de 6º grau…1 GL<br />
+—————————————<br />
+(Tratamentos)…………(6) GL</p>
+<p>Porém, as regressões de grau maior que 3º não tem interesse prático, de modo que, na análise de variância, podemos considerar as regress~es de graus maior que o 3º como uma única causa de variação, que denominamos de <strong>Desvios da Regressão</strong>. Assim, no nosso exemplo, temos:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Causas de Variação</th>
+<th align="right">GL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Regressão Linear</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Regressão Quadrática</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Regressão Cúbica</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Desvios da Regressão</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">(Tratamentos)</td>
+<td align="right">(6)</td>
+</tr>
+<tr class="even">
+<td align="left">Resíduo</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">27</td>
+</tr>
+</tbody>
+</table>
+<p>Esta decomposição pode ser feita pelo métido dos polinômios ortogoais, e é de fácil aplicação quando as quantidades que determinam os tratamentos são igualmente espaçadas (equidistantes), o que ocorre no caso em estudo (0, 50, 100, 150, 20, 250, 300). Neste casos, os coeficientes dos polinômios ortogonais são obtidos em tabelas, como a seguintes:</p>
+<p><strong>CONCLUSÃO</strong>:<br />
+Os testes F para a regressão linear e regressão quadrática foram significativos ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que é possível estabelecer uma relação funcional entre a dose de gesso (<span class="math inline">\(X\)</span>) e o peso de 1000 sementes do feijoeiro (<span class="math inline">\(Y\)</span>).</p>
+<p>A equação de regressão que melhor se ajusta aos dados é a correspondente à <strong>REGRESSÃO DE MAIS ALTO GRAU</strong> cujo teste F soi significativo.</p>
+<p>Assim, sendo, no nosso exemplo, a equação que melhor se ajusta é a de 2º grau (Quadrática).</p>
+<p>Quando o teste F para <strong>Desvios da Regressão for significativo</strong>, isto indica que <strong>existe alguma regressão significativa de grau maior que o 3º</strong> e, se tivermos interesse em estudá-la, devemos desdobrar os graus de liberdade de Desvio da Regressão.</p>
+</div>
+<div id="gráfico-da-regressão-ajustada" class="section level2">
+<h2><span class="header-section-number">7.3</span> Gráfico da Regressão Ajustada</h2>
+<p>Podemos fazer uma verificação do ajuste da equação de regressão, calculando os valores esperados de (<span class="math inline">\(\hat{Y}_i\)</span>) por meio da equação de regressão ajustada, e os valores observados (<span class="math inline">\(\bar{Y}_{i\;Obs}\)</span>) por meio das médias dos tratamentos.</p>
+<p>Devemos verificar que <span class="math inline">\(\sum_{i=1}^I\bar{Y}_{i~Obs}=\sum_{i=1}^I\hat{Y}_{i}\)</span>. estes valores podem também ser utilizados para a construção do gráfico de regressão ajustada.</p>
+<p>No nosso exemplo, temos:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Dose de Gesso (X)</th>
+<th align="center"><span class="math inline">\(\bar{Y}_{i~Obs}\)</span></th>
+<th align="center"><span class="math inline">\(\hat{Y}_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="center">138,60</td>
+<td align="center">140,78</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="center">153,60</td>
+<td align="center">152,51</td>
+</tr>
+<tr class="odd">
+<td align="left">100</td>
+<td align="center">164,53</td>
+<td align="center">160,32</td>
+</tr>
+<tr class="even">
+<td align="left">150</td>
+<td align="center">164,93</td>
+<td align="center">164,22</td>
+</tr>
+<tr class="odd">
+<td align="left">200</td>
+<td align="center">158,73</td>
+<td align="center">164,20</td>
+</tr>
+<tr class="even">
+<td align="left">250</td>
+<td align="center">159,98</td>
+<td align="center">160,27</td>
+</tr>
+<tr class="odd">
+<td align="left">300</td>
+<td align="center">154,43</td>
+<td align="center">152,42</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total</strong></td>
+<td align="center"><strong>1094,80</strong></td>
+<td align="center"><strong>1094,72</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="aplicação-em-r---análise-de-regressão" class="section level2">
+<h2><span class="header-section-number">7.4</span> Aplicação em R - Análise de Regressão</h2>
+<p><img src="R.png" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="análise-de-regressão.html#cb72-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
+<span id="cb72-2"><a href="análise-de-regressão.html#cb72-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt&quot;</span></span>
+<span id="cb72-3"><a href="análise-de-regressão.html#cb72-3"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
+<span id="cb72-4"><a href="análise-de-regressão.html#cb72-4"></a><span class="co"># Análise de Variância</span></span>
+<span id="cb72-5"><a href="análise-de-regressão.html#cb72-5"></a><span class="kw">dic</span>(d<span class="op">$</span>trat,d<span class="op">$</span>y,<span class="dt">quali =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## ------------------------------------------------------------------------
+## Quadro da analise de variancia
+## ------------------------------------------------------------------------
+##            GL      SQ QM    Fc      Pr&gt;Fc
+## Tratamento  6 1941.83  2 7.668 0.00018763
+## Residuo    21  886.34  3                 
+## Total      27 2828.17  1                 
+## ------------------------------------------------------------------------
+## CV = 4.15 %
+## 
+## ------------------------------------------------------------------------
+## Teste de normalidade dos residuos 
+## Valor-p:  0.5471519 
+## De acordo com o teste de Shapiro-Wilk a 5% de significancia, os residuos podem ser considerados normais.
+## ------------------------------------------------------------------------
+## 
+## ------------------------------------------------------------------------
+## Teste de homogeneidade de variancia 
+## valor-p:  0.3337639 
+## De acordo com o teste de bartlett a 5% de significancia, as variancias podem ser consideradas homogeneas.
+## ------------------------------------------------------------------------
+## 
+## Ajuste de modelos polinomiais de regressao
+## ------------------------------------------------------------------------
+## 
+## Modelo Linear
+## =========================================
+##    Estimativa Erro.padrao   tc    valor.p
+## -----------------------------------------
+## b0  150.5652    2.2134    68.0255    0   
+## b1   0.0389     0.0123    3.1664  0.0046 
+## -----------------------------------------
+## 
+## R2 do modelo linear
+## --------
+## 0.217915
+## --------
+## 
+## Analise de variancia do modelo linear
+## =========================================================
+##                      GL     SQ        QM     Fc   valor.p
+## ---------------------------------------------------------
+## Efeito linear        1   423.1544  423.1544 10.03 0.00465
+## Desvios de Regressao 5  1,518.6780 303.7356  7.2  0.00046
+## Residuos             21  886.3375  42.2066               
+## ---------------------------------------------------------
+## ------------------------------------------------------------------------
+## 
+## Modelo quadratico
+## =========================================
+##    Estimativa Erro.padrao   tc    valor.p
+## -----------------------------------------
+## b0  140.7839    2.8354    49.6527    0   
+## b1   0.2736     0.0443    6.1812     0   
+## b2  -0.0008     0.0001    -5.5196 0.00002
+## -----------------------------------------
+## 
+## R2 do modelo quadratico
+## --------
+## 0.880095
+## --------
+## 
+## Analise de variancia do modelo quadratico
+## ===========================================================
+##                      GL     SQ         QM      Fc   valor.p
+## -----------------------------------------------------------
+## Efeito linear        1   423.1544   423.1544  10.03 0.00465
+## Efeito quadratico    1  1,285.8430 1,285.8430 30.47  2e-05 
+## Desvios de Regressao 4   232.8346   58.2087   1.38  0.27505
+## Residuos             21  886.3375   42.2066                
+## -----------------------------------------------------------
+## ------------------------------------------------------------------------
+## 
+## Modelo cubico
+## =========================================
+##    Estimativa Erro.padrao   tc    valor.p
+## -----------------------------------------
+## b0  138.2423    3.1302    44.1645    0   
+## b1   0.4431     0.0989    4.4812  0.0002 
+## b2  -0.0023     0.0008    -2.8551 0.0095 
+## b3  0.000003       0      1.9166  0.0690 
+## -----------------------------------------
+## 
+## R2 do modelo cubico
+## --------
+## 0.959938
+## --------
+## 
+## Analise de variancia do modelo cubico
+## ===========================================================
+##                      GL     SQ         QM      Fc   valor.p
+## -----------------------------------------------------------
+## Efeito linear        1   423.1544   423.1544  10.03 0.00465
+## Efeito quadratico    1  1,285.8430 1,285.8430 30.47  2e-05 
+## Efeito cubico        1   155.0417   155.0417  3.67   0.069 
+## Desvios de Regressao 3   77.7930    25.9310   0.61  0.61327
+## Residuos             21  886.3375   42.2066                
+## -----------------------------------------------------------
+## ------------------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="análise-de-regressão.html#cb74-1"></a><span class="co"># Construção do gráfico</span></span>
+<span id="cb74-2"><a href="análise-de-regressão.html#cb74-2"></a>X&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">50</span>)</span>
+<span id="cb74-3"><a href="análise-de-regressão.html#cb74-3"></a>Y&lt;-<span class="kw">tapply</span>(d<span class="op">$</span>y, d<span class="op">$</span>trat, mean)</span>
+<span id="cb74-4"><a href="análise-de-regressão.html#cb74-4"></a><span class="kw">plot</span>(Y<span class="op">~</span>X,</span>
+<span id="cb74-5"><a href="análise-de-regressão.html#cb74-5"></a>     <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb74-6"><a href="análise-de-regressão.html#cb74-6"></a>     <span class="dt">pch=</span><span class="dv">21</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">bg=</span><span class="st">&quot;gray&quot;</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,</span>
+<span id="cb74-7"><a href="análise-de-regressão.html#cb74-7"></a>     <span class="dt">xlab=</span><span class="st">&quot;Dose de Gesso (kg/ha)&quot;</span>,</span>
+<span id="cb74-8"><a href="análise-de-regressão.html#cb74-8"></a>     <span class="dt">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span></span>
+<span id="cb74-9"><a href="análise-de-regressão.html#cb74-9"></a>);<span class="kw">curve</span>(<span class="fl">140.7836+0.2737</span><span class="op">*</span>x<span class="fl">-0.000783</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb74-10"><a href="análise-de-regressão.html#cb74-10"></a><span class="kw">text</span>(<span class="dv">155</span>,<span class="dv">145</span>,<span class="st">&quot;140.7836+0.2737X-0.000783X²\nR²=0.8801&quot;</span>)</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="experimentos-em-parcelas-subdivididas.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso_GIEU.pdf", "curso_GIEU.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

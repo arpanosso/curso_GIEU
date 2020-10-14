@@ -1,0 +1,177 @@
+# DELINEAMENTO EM BLOCOS CASUALIZADOS
+
+## Caracterização
+
+O delineamento em blocos casualizados (DBC) é o mais utilizado dos delineamentos experimentais, e os experimentos instalados de acordo com esse delineamento são denominados de **experimentos em blocos casualizados** ou **experimentos em blocos ao acaso**. Além dos princípios da ***repetição*** e da ***casualização***, leva em conta também o princípio do ***controle local***.
+
+Sempre que houver dúvidas a respeito da homogeneidade das condições experimentais é conveniente usar o princípio do controle local, estabelecendo blocos com parcelas homogêneas.
+
+**As principais características deste delineamento são**:
+
+1. As parcelas são distribuídas em grupos ou blocos (princípio do controle local) de tal forma que elas sejam o mais uniforme possível dentro de cada bloco.
+
+2. O número de parcelas por bloco deve ser igual ao número de tratamentos (blocos completos casualizados).
+
+3. Os tratamentos são designados às parcelas de forma casual, sendo essa casualização feita dentro de cada bloco.
+
+Esse delineamento é mais eficiente que o delineamento inteiramente casualizado, e essa eficiência depende da uniformidade das parcelas dentro de cada bloco, podendo inclusive, haver diferenças acentuadas de um bloco para outro.
+
+Então, por exemplo, se temos um experimento em blocos casualizados em que desejamos estudar o efeito de 4 variedades (V1,V2,V3 e V4), sendo cada uma delas repetidas 5 vezes, teremos o seguinte plano experimental:
+
+![](DBC_d.png)
+
+Note que dentro de cada bloco temos as variedades sorteadas ao acaso. Caso este mesmo ensaio fosse montado no delineamento inteiramente casualizados, o sorteio seria feito em todas as parcelas do experimento, e os tratamentos não seriam agrupados em blocos. Por exemplo, no delineamento inteiramente casualizado teríamos:
+
+![](DIC_d.png)
+
+**As principais vantagens desse delineamento são:**
+
+1. Controla as diferenças que ocorrem nas condições experimentais de um bloco para outro.
+
+2. Permite, dentro de certos limites, utilizar qualquer número de tratamentos e blocos.
+
+3. Nos conduz a uma estimativa mais exata para a variância residual.
+
+4. A análise de variância é relativamente simples, sendo apenas um pouco mais demorada que a do delineamento inteiramente casualizado, pois possui uma causa de variação a mais (Blocos).
+
+**As principais desvantagens desse delineamento são:**
+
+1. Pela utilização do princípio do controle local há uma diminuição no número de graus de liberdade do resíduo.
+
+2. A exigência de homogeneidade dentro do bloco limita o número de tratamentos, que não pode ser muito grande.
+
+## Modelo matemático
+
+Para podermos analisar um experimento em qualquer delineamento, necessitamos conhecer o modelo matemático do mesmo, e aceitar algumas hipóteses básicas necessárias para a validade da análise de variância.
+
+O modelo matemático do delineamento em blocos casualizados é o seguinte:
+
+$$
+x_{ij} = \mu +\tau_i + \beta_j+\epsilon_{ij}
+$$
+
+onde, 
+$x_{ij}$ representa o valor esperado na parcela que recebeu o tratamento $i$ e que se encontra no bloco $j$.
+
+$\mu$ é a média geral do experimento.
+
+$\tau_i$ é o efeito devido ao tratamento *i* que foi aplicado à parcela.
+
+$\beta_j$ é o efeito devido ao bloco *j* em que se encontra a parcela.
+
+$\epsilon_{ij}$ é o efeito dos fatores não controlados ou acaso na parcela que recebeu o tratamento *i* e que se encontra no bloco *j*.
+
+
+**CRITÉRIO DO TESTE**: 
+
+**Para Tratamentos**:
+
+Comparamos o valor F calculado para tratamentos com o valor de F tabelado em função do número de GL de Tratamentos e GL do resíduo, ao nível $\alpha$ de significância. 
+
+Se $F_{Trat} > F_{Tab}$, concluímos que o teste é significativo, portanto, rejeitamos $H_0$ e devemos concluir que existe diferença significativa entre os efeitos dos tratamentos testados em relação à variáveis (característica) em estudo.
+
+**Para Blocos**:
+
+Pra Blocos, a comparação é feita entre o valor de F calculado com o F tabelado em função do número de GL de Blocos e GL do resíduo, ao nível $\alpha$ de significância
+
+Se $F_{Blocos} > F_{Tab}$, concluímos que o teste é significativo, portanto, rejeitamos $H_0$ e devemos concluir que os blocos possuem efeitos diferentes em relação à característica em estudo, ou seja, os blocos foram eficientes no controle da heterogeneidade local.
+
+## Exemplo de aplicação
+
+No trabalho "Influência do genótipo e da adubação sobre algumas características fenotípicas de *Zea mays* L (Milho)", realizado por BARBOSA (1976), foram utilizadas 4 cultivares de milho:
+
+$C_1$ = OPACO 2
+
+$C_2$ = PIRANÃO
+
+$C_3$ = COMPOSTO FLINT
+
+$C_4$ = AGROCERES AG-152
+
+O ensaio foi montado de acordo com o delineamento em blocos casualizados, sendo utilizados 5 blocos para controlar as diferenças de fertilidade do solo entre terraços.
+
+Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em [milho](https://github.com/arpanosso/ExpAgr_2020/blob/master/dados/milho.txt).
+
+```{r echo=F,message=FALSE,warning=FALSE,error=FALSE}
+caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt"
+dados<-read.table(caminho,h=T,sep="\t")
+md<-matrix(dados$y,ncol=5,byrow = T)
+md<-cbind(md,apply(md,1,sum))
+md<-rbind(md,apply(md,2,sum))
+md<-as.data.frame(md)
+names(md)<-c("Bloco1","Bloco2","Bloco3","Bloco4","Bloco5","Total")
+Tratamentos<-c(levels(as.factor(dados$trat))[c(3,4,2,1)],"Total")
+tb<-cbind(Tratamentos,md)
+library(knitr)
+library(kableExtra)
+
+kable(tb) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F)%>%
+  row_spec(5:5, bold = T, color = "black", background = "lightgray") %>%
+  column_spec(7, bold = T, color = "black", background = "lightgray")
+```
+
+
+
+As hipóteses que desejamos testar são as seguintes:
+
+$$
+\begin{cases} H_0: As\;cultivares\;testadas\;não\;diferem\;entre\;si\;em\;relação\;à\;produção\;da\;cultura\;do\;milho. \\
+H_1: As\;cultivares\;testadas\;diferem\;entre\;si\;em\;relação\;à\;produção\;da\;cultura\;do\;milho.
+\end{cases}
+$$
+
+## Aplicação em R - DBC
+
+![](R.png)
+
+```{r}
+caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt"
+dados<-read.table(caminho,h=T,sep="\t")
+head(dados)
+
+# Extraindo os fatores e a variável resposta
+trat<-as.factor(dados$trat)
+bloco<-as.factor(dados$bloco)
+y<-dados$y
+
+# Definindo o modelo matemático
+modelo<-aov(y~trat+bloco)
+anova(modelo)
+
+#Comparação de Médias pelo teste de Tukey
+require("agricolae")
+glRes<-df.residual(modelo)
+QMres<-deviance(modelo)/glRes
+tukey <- HSD.test(modelo,"trat", group=TRUE,console=TRUE)
+
+bar.group(tukey$groups,
+          las=1,
+          ylim=c(0,max(y)*1.10),
+          xlab="Cultivares",
+          ylab="Produção (kg por ha)",
+          main="Teste de Tukey (5%)");box()
+
+# Cálculo do CV
+cv<-100*sqrt(QMres)/mean(y)
+paste(round(cv,2),"%",sep="")
+
+```
+
+Utilizando o pacote "ExpDes.pt"
+
+```{r}
+# Carregando o pacote para a análise
+library(ExpDes.pt)
+
+# verificando os 6 primeiros registros
+head(dados)
+
+# Análise de variância e teste de Tukey com a função dbc
+trat <- dados$trat # Criando o vetor de tratamentos
+bloco <- dados$bloco # Criando o vetor dos blocos
+y <- dados$y # Criando o vetor com a variável resposta
+
+# Utilizando a função
+dbc(trat,bloco,y,mcomp = "tukey")
+```

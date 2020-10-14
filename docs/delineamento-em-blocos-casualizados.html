@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU</title>
+  <title>Capítulo 3 DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU</title>
   <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU" />
+  <meta property="og:title" content="Capítulo 3 DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU" />
+  <meta name="twitter:title" content="Capítulo 3 DELINEAMENTO EM BLOCOS CASUALIZADOS | Curso do R do GIEU" />
   
   <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"/>
-<link rel="next" href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"/>
+<link rel="prev" href="delineamento-inteiramente-casualizado.html"/>
+<link rel="next" href="experimentos-fatoriais.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -143,74 +143,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>2.1</b> Caracterização</a></li>
 <li class="chapter" data-level="2.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>2.2</b> Modelo Matemático</a></li>
 <li class="chapter" data-level="2.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>2.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
-<li class="chapter" data-level="2.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>2.4</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="2.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>2.5</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="2.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>2.4</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="2.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#aplicação-em-r---dic"><i class="fa fa-check"></i><b>2.5</b> Aplicação em R - DIC</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>3</b> DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
-<li class="chapter" data-level="3.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#introdução-1"><i class="fa fa-check"></i><b>3.1</b> Introdução</a></li>
-<li class="chapter" data-level="3.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>3.2</b> Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos</a></li>
-<li class="chapter" data-level="3.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>3.3</b> Método dos contrastes de totais de tratamentos</a></li>
-<li class="chapter" data-level="3.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>3.4</b> Método dos totais de tratamentos (sem utilizar contrastes)</a></li>
-<li class="chapter" data-level="3.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>3.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>3.5.1</b> <strong>Conclusões</strong></a></li>
+<li class="chapter" data-level="3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>3</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="3.1" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#caracterização-1"><i class="fa fa-check"></i><b>3.1</b> Caracterização</a></li>
+<li class="chapter" data-level="3.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#modelo-matemático-1"><i class="fa fa-check"></i><b>3.2</b> Modelo matemático</a></li>
+<li class="chapter" data-level="3.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>3.3</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="3.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#aplicação-em-r---dbc"><i class="fa fa-check"></i><b>3.4</b> Aplicação em R - DBC</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>3.6</b> Componentes com mais de um grau de liberdade</a></li>
+<li class="chapter" data-level="4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>4</b> EXPERIMENTOS FATORIAIS</a><ul>
+<li class="chapter" data-level="4.1" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#introdução-1"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
+<li class="chapter" data-level="4.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>4.2</b> Classificação dos Experementos Fatoriais</a></li>
+<li class="chapter" data-level="4.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>4.3</b> Casualização dos tratamentos</a></li>
+<li class="chapter" data-level="4.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#aplicação-em-r---fatorial-com-interação-não-significativa"><i class="fa fa-check"></i><b>4.4</b> Aplicação em R - Fatorial com Interação Não Significativa</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>4</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
-<li class="chapter" data-level="4.1" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#caracterização-1"><i class="fa fa-check"></i><b>4.1</b> Caracterização</a></li>
-<li class="chapter" data-level="4.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#modelo-matemático-1"><i class="fa fa-check"></i><b>4.2</b> Modelo matemático</a></li>
-<li class="chapter" data-level="4.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>4.3</b> Hipóteses básicas</a></li>
-<li class="chapter" data-level="4.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>4.4</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="4.5" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>4.5</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="5" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html"><i class="fa fa-check"></i><b>5</b> ESTUDO DO FATORIAL <span class="math inline">\(3^2\)</span></a><ul>
+<li class="chapter" data-level="5.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#aplicação-em-r---fatorial-com-interação-significativa"><i class="fa fa-check"></i><b>5.1</b> Aplicação em R - Fatorial com Interação Significativa</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><i class="fa fa-check"></i><b>5</b> DELINEAMENTO EM BLOCOS CASUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
-<li class="chapter" data-level="5.1" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#introdução-2"><i class="fa fa-check"></i><b>5.1</b> Introdução</a></li>
-<li class="chapter" data-level="5.2" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>5.2</b> Estimativa da parcela perdida</a></li>
-<li class="chapter" data-level="5.3" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#obtenção-da-análise-de-variância-2"><i class="fa fa-check"></i><b>5.3</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="5.4" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>5.4</b> Médias de tratamentos</a></li>
-<li class="chapter" data-level="5.5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>5.5</b> Erros padrões das médias</a></li>
-<li class="chapter" data-level="5.6" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>5.6</b> Comparação de médias pelo teste de Tukey</a></li>
-<li class="chapter" data-level="5.7" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#exemplo-de-aplicação-2"><i class="fa fa-check"></i><b>5.7</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="6" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html"><i class="fa fa-check"></i><b>6</b> EXPERIMENTOS EM PARCELAS SUBDIVIDIDAS</a><ul>
+<li class="chapter" data-level="6.1" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#introdução-2"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
+<li class="chapter" data-level="6.2" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#exemplo-de-aplicação-2"><i class="fa fa-check"></i><b>6.2</b> Exemplo de Aplicação</a></li>
+<li class="chapter" data-level="6.3" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#aplicação-em-r---parcelas-sudivididas"><i class="fa fa-check"></i><b>6.3</b> Aplicação em R - Parcelas Sudivididas</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>6</b> EXPERIMENTOS FATORIAIS</a><ul>
-<li class="chapter" data-level="6.1" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#introdução-3"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
-<li class="chapter" data-level="6.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-simples-de-um-fator"><i class="fa fa-check"></i><b>6.2</b> Efeito simples de um fator</a></li>
-<li class="chapter" data-level="6.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-principal-de-um-fator"><i class="fa fa-check"></i><b>6.3</b> Efeito principal de um fator</a></li>
-<li class="chapter" data-level="6.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-da-interação-entre-fatores"><i class="fa fa-check"></i><b>6.4</b> Efeito da interação entre fatores</a></li>
-<li class="chapter" data-level="6.5" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#vantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>6.5</b> Vantagens dos experimentos fatoriais</a></li>
-<li class="chapter" data-level="6.6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#desvantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>6.6</b> Desvantagens dos experimentos fatoriais</a></li>
-<li class="chapter" data-level="6.7" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>6.7</b> Classificação dos Experementos Fatoriais</a></li>
-<li class="chapter" data-level="6.8" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>6.8</b> Casualização dos tratamentos</a></li>
-<li class="chapter" data-level="6.9" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#análise-de-variância-de-um-experimento-fatorial-com-2-fatores-com-interação-não-significativa"><i class="fa fa-check"></i><b>6.9</b> Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</a></li>
-<li class="chapter" data-level="6.10" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#obtenção-da-análise-de-variância-3"><i class="fa fa-check"></i><b>6.10</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="6.11" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-tratamento-do-solo-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.11</b> Cálculo das média de Tratamento do Solo e erros padrões das médias</a></li>
-<li class="chapter" data-level="6.12" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-fungicidas-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.12</b> Cálculo das média de Fungicidas e erros padrões das médias</a></li>
-<li class="chapter" data-level="6.13" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.13</b> Cálculo do coeficiente de variação do experimento</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html"><i class="fa fa-check"></i><b>7</b> ESTUDO DO FATORIAL <span class="math inline">\(3^2\)</span></a><ul>
-<li class="chapter" data-level="7.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#obtenção-da-análise-de-variância-4"><i class="fa fa-check"></i><b>7.1</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="7.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-espaçamento-em-cada-nível-do-fator-densidade-e-d.-d"><i class="fa fa-check"></i><b>7.2</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Espaçamento</strong> em cada nível do fator <strong>Densidade</strong> (E d. D):</a></li>
-<li class="chapter" data-level="7.3" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-densidade-em-cada-nível-do-fator-espaçamentos-d-d.-e"><i class="fa fa-check"></i><b>7.3</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Densidade</strong> em cada nível do fator <strong>Espaçamentos</strong> (D d. E):</a></li>
-<li class="chapter" data-level="7.4" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#teste-de-tukey-para-a-comparação-de-médias"><i class="fa fa-check"></i><b>7.4</b> Teste de Tukey para a comparação de médias</a></li>
-<li class="chapter" data-level="7.5" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#resultado-do-teste-de-tukey"><i class="fa fa-check"></i><b>7.5</b> Resultado do teste de Tukey</a></li>
-<li class="chapter" data-level="7.6" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#cálculo-do-coeficiente-de-variação-do-experimento-1"><i class="fa fa-check"></i><b>7.6</b> Cálculo do coeficiente de variação do experimento</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html"><i class="fa fa-check"></i><b>8</b> EXPERIMENTOS EM PARCELAS SUBDIVIDIDAS</a><ul>
-<li class="chapter" data-level="8.1" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#introdução-4"><i class="fa fa-check"></i><b>8.1</b> Introdução</a></li>
-<li class="chapter" data-level="8.2" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#obtenção-da-análise-de-variância-5"><i class="fa fa-check"></i><b>8.2</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="8.3" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#desdobramento-da-interação-e-times-v-para-estudar-os-efeitos-de-variedades-dentro-de-cada-época-de-plantio-v-d.-e"><i class="fa fa-check"></i><b>8.3</b> 1. Desdobramento da interação E <span class="math inline">\(\times\)</span> V para estudar os efeitos de Variedades dentro de cada Época de plantio (V d. E):</a></li>
-<li class="chapter" data-level="8.4" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#desdobramento-da-interação-e-times-v-para-estudar-os-efeitos-de-épocas-dentro-de-cada-variedade-e-d.-v"><i class="fa fa-check"></i><b>8.4</b> 2. Desdobramento da interação E <span class="math inline">\(\times\)</span> V para estudar os efeitos de Épocas dentro de cada Variedade (E d. V):</a></li>
-<li class="chapter" data-level="8.5" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-das-médias"><i class="fa fa-check"></i><b>8.5</b> Cálculo das médias</a></li>
-<li class="chapter" data-level="8.6" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-dos-erros-padrões"><i class="fa fa-check"></i><b>8.6</b> Cálculo dos erros padrões:</a></li>
-<li class="chapter" data-level="8.7" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-dos-coeficientes-de-variação-do-experimento"><i class="fa fa-check"></i><b>8.7</b> Cálculo dos coeficientes de variação do experimento</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html"><i class="fa fa-check"></i><b>9</b> ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS</a><ul>
-<li class="chapter" data-level="9.1" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#introdução-5"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
-<li class="chapter" data-level="9.2" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#obtenção-da-análise-de-variância-estudando-se-os-efeitos-da-regressão"><i class="fa fa-check"></i><b>9.2</b> Obtenção da análise de variância, estudando-se os efeitos da regressão</a></li>
-<li class="chapter" data-level="9.3" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#coeficientes-de-interpolação-de-polinômios-ortogonais"><i class="fa fa-check"></i><b>9.3</b> Coeficientes de interpolação de polinômios ortogonais</a></li>
-<li class="chapter" data-level="9.4" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#obtendo-a-equação-de-regressão"><i class="fa fa-check"></i><b>9.4</b> Obtendo a Equação de Regressão</a></li>
-<li class="chapter" data-level="9.5" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cálculo-do-coeficiente-de-determinação-r²"><i class="fa fa-check"></i><b>9.5</b> Cálculo do Coeficiente de Determinação (R²)</a></li>
-<li class="chapter" data-level="9.6" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#gráfico-da-regressão-ajustada"><i class="fa fa-check"></i><b>9.6</b> Gráfico da Regressão Ajustada</a></li>
+<li class="chapter" data-level="7" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html"><i class="fa fa-check"></i><b>7</b> ANÁLISE DE REGRESSÃO</a><ul>
+<li class="chapter" data-level="7.1" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#introdução-3"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
+<li class="chapter" data-level="7.2" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#obtenção-da-análise-de-variância-estudando-se-os-efeitos-da-regressão"><i class="fa fa-check"></i><b>7.2</b> Obtenção da análise de variância, estudando-se os efeitos da regressão</a></li>
+<li class="chapter" data-level="7.3" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#gráfico-da-regressão-ajustada"><i class="fa fa-check"></i><b>7.3</b> Gráfico da Regressão Ajustada</a></li>
+<li class="chapter" data-level="7.4" data-path="análise-de-regressão.html"><a href="análise-de-regressão.html#aplicação-em-r---análise-de-regressão"><i class="fa fa-check"></i><b>7.4</b> Aplicação em R - Análise de Regressão</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -233,9 +193,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="delineamento-em-blocos-casualizados" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> DELINEAMENTO EM BLOCOS CASUALIZADOS</h1>
+<h1><span class="header-section-number">Capítulo 3</span> DELINEAMENTO EM BLOCOS CASUALIZADOS</h1>
 <div id="caracterização-1" class="section level2">
-<h2><span class="header-section-number">4.1</span> Caracterização</h2>
+<h2><span class="header-section-number">3.1</span> Caracterização</h2>
 <p>O delineamento em blocos casualizados (DBC) é o mais utilizado dos delineamentos experimentais, e os experimentos instalados de acordo com esse delineamento são denominados de <strong>experimentos em blocos casualizados</strong> ou <strong>experimentos em blocos ao acaso</strong>. Além dos princípios da <strong><em>repetição</em></strong> e da <strong><em>casualização</em></strong>, leva em conta também o princípio do <strong><em>controle local</em></strong>.</p>
 <p>Sempre que houver dúvidas a respeito da homogeneidade das condições experimentais é conveniente usar o princípio do controle local, estabelecendo blocos com parcelas homogêneas.</p>
 <p><strong>As principais características deste delineamento são</strong>:</p>
@@ -249,12 +209,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="DBC_d.png" /></p>
 <p>Note que dentro de cada bloco temos as variedades sorteadas ao acaso. Caso este mesmo ensaio fosse montado no delineamento inteiramente casualizados, o sorteio seria feito em todas as parcelas do experimento, e os tratamentos não seriam agrupados em blocos. Por exemplo, no delineamento inteiramente casualizado teríamos:</p>
 <p><img src="DIC_d.png" /></p>
-<p>E eficiência do delineamento em blocos casualizados depende de uniformidade das parcelas dentro de cada bloco. De um bloco para outro, pode haver variação.</p>
-<p>A forma e a distribuição dos blocos no campo depende apenas da uniformidade das condições experimentais.</p>
-<p>Os blocos podem ser retangulares, quadrados ou irregulares:</p>
-<p><img src="blocos.jpg" /></p>
-<p>Os blocos podem ser espalhados em toda a área de estudo, ou então agrupados um ao lado do outro. Geralmente se coloca um bloco ao lado do outro para facilitar a condução do experimento.</p>
-<p>Os blocos são utilizados para controlar pequenas diferenças que ocorrem entre as parcelas experimentais, tais como, diferenças de fertilidade do solo, diferenças de disponibilidade de água, diferenças de luminosidade (no caso de casas de vegetação), etc.</p>
 <p><strong>As principais vantagens desse delineamento são:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Controla as diferenças que ocorrem nas condições experimentais de um bloco para outro.</p></li>
@@ -269,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="modelo-matemático-1" class="section level2">
-<h2><span class="header-section-number">4.2</span> Modelo matemático</h2>
+<h2><span class="header-section-number">3.2</span> Modelo matemático</h2>
 <p>Para podermos analisar um experimento em qualquer delineamento, necessitamos conhecer o modelo matemático do mesmo, e aceitar algumas hipóteses básicas necessárias para a validade da análise de variância.</p>
 <p>O modelo matemático do delineamento em blocos casualizados é o seguinte:</p>
 <p><span class="math display">\[
@@ -281,204 +235,6 @@ x_{ij} = \mu +\tau_i + \beta_j+\epsilon_{ij}
 <p><span class="math inline">\(\tau_i\)</span> é o efeito devido ao tratamento <em>i</em> que foi aplicado à parcela.</p>
 <p><span class="math inline">\(\beta_j\)</span> é o efeito devido ao bloco <em>j</em> em que se encontra a parcela.</p>
 <p><span class="math inline">\(\epsilon_{ij}\)</span> é o efeito dos fatores não controlados ou acaso na parcela que recebeu o tratamento <em>i</em> e que se encontra no bloco <em>j</em>.</p>
-</div>
-<div id="hipóteses-básicas" class="section level2">
-<h2><span class="header-section-number">4.3</span> Hipóteses básicas</h2>
-<p>As hipóteses básicas para a validade da análise de variância são as mesmas já vistas para o delineamento inteiramente casualizado, ou seja:</p>
-<p><strong>Aditividade</strong>: Os efeitos dos fatores do modelo são aditivos</p>
-<p><strong>Independência</strong>: Os erros (desvios) <span class="math inline">\(\epsilon_{ij}\)</span>, devido aos efeitos de fatores não controlados ou acaso devem ser independentes</p>
-<p><strong>Homocedasticidade (homogeneidade de variâncias)</strong>: Os erros (desvios) <span class="math inline">\(\epsilon_{ij}\)</span>, devido ao acaso devem possuir variância comum <span class="math inline">\(\sigma^2\)</span></p>
-<p><strong>Normalidade dos desvios</strong>: Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> devido ao acaso devem possuir distribuição normal de probabilidades.</p>
-<p>Uma forma resumida de apresentar estas quatro pressuposições é apresentada a seguir:</p>
-<p><span class="math display">\[
-\epsilon_{ij} \overset{iid}{\tilde{}} N(0,\sigma^2) \\
-\]</span></p>
-<p>Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> são independentes e identicamente distribuídos, de acordo com uma distribuição normal, com média zero e variância comum <span class="math inline">\(\sigma^2\)</span>.</p>
-</div>
-<div id="obtenção-da-análise-de-variância-1" class="section level2">
-<h2><span class="header-section-number">4.4</span> Obtenção da análise de variância</h2>
-<p>Para a obtenção da análise de variância, vamos considerar um experimento genérico em blocos casualizados com <span class="math inline">\(I\)</span> tratamentos e <span class="math inline">\(J\)</span> blocos. Os dados obtidos podem ser dispostos num quadro como o seguinte:</p>
-<table style="width:100%;">
-<colgroup>
-<col width="12%" />
-<col width="15%" />
-<col width="15%" />
-<col width="15%" />
-<col width="15%" />
-<col width="15%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center">Blocos</th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="right"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>Tratamento</strong></td>
-<td align="center"><strong>1</strong></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(j\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(J\)</span></td>
-<td align="right"><strong>Total</strong></td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="center"><span class="math inline">\(x_{11}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{1j}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{1J}\)</span></td>
-<td align="right"><span class="math inline">\(T_1=\sum \limits_{j=1}^Jx_{1j}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">2</td>
-<td align="center"><span class="math inline">\(x_{21}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{2j}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{2J}\)</span></td>
-<td align="right"><span class="math inline">\(T_2=\sum \limits_{j=1}^Jx_{2j}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">…</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">…</td>
-<td align="center"></td>
-<td align="center">…</td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math inline">\(i\)</span></td>
-<td align="center"><span class="math inline">\(x_{i1}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{ij}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{iJ}\)</span></td>
-<td align="right"><span class="math inline">\(T_i=\sum \limits_{j=1}^Jx_{ij}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">…</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">…</td>
-<td align="center"></td>
-<td align="center">…</td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math inline">\(I\)</span></td>
-<td align="center"><span class="math inline">\(x_{I1}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{Ij}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(x_{IJ}\)</span></td>
-<td align="right"><span class="math inline">\(T_I=\sum \limits_{j=1}^Jx_{Ij}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Total</strong></td>
-<td align="center"><span class="math inline">\(B_1=\sum \limits_{i=1}^Ix_{i1}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(B_j=\sum \limits_{i=1}^Ix_{ij}\)</span></td>
-<td align="center">…</td>
-<td align="center"><span class="math inline">\(B_J=\sum \limits_{i=1}^Ix_{iJ}\)</span></td>
-<td align="right"><span class="math inline">\(G=\sum \limits_{i=1}^I\sum \limits_{j=1}^Jx_{ij}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Pelo método dos mínimos quadrados, devemos obter as estimativas de <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\tau_i\)</span> e <span class="math inline">\(\beta_j\)</span> que minimizam a soma de quadrados dos erros do modelo:</p>
-<p><span class="math display">\[
-x_{ij} = \mu +\tau_i + \beta_j+\epsilon_{ij}
-\]</span></p>
-<p>Então, temos:</p>
-<p><span class="math display">\[
-\hat{m} = \frac{\sum_{i=1}^I\sum_{j=1}^Jx_{ij}}{IJ}=\frac{G}{IJ} \\
-\hat{t_i}=\frac{T_i}{J}-\hat{m}=\hat{m_i}-\hat{m} \\
-\hat{b_j}=\frac{B_j}{I}-\hat{m}=\hat{m_j}-\hat{m}
-\]</span></p>
-<p>Podemos agora obter as somas de quadrados para cada um desses efeitos. As somas de quadrados total e devido ao efeito de tratamentos são obtidas da mesma maneira que no delineamento inteiramente casualizado:</p>
-<p><span class="math display">\[
-SQ_{Total}=\sum_{i=1}^{I}\sum_{j=1}^Jx_{ij}-C\\
-SQ_{Trat}=\frac{1}{J}\sum_{i=1}^IT_i^2-C \\
-onde,\; C=\frac{G^2}{IJ}
-\]</span></p>
-<p>A soma de quadrados devido ao efeito de blocos é obtida por:
-<span class="math display">\[
-SQ_{Blocos} = I\hat{b_1^2}+I\hat{b_2^2}+...+I\hat{b_J^2} \\
-SQ_{Blocos} = I(\hat{b_1^2}+\hat{b_2^2}+...+\hat{b_J^2})\\
-SQ_{Blocos} = I\left[ \left(\frac{B_1}{I}-\hat{m} \right)^2+\left(   \frac{B_2}{I}-\hat{m} \right)^2+...+\left( \frac{B_J}{I}-\hat{m} \right)^2 \right]\\
-SQ_{Blocos} = I\left[ \left(\frac{B_1^2}{I^2}-2\hat{m}\frac{B_1}{I}+\hat{m}^2 \right)+\left(\frac{B_2^2}{I^2}-2\hat{m}\frac{B_2}{I}+\hat{m}^2
-\right)+...+\left(  \frac{B_J^2}{I^2}-2\hat{m}\frac{B_J}{I}+\hat{m^2}\right) \right] \\
-SQ_{Blocos} =\left[\left(\frac{B_1^2}{I}+\frac{B_2^2}{I}+...+\frac{B_J^2}{I}\right)-2\hat{m}(B_1+B_2+...+B_J)+ IJ\hat{m}^2 \right] \\
-SQ_{Blocos} = \frac{1}{I}(B_1^2+B_2^2+...+B_J^2)-2\hat{m}G+IJ\frac{G^2}{(IJ)^2}\\
-SQ_{Blocos} =\frac{1}{I}\sum_{j=1}^JB_j^2-C
-\]</span></p>
-<p>A soma de quadrados devido ao efeito dos fatores não controlados ou acaso (<span class="math inline">\(SQ_{Resíduo}\)</span>), é obtida por diferença:</p>
-<p><span class="math display">\[
-SQ_{Resíduo} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos}
-\]</span></p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Causas de Variação</th>
-<th align="center">GL</th>
-<th align="center">SQ</th>
-<th align="center">QM</th>
-<th align="center">F</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Tratamentos</td>
-<td align="center"><span class="math inline">\(I-1\)</span></td>
-<td align="center"><span class="math inline">\(SQ_{Trat}\)</span></td>
-<td align="center"><span class="math inline">\(SQ_{Trat} / (I-1)\)</span></td>
-<td align="center"><span class="math inline">\(QM_{Trat}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">Blocos</td>
-<td align="center"><span class="math inline">\(J-1\)</span></td>
-<td align="center"><span class="math inline">\(SQ_{Blocos}\)</span></td>
-<td align="center"><span class="math inline">\(SQ_{Blocos} / (J-1)\)</span></td>
-<td align="center"><span class="math inline">\(QM_{Blocos}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">Resíduo</td>
-<td align="center"><span class="math inline">\((I-1)(J-1)\)</span></td>
-<td align="center"><span class="math inline">\(SQ_{Res}\)</span></td>
-<td align="center"><span class="math inline">\(SQ_{Res} / [(I-1)(J-1)]\)</span></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Total</strong></td>
-<td align="center"><span class="math inline">\(IJ-1\)</span></td>
-<td align="center"><span class="math inline">\(SQ_{Total}\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-<p><strong>HIPÓTESES TESTADAS:</strong></p>
-<p><strong>Para Tratamentos</strong>:
-<span class="math display">\[
-\begin{cases} H_0: \tau_i=0, i=1,2, ...,I. \\
-H_1:pelo\;menos\;um \;valor\;\tau_i \neq 0
-\end{cases}
-\]</span></p>
-<p><strong>Para Blocos</strong>:</p>
-<p><span class="math display">\[
-\begin{cases} H_0: \beta_j=0,\; j=1,2, ...,J. \\
-H_1:pelo\;menos\;um \;valor\; \beta_j \neq 0
-\end{cases}
-\]</span></p>
 <p><strong>CRITÉRIO DO TESTE</strong>:</p>
 <p><strong>Para Tratamentos</strong>:</p>
 <p>Comparamos o valor F calculado para tratamentos com o valor de F tabelado em função do número de GL de Tratamentos e GL do resíduo, ao nível <span class="math inline">\(\alpha\)</span> de significância.</p>
@@ -488,7 +244,7 @@ H_1:pelo\;menos\;um \;valor\; \beta_j \neq 0
 <p>Se <span class="math inline">\(F_{Blocos} &gt; F_{Tab}\)</span>, concluímos que o teste é significativo, portanto, rejeitamos <span class="math inline">\(H_0\)</span> e devemos concluir que os blocos possuem efeitos diferentes em relação à característica em estudo, ou seja, os blocos foram eficientes no controle da heterogeneidade local.</p>
 </div>
 <div id="exemplo-de-aplicação-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Exemplo de aplicação</h2>
+<h2><span class="header-section-number">3.3</span> Exemplo de aplicação</h2>
 <p>No trabalho “Influência do genótipo e da adubação sobre algumas características fenotípicas de <em>Zea mays</em> L (Milho)”, realizado por BARBOSA (1976), foram utilizadas 4 cultivares de milho:</p>
 <p><span class="math inline">\(C_1\)</span> = OPACO 2</p>
 <p><span class="math inline">\(C_2\)</span> = PIRANÃO</p>
@@ -646,202 +402,13 @@ Total
 H_1: As\;cultivares\;testadas\;diferem\;entre\;si\;em\;relação\;à\;produção\;da\;cultura\;do\;milho.
 \end{cases}
 \]</span></p>
-<p>Para obtenção da análise de variância, devemos, inicialmente, obter as Somas de Quadrados:</p>
-<p><strong>a) Soma de quadrados total</strong>:</p>
-<p><span class="math display">\[
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C \\
-SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{IJ} \\
-SQ_{Total} = (2812^2+2296^2+...+3501^2) - \frac{96051^2}{4\cdot5}\\
-SQ_{Total} = 47817032,90
-\]</span></p>
-<p><strong>b) Soma de quadrados devido ao efeito de tratamentos</strong>:</p>
-<p><span class="math display">\[
-SQ_{Trat} = \frac{\sum_{i=1}^IT_i^2}{J} - C \\
-SQ_{Trat} = \frac{T_1^2+T_2^2+...+T_I^2}{J} - \frac{G^2}{IJ}\\
-SQ_{Trat} = \frac{15601^2+21362^2+33905^2+25183^2}{5} - \frac{96051^2}{4\cdot5}\\ SQ_{Trat}= 35402021,70
-\]</span></p>
-<p><strong>c) Soma de quadrados devido ao efeito de blocos</strong>:</p>
-<p><span class="math display">\[
-SQ_{Blocos} = \frac{\sum_{j=1}^JB_j^2}{I} - C \\
-SQ_{Blocos} = \frac{B_1^2+B_2^2+...+B_J^2}{I} - \frac{G^2}{IJ}\\
-SQ_{Blocos} = \frac{16381^2+15500^2+20632^2+21782^2+21756^2}{4} - \frac{96051^2}{4\cdot5}\\ SQ_{Blocos}= 9221681,20
-\]</span></p>
-<p><strong>d) Soma de quadrados do resíduo</strong>:</p>
-<p><span class="math display">\[
-SQ_{Res} = SQ_{Total} - SQ_{Trat} - SQ_{Blocos}\\
-SQ_{Res} = 47817032,9-35402021,7-9221681,2=3193330,00
-\]</span></p>
-<p>Então podemos montar o seguinte quadro de análise de variância:</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Causas de Variação
-</th>
-<th style="text-align:left;">
-GL
-</th>
-<th style="text-align:left;">
-SQ
-</th>
-<th style="text-align:left;">
-QM
-</th>
-<th style="text-align:left;">
-F
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Tratamento
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-35402021,7
-</td>
-<td style="text-align:left;">
-11800673,9
-</td>
-<td style="text-align:left;">
-44,34**
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Blocos
-</td>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
-9221681,2
-</td>
-<td style="text-align:left;">
-2305420,3
-</td>
-<td style="text-align:left;">
-8,66**
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Resíduo
-</td>
-<td style="text-align:left;">
-12
-</td>
-<td style="text-align:left;">
-3193330,00
-</td>
-<td style="text-align:left;">
-266110,83
-</td>
-<td style="text-align:left;">
-–
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:left;">
-19
-</td>
-<td style="text-align:left;">
-47817032,9
-</td>
-<td style="text-align:left;">
-–
-</td>
-<td style="text-align:left;">
-–
-</td>
-</tr>
-</tbody>
-</table>
-<p>Valores de F da tabela para tratamentos (3 x 12 GL):<span class="math inline">\(\begin{cases} 5\%=3,49 \\ 1\%=5,95 \end{cases}\)</span></p>
-<p>Valores de F da tabela para blocos (4 x 12 GL):<span class="math inline">\(\begin{cases} 5\%=3,26 \\ 1\%=5,41 \end{cases}\)</span></p>
-<p><strong>Conclusões</strong>:</p>
-<p><strong>a) Para Tratamentos</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as cultivares diferem entre si em relação à produção da cultura do milho, com um grau de confiança superior a <span class="math inline">\(99\%\)</span> de probabilidade.</p>
-<p><strong>b) Para Blocos</strong>: O teste F foi significativo ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as diferenças de fertilidade do solo entre terraços apresentaram efeitos diferentes sobre a produção do milho, com um grau de confiança superior a <span class="math inline">\(99\%\)</span> de probabilidade.</p>
-<p>Para tirar conclusões mais específicas sobre o comportamento das cultivares, devemos utilizar um teste de comparação de médias.</p>
-<p><strong>a) Cálculo das médias de cada tratamento e erros padrões das médias</strong>:</p>
-<p>Então, no nosso exemplo, temos:
-<span class="math display">\[
-\hat{m_1} = \frac{T_1}{J}=\frac{15601}{5}=3120,20\;kg/ha\\
-\hat{m_2} = \frac{T_2}{J}=\frac{21362}{5}=4272,40\;kg/ha\\
-\hat{m_3} = \frac{T_3}{J}=\frac{33905}{5}=6781,00\;kg/ha\\
-\hat{m_4} = \frac{T_4}{J}=\frac{25183}{5}=5036,60\;kg/ha\\
-\]</span></p>
-<p>Erro padrão dessas médias será:</p>
-<p><span class="math display">\[
-s(\hat{m}) = \frac{s}{\sqrt{J}}=\sqrt{\frac{QM_{Res}}{J}} =\sqrt{\frac{266110,83}{5}}=230,70\;kg/ha
-\]</span></p>
-<p><strong>b) Aplicação do teste de Tukey </strong>:</p>
-<p><strong>b.1. Cálculo do valor de <span class="math inline">\(\Delta\)</span></strong>:</p>
-<p><span class="math display">\[
-q_{(4\;trat\times12\;GLres)}(5\%) = 4,20\\
-s=\sqrt{QM_{Res}}=515,8593,\;com\; r=5 \\
-DMS=q\cdot\sqrt{\frac{QM_{Res}}{r}}=4,20\cdot\sqrt{\frac{266110,83}{5}}=968,94\;kg/ha
-\]</span></p>
-<p><strong>b.2. Cálculo das estimativas dos contrastes entre duas médias</strong>:</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th><span class="math inline">\(\hat{m_3}\)</span></th>
-<th><span class="math inline">\(\hat{m_4}\)</span></th>
-<th><span class="math inline">\(\hat{m_2}\)</span></th>
-<th><span class="math inline">\(\hat{m_1}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\hat{m_3}\)</span></td>
-<td>-</td>
-<td>1744,4*</td>
-<td>2508,60*</td>
-<td>3660,80*</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\hat{m_4}\)</span></td>
-<td>-</td>
-<td>-</td>
-<td>764,20</td>
-<td>1916,40*</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\hat{m_2}\)</span></td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>1152,20*</td>
-</tr>
-</tbody>
-</table>
-<p><strong>b.3. Conclusão</strong>: Médias seguidas de pela mesma letra não diferem entre si pelo teste de Tukey, ao nível de 5% de probabilidade.</p>
-<p><span class="math display">\[
-\hat{m_3} = 6781,00\;kg/ha\;\;\;\;-a\\
-\hat{m_4} = 5036,60\;kg/ha\;\;\;\;-b\\
-\hat{m_2} = 4272,40\;kg/ha\;\;\;\;-b\\
-\hat{m_1} = 3120,20\;kg/ha\;\;\;\;-c\\
-\]</span></p>
-<p>Portanto, a melhor cultivar foi o Composto Flint, pois diferiu das demais pelo teste de Tukey e apresentou maior produtividade.</p>
-<p><strong>c) Cálculo do coeficiente de variação do experimento</strong>:
-<span class="math display">\[
-\hat{m}=\frac{G}{IJ}=\frac{96051}{4\cdot5}=4802,55\;kg/ha\\
-s=\sqrt{QM_{Res}}=\sqrt{226110,83}=515,8593\;kg/ha\\
-CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot515,8593}{4802,55}=10,74\%
-\]</span></p>
-<p><strong>Aplicação no R</strong></p>
+</div>
+<div id="aplicação-em-r---dbc" class="section level2">
+<h2><span class="header-section-number">3.4</span> Aplicação em R - DBC</h2>
 <p><img src="R.png" /></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="delineamento-em-blocos-casualizados.html#cb30-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt&quot;</span></span>
-<span id="cb30-2"><a href="delineamento-em-blocos-casualizados.html#cb30-2"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb30-3"><a href="delineamento-em-blocos-casualizados.html#cb30-3"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="delineamento-em-blocos-casualizados.html#cb5-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt&quot;</span></span>
+<span id="cb5-2"><a href="delineamento-em-blocos-casualizados.html#cb5-2"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb5-3"><a href="delineamento-em-blocos-casualizados.html#cb5-3"></a><span class="kw">head</span>(dados)</span></code></pre></div>
 <pre><code>##      trat bloco    y
 ## 1  OPACO2     1 2812
 ## 2  OPACO2     2 2296
@@ -849,14 +416,14 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot515,8593}{4802,55}=10,74\%
 ## 4  OPACO2     4 3301
 ## 5  OPACO2     5 3691
 ## 6 PIRANAO     1 3728</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="delineamento-em-blocos-casualizados.html#cb32-1"></a><span class="co"># Extraindo os fatores e a variável resposta</span></span>
-<span id="cb32-2"><a href="delineamento-em-blocos-casualizados.html#cb32-2"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>trat)</span>
-<span id="cb32-3"><a href="delineamento-em-blocos-casualizados.html#cb32-3"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>bloco)</span>
-<span id="cb32-4"><a href="delineamento-em-blocos-casualizados.html#cb32-4"></a>y&lt;-dados<span class="op">$</span>y</span>
-<span id="cb32-5"><a href="delineamento-em-blocos-casualizados.html#cb32-5"></a></span>
-<span id="cb32-6"><a href="delineamento-em-blocos-casualizados.html#cb32-6"></a><span class="co"># Definindo o modelo matemático</span></span>
-<span id="cb32-7"><a href="delineamento-em-blocos-casualizados.html#cb32-7"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
-<span id="cb32-8"><a href="delineamento-em-blocos-casualizados.html#cb32-8"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="delineamento-em-blocos-casualizados.html#cb7-1"></a><span class="co"># Extraindo os fatores e a variável resposta</span></span>
+<span id="cb7-2"><a href="delineamento-em-blocos-casualizados.html#cb7-2"></a>trat&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>trat)</span>
+<span id="cb7-3"><a href="delineamento-em-blocos-casualizados.html#cb7-3"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>bloco)</span>
+<span id="cb7-4"><a href="delineamento-em-blocos-casualizados.html#cb7-4"></a>y&lt;-dados<span class="op">$</span>y</span>
+<span id="cb7-5"><a href="delineamento-em-blocos-casualizados.html#cb7-5"></a></span>
+<span id="cb7-6"><a href="delineamento-em-blocos-casualizados.html#cb7-6"></a><span class="co"># Definindo o modelo matemático</span></span>
+<span id="cb7-7"><a href="delineamento-em-blocos-casualizados.html#cb7-7"></a>modelo&lt;-<span class="kw">aov</span>(y<span class="op">~</span>trat<span class="op">+</span>bloco)</span>
+<span id="cb7-8"><a href="delineamento-em-blocos-casualizados.html#cb7-8"></a><span class="kw">anova</span>(modelo)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: y
@@ -866,17 +433,17 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot515,8593}{4802,55}=10,74\%
 ## Residuals 12  3193330   266111                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="delineamento-em-blocos-casualizados.html#cb34-1"></a><span class="co">#Comparação de Médias pelo teste de Tukey</span></span>
-<span id="cb34-2"><a href="delineamento-em-blocos-casualizados.html#cb34-2"></a><span class="kw">require</span>(<span class="st">&quot;agricolae&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="delineamento-em-blocos-casualizados.html#cb9-1"></a><span class="co">#Comparação de Médias pelo teste de Tukey</span></span>
+<span id="cb9-2"><a href="delineamento-em-blocos-casualizados.html#cb9-2"></a><span class="kw">require</span>(<span class="st">&quot;agricolae&quot;</span>)</span></code></pre></div>
 <pre><code>## Loading required package: agricolae</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;agricolae&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:ExpDes.pt&#39;:
 ## 
 ##     lastC, order.group, tapply.stat</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="delineamento-em-blocos-casualizados.html#cb38-1"></a>glRes&lt;-<span class="kw">df.residual</span>(modelo)</span>
-<span id="cb38-2"><a href="delineamento-em-blocos-casualizados.html#cb38-2"></a>QMres&lt;-<span class="kw">deviance</span>(modelo)<span class="op">/</span>glRes</span>
-<span id="cb38-3"><a href="delineamento-em-blocos-casualizados.html#cb38-3"></a>tukey &lt;-<span class="st"> </span><span class="kw">HSD.test</span>(modelo,<span class="st">&quot;trat&quot;</span>, <span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="delineamento-em-blocos-casualizados.html#cb13-1"></a>glRes&lt;-<span class="kw">df.residual</span>(modelo)</span>
+<span id="cb13-2"><a href="delineamento-em-blocos-casualizados.html#cb13-2"></a>QMres&lt;-<span class="kw">deviance</span>(modelo)<span class="op">/</span>glRes</span>
+<span id="cb13-3"><a href="delineamento-em-blocos-casualizados.html#cb13-3"></a>tukey &lt;-<span class="st"> </span><span class="kw">HSD.test</span>(modelo,<span class="st">&quot;trat&quot;</span>, <span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Study: modelo ~ &quot;trat&quot;
 ## 
@@ -904,23 +471,23 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot515,8593}{4802,55}=10,74\%
 ## AG152      5036.6      b
 ## PIRANAO    4272.4      b
 ## OPACO2     3120.2      c</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="delineamento-em-blocos-casualizados.html#cb40-1"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
-<span id="cb40-2"><a href="delineamento-em-blocos-casualizados.html#cb40-2"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb40-3"><a href="delineamento-em-blocos-casualizados.html#cb40-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(y)<span class="op">*</span><span class="fl">1.10</span>),</span>
-<span id="cb40-4"><a href="delineamento-em-blocos-casualizados.html#cb40-4"></a>          <span class="dt">xlab=</span><span class="st">&quot;Cultivares&quot;</span>,</span>
-<span id="cb40-5"><a href="delineamento-em-blocos-casualizados.html#cb40-5"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg por ha)&quot;</span>,</span>
-<span id="cb40-6"><a href="delineamento-em-blocos-casualizados.html#cb40-6"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="delineamento-em-blocos-casualizados.html#cb41-1"></a><span class="co"># Cálculo do CV</span></span>
-<span id="cb41-2"><a href="delineamento-em-blocos-casualizados.html#cb41-2"></a>cv&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMres)<span class="op">/</span><span class="kw">mean</span>(y)</span>
-<span id="cb41-3"><a href="delineamento-em-blocos-casualizados.html#cb41-3"></a><span class="kw">paste</span>(<span class="kw">round</span>(cv,<span class="dv">2</span>),<span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="delineamento-em-blocos-casualizados.html#cb15-1"></a><span class="kw">bar.group</span>(tukey<span class="op">$</span>groups,</span>
+<span id="cb15-2"><a href="delineamento-em-blocos-casualizados.html#cb15-2"></a>          <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb15-3"><a href="delineamento-em-blocos-casualizados.html#cb15-3"></a>          <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(y)<span class="op">*</span><span class="fl">1.10</span>),</span>
+<span id="cb15-4"><a href="delineamento-em-blocos-casualizados.html#cb15-4"></a>          <span class="dt">xlab=</span><span class="st">&quot;Cultivares&quot;</span>,</span>
+<span id="cb15-5"><a href="delineamento-em-blocos-casualizados.html#cb15-5"></a>          <span class="dt">ylab=</span><span class="st">&quot;Produção (kg por ha)&quot;</span>,</span>
+<span id="cb15-6"><a href="delineamento-em-blocos-casualizados.html#cb15-6"></a>          <span class="dt">main=</span><span class="st">&quot;Teste de Tukey (5%)&quot;</span>);<span class="kw">box</span>()</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="delineamento-em-blocos-casualizados.html#cb16-1"></a><span class="co"># Cálculo do CV</span></span>
+<span id="cb16-2"><a href="delineamento-em-blocos-casualizados.html#cb16-2"></a>cv&lt;-<span class="dv">100</span><span class="op">*</span><span class="kw">sqrt</span>(QMres)<span class="op">/</span><span class="kw">mean</span>(y)</span>
+<span id="cb16-3"><a href="delineamento-em-blocos-casualizados.html#cb16-3"></a><span class="kw">paste</span>(<span class="kw">round</span>(cv,<span class="dv">2</span>),<span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;10.74%&quot;</code></pre>
 <p>Utilizando o pacote “ExpDes.pt”</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="delineamento-em-blocos-casualizados.html#cb43-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
-<span id="cb43-2"><a href="delineamento-em-blocos-casualizados.html#cb43-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb43-3"><a href="delineamento-em-blocos-casualizados.html#cb43-3"></a></span>
-<span id="cb43-4"><a href="delineamento-em-blocos-casualizados.html#cb43-4"></a><span class="co"># verificando os 6 primeiros registros</span></span>
-<span id="cb43-5"><a href="delineamento-em-blocos-casualizados.html#cb43-5"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="delineamento-em-blocos-casualizados.html#cb18-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
+<span id="cb18-2"><a href="delineamento-em-blocos-casualizados.html#cb18-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
+<span id="cb18-3"><a href="delineamento-em-blocos-casualizados.html#cb18-3"></a></span>
+<span id="cb18-4"><a href="delineamento-em-blocos-casualizados.html#cb18-4"></a><span class="co"># verificando os 6 primeiros registros</span></span>
+<span id="cb18-5"><a href="delineamento-em-blocos-casualizados.html#cb18-5"></a><span class="kw">head</span>(dados)</span></code></pre></div>
 <pre><code>##      trat bloco    y
 ## 1  OPACO2     1 2812
 ## 2  OPACO2     2 2296
@@ -928,13 +495,13 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot515,8593}{4802,55}=10,74\%
 ## 4  OPACO2     4 3301
 ## 5  OPACO2     5 3691
 ## 6 PIRANAO     1 3728</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="delineamento-em-blocos-casualizados.html#cb45-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dbc</span></span>
-<span id="cb45-2"><a href="delineamento-em-blocos-casualizados.html#cb45-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>trat <span class="co"># Criando o vetor de tratamentos</span></span>
-<span id="cb45-3"><a href="delineamento-em-blocos-casualizados.html#cb45-3"></a>bloco &lt;-<span class="st"> </span>dados<span class="op">$</span>bloco <span class="co"># Criando o vetor dos blocos</span></span>
-<span id="cb45-4"><a href="delineamento-em-blocos-casualizados.html#cb45-4"></a>y &lt;-<span class="st"> </span>dados<span class="op">$</span>y <span class="co"># Criando o vetor com a variável resposta</span></span>
-<span id="cb45-5"><a href="delineamento-em-blocos-casualizados.html#cb45-5"></a></span>
-<span id="cb45-6"><a href="delineamento-em-blocos-casualizados.html#cb45-6"></a><span class="co"># Utilizando a função</span></span>
-<span id="cb45-7"><a href="delineamento-em-blocos-casualizados.html#cb45-7"></a><span class="kw">dbc</span>(trat,bloco,y,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="delineamento-em-blocos-casualizados.html#cb20-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dbc</span></span>
+<span id="cb20-2"><a href="delineamento-em-blocos-casualizados.html#cb20-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>trat <span class="co"># Criando o vetor de tratamentos</span></span>
+<span id="cb20-3"><a href="delineamento-em-blocos-casualizados.html#cb20-3"></a>bloco &lt;-<span class="st"> </span>dados<span class="op">$</span>bloco <span class="co"># Criando o vetor dos blocos</span></span>
+<span id="cb20-4"><a href="delineamento-em-blocos-casualizados.html#cb20-4"></a>y &lt;-<span class="st"> </span>dados<span class="op">$</span>y <span class="co"># Criando o vetor com a variável resposta</span></span>
+<span id="cb20-5"><a href="delineamento-em-blocos-casualizados.html#cb20-5"></a></span>
+<span id="cb20-6"><a href="delineamento-em-blocos-casualizados.html#cb20-6"></a><span class="co"># Utilizando a função</span></span>
+<span id="cb20-7"><a href="delineamento-em-blocos-casualizados.html#cb20-7"></a><span class="kw">dbc</span>(trat,bloco,y,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
@@ -974,8 +541,8 @@ CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot515,8593}{4802,55}=10,74\%
           </div>
         </div>
       </div>
-<a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="delineamento-inteiramente-casualizado.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="experimentos-fatoriais.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -9,8 +9,7 @@ bibliography:
 - packages.bib
 biblio-style: apalike
 link-citations: yes
-description: Etapa do curso visando a apresentação da análise dos principais delineamentos
-  experimentais utilizando o R
+description: Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R
 ---
 
 # INTRODUÇÃO
