@@ -373,6 +373,8 @@ Utilizando o R para obtermos o quadro da análise de variância, os dados estão
 ```{r}
 # Carregando o pacote para a análise
 library(ExpDes.pt)
+library(tidyverse)
+library(knitr)
 
 # Caminho dos dados
 caminho<-"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt"

@@ -81,6 +81,8 @@ Então, podemos montar o seguinte quadro de análise de variância:
 
 
 ```{r echo=FALSE,message=FALSE,error=FALSE,warning=FALSE}
+library(knitr)
+library(kableExtra)
 tb <-data.frame("Causas de Variação"=c("Tratamento","Resíduo","Total"),
                 GL=c("4","20","24"),
                 SQ=c("209,5408","237,5958","447,1366"),
@@ -316,6 +318,9 @@ $$
 Uma vez obtidas as somas de quadrados, para cada componente do desdobramento, por qualquer dos dois métodos apresentados anteriormente, podemos montar o quadro de análise de variância com o desdobramento:
 
 ```{r echo=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
 tb <-data.frame("Causas de Variação"=c("(ST+AC+AP) vs. (PM+T)","ST vs. (AC+AP)","AC vs AP","PM vs. T", "(Tratamento)","Resíduo","Total"),
                 GL=c("1","1","1","1","(4)","20","24"),
                 SQ=c("203,3042","1,5459","1,0304","3,6603","(209,5408)","237,5958","447,1366"),

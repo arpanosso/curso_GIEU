@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 15 ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS | Curso do R do GIEU</title>
+  <title>Capítulo 9 ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS | Curso do R do GIEU</title>
   <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 15 ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS | Curso do R do GIEU" />
+  <meta property="og:title" content="Capítulo 9 ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,15 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 15 ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS | Curso do R do GIEU" />
+  <meta name="twitter:title" content="Capítulo 9 ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS | Curso do R do GIEU" />
   
   <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
   
 
-<meta name="author" content="José C. Barbosa &amp; Alan R. Panosso" />
+<meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-13" />
+<meta name="date" content="2020-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,137 +136,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">curso_GIEU</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUÇÃO AO CURSO</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUÇÃO</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#alguns-conceitos-básicos"><i class="fa fa-check"></i><b>1.1</b> Alguns conceitos básicos</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#medidas-de-posição-e-de-tendência-central"><i class="fa fa-check"></i><b>1.2</b> Medidas de posição e de tendência central</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html"><i class="fa fa-check"></i><b>2</b> COMPARAÇÕES DE PARÂMETROS DE DUAS POPULAÇÕES</a><ul>
-<li class="chapter" data-level="2.1" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-da-variância-de-duas-populações-normais"><i class="fa fa-check"></i><b>2.1</b> Comparação da variância de duas populações normais</a></li>
-<li class="chapter" data-level="2.2" data-path="comparações-de-parâmetros-de-duas-populações.html"><a href="comparações-de-parâmetros-de-duas-populações.html#comparação-de-duas-médias-de-populações-normais-amostras-independentes"><i class="fa fa-check"></i><b>2.2</b> Comparação de duas médias de populações normais: amostras independentes</a></li>
+<li class="chapter" data-level="2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>2</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
+<li class="chapter" data-level="2.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>2.1</b> Caracterização</a></li>
+<li class="chapter" data-level="2.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>2.2</b> Modelo Matemático</a></li>
+<li class="chapter" data-level="2.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>2.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
+<li class="chapter" data-level="2.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>2.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="2.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>2.5</b> Exemplo de aplicação</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html"><i class="fa fa-check"></i><b>3</b> PLANEJAMENTO DE EXPERIMENTOS</a><ul>
-<li class="chapter" data-level="3.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>3.1</b> Introdução</a></li>
-<li class="chapter" data-level="3.2" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#unidade-experimental-ou-parcela"><i class="fa fa-check"></i><b>3.2</b> Unidade Experimental ou Parcela</a></li>
-<li class="chapter" data-level="3.3" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>3.3</b> Princípios Básicos da Experimentação</a></li>
-<li class="chapter" data-level="3.4" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#relação-entre-os-princípios-básico-da-experimentação-e-os-delineamentos-experimentais"><i class="fa fa-check"></i><b>3.4</b> Relação entre os princípios básico da experimentação e os delineamentos experimentais</a></li>
-<li class="chapter" data-level="3.5" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#testes-de-significância"><i class="fa fa-check"></i><b>3.5</b> Testes de Significância</a></li>
-<li class="chapter" data-level="3.6" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#teste-f-de-snedecor-para-análise-de-variância"><i class="fa fa-check"></i><b>3.6</b> Teste F de Snedecor para Análise de Variância</a></li>
-<li class="chapter" data-level="3.7" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#exemplo-de-aplicação-do-teste-f"><i class="fa fa-check"></i><b>3.7</b> Exemplo de aplicação do teste F</a></li>
+<li class="chapter" data-level="3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>3</b> DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
+<li class="chapter" data-level="3.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#introdução-1"><i class="fa fa-check"></i><b>3.1</b> Introdução</a></li>
+<li class="chapter" data-level="3.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>3.2</b> Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos</a></li>
+<li class="chapter" data-level="3.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>3.3</b> Método dos contrastes de totais de tratamentos</a></li>
+<li class="chapter" data-level="3.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>3.4</b> Método dos totais de tratamentos (sem utilizar contrastes)</a></li>
+<li class="chapter" data-level="3.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>3.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>3.5.1</b> <strong>Conclusões</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html"><i class="fa fa-check"></i><b>4</b> TESTES PARA COMPARAÇÃO DE MÉDIAS</a><ul>
-<li class="chapter" data-level="4.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
-<li class="chapter" data-level="4.2" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-de-médias"><i class="fa fa-check"></i><b>4.2</b> Contrastes de Médias</a></li>
-<li class="chapter" data-level="4.3" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#estimativa-do-contrastes"><i class="fa fa-check"></i><b>4.3</b> Estimativa do Contrastes</a></li>
-<li class="chapter" data-level="4.4" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#covariância-entre-dois-contrastes"><i class="fa fa-check"></i><b>4.4</b> Covariância entre dois contrastes</a></li>
-<li class="chapter" data-level="4.5" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>4.5</b> Contrastes ortogonais</a></li>
-<li class="chapter" data-level="4.6" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#variância-de-um-contraste"><i class="fa fa-check"></i><b>4.6</b> Variância de um contraste</a></li>
-<li class="chapter" data-level="4.7" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#erro-padrão-do-contraste"><i class="fa fa-check"></i><b>4.7</b> Erro padrão do contraste</a></li>
-<li class="chapter" data-level="4.8" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-t-de-student"><i class="fa fa-check"></i><b>4.8</b> Teste t de Student</a></li>
-<li class="chapter" data-level="4.9" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-t-de-student"><i class="fa fa-check"></i><b>4.9</b> Exemplo de aplicação do teste t de Student</a></li>
-<li class="chapter" data-level="4.10" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>4.10</b> Teste de Tukey</a></li>
-<li class="chapter" data-level="4.11" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-tukey"><i class="fa fa-check"></i><b>4.11</b> Exemplo de aplicação do teste de Tukey</a></li>
-<li class="chapter" data-level="4.12" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>4.12</b> Teste de Duncan</a></li>
-<li class="chapter" data-level="4.13" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-duncan"><i class="fa fa-check"></i><b>4.13</b> Exemplo de aplicação do teste de Duncan</a></li>
-<li class="chapter" data-level="4.14" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>4.14</b> Teste de Scheffé</a></li>
-<li class="chapter" data-level="4.15" data-path="testes-para-comparação-de-médias.html"><a href="testes-para-comparação-de-médias.html#exemplo-de-aplicação-do-teste-de-scheffé"><i class="fa fa-check"></i><b>4.15</b> Exemplo de aplicação do teste de Scheffé</a></li>
+<li class="chapter" data-level="3.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>3.6</b> Componentes com mais de um grau de liberdade</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>5</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO</a><ul>
-<li class="chapter" data-level="5.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>5.1</b> Caracterização</a></li>
-<li class="chapter" data-level="5.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>5.2</b> Modelo Matemático</a></li>
-<li class="chapter" data-level="5.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#hipóteses-básicas-para-aplicação-da-análoise-de-variância"><i class="fa fa-check"></i><b>5.3</b> Hipóteses básicas para aplicação da análoise de variância</a></li>
-<li class="chapter" data-level="5.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>5.4</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="5.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>5.5</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>4</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
+<li class="chapter" data-level="4.1" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#caracterização-1"><i class="fa fa-check"></i><b>4.1</b> Caracterização</a></li>
+<li class="chapter" data-level="4.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#modelo-matemático-1"><i class="fa fa-check"></i><b>4.2</b> Modelo matemático</a></li>
+<li class="chapter" data-level="4.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>4.3</b> Hipóteses básicas</a></li>
+<li class="chapter" data-level="4.4" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#obtenção-da-análise-de-variância-1"><i class="fa fa-check"></i><b>4.4</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="4.5" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exemplo-de-aplicação-1"><i class="fa fa-check"></i><b>4.5</b> Exemplo de aplicação</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><i class="fa fa-check"></i><b>6</b> DELINEAMENTO INTEIRAMENTE CASUALIZADO COM NÚMERO DIFERENTE DE REPETIÇÕES POR TRATAMENTO</a><ul>
-<li class="chapter" data-level="6.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
-<li class="chapter" data-level="6.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>6.2</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="6.3" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-das-médias-e-error-padrões-das-médias"><i class="fa fa-check"></i><b>6.3</b> Cálculo das médias e error padrões das médias</a></li>
-<li class="chapter" data-level="6.4" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-tukey-para-comparação-das-médias"><i class="fa fa-check"></i><b>6.4</b> Teste de Tukey para comparação das médias</a></li>
-<li class="chapter" data-level="6.5" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.5</b> Cálculo do coeficiente de variação do experimento</a></li>
-<li class="chapter" data-level="6.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#aplicação-do-teste-t-de-student-a-um-contraste"><i class="fa fa-check"></i><b>6.6</b> Aplicação do teste t de Student a um contraste</a></li>
-<li class="chapter" data-level="6.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#teste-de-duncan-para-a-comparação-das-médias"><i class="fa fa-check"></i><b>6.7</b> Teste de Duncan para a comparação das médias</a></li>
+<li class="chapter" data-level="5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><i class="fa fa-check"></i><b>5</b> DELINEAMENTO EM BLOCOS CASUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
+<li class="chapter" data-level="5.1" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#introdução-2"><i class="fa fa-check"></i><b>5.1</b> Introdução</a></li>
+<li class="chapter" data-level="5.2" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>5.2</b> Estimativa da parcela perdida</a></li>
+<li class="chapter" data-level="5.3" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#obtenção-da-análise-de-variância-2"><i class="fa fa-check"></i><b>5.3</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="5.4" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>5.4</b> Médias de tratamentos</a></li>
+<li class="chapter" data-level="5.5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>5.5</b> Erros padrões das médias</a></li>
+<li class="chapter" data-level="5.6" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>5.6</b> Comparação de médias pelo teste de Tukey</a></li>
+<li class="chapter" data-level="5.7" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#exemplo-de-aplicação-2"><i class="fa fa-check"></i><b>5.7</b> Exemplo de aplicação</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><i class="fa fa-check"></i><b>7</b> DESDOBRAMENTO DE GRAUS DE LIBERDADE DE TRATAMENTOS</a><ul>
-<li class="chapter" data-level="7.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
-<li class="chapter" data-level="7.2" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.2</b> Obtenção da análise de variância com desdobramento dos graus de liberdade de tratamentos</a></li>
-<li class="chapter" data-level="7.3" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-contrastes-de-totais-de-tratamentos"><i class="fa fa-check"></i><b>7.3</b> Método dos contrastes de totais de tratamentos</a></li>
-<li class="chapter" data-level="7.4" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#método-dos-totais-de-tratamentos-sem-utilizar-contrastes"><i class="fa fa-check"></i><b>7.4</b> Método dos totais de tratamentos (sem utilizar contrastes)</a></li>
-<li class="chapter" data-level="7.5" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos"><i class="fa fa-check"></i><b>7.5</b> Análise de variância com desdobramento dos graus de liberdade de tratamentos</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#conclusões"><i class="fa fa-check"></i><b>7.5.1</b> <strong>Conclusões</strong></a></li>
+<li class="chapter" data-level="6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>6</b> EXPERIMENTOS FATORIAIS</a><ul>
+<li class="chapter" data-level="6.1" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#introdução-3"><i class="fa fa-check"></i><b>6.1</b> Introdução</a></li>
+<li class="chapter" data-level="6.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-simples-de-um-fator"><i class="fa fa-check"></i><b>6.2</b> Efeito simples de um fator</a></li>
+<li class="chapter" data-level="6.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-principal-de-um-fator"><i class="fa fa-check"></i><b>6.3</b> Efeito principal de um fator</a></li>
+<li class="chapter" data-level="6.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-da-interação-entre-fatores"><i class="fa fa-check"></i><b>6.4</b> Efeito da interação entre fatores</a></li>
+<li class="chapter" data-level="6.5" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#vantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>6.5</b> Vantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="6.6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#desvantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>6.6</b> Desvantagens dos experimentos fatoriais</a></li>
+<li class="chapter" data-level="6.7" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>6.7</b> Classificação dos Experementos Fatoriais</a></li>
+<li class="chapter" data-level="6.8" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>6.8</b> Casualização dos tratamentos</a></li>
+<li class="chapter" data-level="6.9" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#análise-de-variância-de-um-experimento-fatorial-com-2-fatores-com-interação-não-significativa"><i class="fa fa-check"></i><b>6.9</b> Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</a></li>
+<li class="chapter" data-level="6.10" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#obtenção-da-análise-de-variância-3"><i class="fa fa-check"></i><b>6.10</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="6.11" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-tratamento-do-solo-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.11</b> Cálculo das média de Tratamento do Solo e erros padrões das médias</a></li>
+<li class="chapter" data-level="6.12" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-fungicidas-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>6.12</b> Cálculo das média de Fungicidas e erros padrões das médias</a></li>
+<li class="chapter" data-level="6.13" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>6.13</b> Cálculo do coeficiente de variação do experimento</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="desdobramento-de-graus-de-liberdade-de-tratamentos.html"><a href="desdobramento-de-graus-de-liberdade-de-tratamentos.html#componentes-com-mais-de-um-grau-de-liberdade"><i class="fa fa-check"></i><b>7.6</b> Componentes com mais de um grau de liberdade</a></li>
+<li class="chapter" data-level="7" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html"><i class="fa fa-check"></i><b>7</b> ESTUDO DO FATORIAL <span class="math inline">\(3^2\)</span></a><ul>
+<li class="chapter" data-level="7.1" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#obtenção-da-análise-de-variância-4"><i class="fa fa-check"></i><b>7.1</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="7.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-espaçamento-em-cada-nível-do-fator-densidade-e-d.-d"><i class="fa fa-check"></i><b>7.2</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Espaçamento</strong> em cada nível do fator <strong>Densidade</strong> (E d. D):</a></li>
+<li class="chapter" data-level="7.3" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-densidade-em-cada-nível-do-fator-espaçamentos-d-d.-e"><i class="fa fa-check"></i><b>7.3</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Densidade</strong> em cada nível do fator <strong>Espaçamentos</strong> (D d. E):</a></li>
+<li class="chapter" data-level="7.4" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#teste-de-tukey-para-a-comparação-de-médias"><i class="fa fa-check"></i><b>7.4</b> Teste de Tukey para a comparação de médias</a></li>
+<li class="chapter" data-level="7.5" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#resultado-do-teste-de-tukey"><i class="fa fa-check"></i><b>7.5</b> Resultado do teste de Tukey</a></li>
+<li class="chapter" data-level="7.6" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#cálculo-do-coeficiente-de-variação-do-experimento-1"><i class="fa fa-check"></i><b>7.6</b> Cálculo do coeficiente de variação do experimento</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>8</b> DELINEAMENTO EM BLOCOS CASUALIZADOS</a><ul>
-<li class="chapter" data-level="8.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#caracterização"><i class="fa fa-check"></i><b>8.1</b> Caracterização</a></li>
-<li class="chapter" data-level="8.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-matemático"><i class="fa fa-check"></i><b>8.2</b> Modelo matemático</a></li>
-<li class="chapter" data-level="8.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#hipóteses-básicas"><i class="fa fa-check"></i><b>8.3</b> Hipóteses básicas</a></li>
-<li class="chapter" data-level="8.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>8.4</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="8.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>8.5</b> Exemplo de aplicação</a></li>
+<li class="chapter" data-level="8" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html"><i class="fa fa-check"></i><b>8</b> EXPERIMENTOS EM PARCELAS SUBDIVIDIDAS</a><ul>
+<li class="chapter" data-level="8.1" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#introdução-4"><i class="fa fa-check"></i><b>8.1</b> Introdução</a></li>
+<li class="chapter" data-level="8.2" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#obtenção-da-análise-de-variância-5"><i class="fa fa-check"></i><b>8.2</b> Obtenção da análise de variância</a></li>
+<li class="chapter" data-level="8.3" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#desdobramento-da-interação-e-times-v-para-estudar-os-efeitos-de-variedades-dentro-de-cada-época-de-plantio-v-d.-e"><i class="fa fa-check"></i><b>8.3</b> 1. Desdobramento da interação E <span class="math inline">\(\times\)</span> V para estudar os efeitos de Variedades dentro de cada Época de plantio (V d. E):</a></li>
+<li class="chapter" data-level="8.4" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#desdobramento-da-interação-e-times-v-para-estudar-os-efeitos-de-épocas-dentro-de-cada-variedade-e-d.-v"><i class="fa fa-check"></i><b>8.4</b> 2. Desdobramento da interação E <span class="math inline">\(\times\)</span> V para estudar os efeitos de Épocas dentro de cada Variedade (E d. V):</a></li>
+<li class="chapter" data-level="8.5" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-das-médias"><i class="fa fa-check"></i><b>8.5</b> Cálculo das médias</a></li>
+<li class="chapter" data-level="8.6" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-dos-erros-padrões"><i class="fa fa-check"></i><b>8.6</b> Cálculo dos erros padrões:</a></li>
+<li class="chapter" data-level="8.7" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-dos-coeficientes-de-variação-do-experimento"><i class="fa fa-check"></i><b>8.7</b> Cálculo dos coeficientes de variação do experimento</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><i class="fa fa-check"></i><b>9</b> DELINEAMENTO EM BLOCOS CASUALIZADOS COM UMA PARCELA PERDIDA</a><ul>
-<li class="chapter" data-level="9.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
-<li class="chapter" data-level="9.2" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#estimativa-da-parcela-perdida"><i class="fa fa-check"></i><b>9.2</b> Estimativa da parcela perdida</a></li>
-<li class="chapter" data-level="9.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>9.3</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="9.4" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#médias-de-tratamentos"><i class="fa fa-check"></i><b>9.4</b> Médias de tratamentos</a></li>
-<li class="chapter" data-level="9.5" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#erros-padrões-das-médias"><i class="fa fa-check"></i><b>9.5</b> Erros padrões das médias</a></li>
-<li class="chapter" data-level="9.6" data-path="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html"><a href="delineamento-em-blocos-casualizados-com-uma-parcela-perdida.html#comparação-de-médias-pelo-teste-de-tukey"><i class="fa fa-check"></i><b>9.6</b> Comparação de médias pelo teste de Tukey</a></li>
-<li class="chapter" data-level="9.7" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-de-aplicação"><i class="fa fa-check"></i><b>9.7</b> Exemplo de aplicação</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html"><i class="fa fa-check"></i><b>10</b> EXPERIMENTOS FATORIAIS</a><ul>
-<li class="chapter" data-level="10.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
-<li class="chapter" data-level="10.2" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-simples-de-um-fator"><i class="fa fa-check"></i><b>10.2</b> Efeito simples de um fator</a></li>
-<li class="chapter" data-level="10.3" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-principal-de-um-fator"><i class="fa fa-check"></i><b>10.3</b> Efeito principal de um fator</a></li>
-<li class="chapter" data-level="10.4" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#efeito-da-interação-entre-fatores"><i class="fa fa-check"></i><b>10.4</b> Efeito da interação entre fatores</a></li>
-<li class="chapter" data-level="10.5" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#vantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.5</b> Vantagens dos experimentos fatoriais</a></li>
-<li class="chapter" data-level="10.6" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#desvantagens-dos-experimentos-fatoriais"><i class="fa fa-check"></i><b>10.6</b> Desvantagens dos experimentos fatoriais</a></li>
-<li class="chapter" data-level="10.7" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#classificação-dos-experementos-fatoriais"><i class="fa fa-check"></i><b>10.7</b> Classificação dos Experementos Fatoriais</a></li>
-<li class="chapter" data-level="10.8" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#casualização-dos-tratamentos"><i class="fa fa-check"></i><b>10.8</b> Casualização dos tratamentos</a></li>
-<li class="chapter" data-level="10.9" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#análise-de-variância-de-um-experimento-fatorial-com-2-fatores-com-interação-não-significativa"><i class="fa fa-check"></i><b>10.9</b> Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</a></li>
-<li class="chapter" data-level="10.10" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="10.11" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-tratamento-do-solo-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.11</b> Cálculo das média de Tratamento do Solo e erros padrões das médias</a></li>
-<li class="chapter" data-level="10.12" data-path="experimentos-fatoriais.html"><a href="experimentos-fatoriais.html#cálculo-das-média-de-fungicidas-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>10.12</b> Cálculo das média de Fungicidas e erros padrões das médias</a></li>
-<li class="chapter" data-level="10.13" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>10.13</b> Cálculo do coeficiente de variação do experimento</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><i class="fa fa-check"></i><b>11</b> ANÁLISE DE UM EXPERIMENTO FATORIAL COM 2 FATORES, COM INTERAÇÃO SIGNIFICATIVA</a><ul>
-<li class="chapter" data-level="11.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>11.1</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="11.2" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#desdobrando-a-interação-itimes-d-para-estudar-os-efeitos-do-fator-doses-em-cada-nível-do-fator-inseticida-d-d.-i"><i class="fa fa-check"></i><b>11.2</b> Desdobrando a interação <span class="math inline">\(I\times D\)</span>, para estudar os efeitos do fator <strong>DOSES</strong> em cada nível do fator <strong>INSETICIDA</strong> (D d. I):</a></li>
-<li class="chapter" data-level="11.3" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#desdobrando-a-interação-i-times-d-para-estudar-os-efeitos-do-fator-inseticidas-dentro-de-cada-nível-do-fator-dose-d-d.-i"><i class="fa fa-check"></i><b>11.3</b> Desdobrando a interação <span class="math inline">\(I \times D\)</span>, para estudar os efeitos do fator <strong>INSETICIDAS</strong> dentro de cada nível do fator <strong>DOSE</strong> (D d. I):</a></li>
-<li class="chapter" data-level="11.4" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#teste-de-tukey-para-a-comparação-de-médias"><i class="fa fa-check"></i><b>11.4</b> Teste de Tukey para a comparação de médias</a></li>
-<li class="chapter" data-level="11.5" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#para-comparar-médias-de-inseticidas-na-dose-1-i-d.-d_1"><i class="fa fa-check"></i><b>11.5</b> Para comparar médias de Inseticidas na Dose 1 (I d. <span class="math inline">\(D_1\)</span>)</a></li>
-<li class="chapter" data-level="11.6" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#para-comparar-médias-de-inseticidas-na-dose-2-i-d.-d_2"><i class="fa fa-check"></i><b>11.6</b> Para comparar médias de Inseticidas na Dose 2 (I d. <span class="math inline">\(D_2\)</span>)</a></li>
-<li class="chapter" data-level="11.7" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>11.7</b> Cálculo do coeficiente de variação do experimento</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html"><i class="fa fa-check"></i><b>12</b> ESTUDO DO FATORIAL <span class="math inline">\(3^2\)</span></a><ul>
-<li class="chapter" data-level="12.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>12.1</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="12.2" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-espaçamento-em-cada-nível-do-fator-densidade-e-d.-d"><i class="fa fa-check"></i><b>12.2</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Espaçamento</strong> em cada nível do fator <strong>Densidade</strong> (E d. D):</a></li>
-<li class="chapter" data-level="12.3" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#desdobrando-a-interação-etimes-d-para-estudar-os-efeitos-do-fator-densidade-em-cada-nível-do-fator-espaçamentos-d-d.-e"><i class="fa fa-check"></i><b>12.3</b> Desdobrando a interação <span class="math inline">\(E\times D\)</span>, para estudar os efeitos do fator <strong>Densidade</strong> em cada nível do fator <strong>Espaçamentos</strong> (D d. E):</a></li>
-<li class="chapter" data-level="12.4" data-path="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html"><a href="análise-de-um-experimento-fatorial-com-2-fatores-com-interação-significativa.html#teste-de-tukey-para-a-comparação-de-médias"><i class="fa fa-check"></i><b>12.4</b> Teste de Tukey para a comparação de médias</a></li>
-<li class="chapter" data-level="12.5" data-path="estudo-do-fatorial-32.html"><a href="estudo-do-fatorial-32.html#resultado-do-teste-de-tukey"><i class="fa fa-check"></i><b>12.5</b> Resultado do teste de Tukey</a></li>
-<li class="chapter" data-level="12.6" data-path="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html"><a href="delineamento-inteiramente-casualizado-com-número-diferente-de-repetições-por-tratamento.html#cálculo-do-coeficiente-de-variação-do-experimento"><i class="fa fa-check"></i><b>12.6</b> Cálculo do coeficiente de variação do experimento</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="estudo-do-fatorial-23.html"><a href="estudo-do-fatorial-23.html"><i class="fa fa-check"></i><b>13</b> ESTUDO DO FATORIAL <span class="math inline">\(2^3\)</span></a><ul>
-<li class="chapter" data-level="13.1" data-path="estudo-do-fatorial-23.html"><a href="estudo-do-fatorial-23.html#análise-de-variância-de-um-experimento-fatorial-23"><i class="fa fa-check"></i><b>13.1</b> Análise de variância de um experimento fatorial <span class="math inline">\(2^3\)</span></a></li>
-<li class="chapter" data-level="13.2" data-path="estudo-do-fatorial-23.html"><a href="estudo-do-fatorial-23.html#cálculo-das-somas-de-quadrados-pelo-método-dos-contrastes-de-totais-de-tratamentos."><i class="fa fa-check"></i><b>13.2</b> Cálculo das somas de quadrados pelo método dos contrastes de totais de tratamentos.</a></li>
-<li class="chapter" data-level="13.3" data-path="estudo-do-fatorial-23.html"><a href="estudo-do-fatorial-23.html#desdobramento-da-interação-n-times-k"><i class="fa fa-check"></i><b>13.3</b> Desdobramento da Interação <span class="math inline">\(N \times K\)</span></a></li>
-<li class="chapter" data-level="13.4" data-path="estudo-do-fatorial-23.html"><a href="estudo-do-fatorial-23.html#cálculo-das-médias-e-erros-padrões-das-médias"><i class="fa fa-check"></i><b>13.4</b> Cálculo das médias e erros padrões das médias</a></li>
-<li class="chapter" data-level="13.5" data-path="estudo-do-fatorial-23.html"><a href="estudo-do-fatorial-23.html#cálculo-do-coeficiente-de-variação"><i class="fa fa-check"></i><b>13.5</b> Cálculo do coeficiente de variação</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html"><i class="fa fa-check"></i><b>14</b> EXPERIMENTOS EM PARCELAS SUBDIVIDIDAS</a><ul>
-<li class="chapter" data-level="14.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>14.1</b> Introdução</a></li>
-<li class="chapter" data-level="14.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtenção-da-análise-de-variância"><i class="fa fa-check"></i><b>14.2</b> Obtenção da análise de variância</a></li>
-<li class="chapter" data-level="14.3" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#desdobramento-da-interação-e-times-v-para-estudar-os-efeitos-de-variedades-dentro-de-cada-época-de-plantio-v-d.-e"><i class="fa fa-check"></i><b>14.3</b> 1. Desdobramento da interação E <span class="math inline">\(\times\)</span> V para estudar os efeitos de Variedades dentro de cada Época de plantio (V d. E):</a></li>
-<li class="chapter" data-level="14.4" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#desdobramento-da-interação-e-times-v-para-estudar-os-efeitos-de-épocas-dentro-de-cada-variedade-e-d.-v"><i class="fa fa-check"></i><b>14.4</b> 2. Desdobramento da interação E <span class="math inline">\(\times\)</span> V para estudar os efeitos de Épocas dentro de cada Variedade (E d. V):</a></li>
-<li class="chapter" data-level="14.5" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-das-médias"><i class="fa fa-check"></i><b>14.5</b> Cálculo das médias</a></li>
-<li class="chapter" data-level="14.6" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-dos-erros-padrões"><i class="fa fa-check"></i><b>14.6</b> Cálculo dos erros padrões:</a></li>
-<li class="chapter" data-level="14.7" data-path="experimentos-em-parcelas-subdivididas.html"><a href="experimentos-em-parcelas-subdivididas.html#cálculo-dos-coeficientes-de-variação-do-experimento"><i class="fa fa-check"></i><b>14.7</b> Cálculo dos coeficientes de variação do experimento</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html"><i class="fa fa-check"></i><b>15</b> ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS</a><ul>
-<li class="chapter" data-level="15.1" data-path="planejamento-de-experimentos.html"><a href="planejamento-de-experimentos.html#introdução"><i class="fa fa-check"></i><b>15.1</b> Introdução</a></li>
-<li class="chapter" data-level="15.2" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#obtenção-da-análise-de-variância-estudando-se-os-efeitos-da-regressão"><i class="fa fa-check"></i><b>15.2</b> Obtenção da análise de variância, estudando-se os efeitos da regressão</a></li>
-<li class="chapter" data-level="15.3" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#coeficientes-de-interpolação-de-polinômios-ortogonais"><i class="fa fa-check"></i><b>15.3</b> Coeficientes de interpolação de polinômios ortogonais</a></li>
-<li class="chapter" data-level="15.4" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#obtendo-a-equação-de-regressão"><i class="fa fa-check"></i><b>15.4</b> Obtendo a Equação de Regressão</a></li>
-<li class="chapter" data-level="15.5" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cálculo-do-coeficiente-de-determinação-r²"><i class="fa fa-check"></i><b>15.5</b> Cálculo do Coeficiente de Determinação (R²)</a></li>
-<li class="chapter" data-level="15.6" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#gráfico-da-regressão-ajustada"><i class="fa fa-check"></i><b>15.6</b> Gráfico da Regressão Ajustada</a></li>
+<li class="chapter" data-level="9" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html"><i class="fa fa-check"></i><b>9</b> ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS</a><ul>
+<li class="chapter" data-level="9.1" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#introdução-5"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
+<li class="chapter" data-level="9.2" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#obtenção-da-análise-de-variância-estudando-se-os-efeitos-da-regressão"><i class="fa fa-check"></i><b>9.2</b> Obtenção da análise de variância, estudando-se os efeitos da regressão</a></li>
+<li class="chapter" data-level="9.3" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#coeficientes-de-interpolação-de-polinômios-ortogonais"><i class="fa fa-check"></i><b>9.3</b> Coeficientes de interpolação de polinômios ortogonais</a></li>
+<li class="chapter" data-level="9.4" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#obtendo-a-equação-de-regressão"><i class="fa fa-check"></i><b>9.4</b> Obtendo a Equação de Regressão</a></li>
+<li class="chapter" data-level="9.5" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cálculo-do-coeficiente-de-determinação-r²"><i class="fa fa-check"></i><b>9.5</b> Cálculo do Coeficiente de Determinação (R²)</a></li>
+<li class="chapter" data-level="9.6" data-path="análise-de-regressâo-por-polinômios-ortogonais.html"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#gráfico-da-regressão-ajustada"><i class="fa fa-check"></i><b>9.6</b> Gráfico da Regressão Ajustada</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -289,9 +233,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="análise-de-regressâo-por-polinômios-ortogonais" class="section level1">
-<h1><span class="header-section-number">Capítulo 15</span> ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS</h1>
-<div id="introdução" class="section level2">
-<h2><span class="header-section-number">15.1</span> Introdução</h2>
+<h1><span class="header-section-number">Capítulo 9</span> ANÁLISE DE REGRESSÂO POR POLINÔMIOS ORTOGONAIS</h1>
+<div id="introdução-5" class="section level2">
+<h2><span class="header-section-number">9.1</span> Introdução</h2>
 <p>Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos (X) com os dados analisados (Y).</p>
 <p>Por exemplo, essa dependência pode ser notada no caso seguinte,onde X representa oas doses de um adubo (<span class="math inline">\(kg\;h^{-1}\)</span>) e y a produção de milho (<span class="math inline">\(kg\;h^{-1}\)</span>).</p>
 <table>
@@ -320,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Vejamos então, como fazer a análise de variância para o estudo da regressão. O método utilizado é denominado de método dos polinômios ortogonais, e é de fácil aplicação quanto os níveis de X são equidistantes, poixs permitem a utilização de coeficientes obtidos em tabelas.</p>
 </div>
 <div id="obtenção-da-análise-de-variância-estudando-se-os-efeitos-da-regressão" class="section level2">
-<h2><span class="header-section-number">15.2</span> Obtenção da análise de variância, estudando-se os efeitos da regressão</h2>
+<h2><span class="header-section-number">9.2</span> Obtenção da análise de variância, estudando-se os efeitos da regressão</h2>
 <p>Para estudo da regressão, vamos utilizar os dados do trabalho: “Efeito de doses de gesso na cultura do feijoeiro (<em>Phaseolu vulgaris</em> L.)”, realizado por RAGAZZI (1979). Neste trabalho foram utilizadas 7 doses de gesso 0, 50, 100, 150, 200, 250, e 300 <span class="math inline">\(kg\;ha^{-1}\)</span>. Os resultados obtidos para peso de 1000 sementes, em gramas, são apresentados a seguir:</p>
 <table>
 <thead>
@@ -495,7 +439,7 @@ Regressão de 6º grau…1 GL<br />
 <p>Esta decomposição pode ser feita pelo métido dos polinômios ortogoais, e é de fácil aplicação quando as quantidades que determinam os tratamentos são igualmente espaçadas (equidistantes), o que ocorre no caso em estudo (0, 50, 100, 150, 20, 250, 300). Neste casos, os coeficientes dos polinômios ortogonais são obtidos em tabelas, como a seguintes:</p>
 </div>
 <div id="coeficientes-de-interpolação-de-polinômios-ortogonais" class="section level2">
-<h2><span class="header-section-number">15.3</span> Coeficientes de interpolação de polinômios ortogonais</h2>
+<h2><span class="header-section-number">9.3</span> Coeficientes de interpolação de polinômios ortogonais</h2>
 <p><img src="Tpoli01.png" /></p>
 <p><img src="Tpoli02.png" /></p>
 <p><span class="math display">\[
@@ -715,7 +659,7 @@ Os testes F para a regressão linear e regressão quadrática foram significativ
 <p>Quando o teste F para <strong>Desvios da Regressão for significativo</strong>, isto indica que <strong>existe alguma regressão significativa de grau maior que o 3º</strong> e, se tivermos interesse em estudá-la, devemos desdobrar os graus de liberdade de Desvio da Regressão.</p>
 </div>
 <div id="obtendo-a-equação-de-regressão" class="section level2">
-<h2><span class="header-section-number">15.4</span> Obtendo a Equação de Regressão</h2>
+<h2><span class="header-section-number">9.4</span> Obtendo a Equação de Regressão</h2>
 <p>A equação de regressão, até um certo grau <span class="math inline">\(p\)</span>, tem a seguinte expressão:</p>
 <p><span class="math display">\[
 \hat{Y}=\bar{Y}+\hat{b}_1M_1P_1+\hat{b}_2M_2P_2+\cdots+\hat{b}_pM_pP_p
@@ -777,7 +721,7 @@ Então,</p>
 <p><span class="math inline">\(X\)</span> é a dose de gesso aplicada (<span class="math inline">\(kg\;ha^{-1}\)</span>).</p>
 </div>
 <div id="cálculo-do-coeficiente-de-determinação-r²" class="section level2">
-<h2><span class="header-section-number">15.5</span> Cálculo do Coeficiente de Determinação (R²)</h2>
+<h2><span class="header-section-number">9.5</span> Cálculo do Coeficiente de Determinação (R²)</h2>
 <p>O coeficiente de determinação fornece uma medida do grau de ajuste da equação de regressão estimada. Ele varia entre 0 e 1 e quanto mais próximo de 1 maior o grau de ajuste da equação de regressão estimada. O valor do coeficiente de determinação para uma regressão polinomial de grau p, pode ser obitido por:</p>
 <p><span class="math display">\[
 R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}+\cdots+SQ_{reg.Grau\;p}}{SQ_{Trat}}
@@ -789,7 +733,7 @@ R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}}{SQ_{Trat}}=\frac{423,15+1285,84}{1
 <p>Portanto, <span class="math inline">\(88,01\%\)</span> da variação do peso de 1000 sementes é explicada pela regressão do peso de 1000 sementes em função da dose de gesso aplicada.</p>
 </div>
 <div id="gráfico-da-regressão-ajustada" class="section level2">
-<h2><span class="header-section-number">15.6</span> Gráfico da Regressão Ajustada</h2>
+<h2><span class="header-section-number">9.6</span> Gráfico da Regressão Ajustada</h2>
 <p>Podemos fazer uma verificação do ajuste da equação de regressão, calculando os valores esperados de (<span class="math inline">\(\hat{Y}_i\)</span>) por meio da equação de regressão ajustada, e os valores observados (<span class="math inline">\(\bar{Y}_{i\;Obs}\)</span>) por meio das médias dos tratamentos.</p>
 <p>Devemos verificar que <span class="math inline">\(\sum_{i=1}^I\bar{Y}_{i~Obs}=\sum_{i=1}^I\hat{Y}_{i}\)</span>. estes valores podem também ser utilizados para a construção do gráfico de regressão ajustada.</p>
 <p>No nosso exemplo, temos:</p>
@@ -845,11 +789,11 @@ R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}}{SQ_{Trat}}=\frac{423,15+1285,84}{1
 </tbody>
 </table>
 <p><img src="R.png" /></p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb196-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
-<span id="cb196-2"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb196-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt&quot;</span></span>
-<span id="cb196-3"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb196-3"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
-<span id="cb196-4"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb196-4"></a><span class="co"># Análise de Variância</span></span>
-<span id="cb196-5"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb196-5"></a><span class="kw">dic</span>(d<span class="op">$</span>trat,d<span class="op">$</span>y,<span class="dt">quali =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb110-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
+<span id="cb110-2"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb110-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt&quot;</span></span>
+<span id="cb110-3"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb110-3"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
+<span id="cb110-4"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb110-4"></a><span class="co"># Análise de Variância</span></span>
+<span id="cb110-5"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb110-5"></a><span class="kw">dic</span>(d<span class="op">$</span>trat,d<span class="op">$</span>y,<span class="dt">quali =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
@@ -949,17 +893,17 @@ R^2= \frac{SQ_{Reg.Grau\;1}+SQ_{Reg.Grau\;2}}{SQ_{Trat}}=\frac{423,15+1285,84}{1
 ## Residuos             21  886.3375   42.2066                
 ## -----------------------------------------------------------
 ## ------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-1"></a><span class="co"># Construção do gráfico</span></span>
-<span id="cb198-2"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-2"></a>X&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">50</span>)</span>
-<span id="cb198-3"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-3"></a>Y&lt;-<span class="kw">tapply</span>(d<span class="op">$</span>y, d<span class="op">$</span>trat, mean)</span>
-<span id="cb198-4"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-4"></a><span class="kw">plot</span>(Y<span class="op">~</span>X,</span>
-<span id="cb198-5"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-5"></a>     <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb198-6"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-6"></a>     <span class="dt">pch=</span><span class="dv">21</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">bg=</span><span class="st">&quot;gray&quot;</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,</span>
-<span id="cb198-7"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-7"></a>     <span class="dt">xlab=</span><span class="st">&quot;Dose de Gesso (kg/ha)&quot;</span>,</span>
-<span id="cb198-8"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-8"></a>     <span class="dt">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span></span>
-<span id="cb198-9"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-9"></a>);<span class="kw">curve</span>(<span class="fl">140.7836+0.2737</span><span class="op">*</span>x<span class="fl">-0.000783</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb198-10"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb198-10"></a><span class="kw">text</span>(<span class="dv">155</span>,<span class="dv">145</span>,<span class="st">&quot;140.7836+0.2737X-0.000783X²\nR²=0.8801&quot;</span>)</span></code></pre></div>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-1"></a><span class="co"># Construção do gráfico</span></span>
+<span id="cb112-2"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-2"></a>X&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">50</span>)</span>
+<span id="cb112-3"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-3"></a>Y&lt;-<span class="kw">tapply</span>(d<span class="op">$</span>y, d<span class="op">$</span>trat, mean)</span>
+<span id="cb112-4"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-4"></a><span class="kw">plot</span>(Y<span class="op">~</span>X,</span>
+<span id="cb112-5"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-5"></a>     <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb112-6"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-6"></a>     <span class="dt">pch=</span><span class="dv">21</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">bg=</span><span class="st">&quot;gray&quot;</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,</span>
+<span id="cb112-7"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-7"></a>     <span class="dt">xlab=</span><span class="st">&quot;Dose de Gesso (kg/ha)&quot;</span>,</span>
+<span id="cb112-8"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-8"></a>     <span class="dt">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span></span>
+<span id="cb112-9"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-9"></a>);<span class="kw">curve</span>(<span class="fl">140.7836+0.2737</span><span class="op">*</span>x<span class="fl">-0.000783</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb112-10"><a href="análise-de-regressâo-por-polinômios-ortogonais.html#cb112-10"></a><span class="kw">text</span>(<span class="dv">155</span>,<span class="dv">145</span>,<span class="st">&quot;140.7836+0.2737X-0.000783X²\nR²=0.8801&quot;</span>)</span></code></pre></div>
+<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.</p>
 
 </div>
