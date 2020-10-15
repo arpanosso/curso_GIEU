@@ -12,7 +12,7 @@ link-citations: yes
 description: Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R
 ---
 
-# INTRODUÇÃO
+# Introdução
 
 A Estatística Experimental tem como objetivo o estudo dos experimentos, isto é, seu planejamneto, execução, análise dos dados e interpretação dos resultados obtidos.
 

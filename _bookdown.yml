@@ -3,4 +3,4 @@ book_filename: "curso_GIEU"
 delete_merged_file: true
 language:
   ui:
-    chapter_name: "Capítulo "
+    chapter_name: " "
