@@ -1,6 +1,6 @@
-# EXPERIMENTOS EM PARCELAS SUBDIVIDIDAS
+# Experimentos em Parcelas Subdivididas
 
-## Introdução
+**Introdução**
 
 Os experimento em parcelas subdivididas, também conhecidos como "Split-plot", são utilizados quado, num mesmo ensaio, queremos testar os efeitos de 2 ou mais fatores, mas em condições experimentais um pouco diferentes daquelas utilizadas nos experimentos fatoriais.
 
@@ -33,7 +33,7 @@ As parcelas podem ser ditribuídas de acordo com um delineamento qualquer, ou se
 
 ![](fat1.png)
 
-## Exemplo de Aplicação
+**Exemplo de Aplicação**
 
 Para a obtenção da análise de variância de um experimento em parcelas subdivididas, vamos utilizar os dados obtidos do trabalho intitulado "Efeito de épocas de plantio, sobre várias características agronômicas na cultura da soja (*Glycine max*. (L.) Merril), variedades Santa Rosa e Viçoja, e Jaboticabal, SP", realizado por K. YUYAMA (1976). Foram utilizadas 8 épocas de plantio (20/10/74, 30/10/74, 10/11/74, 20/11/74, 30/11/74, 10/12/47, 20/12/74 e 30/12/74) e duas variedade de soja ($V_1$ = Viçoja e $V_2$ = Santa Rosa). O ensaio foi montado de acordo com o delineamento em parcelas subdivididas, com as épocas de plantio nas parcelas, e as variedades nas subparcelas. Os resultados obtidos para produção de grãos ($t\;ha^{-1}$), foram os seguintes:
 
@@ -59,7 +59,7 @@ Para a obtenção da análise de variância de um experimento em parcelas subdiv
 
 os dados estão disponíveis online em: [sojapsub.txt](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt).
 
-## Aplicação em R - Parcelas Sudivididas
+**Aplicação em R - Parcelas Sudivididas**
 
 ![](R.png)
 ```{r}

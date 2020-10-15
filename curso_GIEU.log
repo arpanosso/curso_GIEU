@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.10.14)  14 OCT 2020 09:41
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.10.14)  14 OCT 2020 21:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,114 +996,111 @@ Chapter 1.
 [5] [6]
 Chapter 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 211.
+(Font)              scaled to size 7.0pt on input line 209.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 211.
+(Font)              scaled to size 5.0pt on input line 209.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 211.
+(Font)              scaled to size 10.00092pt on input line 209.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 211.
+(Font)              scaled to size 7.00064pt on input line 209.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 211.
+(Font)              scaled to size 5.00046pt on input line 209.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 211.
+(Font)              scaled to size 9.99893pt on input line 209.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 211.
+(Font)              scaled to size 6.99925pt on input line 209.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 211.
+(Font)              scaled to size 4.99947pt on input line 209.
 [7
 
 ] [8]
 File: Delin1.png Graphic file (type bmp)
 <Delin1.png>
 
-Overfull \hbox (28.25232pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 2.3.  HIPÓTESES BÁSICAS PARA APLICAÇÃO DA ANÁLOISE DE VARIÂNCIA
- \TU/lmr/m/n/10 9
- []
+Underfull \vbox (badness 1783) has occurred while \output is active []
 
 [9]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 2.1 on input line 312.
+(longtable)                in table 2.1 on input line 307.
 
 File: Rlogo.png Graphic file (type bmp)
 <Rlogo.png>
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 330.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 324.
 [10]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (216.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (216.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## De acordo com o teste de Shapiro-Wilk a 5% de significanci
 a, os residuos podem ser considerados normais.[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (222.0pt too wide) in paragraph at lines 398--398
+Overfull \hbox (222.0pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## De acordo com o teste de bartlett a 5% de significancia, a
 s variancias podem ser consideradas homogeneas.[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 [11]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 398--398
+Overfull \hbox (48.75pt too wide) in paragraph at lines 392--392
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 [12]
 Chapter 3.
+File: DBC_d.png Graphic file (type bmp)
+<DBC_d.png>
 [13
 
 ]
-File: DBC_d.png Graphic file (type bmp)
-<DBC_d.png>
 File: DIC_d.png Graphic file (type bmp)
 <DIC_d.png>
 [14] [15]
@@ -1119,14 +1116,14 @@ Missing character: There is no à in font lmmi10!
 Missing character: There is no ç in font lmmi10!
 Missing character: There is no ã in font lmmi10!
 
-Overfull \hbox (58.70122pt too wide) detected at line 534
+Overfull \hbox (58.70122pt too wide) detected at line 525
 []
  []
 
 File: R.png Graphic file (type bmp)
 <R.png>
 [16] [17]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 642--642
+Overfull \hbox (6.75pt too wide) in paragraph at lines 631--631
 []\TU/lmtt/m/n/10 ## Treatments with the same letter are not significantly diff
 erent.[] 
  []
@@ -1134,68 +1131,71 @@ erent.[]
 File: curso_GIEU_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pd
 f)
 <use curso_GIEU_files/figure-latex/unnamed-chunk-3-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [18] [19]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (216.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (216.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## De acordo com o teste de Shapiro-Wilk a 5% de significanci
 a, os residuos podem ser considerados normais.[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (111.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (111.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ATENCAO: a 5% de significancia, as variancias nao podem se
 r consideradas homogeneas![] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 735--735
+Overfull \hbox (48.75pt too wide) in paragraph at lines 724--724
 []\TU/lmtt/m/n/10 ## ----------------------------------------------------------
 --------------[] 
  []
@@ -1209,14 +1209,14 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.758 \begin{array}{}
+l.746 \begin{array}{}
                       
 Here is how much of TeX's memory you used:
- 18372 strings out of 479445
- 318649 string characters out of 5879513
- 782209 words of memory out of 5000000
- 37423 multiletter control sequences out of 15000+600000
- 541669 words of font info for 86 fonts, out of 8000000 for 9000
+ 18368 strings out of 479445
+ 318547 string characters out of 5879513
+ 783209 words of memory out of 5000000
+ 37421 multiletter control sequences out of 15000+600000
+ 541653 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,9n,118p,466b,466s stack positions out of 5000i,500n,10000p,200000b,80000s
 

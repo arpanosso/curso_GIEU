@@ -1,6 +1,6 @@
-# DELINEAMENTO EM BLOCOS CASUALIZADOS
+# Delineamento em Blocos Casualizados
 
-## Caracterização
+**Caracterização**
 
 O delineamento em blocos casualizados (DBC) é o mais utilizado dos delineamentos experimentais, e os experimentos instalados de acordo com esse delineamento são denominados de **experimentos em blocos casualizados** ou **experimentos em blocos ao acaso**. Além dos princípios da ***repetição*** e da ***casualização***, leva em conta também o princípio do ***controle local***.
 
@@ -40,7 +40,7 @@ Note que dentro de cada bloco temos as variedades sorteadas ao acaso. Caso este 
 
 2. A exigência de homogeneidade dentro do bloco limita o número de tratamentos, que não pode ser muito grande.
 
-## Modelo matemático
+**Modelo matemático**
 
 Para podermos analisar um experimento em qualquer delineamento, necessitamos conhecer o modelo matemático do mesmo, e aceitar algumas hipóteses básicas necessárias para a validade da análise de variância.
 
@@ -76,7 +76,7 @@ Pra Blocos, a comparação é feita entre o valor de F calculado com o F tabelad
 
 Se $F_{Blocos} > F_{Tab}$, concluímos que o teste é significativo, portanto, rejeitamos $H_0$ e devemos concluir que os blocos possuem efeitos diferentes em relação à característica em estudo, ou seja, os blocos foram eficientes no controle da heterogeneidade local.
 
-## Exemplo de aplicação
+**Exemplo de aplicação do DBC**
 
 No trabalho "Influência do genótipo e da adubação sobre algumas características fenotípicas de *Zea mays* L (Milho)", realizado por BARBOSA (1976), foram utilizadas 4 cultivares de milho:
 
@@ -121,7 +121,7 @@ H_1: As\;cultivares\;testadas\;diferem\;entre\;si\;em\;relação\;à\;produção
 \end{cases}
 $$
 
-## Aplicação em R - DBC
+**Aplicação em R - DBC**
 
 ![](R.png)
 

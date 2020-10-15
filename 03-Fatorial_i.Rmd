@@ -1,6 +1,6 @@
-# EXPERIMENTOS FATORIAIS
+# Experimentos Fatoriais
 
-## Introdução
+**Introdução**
 
 Os experimentos simples, realizados de acordo com o delineamento interiamente casualizado ou em blocos casualizados, são utilizados para testar os efeitos de apenas um  tipo de **tratamento**, ou **fator**, sendo os demais mantidos constantes.
 
@@ -28,7 +28,7 @@ Neste caso, representamos o esquema fatorial como: $\text{Fatorial }3 \times 4$ 
 
 **As subdivisões de um fator são denominados NÍVEIS desse fator**. Então, no exemplo anterior, o fator **Inseticida** ocorrem em **3 níveis**, e o fator **Dosagem** ocorre em **4 nívies**. Assim, no ensaio acima, podemos obter conclusões sobre a qual o melhor inseticida, qual a melhor dosagem e qual a melhor dosagem para cada inseticida.
 
-## Classificação dos Experementos Fatoriais
+**Classificação dos Experementos Fatoriais**
 
 **Fatoriais de série $2^N$**
 
@@ -68,12 +68,12 @@ $$
 4\times 3\times 2 \Rightarrow \begin{cases} \text{1º Fator em 4 Níveis }\\ \text{2º Fator em 3 Níveis } \\ \text{3º Fator em 2 Níveis } \end{cases}
 $$
 
-## Casualização dos tratamentos
+**Casualização dos tratamentos**
 
 Para exemplificar a casualização dos tratamentos, vamos supor um experimento fatorial $3 \times 2$, com 3 variedades de milho ($V_1,V_2,V_3$) e 2 níveis de adubação dom $P_2O_5$ ($P_1 e\; P_2$). Se o experimento fosee instalado de acordo com o delineamento em blocos casualizados, com 4 repetições, teríamos:
 
 ![](Casuali.png)
-## Análise de variância de um experimento fatorial com 2 fatores com interação não significativa
+**Análise de variância de um experimento fatorial com 2 fatores com interação não significativa**
 
 Para a obtenção da análise de variância, vamos utlizar os dados adaptados do trabalho "Ensaios em condições de casa-de-vegetação para controlo químico do 'damping-off' em *Eucalyptus saligna* Sm.", realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p. 97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de *Eucalytus saligna*, do fatores:
 
@@ -104,7 +104,7 @@ As alturas médias de mudas (cm) 28 dias após a semeadura foram:
 Os dados podem ser encontrados online em [solofungi.txt](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt)
 
 
-## Aplicação em R - Fatorial com Interação Não Significativa
+**Aplicação em R - Fatorial com Interação Não Significativa**
 
 ![](R.png)
 
@@ -159,41 +159,6 @@ model.tables(mod,type="means")
 ```{r}
 HSD.test(mod,"solos",group=TRUE,console=TRUE)
 HSD.test(mod,"fungicida",group=TRUE,console = TRUE)
-```
-
-**SE A INTERAÇÃO FOR SIGNIFICATIVA**
-
-**Desdobramento de Tratamento de Solos dentro Fungicida**
-
-```{r}
-# Redefinindo o modelo para o estudo das interações
-modab <- aov(y~fungicida/solos) # Colocar os Controles locais, blocos, se for o caso
-
-# Observe a posição dos efeitos que tem a interação fungicida:solos
-effects(modab)
-
-### defina a lista que apresetam fungicida 0 e 1 nos efeitos abaixo
-effects(modab)[3:8]
-summary(modab,split=list("fungicida:solos"=list(Fung0=c(1,3,4), # tem fungicida 0
-                                                Fung1=c(2,4,6)))) # tem fungicida 1
-```
-
-**Desdobramento de Fungicida dentro Tratamento de Solo**
-
-```{r}
-# Redefinindo o modelo para o estudo das interações
-modba <- aov(y~solos/fungicida) # Colocar os Controles locais, blocos, se for o caso
-
-# Observe a posição dos efeitos que tem a interação solos:fungicida
-effects(modba)
-
-### defina a lista que apresentam os solos 1 2 3 e 4 nos efeitos abaixo
-effects(modba)[5:8]
-summary(modba,split=list("solos:fungicida"=list(Tsolo1=1, # tem solo 1
-                                                Tsolo2=2, # tem solo 2
-                                                Tsolo3=3, # tem solo 3
-                                                Tsolo4=4 # tem solo 4
-                                                ))) 
 ```
 
 **Utilizando ao pacrote ExpDes.pt, mais prático**

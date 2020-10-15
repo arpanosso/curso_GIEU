@@ -142,8 +142,7 @@ A Estatística Experimental tem como objetivo o estudo dos experimentos, isto é
 
 Vejamos então, alguns conceitos básicos necessários para um bom entendimento da estatística Experimental.
 
-\hypertarget{alguns-conceitos-buxe1sicos}{%
-\section{Alguns conceitos básicos}\label{alguns-conceitos-buxe1sicos}}
+\textbf{Alguns conceitos básicos}
 
 \textbf{POPULAÇÃO}
 
@@ -174,10 +173,9 @@ Experimento é um trabalho previamente planejado, no qual se faz comparação do
 É o plano utilizado na experimentação, e implica na forma como os tratamento deverão ser distribuídos nas unidades experimentais e como serão analisados os dados a serem obtidos. Como exemplo, temos o delineamento inteiramente casualizado (DIC), o delineamento em blocos casualizados (DBC) o delineamento em quadrado latino (DQL), entre outros.
 
 \hypertarget{delineamento-inteiramente-casualizado}{%
-\chapter{DELINEAMENTO INTEIRAMENTE CASUALIZADO}\label{delineamento-inteiramente-casualizado}}
+\chapter{Delineamento Inteiramente Casualizado}\label{delineamento-inteiramente-casualizado}}
 
-\hypertarget{caracterizauxe7uxe3o}{%
-\section{Caracterização}\label{caracterizauxe7uxe3o}}
+\textbf{Caracterização}
 
 O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos interiamente casualizados ou experimentos inteiramente ao acaso.
 
@@ -236,8 +234,7 @@ A4 & C1 & E4 & E2 & E2
 \end{matrix}
 \]
 
-\hypertarget{modelo-matemuxe1tico}{%
-\section{Modelo Matemático}\label{modelo-matemuxe1tico}}
+\textbf{Modelo Matemático}
 
 Todo delineamento experimental possui um modelo matemático que o representa, que deve ser levado em conta na análise de variância, \textbf{aceitando algumas hipóteses básicas necessárias para a validade da análise.} No caso do DIC.
 
@@ -253,8 +250,7 @@ onde:
 
 \(\epsilon_{ij}\) é o efeito dos fatores não controlados na parcela que recebeu o tratamento \emph{i} na repetição \emph{j}.
 
-\hypertarget{hipuxf3teses-buxe1sicas-para-aplicauxe7uxe3o-da-anuxe1loise-de-variuxe2ncia}{%
-\section{Hipóteses básicas para aplicação da análoise de variância}\label{hipuxf3teses-buxe1sicas-para-aplicauxe7uxe3o-da-anuxe1loise-de-variuxe2ncia}}
+\textbf{Hipóteses básicas para aplicação da análoise de variância}
 
 As hipóteses básicas que devemos admitir para tornar válida a aplicação da análise de variância são as seguintes:
 
@@ -276,8 +272,7 @@ Uma forma resumida de apresentar estas quatro pressuposições é apresentada a 
 \epsilon_{ij} \overset{iid}{\tilde{}} N(0,\sigma^2) \\
 \]
 
-\hypertarget{exemplo-de-aplicauxe7uxe3o}{%
-\section{Exemplo de aplicação}\label{exemplo-de-aplicauxe7uxe3o}}
+\textbf{Exemplo de aplicação DIC}
 
 Num experimento inteiramente casualizado, de competição de variedades de mandioca, realizado numa área perfeitamente homogênea quanto às condições experimentais, foram utilizadas 5 repetições das seguintes variedades:
 
@@ -317,10 +312,9 @@ As hipóteses que desejamos testar são:
 
 \(H_1\): As variedades de mandioca testadas diferem entre si quanto à produção.
 
-\hypertarget{aplicauxe7uxe3o-em-r---dic}{%
-\section{Aplicação em R - DIC}\label{aplicauxe7uxe3o-em-r---dic}}
+\textbf{Aplicação no R - DIC}
 
-Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt}{Mandioca}.
+Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt}{Mandioca}.
 
 \includegraphics{Rlogo.png}
 
@@ -332,7 +326,7 @@ Utilizando o R para obtermos o quadro da análise de variância, os dados estão
 
 
 \CommentTok{# Caminho dos dados}
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/mandioca.txt"}
+\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt"}
 
 \CommentTok{# Lendo o arquivo de dados}
 \NormalTok{dados<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\NormalTok{T,}\DataTypeTok{sep=}\StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
@@ -398,10 +392,9 @@ Utilizando o R para obtermos o quadro da análise de variância, os dados estão
 \end{verbatim}
 
 \hypertarget{delineamento-em-blocos-casualizados}{%
-\chapter{DELINEAMENTO EM BLOCOS CASUALIZADOS}\label{delineamento-em-blocos-casualizados}}
+\chapter{Delineamento em Blocos Casualizados}\label{delineamento-em-blocos-casualizados}}
 
-\hypertarget{caracterizauxe7uxe3o-1}{%
-\section{Caracterização}\label{caracterizauxe7uxe3o-1}}
+\textbf{Caracterização}
 
 O delineamento em blocos casualizados (DBC) é o mais utilizado dos delineamentos experimentais, e os experimentos instalados de acordo com esse delineamento são denominados de \textbf{experimentos em blocos casualizados} ou \textbf{experimentos em blocos ao acaso}. Além dos princípios da \textbf{\emph{repetição}} e da \textbf{\emph{casualização}}, leva em conta também o princípio do \textbf{\emph{controle local}}.
 
@@ -453,8 +446,7 @@ Note que dentro de cada bloco temos as variedades sorteadas ao acaso. Caso este 
   A exigência de homogeneidade dentro do bloco limita o número de tratamentos, que não pode ser muito grande.
 \end{enumerate}
 
-\hypertarget{modelo-matemuxe1tico-1}{%
-\section{Modelo matemático}\label{modelo-matemuxe1tico-1}}
+\textbf{Modelo matemático}
 
 Para podermos analisar um experimento em qualquer delineamento, necessitamos conhecer o modelo matemático do mesmo, e aceitar algumas hipóteses básicas necessárias para a validade da análise de variância.
 
@@ -489,8 +481,7 @@ Pra Blocos, a comparação é feita entre o valor de F calculado com o F tabelad
 
 Se \(F_{Blocos} > F_{Tab}\), concluímos que o teste é significativo, portanto, rejeitamos \(H_0\) e devemos concluir que os blocos possuem efeitos diferentes em relação à característica em estudo, ou seja, os blocos foram eficientes no controle da heterogeneidade local.
 
-\hypertarget{exemplo-de-aplicauxe7uxe3o-1}{%
-\section{Exemplo de aplicação}\label{exemplo-de-aplicauxe7uxe3o-1}}
+\textbf{Exemplo de aplicação do DBC}
 
 No trabalho ``Influência do genótipo e da adubação sobre algumas características fenotípicas de \emph{Zea mays} L (Milho)'', realizado por BARBOSA (1976), foram utilizadas 4 cultivares de milho:
 
@@ -504,7 +495,7 @@ No trabalho ``Influência do genótipo e da adubação sobre algumas caracterís
 
 O ensaio foi montado de acordo com o delineamento em blocos casualizados, sendo utilizados 5 blocos para controlar as diferenças de fertilidade do solo entre terraços.
 
-Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em \href{https://github.com/arpanosso/ExpAgr_2020/blob/master/dados/milho.txt}{milho}.
+Os resultados obtidos para a produção em kg/ha, foram os seguintes e podem ser encontrados online em \href{https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/milho.txt}{milho}.
 
 \begin{table}[H]
 \centering
@@ -533,14 +524,12 @@ H_1: As\;cultivares\;testadas\;diferem\;entre\;si\;em\;relação\;à\;produção
 \end{cases}
 \]
 
-\hypertarget{aplicauxe7uxe3o-em-r---dbc}{%
-\section{Aplicação em R - DBC}\label{aplicauxe7uxe3o-em-r---dbc}}
+\textbf{Aplicação em R - DBC}
 
 \includegraphics{R.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/milho.txt"}
 \NormalTok{dados<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\NormalTok{T,}\DataTypeTok{sep=}\StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
 \KeywordTok{head}\NormalTok{(dados)}
 \end{Highlighting}
@@ -589,7 +578,7 @@ H_1: As\;cultivares\;testadas\;diferem\;entre\;si\;em\;relação\;à\;produção
 \end{Shaded}
 
 \begin{verbatim}
-## Carregando pacotes exigidos: agricolae
+## Loading required package: agricolae
 \end{verbatim}
 
 \begin{verbatim}
@@ -735,10 +724,9 @@ Utilizando o pacote ``ExpDes.pt''
 \end{verbatim}
 
 \hypertarget{experimentos-fatoriais}{%
-\chapter{EXPERIMENTOS FATORIAIS}\label{experimentos-fatoriais}}
+\chapter{Experimentos Fatoriais}\label{experimentos-fatoriais}}
 
-\hypertarget{introduuxe7uxe3o-1}{%
-\section{Introdução}\label{introduuxe7uxe3o-1}}
+\textbf{Introdução}
 
 Os experimentos simples, realizados de acordo com o delineamento interiamente casualizado ou em blocos casualizados, são utilizados para testar os efeitos de apenas um tipo de \textbf{tratamento}, ou \textbf{fator}, sendo os demais mantidos constantes.
 
@@ -766,8 +754,7 @@ Neste caso, representamos o esquema fatorial como: \(\text{Fatorial }3 \times 4\
 
 \textbf{As subdivisões de um fator são denominados NÍVEIS desse fator}. Então, no exemplo anterior, o fator \textbf{Inseticida} ocorrem em \textbf{3 níveis}, e o fator \textbf{Dosagem} ocorre em \textbf{4 nívies}. Assim, no ensaio acima, podemos obter conclusões sobre a qual o melhor inseticida, qual a melhor dosagem e qual a melhor dosagem para cada inseticida.
 
-\hypertarget{classificauxe7uxe3o-dos-experementos-fatoriais}{%
-\section{Classificação dos Experementos Fatoriais}\label{classificauxe7uxe3o-dos-experementos-fatoriais}}
+\textbf{Classificação dos Experementos Fatoriais}
 
 \textbf{Fatoriais de série \(2^N\)}
 
@@ -806,13 +793,12 @@ Exemplo:
 4\times 3\times 2 \Rightarrow \begin{cases} \text{1º Fator em 4 Níveis }\\ \text{2º Fator em 3 Níveis } \\ \text{3º Fator em 2 Níveis } \end{cases}
 \]
 
-\hypertarget{casualizauxe7uxe3o-dos-tratamentos}{%
-\section{Casualização dos tratamentos}\label{casualizauxe7uxe3o-dos-tratamentos}}
+\textbf{Casualização dos tratamentos}
 
 Para exemplificar a casualização dos tratamentos, vamos supor um experimento fatorial \(3 \times 2\), com 3 variedades de milho (\(V_1,V_2,V_3\)) e 2 níveis de adubação dom \(P_2O_5\) (\(P_1 e\; P_2\)). Se o experimento fosee instalado de acordo com o delineamento em blocos casualizados, com 4 repetições, teríamos:
 
 \includegraphics{Casuali.png}
-\#\# Análise de variância de um experimento fatorial com 2 fatores com interação não significativa
+\textbf{Análise de variância de um experimento fatorial com 2 fatores com interação não significativa}
 
 Para a obtenção da análise de variância, vamos utlizar os dados adaptados do trabalho ``Ensaios em condições de casa-de-vegetação para controlo químico do `damping-off' em \emph{Eucalyptus saligna} Sm.'', realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p.~97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de \emph{Eucalytus saligna}, do fatores:
 
@@ -845,10 +831,9 @@ Tratamentos & Rep.1 & Rep.2 & Rep.3 & Total\tabularnewline
 \bottomrule
 \end{longtable}
 
-Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/solofungi.txt}{solofungi.txt}
+Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt}{solofungi.txt}
 
-\hypertarget{aplicauxe7uxe3o-em-r---fatorial-com-interauxe7uxe3o-nuxe3o-significativa}{%
-\section{Aplicação em R - Fatorial com Interação Não Significativa}\label{aplicauxe7uxe3o-em-r---fatorial-com-interauxe7uxe3o-nuxe3o-significativa}}
+\textbf{Aplicação em R - Fatorial com Interação Não Significativa}
 
 \includegraphics{R.png}
 
@@ -861,7 +846,7 @@ Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com
 \KeywordTok{library}\NormalTok{(tidyverse)}
 
 \CommentTok{# Definindo o caminho do banco de dados}
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/solofungi.txt"}
+\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt"}
 
 \CommentTok{# Entrada da dados}
 \NormalTok{dados<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\OtherTok{TRUE}\NormalTok{)}
@@ -1030,137 +1015,6 @@ Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com
 ## 1 3.833333      a
 \end{verbatim}
 
-\textbf{SE A INTERAÇÃO FOR SIGNIFICATIVA}
-
-\textbf{Desdobramento de Tratamento de Solos dentro Fungicida}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Redefinindo o modelo para o estudo das interações}
-\NormalTok{modab <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(y}\OperatorTok{~}\NormalTok{fungicida}\OperatorTok{/}\NormalTok{solos) }\CommentTok{# Colocar os Controles locais, blocos, se for o caso}
-
-\CommentTok{# Observe a posição dos efeitos que tem a interação fungicida:solos}
-\KeywordTok{effects}\NormalTok{(modab)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       (Intercept)        fungicida1 fungicida0:solos2 fungicida1:solos2 
-##      -19.23665945        0.45723809       -2.43333333       -2.55333333 
-## fungicida0:solos3 fungicida1:solos3 fungicida0:solos4 fungicida1:solos4 
-##        2.08832203        1.19029641        2.47398464        2.54338685 
-##                                                                         
-##        0.22214988        0.08861007        0.21297776        0.54969732 
-##                                                                         
-##        0.02094651       -0.15636171       -0.43154093       -0.17709510 
-##                                                                         
-##        0.56214988       -0.21138993        1.05297776        0.12969732 
-##                                                                         
-##       -0.06905349        0.06363829       -0.12154093        0.18290490 
-## attr(,"assign")
-## [1] 0 1 2 2 2 2 2 2
-## attr(,"class")
-## [1] "coef"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{### defina a lista que apresetam fungicida 0 e 1 nos efeitos abaixo}
-\KeywordTok{effects}\NormalTok{(modab)[}\DecValTok{3}\OperatorTok{:}\DecValTok{8}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## fungicida0:solos2 fungicida1:solos2 fungicida0:solos3 fungicida1:solos3 
-##         -2.433333         -2.553333          2.088322          1.190296 
-## fungicida0:solos4 fungicida1:solos4 
-##          2.473985          2.543387
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(modab,}\DataTypeTok{split=}\KeywordTok{list}\NormalTok{(}\StringTok{"fungicida:solos"}\NormalTok{=}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Fung0=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{), }\CommentTok{# tem fungicida 0}
-                                                \DataTypeTok{Fung1=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{)))) }\CommentTok{# tem fungicida 1}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                          Df Sum Sq Mean Sq F value   Pr(>F)    
-## fungicida                 1  0.209   0.209   1.527    0.234    
-## fungicida:solos           6 30.808   5.135  37.504 1.50e-08 ***
-##   fungicida:solos: Fung0  3 11.699   3.900  28.484 1.18e-06 ***
-##   fungicida:solos: Fung1  3 14.405   4.802  35.072 2.89e-07 ***
-## Residuals                16  2.191   0.137                     
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{verbatim}
-
-\textbf{Desdobramento de Fungicida dentro Tratamento de Solo}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Redefinindo o modelo para o estudo das interações}
-\NormalTok{modba <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(y}\OperatorTok{~}\NormalTok{solos}\OperatorTok{/}\NormalTok{fungicida) }\CommentTok{# Colocar os Controles locais, blocos, se for o caso}
-
-\CommentTok{# Observe a posição dos efeitos que tem a interação solos:fungicida}
-\KeywordTok{effects}\NormalTok{(modba)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       (Intercept)            solos2            solos3            solos4 
-##      -19.23665945        3.52610582       -2.31833333       -3.54781740 
-## solos1:fungicida1 solos2:fungicida1 solos3:fungicida1 solos4:fungicida1 
-##        0.47765050       -0.15513435       -0.26536139        0.54705271 
-##                                                                         
-##        0.27843631        0.23598418        0.17014073        0.45811440 
-##                                                                         
-##        0.04648794       -0.42110079       -0.34919980       -0.18139452 
-##                                                                         
-##        0.61843631       -0.06401582        1.01014073        0.03811440 
-##                                                                         
-##       -0.04351206       -0.20110079       -0.03919980        0.17860548 
-## attr(,"assign")
-## [1] 0 1 1 1 2 2 2 2
-## attr(,"class")
-## [1] "coef"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{### defina a lista que apresentam os solos 1 2 3 e 4 nos efeitos abaixo}
-\KeywordTok{effects}\NormalTok{(modba)[}\DecValTok{5}\OperatorTok{:}\DecValTok{8}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## solos1:fungicida1 solos2:fungicida1 solos3:fungicida1 solos4:fungicida1 
-##         0.4776505        -0.1551344        -0.2653614         0.5470527
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(modba,}\DataTypeTok{split=}\KeywordTok{list}\NormalTok{(}\StringTok{"solos:fungicida"}\NormalTok{=}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Tsolo1=}\DecValTok{1}\NormalTok{, }\CommentTok{# tem solo 1}
-                                                \DataTypeTok{Tsolo2=}\DecValTok{2}\NormalTok{, }\CommentTok{# tem solo 2}
-                                                \DataTypeTok{Tsolo3=}\DecValTok{3}\NormalTok{, }\CommentTok{# tem solo 3}
-                                                \DataTypeTok{Tsolo4=}\DecValTok{4} \CommentTok{# tem solo 4}
-\NormalTok{                                                ))) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                           Df Sum Sq Mean Sq F value   Pr(>F)    
-## solos                      3 30.395  10.132  74.004 1.35e-09 ***
-## solos:fungicida            4  0.622   0.155   1.136    0.375    
-##   solos:fungicida: Tsolo1  1  0.228   0.228   1.666    0.215    
-##   solos:fungicida: Tsolo2  1  0.024   0.024   0.176    0.681    
-##   solos:fungicida: Tsolo3  1  0.070   0.070   0.514    0.484    
-##   solos:fungicida: Tsolo4  1  0.299   0.299   2.186    0.159    
-## Residuals                 16  2.191   0.137                     
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{verbatim}
-
 \textbf{Utilizando ao pacrote ExpDes.pt, mais prático}
 
 \begin{Shaded}
@@ -1169,7 +1023,7 @@ Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com
 \KeywordTok{library}\NormalTok{(ExpDes.pt)}
 
 \CommentTok{# Definindo o caminho do banco de dados}
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/solofungi.txt"}
+\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt"}
 
 \CommentTok{# Entrada da dados}
 \NormalTok{dados<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\OtherTok{TRUE}\NormalTok{)}
@@ -1231,7 +1085,7 @@ Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com
 \end{verbatim}
 
 \hypertarget{estudo-do-fatorial-32}{%
-\chapter{\texorpdfstring{ESTUDO DO FATORIAL \(3^2\)}{ESTUDO DO FATORIAL 3\^{}2}}\label{estudo-do-fatorial-32}}
+\chapter{\texorpdfstring{Estudo do Fatorial \(3^2\)}{Estudo do Fatorial 3\^{}2}}\label{estudo-do-fatorial-32}}
 
 Nos experimentos fatoriais \(3^2\) ou \(3 \times 3\), temos 2 fatores, cada um dos quais ocorre em 3 níveis. Os tratamentos são formados pelas combinações dos 3 níveis dos 2 fatores, resultando em 9 tratamentos.
 
@@ -1255,10 +1109,9 @@ Espaçamento & Densidade & Bloco 1 & Bloco 2 & Bloco 3 & Totais\tabularnewline
 \bottomrule
 \end{longtable}
 
-os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt}{crotalaria.txt}.
+os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt}{crotalaria.txt}.
 
-\hypertarget{aplicauxe7uxe3o-em-r---fatorial-com-interauxe7uxe3o-significativa}{%
-\section{Aplicação em R - Fatorial com Interação Significativa}\label{aplicauxe7uxe3o-em-r---fatorial-com-interauxe7uxe3o-significativa}}
+\textbf{Aplicação em R - Fatorial com Interação Significativa}
 
 \includegraphics{R.png}
 
@@ -1271,7 +1124,7 @@ os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/
 \KeywordTok{library}\NormalTok{(tidyverse)}
 
 \CommentTok{# Definindo o caminho do banco de dados}
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt"}
+\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt"}
 
 \CommentTok{# Entrada da dados}
 \NormalTok{dados<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\OtherTok{TRUE}\NormalTok{)}
@@ -1296,7 +1149,7 @@ os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/
 ## `summarise()` regrouping output by 'Espaçamento' (override with `.groups` argument)
 \end{verbatim}
 
-\includegraphics{curso_GIEU_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{curso_GIEU_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1313,7 +1166,7 @@ os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/
 ## `summarise()` regrouping output by 'Espaçamento' (override with `.groups` argument)
 \end{verbatim}
 
-\includegraphics{curso_GIEU_files/figure-latex/unnamed-chunk-12-2.pdf}
+\includegraphics{curso_GIEU_files/figure-latex/unnamed-chunk-10-2.pdf}
 \textbf{Analise considerando o delineamento de tratamentos}
 
 \begin{Shaded}
@@ -1494,7 +1347,7 @@ os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/
 \begin{Highlighting}[]
 \CommentTok{# Carregando o pacote par análise de variância}
 \KeywordTok{library}\NormalTok{(ExpDes.pt)}
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/crotalaria.txt"}
+\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt"}
 \NormalTok{d<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\OtherTok{TRUE}\NormalTok{)}
 \NormalTok{esp<-}\KeywordTok{factor}\NormalTok{(d}\OperatorTok{$}\NormalTok{Espaçamento)}
 \NormalTok{den<-}\KeywordTok{factor}\NormalTok{(d}\OperatorTok{$}\NormalTok{Densidade)}
@@ -1637,10 +1490,9 @@ os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/
 \end{verbatim}
 
 \hypertarget{experimentos-em-parcelas-subdivididas}{%
-\chapter{EXPERIMENTOS EM PARCELAS SUBDIVIDIDAS}\label{experimentos-em-parcelas-subdivididas}}
+\chapter{Experimentos em Parcelas Subdivididas}\label{experimentos-em-parcelas-subdivididas}}
 
-\hypertarget{introduuxe7uxe3o-2}{%
-\section{Introdução}\label{introduuxe7uxe3o-2}}
+\textbf{Introdução}
 
 Os experimento em parcelas subdivididas, também conhecidos como ``Split-plot'', são utilizados quado, num mesmo ensaio, queremos testar os efeitos de 2 ou mais fatores, mas em condições experimentais um pouco diferentes daquelas utilizadas nos experimentos fatoriais.
 
@@ -1684,8 +1536,7 @@ Assim, por exemplo, num experimento em parcelas subdivididas, com os fatores: Ad
 
 \includegraphics{fat1.png}
 
-\hypertarget{exemplo-de-aplicauxe7uxe3o-2}{%
-\section{Exemplo de Aplicação}\label{exemplo-de-aplicauxe7uxe3o-2}}
+\textbf{Exemplo de Aplicação}
 
 Para a obtenção da análise de variância de um experimento em parcelas subdivididas, vamos utilizar os dados obtidos do trabalho intitulado ``Efeito de épocas de plantio, sobre várias características agronômicas na cultura da soja (\emph{Glycine max}. (L.) Merril), variedades Santa Rosa e Viçoja, e Jaboticabal, SP'', realizado por K. YUYAMA (1976). Foram utilizadas 8 épocas de plantio (20/10/74, 30/10/74, 10/11/74, 20/11/74, 30/11/74, 10/12/47, 20/12/74 e 30/12/74) e duas variedade de soja (\(V_1\) = Viçoja e \(V_2\) = Santa Rosa). O ensaio foi montado de acordo com o delineamento em parcelas subdivididas, com as épocas de plantio nas parcelas, e as variedades nas subparcelas. Os resultados obtidos para produção de grãos (\(t\;ha^{-1}\)), foram os seguintes:
 
@@ -1714,17 +1565,16 @@ Total & 44,3800 & 45,5242 & 42,2576 & \textbf{132,1618}\tabularnewline
 \bottomrule
 \end{longtable}
 
-os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sojapsub.txt}{sojapsub.txt}.
+os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt}{sojapsub.txt}.
 
-\hypertarget{aplicauxe7uxe3o-em-r---parcelas-sudivididas}{%
-\section{Aplicação em R - Parcelas Sudivididas}\label{aplicauxe7uxe3o-em-r---parcelas-sudivididas}}
+\textbf{Aplicação em R - Parcelas Sudivididas}
 
 \includegraphics{R.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{require}\NormalTok{(ExpDes.pt)}
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sojapsub.txt"}
+\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt"}
 \NormalTok{d<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\NormalTok{T)}
 \KeywordTok{psub2.dbc}\NormalTok{(d}\OperatorTok{$}\NormalTok{E,d}\OperatorTok{$}\NormalTok{V,d}\OperatorTok{$}\NormalTok{Bloco,d}\OperatorTok{$}\NormalTok{Y,}\DataTypeTok{fac.names =} \KeywordTok{c}\NormalTok{(}\StringTok{"Épocas"}\NormalTok{,}\StringTok{"Variedades"}\NormalTok{))}
 \end{Highlighting}
@@ -1892,10 +1742,9 @@ os dados estão disponíveis online em: \href{https://raw.githubusercontent.com/
 \end{verbatim}
 
 \hypertarget{anuxe1lise-de-regressuxe3o}{%
-\chapter{ANÁLISE DE REGRESSÃO}\label{anuxe1lise-de-regressuxe3o}}
+\chapter{Análise de Regressão}\label{anuxe1lise-de-regressuxe3o}}
 
-\hypertarget{introduuxe7uxe3o-3}{%
-\section{Introdução}\label{introduuxe7uxe3o-3}}
+\textbf{Introdução}
 
 Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos (X) com os dados analisados (Y).
 
@@ -1914,8 +1763,7 @@ Verificamos, portanto ,que há uma tendência de aumento na produção à medida
 
 Vejamos então, como fazer a análise de variância para o estudo da regressão. O método utilizado é denominado de método dos polinômios ortogonais, e é de fácil aplicação quanto os níveis de X são equidistantes, poixs permitem a utilização de coeficientes obtidos em tabelas.
 
-\hypertarget{obtenuxe7uxe3o-da-anuxe1lise-de-variuxe2ncia-estudando-se-os-efeitos-da-regressuxe3o}{%
-\section{Obtenção da análise de variância, estudando-se os efeitos da regressão}\label{obtenuxe7uxe3o-da-anuxe1lise-de-variuxe2ncia-estudando-se-os-efeitos-da-regressuxe3o}}
+\textbf{Obtenção da análise de variância, estudando-se os efeitos da regressão}
 
 Para estudo da regressão, vamos utilizar os dados do trabalho: ``Efeito de doses de gesso na cultura do feijoeiro (\emph{Phaseolu vulgaris} L.)'', realizado por RAGAZZI (1979). Neste trabalho foram utilizadas 7 doses de gesso 0, 50, 100, 150, 200, 250, e 300 \(kg\;ha^{-1}\). Os resultados obtidos para peso de 1000 sementes, em gramas, são apresentados a seguir:
 
@@ -1935,7 +1783,7 @@ Tratamentos & Rep.~1 & Rep.~2 & Rep.~3 & Rep.~4 & Totais\tabularnewline
 \bottomrule
 \end{longtable}
 
-Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt}{feijaoREG.txt}
+Os dados podem ser encontrados online em \href{https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt}{feijaoREG.txt}
 
 A análise de variância preliminar será realizada de acordo com o delineamento experimental utilizado. O Ensaio foi montado de acordo com o delineamento inteiramente casualizado, e portanto, a análise de variância preliminar, obtido de maneira usual,
 
@@ -1993,8 +1841,7 @@ Assim, sendo, no nosso exemplo, a equação que melhor se ajusta é a de 2º gra
 
 Quando o teste F para \textbf{Desvios da Regressão for significativo}, isto indica que \textbf{existe alguma regressão significativa de grau maior que o 3º} e, se tivermos interesse em estudá-la, devemos desdobrar os graus de liberdade de Desvio da Regressão.
 
-\hypertarget{gruxe1fico-da-regressuxe3o-ajustada}{%
-\section{Gráfico da Regressão Ajustada}\label{gruxe1fico-da-regressuxe3o-ajustada}}
+\textbf{Gráfico da Regressão Ajustada}
 
 Podemos fazer uma verificação do ajuste da equação de regressão, calculando os valores esperados de (\(\hat{Y}_i\)) por meio da equação de regressão ajustada, e os valores observados (\(\bar{Y}_{i\;Obs}\)) por meio das médias dos tratamentos.
 
@@ -2018,15 +1865,14 @@ Dose de Gesso (X) & \(\bar{Y}_{i~Obs}\) & \(\hat{Y}_i\)\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{aplicauxe7uxe3o-em-r---anuxe1lise-de-regressuxe3o}{%
-\section{Aplicação em R - Análise de Regressão}\label{aplicauxe7uxe3o-em-r---anuxe1lise-de-regressuxe3o}}
+\textbf{Aplicação em R - Análise de Regressão}
 
 \includegraphics{R.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{require}\NormalTok{(ExpDes.pt)}
-\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/feijaoREG.txt"}
+\NormalTok{caminho<-}\StringTok{"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt"}
 \NormalTok{d<-}\KeywordTok{read.table}\NormalTok{(caminho,}\DataTypeTok{h=}\NormalTok{T)}
 \CommentTok{# Análise de Variância}
 \KeywordTok{dic}\NormalTok{(d}\OperatorTok{$}\NormalTok{trat,d}\OperatorTok{$}\NormalTok{y,}\DataTypeTok{quali =} \OtherTok{FALSE}\NormalTok{)}
@@ -2150,7 +1996,7 @@ Dose de Gesso (X) & \(\bar{Y}_{i~Obs}\) & \(\hat{Y}_i\)\tabularnewline
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso_GIEU_files/figure-latex/unnamed-chunk-19-1.pdf}
+\includegraphics{curso_GIEU_files/figure-latex/unnamed-chunk-17-1.pdf}
 
 Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.
 

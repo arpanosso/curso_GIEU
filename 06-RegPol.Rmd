@@ -1,6 +1,6 @@
-# ANÁLISE DE REGRESSÃO
+# Análise de Regressão
 
-## Introdução
+**Introdução**
 
 Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos (X) com os dados analisados (Y).
 
@@ -14,7 +14,7 @@ Verificamos, portanto ,que há uma tendência de aumento na produção à medida
 
 Vejamos então, como fazer a análise de variância para o estudo da regressão. O método utilizado é denominado de método dos polinômios ortogonais, e é de fácil aplicação quanto os níveis de X são equidistantes, poixs permitem a utilização de coeficientes obtidos em tabelas.
 
-## Obtenção da análise de variância, estudando-se os efeitos da regressão
+**Obtenção da análise de variância, estudando-se os efeitos da regressão**
 
 Para estudo da regressão, vamos utilizar os dados do trabalho: "Efeito de doses de gesso na cultura do feijoeiro (*Phaseolu vulgaris* L.)", realizado por RAGAZZI (1979). Neste trabalho foram utilizadas 7 doses de gesso 0, 50, 100, 150, 200, 250, e 300 $kg\;ha^{-1}$. Os resultados obtidos para peso de 1000 sementes, em gramas, são apresentados a seguir:
 
@@ -81,7 +81,7 @@ Assim, sendo, no nosso exemplo, a equação que melhor se ajusta é a de 2º gra
 
 Quando o teste F para **Desvios da Regressão for significativo**, isto indica que **existe alguma regressão significativa de grau maior que o 3º** e, se tivermos interesse em estudá-la, devemos desdobrar os graus de liberdade de Desvio da Regressão.
 
-## Gráfico da Regressão Ajustada
+**Gráfico da Regressão Ajustada**
 
 Podemos fazer uma verificação do ajuste da equação de regressão, calculando os valores esperados de ($\hat{Y}_i$) por meio da equação de regressão ajustada, e os valores observados ($\bar{Y}_{i\;Obs}$) por meio das médias dos tratamentos.
 
@@ -101,10 +101,9 @@ No nosso exemplo, temos:
 |**Total**|**1094,80**|**1094,72**|
 
 
-## Aplicação em R - Análise de Regressão
+**Aplicação em R - Análise de Regressão**
 
 ![](R.png)
-
 ```{r}
 require(ExpDes.pt)
 caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt"

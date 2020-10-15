@@ -1,6 +1,6 @@
-# DELINEAMENTO INTEIRAMENTE CASUALIZADO
+# Delineamento Inteiramente Casualizado
 
-## Caracterização
+**Caracterização**
 
 O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos interiamente casualizados ou experimentos inteiramente ao acaso.
 
@@ -48,7 +48,7 @@ A4 & C1 & E4 & E2 & E2
 \end{matrix}
 $$
 
-## Modelo Matemático
+**Modelo Matemático**
 
 Todo delineamento experimental possui um modelo matemático que o representa, que deve ser levado em conta na análise de variância, **aceitando algumas hipóteses básicas necessárias para a validade da análise.** No caso do DIC.
 
@@ -64,7 +64,7 @@ $\tau_i$ é o efeito devido ao tratamento *i* que foi aplicado à parcela,
 
 $\epsilon_{ij}$ é o efeito dos fatores não controlados na parcela que recebeu o tratamento *i* na repetição *j*.
 
-## Hipóteses básicas para aplicação da análoise de variância
+**Hipóteses básicas para aplicação da análoise de variância**
 
 As hipóteses básicas que devemos admitir para tornar válida a aplicação da análise de variância são as seguintes:
 
@@ -83,7 +83,7 @@ $$
 $$
   
 
-## Exemplo de aplicação
+**Exemplo de aplicação DIC**
 
 Num experimento inteiramente casualizado, de competição de variedades de mandioca, realizado numa área perfeitamente homogênea quanto às condições experimentais, foram utilizadas 5 repetições das seguintes variedades:
 
@@ -118,7 +118,7 @@ $H_0$: As variedades de mandioca testadas não são diferentes entre si quanto �
 
 $H_1$: As variedades de mandioca testadas diferem entre si quanto à produção.
 
-## Aplicação em R - DIC
+**Aplicação no R - DIC**
 
 Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: [Mandioca](https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt).
 

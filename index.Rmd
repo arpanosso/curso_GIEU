@@ -18,7 +18,7 @@ A Estatística Experimental tem como objetivo o estudo dos experimentos, isto é
 
 Vejamos então, alguns conceitos básicos necessários para um bom entendimento da estatística Experimental.
 
-## Alguns conceitos básicos
+**Alguns conceitos básicos**
 
 **POPULAÇÃO**
 
