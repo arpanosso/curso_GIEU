@@ -4,15 +4,15 @@
 
 Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos (X) com os dados analisados (Y).
 
-Por exemplo, essa dependência pode ser notada no caso seguinte,onde X representa as doses de um adubo ($kg\;h^{-1}$) e y a produção de milho ($kg\;h^{-1}$).
+Por exemplo, essa dependência pode ser notada no caso seguinte, onde X representa as doses de um adubo ($kg\;h^{-1}$) e y a produção de milho ($kg\;h^{-1}$).
 
 |X|0|25|50|75|100|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |Y|2100|2600|3000|3550|4150|
 
-Verificamos, portanto ,que há uma tendência de aumento na produção à medida que aumentamos a quantidade de adubo aplicada.
+Verificamos, portanto, que há uma tendência de aumento na produção à medida que aumentamos a quantidade de adubo aplicada.
 
-Vejamos então, como fazer a análise de variância para o estudo da regressão. O método utilizado é denominado de método dos polinômios ortogonais, e é de fácil aplicação quanto os níveis de X são equidistantes, poixs permitem a utilização de coeficientes obtidos em tabelas.
+Vejamos então, como fazer a análise de variância para o estudo da regressão.
 
 **Obtenção da análise de variância, estudando-se os efeitos da regressão**
 
@@ -56,7 +56,7 @@ Regressão de 6º grau...1 GL
 ---------------------------------------  
 (Tratamentos)............(6) GL  
 
-Porém, as regressões de grau maior que 3º não tem interesse prático, de modo que, na análise de variância, podemos considerar as regress~es de graus maior que o 3º como uma única causa de variação, que denominamos de **Desvios da Regressão**. Assim, no nosso exemplo, temos:
+Porém, as regressões de grau maior que 3º não tem interesse prático, de modo que, na análise de variância, podemos considerar as regressões de graus maior que o 3º como uma única causa de variação, que denominamos de **Desvios da Regressão**. Assim, no nosso exemplo, temos:
 
 |Causas de Variação|GL|
 |:---|---:|
@@ -68,14 +68,14 @@ Porém, as regressões de grau maior que 3º não tem interesse prático, de mod
 |Resíduo|21|
 |Total|27|
 
-Esta decomposição pode ser feita pelo métido dos polinômios ortogoais, e é de fácil aplicação quando as quantidades que determinam os tratamentos são igualmente espaçadas (equidistantes), o que ocorre no caso em estudo (0, 50, 100, 150, 20, 250, 300). Neste casos, os coeficientes dos polinômios ortogonais são obtidos em tabelas, como a seguintes:
+Esta decomposição pode ser feita pelo método dos polinômios ortogonais, e é de fácil aplicação quando as quantidades que determinam os tratamentos são igualmente espaçadas (equidistantes), o que ocorre no caso em estudo (0, 50, 100, 150, 20, 250, 300). Neste caso, os coeficientes dos polinômios ortogonais são obtidos em tabelas, como a seguintes:
 
 
 
 **CONCLUSÃO**:  
 Os testes F para a regressão linear e regressão quadrática foram significativos ao nível de $1\%$ de probabilidade, indicando que é possível estabelecer uma relação funcional entre a dose de gesso ($X$) e o peso de 1000 sementes do feijoeiro ($Y$).
 
-A equação de regressão que melhor se ajusta aos dados é a correspondente à **REGRESSÃO DE MAIS ALTO GRAU** cujo teste F soi significativo.
+A equação de regressão que melhor se ajusta aos dados é a correspondente à **REGRESSÃO DE MAIS ALTO GRAU** cujo teste F foi significativo.
 
 Assim, sendo, no nosso exemplo, a equação que melhor se ajusta é a de 2º grau (Quadrática).
 

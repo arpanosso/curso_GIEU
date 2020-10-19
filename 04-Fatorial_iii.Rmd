@@ -2,7 +2,7 @@
 
 Nos experimentos fatoriais $3^2$ ou $3 \times 3$, temos 2 fatores, cada um dos quais ocorre em 3 níveis. Os tratamentos são formados pelas combinações dos 3 níveis dos 2 fatores, resultando em 9 tratamentos.
 
-Como exemplo de um ensaio fatorial $3^2$, vamos utilizar os dados obtidos do trabalho de graduação intitulado "Efeitos do espaçamento e da densidade de semeadura na produção de massa verde e matéria seca em diferntes épocas e, na produção de sementes da cultura *Crotalaria juncea* L.", realizado por LAMERS (1981). Neste trabalho, foram utilizado 3 espaçamentos entre linhas (25 cm, 50 cm e 75 cm) e 3 densidade de plantas por metro linear (15, 30 e 45 plantas por metro linear). O delineamento foi instalado em blocos casualizados com 3 repetições, e os dados obtidos para produção de massa verde (t/ha), 139 dias após a semeadura, foram os seguintes:
+Como exemplo de um ensaio fatorial $3^2$, vamos utilizar os dados obtidos do trabalho de graduação intitulado "Efeitos do espaçamento e da densidade de semeadura na produção de massa verde e matéria seca em diferentes épocas e, na produção de sementes da cultura *Crotalaria juncea* L.", realizado por LAMERS (1981). Neste trabalho, foram utilizado 3 espaçamentos entre linhas (25 cm, 50 cm e 75 cm) e 3 densidade de plantas por metro linear (15, 30 e 45 plantas por metro linear). O delineamento foi instalado em blocos casualizados com 3 repetições, e os dados obtidos para produção de massa verde (t/ha), 139 dias após a semeadura, foram os seguintes:
 
 Espaçamento|Densidade|Bloco 1|Bloco 2|Bloco 3|Totais|
 :---|:---:|:---:|:---:|:---:|:---:|

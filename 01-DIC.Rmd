@@ -2,7 +2,7 @@
 
 **Caracterização**
 
-O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos interiamente casualizados ou experimentos inteiramente ao acaso.
+O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos inteiramente casualizados ou experimentos inteiramente ao acaso.
 
 Este delineamento apresenta as seguintes características:
 
@@ -37,7 +37,7 @@ E1 & E2 & E3 & E4
 \end{matrix}
 $$
 
-Assim, um sorteio para distribuição dos tratamento às parcelas poderia ser o seguinte:
+Assim, um sorteio para distribuição dos tratamentos às parcelas poderia ser o seguinte:
 
 $$
 \begin{matrix}
@@ -64,7 +64,7 @@ $\tau_i$ é o efeito devido ao tratamento *i* que foi aplicado à parcela,
 
 $\epsilon_{ij}$ é o efeito dos fatores não controlados na parcela que recebeu o tratamento *i* na repetição *j*.
 
-**Hipóteses básicas para aplicação da análoise de variância**
+**Hipóteses básicas para aplicação da análise de variância**
 
 As hipóteses básicas que devemos admitir para tornar válida a aplicação da análise de variância são as seguintes:
 

@@ -2,7 +2,7 @@
 
 **Introdução**
 
-Os experimentos simples, realizados de acordo com o delineamento interiamente casualizado ou em blocos casualizados, são utilizados para testar os efeitos de apenas um  tipo de **tratamento**, ou **fator**, sendo os demais mantidos constantes.
+Os experimentos simples, realizados de acordo com o delineamento inteiramente casualizado ou em blocos casualizados, são utilizados para testar os efeitos de apenas um  tipo de **tratamento**, ou **fator**, sendo os demais mantidos constantes.
 
 Assim, por exemplo, num experimento de comparação de inseticidas em relação ao controle de uma determinada praga, devemos manter constante a dosagem, o método de aplicação, os tratos culturas, etc.
 
@@ -28,7 +28,7 @@ Neste caso, representamos o esquema fatorial como: $\text{Fatorial }3 \times 4$ 
 
 **As subdivisões de um fator são denominados NÍVEIS desse fator**. Então, no exemplo anterior, o fator **Inseticida** ocorrem em **3 níveis**, e o fator **Dosagem** ocorre em **4 nívies**. Assim, no ensaio acima, podemos obter conclusões sobre a qual o melhor inseticida, qual a melhor dosagem e qual a melhor dosagem para cada inseticida.
 
-**Classificação dos Experementos Fatoriais**
+**Classificação dos Experimentos Fatoriais**
 
 **Fatoriais de série $2^N$**
 
@@ -70,12 +70,12 @@ $$
 
 **Casualização dos tratamentos**
 
-Para exemplificar a casualização dos tratamentos, vamos supor um experimento fatorial $3 \times 2$, com 3 variedades de milho ($V_1,V_2,V_3$) e 2 níveis de adubação dom $P_2O_5$ ($P_1 e\; P_2$). Se o experimento fosee instalado de acordo com o delineamento em blocos casualizados, com 4 repetições, teríamos:
+Para exemplificar a casualização dos tratamentos, vamos supor um experimento fatorial $3 \times 2$, com 3 variedades de milho ($V_1,V_2,V_3$) e 2 níveis de adubação dom $P_2O_5$ ($P_1 e\; P_2$). Se o experimento fosse instalado de acordo com o delineamento em blocos casualizados, com 4 repetições, teríamos:
 
 ![](Casuali.png)
 **Análise de variância de um experimento fatorial com 2 fatores com interação não significativa**
 
-Para a obtenção da análise de variância, vamos utlizar os dados adaptados do trabalho "Ensaios em condições de casa-de-vegetação para controlo químico do 'damping-off' em *Eucalyptus saligna* Sm.", realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p. 97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de *Eucalytus saligna*, do fatores:
+Para a obtenção da análise de variância, vamos utilizar os dados adaptados do trabalho "Ensaios em condições de casa-de-vegetação para controlo químico do 'damping-off' em *Eucalyptus saligna* Sm.", realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p. 97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de *Eucalytus saligna*, do fatores:
 
 **Tratamento do solo (S)**, sendo:  
 $S_1=\text{Vapam}$  

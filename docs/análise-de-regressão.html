@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 7 Análise de Regressão | Curso do R do GIEU</title>
-  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 7 Análise de Regressão | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content=" 7 Análise de Regressão | Curso do R do GIEU" />
   
-  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   
 
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-16" />
+<meta name="date" content="2020-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -167,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number"> 7</span> Análise de Regressão</h1>
 <p><strong>Introdução</strong></p>
 <p>Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos (X) com os dados analisados (Y).</p>
-<p>Por exemplo, essa dependência pode ser notada no caso seguinte,onde X representa as doses de um adubo (<span class="math inline">\(kg\;h^{-1}\)</span>) e y a produção de milho (<span class="math inline">\(kg\;h^{-1}\)</span>).</p>
+<p>Por exemplo, essa dependência pode ser notada no caso seguinte, onde X representa as doses de um adubo (<span class="math inline">\(kg\;h^{-1}\)</span>) e y a produção de milho (<span class="math inline">\(kg\;h^{-1}\)</span>).</p>
 <table>
 <thead>
 <tr class="header">
@@ -190,8 +190,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Verificamos, portanto ,que há uma tendência de aumento na produção à medida que aumentamos a quantidade de adubo aplicada.</p>
-<p>Vejamos então, como fazer a análise de variância para o estudo da regressão. O método utilizado é denominado de método dos polinômios ortogonais, e é de fácil aplicação quanto os níveis de X são equidistantes, poixs permitem a utilização de coeficientes obtidos em tabelas.</p>
+<p>Verificamos, portanto, que há uma tendência de aumento na produção à medida que aumentamos a quantidade de adubo aplicada.</p>
+<p>Vejamos então, como fazer a análise de variância para o estudo da regressão.</p>
 <p><strong>Obtenção da análise de variância, estudando-se os efeitos da regressão</strong></p>
 <p>Para estudo da regressão, vamos utilizar os dados do trabalho: “Efeito de doses de gesso na cultura do feijoeiro (<em>Phaseolu vulgaris</em> L.)”, realizado por RAGAZZI (1979). Neste trabalho foram utilizadas 7 doses de gesso 0, 50, 100, 150, 200, 250, e 300 <span class="math inline">\(kg\;ha^{-1}\)</span>. Os resultados obtidos para peso de 1000 sementes, em gramas, são apresentados a seguir:</p>
 <table>
@@ -319,7 +319,7 @@ Regressão de 5º grau…1 GL<br />
 Regressão de 6º grau…1 GL<br />
 —————————————<br />
 (Tratamentos)…………(6) GL</p>
-<p>Porém, as regressões de grau maior que 3º não tem interesse prático, de modo que, na análise de variância, podemos considerar as regress~es de graus maior que o 3º como uma única causa de variação, que denominamos de <strong>Desvios da Regressão</strong>. Assim, no nosso exemplo, temos:</p>
+<p>Porém, as regressões de grau maior que 3º não tem interesse prático, de modo que, na análise de variância, podemos considerar as regressões de graus maior que o 3º como uma única causa de variação, que denominamos de <strong>Desvios da Regressão</strong>. Assim, no nosso exemplo, temos:</p>
 <table>
 <thead>
 <tr class="header">
@@ -358,10 +358,10 @@ Regressão de 6º grau…1 GL<br />
 </tr>
 </tbody>
 </table>
-<p>Esta decomposição pode ser feita pelo métido dos polinômios ortogoais, e é de fácil aplicação quando as quantidades que determinam os tratamentos são igualmente espaçadas (equidistantes), o que ocorre no caso em estudo (0, 50, 100, 150, 20, 250, 300). Neste casos, os coeficientes dos polinômios ortogonais são obtidos em tabelas, como a seguintes:</p>
+<p>Esta decomposição pode ser feita pelo método dos polinômios ortogonais, e é de fácil aplicação quando as quantidades que determinam os tratamentos são igualmente espaçadas (equidistantes), o que ocorre no caso em estudo (0, 50, 100, 150, 20, 250, 300). Neste caso, os coeficientes dos polinômios ortogonais são obtidos em tabelas, como a seguintes:</p>
 <p><strong>CONCLUSÃO</strong>:<br />
 Os testes F para a regressão linear e regressão quadrática foram significativos ao nível de <span class="math inline">\(1\%\)</span> de probabilidade, indicando que é possível estabelecer uma relação funcional entre a dose de gesso (<span class="math inline">\(X\)</span>) e o peso de 1000 sementes do feijoeiro (<span class="math inline">\(Y\)</span>).</p>
-<p>A equação de regressão que melhor se ajusta aos dados é a correspondente à <strong>REGRESSÃO DE MAIS ALTO GRAU</strong> cujo teste F soi significativo.</p>
+<p>A equação de regressão que melhor se ajusta aos dados é a correspondente à <strong>REGRESSÃO DE MAIS ALTO GRAU</strong> cujo teste F foi significativo.</p>
 <p>Assim, sendo, no nosso exemplo, a equação que melhor se ajusta é a de 2º grau (Quadrática).</p>
 <p>Quando o teste F para <strong>Desvios da Regressão for significativo</strong>, isto indica que <strong>existe alguma regressão significativa de grau maior que o 3º</strong> e, se tivermos interesse em estudá-la, devemos desdobrar os graus de liberdade de Desvio da Regressão.</p>
 <p><strong>Gráfico da Regressão Ajustada</strong></p>

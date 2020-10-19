@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 6 Experimentos em Parcelas Subdivididas | Curso do R do GIEU</title>
-  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 6 Experimentos em Parcelas Subdivididas | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content=" 6 Experimentos em Parcelas Subdivididas | Curso do R do GIEU" />
   
-  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   
 
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-16" />
+<meta name="date" content="2020-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="experimentos-em-parcelas-subdivididas" class="section level1">
 <h1><span class="header-section-number"> 6</span> Experimentos em Parcelas Subdivididas</h1>
 <p><strong>Introdução</strong></p>
-<p>Os experimento em parcelas subdivididas, também conhecidos como “Split-plot”, são utilizados quado, num mesmo ensaio, queremos testar os efeitos de 2 ou mais fatores, mas em condições experimentais um pouco diferentes daquelas utilizadas nos experimentos fatoriais.</p>
+<p>Os experimentos em parcelas subdivididas, também conhecidos como “Split-plot”, são utilizados quando, num mesmo ensaio, queremos testar os efeitos de 2 ou mais fatores, mas em condições experimentais um pouco diferentes daquelas utilizadas nos experimentos fatoriais.</p>
 <p>Por exemplo:</p>
 <ul>
 <li>4 Variedades e 3 Níveis de Adubação
@@ -178,17 +178,17 @@ etc.</li>
 </ul></li>
 </ul>
 <p>As unidade experimentais ou parcelas, são divididas em partes menores e iguais, chamadas de subparcelas.</p>
-<p>As parcelas podem ser ditribuídas de acordo com um delineamento qualquer, ou seja, inteiramente ao acaso ou blocos casualizados. A principal característica deste delineamento é a casualiização dos tratamentos, que é feita em 2 estágios.</p>
+<p>As parcelas podem ser distribuídas de acordo com um delineamento qualquer, ou seja, inteiramente ao acaso ou blocos casualizados. A principal característica deste delineamento é a casualização dos tratamentos, que é feita em 2 estágios.</p>
 <ul>
 <li><p>No primeiro estágio, é feita a casualização dos níveis do fator testado, nas parcelas, de acordo com o delineamento adotado.</p>
 <ul>
-<li>No segundo estágio, em cada parcela, é eita a casualização dos níveis do fator que será testados na subparcelas.</li>
+<li>No segundo estágio, em cada parcela, é feita a casualização dos níveis do fator que será testado nas subparcelas.</li>
 </ul>
 <p>Denominamos de tratamentos principais ou tratamento primários, àqueles que são colocados nas parcelas, e de tratamento secundários ou subtratamentos àqueles que são colocados nas subparcelas.</p>
-<p>Nesses experimento, temos 2 resíduos: O <strong>resíduo a</strong>, que serve como base de comparação para os tratamentos principais. e o <strong>resíduo b</strong>, que serve como base de comparação para os tratamentos secundários e para a interação <span class="math inline">\(P \times S\)</span>.</p>
-<p>Em consequência do tipo de casualização feia, o erro experimentao devido aos tratamentos secundários (QM Resíduo b), geralmente é menor que o erro experimental devido aos tratamentos principais (QM Resíduo a).</p>
-<p>Dessa maneira, os efeitos dos tratamentos principais são determinados com menor precisão que os efeitods dos tratamentos secundários.</p>
-<p>Assim, por exemplo, num experimento em parcelas subdivididas, com os fatores: Adubação (tratamento principal-I) e Variedades (tratamento secundário-K), sendo utilzizados 2 níveis de Adubação (<span class="math inline">\(A_0\; e\; A_1\)</span>) e 3 Variedades (<span class="math inline">\(V_1\;V_2\;e\; V_3\)</span>), o esquema de casualização os tratamento , se o experimento fosse montado de acordo com o DBC, com 5 blocos (J), seria o seguinte.</p></li>
+<p>Nesses experimentos, temos 2 resíduos: O <strong>resíduo a</strong>, que serve como base de comparação para os tratamentos principais, e o <strong>resíduo b</strong>, que serve como base de comparação para os tratamentos secundários e para a interação <span class="math inline">\(P \times S\)</span>.</p>
+<p>Em consequência do tipo de casualização feia, o erro experimental devido aos tratamentos secundários (QM Resíduo b), geralmente é menor que o erro experimental devido aos tratamentos principais (QM Resíduo a).</p>
+<p>Dessa maneira, os efeitos dos tratamentos principais são determinados com menor precisão que os efeitos dos tratamentos secundários.</p>
+<p>Assim, por exemplo, num experimento em parcelas subdivididas, com os fatores: Adubação (tratamento principal-I) e Variedades (tratamento secundário-K), sendo utilizados 2 níveis de Adubação (<span class="math inline">\(A_0\; e\; A_1\)</span>) e 3 Variedades (<span class="math inline">\(V_1\;V_2\;e\; V_3\)</span>), o esquema de casualização os tratamento , se o experimento fosse montado de acordo com o DBC, com 5 blocos (J), seria o seguinte.</p></li>
 </ul>
 <p><img src="psub1.png" />
 <strong>Observação</strong>: Caso este mesmo ensaio fosse montado de acordo com o esquema fatorial <span class="math inline">\(2 \times 3\)</span> em 5 blocos, a casualização seria feita de modo diferente e, como exemplo, apresentamos o sorteio do delineamento seguinte:</p>

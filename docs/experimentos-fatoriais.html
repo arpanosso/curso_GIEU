@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 4 Experimentos Fatoriais | Curso do R do GIEU</title>
-  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 4 Experimentos Fatoriais | Curso do R do GIEU" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta property="og:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content=" 4 Experimentos Fatoriais | Curso do R do GIEU" />
   
-  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R" />
+  <meta name="twitter:description" content="Etapa do curso visando a apresentação da análise dos principais delineamentos experimentais utilizando o R." />
   
 
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-16" />
+<meta name="date" content="2020-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="experimentos-fatoriais" class="section level1">
 <h1><span class="header-section-number"> 4</span> Experimentos Fatoriais</h1>
 <p><strong>Introdução</strong></p>
-<p>Os experimentos simples, realizados de acordo com o delineamento interiamente casualizado ou em blocos casualizados, são utilizados para testar os efeitos de apenas um tipo de <strong>tratamento</strong>, ou <strong>fator</strong>, sendo os demais mantidos constantes.</p>
+<p>Os experimentos simples, realizados de acordo com o delineamento inteiramente casualizado ou em blocos casualizados, são utilizados para testar os efeitos de apenas um tipo de <strong>tratamento</strong>, ou <strong>fator</strong>, sendo os demais mantidos constantes.</p>
 <p>Assim, por exemplo, num experimento de comparação de inseticidas em relação ao controle de uma determinada praga, devemos manter constante a dosagem, o método de aplicação, os tratos culturas, etc.</p>
 <p>Porém, há casos em que necessitamos testar simultaneamente os efeitos de dois ou mais tipos de tratamentos (fatores) para obtermos resultados de interesse prático. Por exemplo, supondo que desejamos testar 3 inseticidas, 2 métodos de aplicação e 4 dosagens, teremos então um experimento fatorial de <span class="math inline">\(3\times2\times4\)</span>.</p>
 <p>Os experimentos fatoriais são aqueles que nos permitem estudar, simultaneamente, os efeitos de dois ou mais tipos de fatores (tratamentos). Assim, eles devem ser instalados em um dos delineamentos já estudados (DIC, DBC, etc.).</p>
@@ -182,7 +182,7 @@ I_1D_4  &amp; I_2D_4  &amp; I_3D_4 \end{array}
 \]</span></p>
 <p>Neste caso, representamos o esquema fatorial como: <span class="math inline">\(\text{Fatorial }3 \times 4\)</span> com 3 inseticidas e 4 dosagens.</p>
 <p><strong>As subdivisões de um fator são denominados NÍVEIS desse fator</strong>. Então, no exemplo anterior, o fator <strong>Inseticida</strong> ocorrem em <strong>3 níveis</strong>, e o fator <strong>Dosagem</strong> ocorre em <strong>4 nívies</strong>. Assim, no ensaio acima, podemos obter conclusões sobre a qual o melhor inseticida, qual a melhor dosagem e qual a melhor dosagem para cada inseticida.</p>
-<p><strong>Classificação dos Experementos Fatoriais</strong></p>
+<p><strong>Classificação dos Experimentos Fatoriais</strong></p>
 <p><strong>Fatoriais de série <span class="math inline">\(2^N\)</span></strong></p>
 <p>Nesta série são enquadrados os experimentos fatoriais em que são estudados os efeitos de N fatores cada um em 2 níveis.</p>
 <p>BASE = Nº de Níveis<br />
@@ -210,10 +210,10 @@ etc.</p>
 4\times 3\times 2 \Rightarrow \begin{cases} \text{1º Fator em 4 Níveis }\\ \text{2º Fator em 3 Níveis } \\ \text{3º Fator em 2 Níveis } \end{cases}
 \]</span></p>
 <p><strong>Casualização dos tratamentos</strong></p>
-<p>Para exemplificar a casualização dos tratamentos, vamos supor um experimento fatorial <span class="math inline">\(3 \times 2\)</span>, com 3 variedades de milho (<span class="math inline">\(V_1,V_2,V_3\)</span>) e 2 níveis de adubação dom <span class="math inline">\(P_2O_5\)</span> (<span class="math inline">\(P_1 e\; P_2\)</span>). Se o experimento fosee instalado de acordo com o delineamento em blocos casualizados, com 4 repetições, teríamos:</p>
+<p>Para exemplificar a casualização dos tratamentos, vamos supor um experimento fatorial <span class="math inline">\(3 \times 2\)</span>, com 3 variedades de milho (<span class="math inline">\(V_1,V_2,V_3\)</span>) e 2 níveis de adubação dom <span class="math inline">\(P_2O_5\)</span> (<span class="math inline">\(P_1 e\; P_2\)</span>). Se o experimento fosse instalado de acordo com o delineamento em blocos casualizados, com 4 repetições, teríamos:</p>
 <p><img src="Casuali.png" />
 <strong>Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</strong></p>
-<p>Para a obtenção da análise de variância, vamos utlizar os dados adaptados do trabalho “Ensaios em condições de casa-de-vegetação para controlo químico do ‘damping-off’ em <em>Eucalyptus saligna</em> Sm.”, realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p. 97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de <em>Eucalytus saligna</em>, do fatores:</p>
+<p>Para a obtenção da análise de variância, vamos utilizar os dados adaptados do trabalho “Ensaios em condições de casa-de-vegetação para controlo químico do ‘damping-off’ em <em>Eucalyptus saligna</em> Sm.”, realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p. 97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de <em>Eucalytus saligna</em>, do fatores:</p>
 <p><strong>Tratamento do solo (S)</strong>, sendo:<br />
 <span class="math inline">\(S_1=\text{Vapam}\)</span><br />
 <span class="math inline">\(S_2=\text{Brometo de metila}\)</span><br />

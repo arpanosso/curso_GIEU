@@ -2,7 +2,7 @@
 
 **Introdução**
 
-Os experimento em parcelas subdivididas, também conhecidos como "Split-plot", são utilizados quado, num mesmo ensaio, queremos testar os efeitos de 2 ou mais fatores, mas em condições experimentais um pouco diferentes daquelas utilizadas nos experimentos fatoriais.
+Os experimentos em parcelas subdivididas, também conhecidos como "Split-plot", são utilizados quando, num mesmo ensaio, queremos testar os efeitos de 2 ou mais fatores, mas em condições experimentais um pouco diferentes daquelas utilizadas nos experimentos fatoriais.
 
 Por exemplo: 
 
@@ -13,20 +13,20 @@ Por exemplo:
       
 As unidade experimentais ou parcelas, são divididas em partes menores e iguais, chamadas de subparcelas. 
 
-As parcelas podem ser ditribuídas de acordo com um delineamento qualquer, ou seja, inteiramente ao acaso ou blocos casualizados. A principal característica deste delineamento é a casualiização dos tratamentos, que é feita em 2 estágios.
+As parcelas podem ser distribuídas de acordo com um delineamento qualquer, ou seja, inteiramente ao acaso ou blocos casualizados. A principal característica deste delineamento é a casualização dos tratamentos, que é feita em 2 estágios.
 
   * No primeiro estágio, é feita a casualização dos níveis do fator testado, nas parcelas, de acordo com o delineamento adotado.
-  * No segundo estágio, em cada parcela, é eita a casualização dos níveis do fator que será testados na subparcelas.
+  * No segundo estágio, em cada parcela, é feita a casualização dos níveis do fator que será testado nas subparcelas.
   
   Denominamos de tratamentos principais ou tratamento primários, àqueles que são colocados nas parcelas, e de tratamento secundários ou subtratamentos àqueles que são colocados nas subparcelas.
   
-  Nesses experimento, temos 2 resíduos: O **resíduo a**, que serve como base de comparação para os tratamentos principais. e o **resíduo b**, que serve como base de comparação para os tratamentos secundários e para a interação $P \times S$.
+  Nesses experimentos, temos 2 resíduos: O **resíduo a**, que serve como base de comparação para os tratamentos principais, e o **resíduo b**, que serve como base de comparação para os tratamentos secundários e para a interação $P \times S$.
   
-  Em consequência do tipo de casualização feia, o erro experimentao devido aos tratamentos secundários (QM Resíduo b), geralmente é menor que o erro experimental devido aos tratamentos principais (QM Resíduo a).
+  Em consequência do tipo de casualização feia, o erro experimental devido aos tratamentos secundários (QM Resíduo b), geralmente é menor que o erro experimental devido aos tratamentos principais (QM Resíduo a).
   
-  Dessa maneira, os efeitos dos tratamentos principais são determinados com menor precisão que os efeitods dos tratamentos secundários.
+  Dessa maneira, os efeitos dos tratamentos principais são determinados com menor precisão que os efeitos dos tratamentos secundários.
   
-  Assim, por exemplo, num experimento em parcelas subdivididas, com os fatores: Adubação (tratamento principal-I) e Variedades (tratamento secundário-K), sendo utilzizados 2 níveis de Adubação ($A_0\; e\; A_1$) e 3 Variedades ($V_1\;V_2\;e\; V_3$), o esquema de casualização os tratamento , se o experimento fosse montado de acordo com o DBC, com 5 blocos (J), seria o seguinte.
+  Assim, por exemplo, num experimento em parcelas subdivididas, com os fatores: Adubação (tratamento principal-I) e Variedades (tratamento secundário-K), sendo utilizados 2 níveis de Adubação ($A_0\; e\; A_1$) e 3 Variedades ($V_1\;V_2\;e\; V_3$), o esquema de casualização os tratamento , se o experimento fosse montado de acordo com o DBC, com 5 blocos (J), seria o seguinte.
 
 ![](psub1.png)
 **Observação**: Caso este mesmo ensaio fosse montado de acordo com o esquema fatorial $2 \times 3$ em 5 blocos, a casualização seria feita de modo diferente e, como exemplo, apresentamos o sorteio do delineamento seguinte:
