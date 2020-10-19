@@ -6,18 +6,17 @@ Os experimentos em parcelas subdivididas, também conhecidos como "Split-plot", 
 
 Por exemplo: 
 
-  * 4 Variedades e 3 Níveis de Adubação  
-  * 3 Níveis de Irrigação e 4 Níveis de Adubação  
-  * 3 Espaçamentos e 4 densidades de Semeadura  
-  etc.  
+* 4 Variedades e 3 Níveis de Adubação  
+* 3 Níveis de Irrigação e 4 Níveis de Adubação  
+* 3 Espaçamentos e 4 densidades de Semeadura  etc.  
       
 As unidade experimentais ou parcelas, são divididas em partes menores e iguais, chamadas de subparcelas. 
 
 As parcelas podem ser distribuídas de acordo com um delineamento qualquer, ou seja, inteiramente ao acaso ou blocos casualizados. A principal característica deste delineamento é a casualização dos tratamentos, que é feita em 2 estágios.
 
-  * No primeiro estágio, é feita a casualização dos níveis do fator testado, nas parcelas, de acordo com o delineamento adotado.
+**1)** No primeiro estágio, é feita a casualização dos níveis do fator testado, nas parcelas, de acordo com o delineamento adotado.
   
-  * No segundo estágio, em cada parcela, é feita a casualização dos níveis do fator que será testado nas subparcelas.
+**2)** No segundo estágio, em cada parcela, é feita a casualização dos níveis do fator que será testado nas subparcelas.
   
 Denominamos de tratamentos principais ou tratamento primários, àqueles que são colocados nas parcelas, e de tratamento secundários ou subtratamentos àqueles que são colocados nas subparcelas.
   
