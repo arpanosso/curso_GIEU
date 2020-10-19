@@ -24,7 +24,7 @@
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-18" />
+<meta name="date" content="2020-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -183,13 +183,13 @@ etc.</li>
 <li><p>No primeiro estágio, é feita a casualização dos níveis do fator testado, nas parcelas, de acordo com o delineamento adotado.</p>
 <ul>
 <li>No segundo estágio, em cada parcela, é feita a casualização dos níveis do fator que será testado nas subparcelas.</li>
+</ul></li>
 </ul>
 <p>Denominamos de tratamentos principais ou tratamento primários, àqueles que são colocados nas parcelas, e de tratamento secundários ou subtratamentos àqueles que são colocados nas subparcelas.</p>
 <p>Nesses experimentos, temos 2 resíduos: O <strong>resíduo a</strong>, que serve como base de comparação para os tratamentos principais, e o <strong>resíduo b</strong>, que serve como base de comparação para os tratamentos secundários e para a interação <span class="math inline">\(P \times S\)</span>.</p>
 <p>Em consequência do tipo de casualização feia, o erro experimental devido aos tratamentos secundários (QM Resíduo b), geralmente é menor que o erro experimental devido aos tratamentos principais (QM Resíduo a).</p>
 <p>Dessa maneira, os efeitos dos tratamentos principais são determinados com menor precisão que os efeitos dos tratamentos secundários.</p>
-<p>Assim, por exemplo, num experimento em parcelas subdivididas, com os fatores: Adubação (tratamento principal-I) e Variedades (tratamento secundário-K), sendo utilizados 2 níveis de Adubação (<span class="math inline">\(A_0\; e\; A_1\)</span>) e 3 Variedades (<span class="math inline">\(V_1\;V_2\;e\; V_3\)</span>), o esquema de casualização os tratamento , se o experimento fosse montado de acordo com o DBC, com 5 blocos (J), seria o seguinte.</p></li>
-</ul>
+<p>Assim, por exemplo, num experimento em parcelas subdivididas, com os fatores: Adubação (tratamento principal-I) e Variedades (tratamento secundário-K), sendo utilizados 2 níveis de Adubação (<span class="math inline">\(A_0\; e\; A_1\)</span>) e 3 Variedades (<span class="math inline">\(V_1\;V_2\;e\; V_3\)</span>), o esquema de casualização os tratamento, se o experimento fosse montado de acordo com o DBC, com 5 blocos (J), seria o seguinte.</p>
 <p><img src="psub1.png" />
 <strong>Observação</strong>: Caso este mesmo ensaio fosse montado de acordo com o esquema fatorial <span class="math inline">\(2 \times 3\)</span> em 5 blocos, a casualização seria feita de modo diferente e, como exemplo, apresentamos o sorteio do delineamento seguinte:</p>
 <p><img src="fat1.png" /></p>
@@ -328,7 +328,7 @@ etc.</li>
 </tbody>
 </table>
 <p>os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt">sojapsub.txt</a>.</p>
-<p><strong>Aplicação em R - Parcelas Sudivididas</strong></p>
+<p><strong>Aplicação em R - Parcelas Subdivididas</strong></p>
 <p><img src="R.png" /></p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="experimentos-em-parcelas-subdivididas.html#cb58-1"></a><span class="kw">require</span>(ExpDes.pt)</span>
 <span id="cb58-2"><a href="experimentos-em-parcelas-subdivididas.html#cb58-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/sojapsub.txt&quot;</span></span>
