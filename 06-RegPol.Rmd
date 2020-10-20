@@ -4,11 +4,27 @@
 
 Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos ($X$) com os dados analisados ($Y$).
 
-Por exemplo, essa dependência pode ser notada no caso seguinte, onde X representa as doses de um adubo ($kg\;h^{-1}$) e y a produção de milho ($kg\;h^{-1}$).
+Por exemplo, essa dependência pode ser notada no caso seguinte, onde X representa as doses de um adubo ($kg/ha$) e y a produção de milho ($kg/ha$).
 
 |X|0|25|50|75|100|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |Y|2100|2600|3000|3550|4150|
+
+Vamos utilizar o R para representação gráfica dos dados:
+
+![](Rlogo.png)
+
+```{r}
+# Criando as variáveis X e Y
+X<- seq(0,100,25)
+Y<-c(2100,2600,3000,3550,4150)
+
+# Construindo o gráfico
+plot(X,Y, pch=21,bg="gray",cex=1.4,las=1,
+     xlab = "Dose de adubo (kg/ha)",
+     ylab = "Produção do Milho (kg/ha)")
+```
+
 
 Verificamos, portanto, que há uma tendência de aumento na produção à medida que aumentamos a quantidade de adubo aplicada.
 
@@ -211,20 +227,32 @@ dic <-function (trat, resp, quali = TRUE, mcomp = "tukey", nl = FALSE,
 
 ```{r}
 caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt"
-d<-read.table(caminho,h=T)
-# Análise de Variância
-dic(d$trat,d$y,quali = FALSE)
 
+dados<-read.table(caminho,h=T)
+dose <- dados$trat
+y<-dados$y
+
+# Construindo o gráfico
+plot(dose,y, pch=21,bg="gray",cex=1.4,las=1,
+     xlab = "Dose de Gesso (kg/ha)",
+     ylab = "Ppeso de 1000 sementes (g)")
+
+# Análise de Variância
+dic(dose, y, quali = FALSE)
+```
+
+```{r}
 # Construção do gráfico
 X<-seq(0,300,50)
-Y<-tapply(d$y, d$trat, mean)
+Y<-tapply(y, dose, mean)
 plot(Y~X,
      las=1,
-     pch=21,col="black",bg="gray",cex=1.3,
+     pch=21,bg="gray",cex=1.4,
      xlab="Dose de Gesso (kg/ha)",
      ylab="Peso de 1000 sementes (g)"
-);curve(140.7836+0.2737*x-0.000783*x^2,add=TRUE,col="red",lwd=2)
-text(155,145,"140.7836+0.2737X-0.000783X²\nR²=0.8801")
+)
+curve(140.7836+0.2737*x-0.000783*x^2,add=TRUE,col="red",lwd=2)
+text(155,145,"140.7836 + 0.2737X - 0.000783X²\nR²=0.8801")
 ```
 
 Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.
