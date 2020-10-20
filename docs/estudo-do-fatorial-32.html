@@ -265,154 +265,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Aplicação em R - Fatorial com Interação Significativa</strong></p>
 <p><img src="R.png" /></p>
 <p><strong>Utilizando as funções básicas e o pacote agricolae</strong></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="estudo-do-fatorial-32.html#cb36-1"></a><span class="co"># Carregando o pacote para análise de variância</span></span>
-<span id="cb36-2"><a href="estudo-do-fatorial-32.html#cb36-2"></a><span class="kw">library</span>(agricolae)</span>
-<span id="cb36-3"><a href="estudo-do-fatorial-32.html#cb36-3"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb36-4"><a href="estudo-do-fatorial-32.html#cb36-4"></a></span>
-<span id="cb36-5"><a href="estudo-do-fatorial-32.html#cb36-5"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
-<span id="cb36-6"><a href="estudo-do-fatorial-32.html#cb36-6"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt&quot;</span></span>
-<span id="cb36-7"><a href="estudo-do-fatorial-32.html#cb36-7"></a></span>
-<span id="cb36-8"><a href="estudo-do-fatorial-32.html#cb36-8"></a><span class="co"># Entrada da dados</span></span>
-<span id="cb36-9"><a href="estudo-do-fatorial-32.html#cb36-9"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
-<span id="cb36-10"><a href="estudo-do-fatorial-32.html#cb36-10"></a></span>
-<span id="cb36-11"><a href="estudo-do-fatorial-32.html#cb36-11"></a><span class="co">#Guardando os fatores e a variável resposta (y)</span></span>
-<span id="cb36-12"><a href="estudo-do-fatorial-32.html#cb36-12"></a>esp&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>Espaçamento)</span>
-<span id="cb36-13"><a href="estudo-do-fatorial-32.html#cb36-13"></a>den&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>Densidade)</span>
-<span id="cb36-14"><a href="estudo-do-fatorial-32.html#cb36-14"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>Bloco)</span>
-<span id="cb36-15"><a href="estudo-do-fatorial-32.html#cb36-15"></a>y&lt;-dados<span class="op">$</span>y</span>
-<span id="cb36-16"><a href="estudo-do-fatorial-32.html#cb36-16"></a></span>
-<span id="cb36-17"><a href="estudo-do-fatorial-32.html#cb36-17"></a><span class="co"># Gráfico da interação</span></span>
-<span id="cb36-18"><a href="estudo-do-fatorial-32.html#cb36-18"></a>dados <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb36-19"><a href="estudo-do-fatorial-32.html#cb36-19"></a><span class="st">  </span><span class="kw">group_by</span>(Espaçamento,Densidade) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb36-20"><a href="estudo-do-fatorial-32.html#cb36-20"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Y =</span> <span class="kw">mean</span>(y)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb36-21"><a href="estudo-do-fatorial-32.html#cb36-21"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Espaçamento, <span class="dt">y=</span>Y,<span class="dt">col=</span><span class="kw">as.factor</span>(Densidade)))<span class="op">+</span></span>
-<span id="cb36-22"><a href="estudo-do-fatorial-32.html#cb36-22"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
-<span id="cb36-23"><a href="estudo-do-fatorial-32.html#cb36-23"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Espaçamento&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Variável Y&quot;</span>,<span class="dt">col=</span><span class="st">&quot;Densidade&quot;</span>)</span></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;Espaçamento&#39; (override with `.groups` argument)</code></pre>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="estudo-do-fatorial-32.html#cb38-1"></a>dados <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb38-2"><a href="estudo-do-fatorial-32.html#cb38-2"></a><span class="st">  </span><span class="kw">group_by</span>(Espaçamento,Densidade) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb38-3"><a href="estudo-do-fatorial-32.html#cb38-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Y =</span> <span class="kw">mean</span>(y)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb38-4"><a href="estudo-do-fatorial-32.html#cb38-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Densidade, <span class="dt">y=</span>Y,<span class="dt">col=</span><span class="kw">as.factor</span>(Espaçamento)))<span class="op">+</span></span>
-<span id="cb38-5"><a href="estudo-do-fatorial-32.html#cb38-5"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
-<span id="cb38-6"><a href="estudo-do-fatorial-32.html#cb38-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Densidade&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Variável Y&quot;</span>,<span class="dt">col=</span><span class="st">&quot;Espaçamento&quot;</span>)</span></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;Espaçamento&#39; (override with `.groups` argument)</code></pre>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-10-2.png" width="672" />
-<strong>Analise considerando o delineamento de tratamentos</strong></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="estudo-do-fatorial-32.html#cb40-1"></a>mod &lt;-<span class="st"> </span><span class="kw">aov</span>(y<span class="op">~</span>den <span class="op">+</span><span class="st"> </span>esp <span class="op">+</span><span class="st"> </span>den<span class="op">:</span>esp)</span>
-<span id="cb40-2"><a href="estudo-do-fatorial-32.html#cb40-2"></a><span class="kw">anova</span>(mod)</span></code></pre></div>
-<pre><code>## Analysis of Variance Table
-## 
-## Response: y
-##           Df  Sum Sq Mean Sq F value   Pr(&gt;F)   
-## den        2  150.53   75.26  1.1416 0.341378   
-## esp        2 1347.49  673.75 10.2191 0.001083 **
-## den:esp    4  860.09  215.02  3.2614 0.035405 * 
-## Residuals 18 1186.75   65.93                    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p><strong>Medias dos efeitos principais e da interação</strong></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="estudo-do-fatorial-32.html#cb42-1"></a><span class="kw">model.tables</span>(mod,<span class="dt">type=</span><span class="st">&quot;means&quot;</span>)</span></code></pre></div>
-<pre><code>## Tables of means
-## Grand mean
-##          
-## 29.02222 
-## 
-##  den 
-## den
-##    15    30    45 
-## 27.07 27.65 32.34 
-## 
-##  esp 
-## esp
-##    25    50    75 
-## 38.74 26.19 22.14 
-## 
-##  den:esp 
-##     esp
-## den  25    50    75   
-##   15 45.77 19.04 16.41
-##   30 28.18 32.83 21.94
-##   45 42.26 26.69 28.08</code></pre>
-<p><strong>SE A INTERAÇÃO FOR SIGNIFICATIVA</strong></p>
-<p><strong>Desdobramento de Doses dentro Inseticidas</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estudo-do-fatorial-32.html#cb44-1"></a><span class="co"># Redefinindo o modelo para o estudo das interações</span></span>
-<span id="cb44-2"><a href="estudo-do-fatorial-32.html#cb44-2"></a>modab &lt;-<span class="st"> </span><span class="kw">aov</span>(y<span class="op">~</span>esp<span class="op">/</span>den) <span class="co"># Colocar os Controles locais, blocos, se for o caso</span></span>
-<span id="cb44-3"><a href="estudo-do-fatorial-32.html#cb44-3"></a><span class="kw">effects</span>(modab)</span></code></pre></div>
-<pre><code>##  (Intercept)        esp50        esp75  esp25:den30  esp50:den30  esp75:den30 
-## -150.8038903  -10.4140056  -35.2000113   22.3858222  -14.0935810    0.4320422 
-##  esp25:den45  esp50:den45  esp75:den45                                        
-##    4.2927308    9.3733807  -14.2964469  -14.6589072   -4.4221698    8.5114134 
-##                                                                               
-##   -3.6891278    0.2827470   -6.8232618   -2.1185369   -0.8663283   -1.0888551 
-##                                                                               
-##   14.4060928   -7.7321698  -12.9235866   -4.1791278   -1.2172530   -7.0262618 
-##                                        
-##   13.6894631   -6.8953283    8.6941449 
-## attr(,&quot;assign&quot;)
-## [1] 0 1 1 2 2 2 2 2 2
-## attr(,&quot;class&quot;)
-## [1] &quot;coef&quot;</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="estudo-do-fatorial-32.html#cb46-1"></a><span class="kw">effects</span>(modab)[<span class="dv">4</span><span class="op">:</span><span class="dv">9</span>]</span></code></pre></div>
-<pre><code>## esp25:den30 esp50:den30 esp75:den30 esp25:den45 esp50:den45 esp75:den45 
-##  22.3858222 -14.0935810   0.4320422   4.2927308   9.3733807 -14.2964469</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="estudo-do-fatorial-32.html#cb48-1"></a><span class="kw">summary</span>(modab,<span class="dt">split=</span><span class="kw">list</span>(<span class="st">&quot;esp:den&quot;</span>=<span class="kw">list</span>(<span class="dt">Esp25=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), </span>
-<span id="cb48-2"><a href="estudo-do-fatorial-32.html#cb48-2"></a>                                         <span class="dt">Esp50=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>),</span>
-<span id="cb48-3"><a href="estudo-do-fatorial-32.html#cb48-3"></a>                                         <span class="dt">Esp75=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">6</span>)</span>
-<span id="cb48-4"><a href="estudo-do-fatorial-32.html#cb48-4"></a>                                         ))) </span></code></pre></div>
-<pre><code>##                  Df Sum Sq Mean Sq F value  Pr(&gt;F)   
-## esp               2 1347.5   673.7  10.219 0.00108 **
-## esp:den           6 1010.6   168.4   2.555 0.05730 . 
-##   esp:den: Esp25  2  519.6   259.8   3.940 0.03808 * 
-##   esp:den: Esp50  2  286.5   143.2   2.173 0.14281   
-##   esp:den: Esp75  2  204.6   102.3   1.551 0.23899   
-## Residuals        18 1186.7    65.9                   
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p><strong>Desdobramento de Inseticida dentro de Dose</strong></p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="estudo-do-fatorial-32.html#cb50-1"></a><span class="co"># Redefinindo o modelo para o estudo das interações</span></span>
-<span id="cb50-2"><a href="estudo-do-fatorial-32.html#cb50-2"></a>modba &lt;-<span class="st"> </span><span class="kw">aov</span>(y<span class="op">~</span>den<span class="op">/</span>esp) <span class="co"># Colocar os Controles locais, blocos, se for o caso</span></span>
-<span id="cb50-3"><a href="estudo-do-fatorial-32.html#cb50-3"></a><span class="kw">effects</span>(modba)</span></code></pre></div>
-<pre><code>##  (Intercept)        den30        den45  den15:esp50  den30:esp50  den45:esp50 
-## -150.8038903    5.0369674  -11.1873721   17.0372665  -10.9891465   11.9894669 
-##  den15:esp75  den30:esp75  den45:esp75                                        
-##   35.9548352    7.6477152   17.3656575  -13.4015598   -0.8481823    7.8234798 
-##                                                                               
-##   -5.2203439    0.1202090   -9.6712262   -3.3867486    0.9615199   -3.4279641 
-##                                                                               
-##   15.6634402   -4.1581823  -13.6115202   -5.7103439   -1.3797910   -9.8742262 
-##                                        
-##   12.4212514   -5.0674801    6.3550359 
-## attr(,&quot;assign&quot;)
-## [1] 0 1 1 2 2 2 2 2 2
-## attr(,&quot;class&quot;)
-## [1] &quot;coef&quot;</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="estudo-do-fatorial-32.html#cb52-1"></a><span class="kw">effects</span>(modba)[<span class="dv">4</span><span class="op">:</span><span class="dv">9</span>]</span></code></pre></div>
-<pre><code>## den15:esp50 den30:esp50 den45:esp50 den15:esp75 den30:esp75 den45:esp75 
-##   17.037266  -10.989146   11.989467   35.954835    7.647715   17.365658</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="estudo-do-fatorial-32.html#cb54-1"></a><span class="kw">summary</span>(modba,<span class="dt">split=</span><span class="kw">list</span>(<span class="st">&quot;den:esp&quot;</span>=<span class="kw">list</span>(<span class="dt">Den15=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>),</span>
-<span id="cb54-2"><a href="estudo-do-fatorial-32.html#cb54-2"></a>                                        <span class="dt">Den30=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>),</span>
-<span id="cb54-3"><a href="estudo-do-fatorial-32.html#cb54-3"></a>                                        <span class="dt">Den45=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">6</span>)</span>
-<span id="cb54-4"><a href="estudo-do-fatorial-32.html#cb54-4"></a>                                                ))) </span></code></pre></div>
-<pre><code>##                  Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## den               2  150.5    75.3   1.142 0.341378    
-## den:esp           6 2207.6   367.9   5.581 0.002021 ** 
-##   den:esp: Den15  2 1583.0   791.5  12.005 0.000487 ***
-##   den:esp: Den30  2  179.2    89.6   1.359 0.281954    
-##   den:esp: Den45  2  445.3   222.7   3.377 0.056832 .  
-## Residuals        18 1186.7    65.9                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="estudo-do-fatorial-32.html#cb19-1"></a><span class="co"># Carregando o pacote para análise de variância</span></span>
+<span id="cb19-2"><a href="estudo-do-fatorial-32.html#cb19-2"></a><span class="kw">library</span>(ExpDes.pt)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="estudo-do-fatorial-32.html#cb20-1"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
+<span id="cb20-2"><a href="estudo-do-fatorial-32.html#cb20-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt&quot;</span></span>
+<span id="cb20-3"><a href="estudo-do-fatorial-32.html#cb20-3"></a></span>
+<span id="cb20-4"><a href="estudo-do-fatorial-32.html#cb20-4"></a><span class="co"># Entrada da dados</span></span>
+<span id="cb20-5"><a href="estudo-do-fatorial-32.html#cb20-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho, <span class="dt">h=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb20-6"><a href="estudo-do-fatorial-32.html#cb20-6"></a></span>
+<span id="cb20-7"><a href="estudo-do-fatorial-32.html#cb20-7"></a><span class="co">#Guardando os fatores e a variável resposta (y)</span></span>
+<span id="cb20-8"><a href="estudo-do-fatorial-32.html#cb20-8"></a>fator1&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>Espaçamento)</span>
+<span id="cb20-9"><a href="estudo-do-fatorial-32.html#cb20-9"></a>fator2&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>Densidade)</span>
+<span id="cb20-10"><a href="estudo-do-fatorial-32.html#cb20-10"></a>bloco&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>Bloco)</span>
+<span id="cb20-11"><a href="estudo-do-fatorial-32.html#cb20-11"></a>y&lt;-dados<span class="op">$</span>y</span></code></pre></div>
 <p><strong>Utilizando o pacote ExpDes.pt, mais prático</strong></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="estudo-do-fatorial-32.html#cb56-1"></a><span class="co"># Carregando o pacote par análise de variância</span></span>
-<span id="cb56-2"><a href="estudo-do-fatorial-32.html#cb56-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb56-3"><a href="estudo-do-fatorial-32.html#cb56-3"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/crotalaria.txt&quot;</span></span>
-<span id="cb56-4"><a href="estudo-do-fatorial-32.html#cb56-4"></a>d&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
-<span id="cb56-5"><a href="estudo-do-fatorial-32.html#cb56-5"></a>esp&lt;-<span class="kw">factor</span>(d<span class="op">$</span>Espaçamento)</span>
-<span id="cb56-6"><a href="estudo-do-fatorial-32.html#cb56-6"></a>den&lt;-<span class="kw">factor</span>(d<span class="op">$</span>Densidade)</span>
-<span id="cb56-7"><a href="estudo-do-fatorial-32.html#cb56-7"></a>bloco&lt;-<span class="kw">factor</span>(d<span class="op">$</span>Bloco)</span>
-<span id="cb56-8"><a href="estudo-do-fatorial-32.html#cb56-8"></a>y&lt;-d<span class="op">$</span>y</span>
-<span id="cb56-9"><a href="estudo-do-fatorial-32.html#cb56-9"></a><span class="kw">fat2.dbc</span>(esp,den,bloco,y,<span class="dt">fac.names =</span> <span class="kw">c</span>(<span class="st">&quot;Espaçamento&quot;</span>, <span class="st">&quot;Densidade&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="estudo-do-fatorial-32.html#cb21-1"></a><span class="co"># Carregando o pacote par análise de variância</span></span>
+<span id="cb21-2"><a href="estudo-do-fatorial-32.html#cb21-2"></a><span class="kw">fat2.dbc</span>(fator1,fator2,bloco,y,<span class="dt">quali=</span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>),<span class="dt">mcomp=</span><span class="st">&quot;tukey&quot;</span>,</span>
+<span id="cb21-3"><a href="estudo-do-fatorial-32.html#cb21-3"></a>         <span class="dt">fac.names =</span> <span class="kw">c</span>(<span class="st">&quot;Espaçamento&quot;</span>, <span class="st">&quot;Densidade&quot;</span>))</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Legenda:
 ## FATOR 1:  Espaçamento 
@@ -422,13 +291,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
-##                       GL     SQ QM      Fc   Pr&gt;Fc
-## Bloco                  2  114.4  3  0.8535 0.44444
-## Espaçamento            2 1347.5  5 10.0527 0.00149
-## Densidade              2  150.5  6  1.1230 0.34964
-## Espaçamento*Densidade  4  860.1  2  3.2083 0.04101
-## Residuo               16 1072.3  4                
-## Total                 26 3544.9  1                
+##                       GL     SQ      QM      Fc   Pr&gt;Fc
+## Bloco                  2  114.4   57.20  0.8535 0.44444
+## Espaçamento            2 1347.5  673.75 10.0527 0.00149
+## Densidade              2  150.5   75.26  1.1230 0.34964
+## Espaçamento*Densidade  4  860.1  215.02  3.2083 0.04101
+## Residuo               16 1072.3   67.02                
+## Total                 26 3544.9 1088.25                
 ## ------------------------------------------------------------------------
 ## CV = 28.21 %
 ## 

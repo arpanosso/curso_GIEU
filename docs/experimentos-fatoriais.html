@@ -303,146 +303,21 @@ etc.</p>
 <p><strong>Aplicação em R - Fatorial com Interação Não Significativa</strong></p>
 <p><img src="R.png" /></p>
 <p><strong>Utilizando as funções básicas e o pacote agricolae</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="experimentos-fatoriais.html#cb22-1"></a><span class="co"># Carregando o pacote para análise de variância</span></span>
-<span id="cb22-2"><a href="experimentos-fatoriais.html#cb22-2"></a><span class="kw">library</span>(agricolae)</span>
-<span id="cb22-3"><a href="experimentos-fatoriais.html#cb22-3"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb22-4"><a href="experimentos-fatoriais.html#cb22-4"></a></span>
-<span id="cb22-5"><a href="experimentos-fatoriais.html#cb22-5"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
-<span id="cb22-6"><a href="experimentos-fatoriais.html#cb22-6"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt&quot;</span></span>
-<span id="cb22-7"><a href="experimentos-fatoriais.html#cb22-7"></a></span>
-<span id="cb22-8"><a href="experimentos-fatoriais.html#cb22-8"></a><span class="co"># Entrada da dados</span></span>
-<span id="cb22-9"><a href="experimentos-fatoriais.html#cb22-9"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
-<span id="cb22-10"><a href="experimentos-fatoriais.html#cb22-10"></a></span>
-<span id="cb22-11"><a href="experimentos-fatoriais.html#cb22-11"></a><span class="co">#Guardando os fatores (tratamentos de solo e fungicidas) e a variável resposta (y)</span></span>
-<span id="cb22-12"><a href="experimentos-fatoriais.html#cb22-12"></a>solos&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>S)</span>
-<span id="cb22-13"><a href="experimentos-fatoriais.html#cb22-13"></a>fungicida&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>F)</span>
-<span id="cb22-14"><a href="experimentos-fatoriais.html#cb22-14"></a>y&lt;-dados<span class="op">$</span>y</span>
-<span id="cb22-15"><a href="experimentos-fatoriais.html#cb22-15"></a></span>
-<span id="cb22-16"><a href="experimentos-fatoriais.html#cb22-16"></a><span class="co"># Gráfico da interação</span></span>
-<span id="cb22-17"><a href="experimentos-fatoriais.html#cb22-17"></a>dados <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb22-18"><a href="experimentos-fatoriais.html#cb22-18"></a><span class="st">  </span><span class="kw">group_by</span>(S,F) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb22-19"><a href="experimentos-fatoriais.html#cb22-19"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Y =</span> <span class="kw">mean</span>(y)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb22-20"><a href="experimentos-fatoriais.html#cb22-20"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>S, <span class="dt">y=</span>Y,<span class="dt">col=</span><span class="kw">as.factor</span>(F)))<span class="op">+</span></span>
-<span id="cb22-21"><a href="experimentos-fatoriais.html#cb22-21"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
-<span id="cb22-22"><a href="experimentos-fatoriais.html#cb22-22"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Tratamentos do solo&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Altura de plantas (cm)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;Fungicida&quot;</span>)</span></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;S&#39; (override with `.groups` argument)</code></pre>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="experimentos-fatoriais.html#cb24-1"></a>dados <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb24-2"><a href="experimentos-fatoriais.html#cb24-2"></a><span class="st">  </span><span class="kw">group_by</span>(S,F) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb24-3"><a href="experimentos-fatoriais.html#cb24-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Y =</span> <span class="kw">mean</span>(y)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb24-4"><a href="experimentos-fatoriais.html#cb24-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>F, <span class="dt">y=</span>Y,<span class="dt">col=</span><span class="kw">as.factor</span>(S)))<span class="op">+</span></span>
-<span id="cb24-5"><a href="experimentos-fatoriais.html#cb24-5"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
-<span id="cb24-6"><a href="experimentos-fatoriais.html#cb24-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Fungicida&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Altura de plantas (cm)&quot;</span>,<span class="dt">col=</span><span class="st">&quot;Tratamentos do solo&quot;</span>)</span></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;S&#39; (override with `.groups` argument)</code></pre>
-<p><img src="curso_GIEU_files/figure-html/unnamed-chunk-5-2.png" width="672" />
-<strong>Analise considerando o delineamento de tratamentos</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="experimentos-fatoriais.html#cb26-1"></a>mod &lt;-<span class="st"> </span><span class="kw">aov</span>(y<span class="op">~</span>solos<span class="op">+</span>fungicida<span class="op">+</span>solos<span class="op">:</span>fungicida)</span>
-<span id="cb26-2"><a href="experimentos-fatoriais.html#cb26-2"></a><span class="kw">anova</span>(mod)</span></code></pre></div>
-<pre><code>## Analysis of Variance Table
-## 
-## Response: y
-##                 Df  Sum Sq Mean Sq F value   Pr(&gt;F)    
-## solos            3 30.3951 10.1317 74.0035 1.35e-09 ***
-## fungicida        1  0.2091  0.2091  1.5271   0.2344    
-## solos:fungicida  3  0.4128  0.1376  1.0051   0.4161    
-## Residuals       16  2.1905  0.1369                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p><strong>Medias dos efeitos principais e da interação</strong></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="experimentos-fatoriais.html#cb28-1"></a><span class="kw">model.tables</span>(mod,<span class="dt">type=</span><span class="st">&quot;means&quot;</span>)</span></code></pre></div>
-<pre><code>## Tables of means
-## Grand mean
-##          
-## 3.926667 
-## 
-##  solos 
-## solos
-##     1     2     3     4 
-## 4.922 5.173 2.738 2.873 
-## 
-##  fungicida 
-## fungicida
-##     0     1 
-## 4.020 3.833 
-## 
-##  solos:fungicida 
-##      fungicida
-## solos 0     1    
-##     1 5.117 4.727
-##     2 5.237 5.110
-##     3 2.630 2.847
-##     4 3.097 2.650</code></pre>
-<p><strong>SE A INTERAÇÃO FOR NÃO SIGNIFICATIVA</strong></p>
-<p><strong>Comparações múltiplas (Tukey) para os efeitos principais</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="experimentos-fatoriais.html#cb30-1"></a><span class="kw">HSD.test</span>(mod,<span class="st">&quot;solos&quot;</span>,<span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</span></code></pre></div>
-<pre><code>## 
-## Study: mod ~ &quot;solos&quot;
-## 
-## HSD Test for y 
-## 
-## Mean Square Error:  0.1369083 
-## 
-## solos,  means
-## 
-##          y       std r  Min  Max
-## 1 4.921667 0.3699414 6 4.51 5.52
-## 2 5.173333 0.5270547 6 4.55 6.00
-## 3 2.738333 0.1460708 6 2.56 2.93
-## 4 2.873333 0.3556778 6 2.47 3.48
-## 
-## Alpha: 0.05 ; DF Error: 16 
-## Critical Value of Studentized Range: 4.046093 
-## 
-## Minimun Significant Difference: 0.6111885 
-## 
-## Treatments with the same letter are not significantly different.
-## 
-##          y groups
-## 2 5.173333      a
-## 1 4.921667      a
-## 4 2.873333      b
-## 3 2.738333      b</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="experimentos-fatoriais.html#cb32-1"></a><span class="kw">HSD.test</span>(mod,<span class="st">&quot;fungicida&quot;</span>,<span class="dt">group=</span><span class="ot">TRUE</span>,<span class="dt">console =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<pre><code>## 
-## Study: mod ~ &quot;fungicida&quot;
-## 
-## HSD Test for y 
-## 
-## Mean Square Error:  0.1369083 
-## 
-## fungicida,  means
-## 
-##          y      std  r  Min  Max
-## 0 4.020000 1.283589 12 2.56 6.00
-## 1 3.833333 1.162867 12 2.47 5.51
-## 
-## Alpha: 0.05 ; DF Error: 16 
-## Critical Value of Studentized Range: 2.997999 
-## 
-## Minimun Significant Difference: 0.3202254 
-## 
-## Treatments with the same letter are not significantly different.
-## 
-##          y groups
-## 0 4.020000      a
-## 1 3.833333      a</code></pre>
-<p><strong>Utilizando ao pacrote ExpDes.pt, mais prático</strong></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="experimentos-fatoriais.html#cb34-1"></a><span class="co"># Carregando o pacote para análise de variância</span></span>
-<span id="cb34-2"><a href="experimentos-fatoriais.html#cb34-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb34-3"><a href="experimentos-fatoriais.html#cb34-3"></a></span>
-<span id="cb34-4"><a href="experimentos-fatoriais.html#cb34-4"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
-<span id="cb34-5"><a href="experimentos-fatoriais.html#cb34-5"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt&quot;</span></span>
-<span id="cb34-6"><a href="experimentos-fatoriais.html#cb34-6"></a></span>
-<span id="cb34-7"><a href="experimentos-fatoriais.html#cb34-7"></a><span class="co"># Entrada da dados</span></span>
-<span id="cb34-8"><a href="experimentos-fatoriais.html#cb34-8"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>)</span>
-<span id="cb34-9"><a href="experimentos-fatoriais.html#cb34-9"></a></span>
-<span id="cb34-10"><a href="experimentos-fatoriais.html#cb34-10"></a><span class="co">#Guardando os fatores (tratamentos de solo e fungicidas) e a variável resposta (y)</span></span>
-<span id="cb34-11"><a href="experimentos-fatoriais.html#cb34-11"></a>solos&lt;-dados<span class="op">$</span>S</span>
-<span id="cb34-12"><a href="experimentos-fatoriais.html#cb34-12"></a>fungicida&lt;-dados<span class="op">$</span>F</span>
-<span id="cb34-13"><a href="experimentos-fatoriais.html#cb34-13"></a>y&lt;-dados<span class="op">$</span>y</span>
-<span id="cb34-14"><a href="experimentos-fatoriais.html#cb34-14"></a></span>
-<span id="cb34-15"><a href="experimentos-fatoriais.html#cb34-15"></a><span class="co"># Utilizando a função fat2.dic do pacote ExpDes.pt</span></span>
-<span id="cb34-16"><a href="experimentos-fatoriais.html#cb34-16"></a><span class="kw">fat2.dic</span>(solos,fungicida,y,<span class="dt">fac.names =</span> <span class="kw">c</span>(<span class="st">&quot;Trat.Solo&quot;</span>, <span class="st">&quot;Fungicida&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="experimentos-fatoriais.html#cb15-1"></a><span class="co"># Carregando o pacote para análise de variância</span></span>
+<span id="cb15-2"><a href="experimentos-fatoriais.html#cb15-2"></a><span class="kw">library</span>(ExpDes.pt)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="experimentos-fatoriais.html#cb16-1"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
+<span id="cb16-2"><a href="experimentos-fatoriais.html#cb16-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt&quot;</span></span>
+<span id="cb16-3"><a href="experimentos-fatoriais.html#cb16-3"></a></span>
+<span id="cb16-4"><a href="experimentos-fatoriais.html#cb16-4"></a><span class="co"># Entrada da dados</span></span>
+<span id="cb16-5"><a href="experimentos-fatoriais.html#cb16-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb16-6"><a href="experimentos-fatoriais.html#cb16-6"></a></span>
+<span id="cb16-7"><a href="experimentos-fatoriais.html#cb16-7"></a><span class="co">#Guardando os fatores (tratamentos de solo e fungicidas) e a variável resposta (y)</span></span>
+<span id="cb16-8"><a href="experimentos-fatoriais.html#cb16-8"></a>fator1&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>S)</span>
+<span id="cb16-9"><a href="experimentos-fatoriais.html#cb16-9"></a>fator2&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>F)</span>
+<span id="cb16-10"><a href="experimentos-fatoriais.html#cb16-10"></a>y&lt;-dados<span class="op">$</span>y</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="experimentos-fatoriais.html#cb17-1"></a><span class="co"># Utilizando a função fat2.dic do pacote ExpDes.pt</span></span>
+<span id="cb17-2"><a href="experimentos-fatoriais.html#cb17-2"></a><span class="kw">fat2.dic</span>(fator1,fator2,y,<span class="dt">quali=</span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>),<span class="dt">mcomp=</span><span class="st">&quot;tukey&quot;</span>,</span>
+<span id="cb17-3"><a href="experimentos-fatoriais.html#cb17-3"></a>         <span class="dt">fac.names =</span> <span class="kw">c</span>(<span class="st">&quot;Trat.Solo&quot;</span>, <span class="st">&quot;Fungicida&quot;</span>))</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Legenda:
 ## FATOR 1:  Trat.Solo 
@@ -452,12 +327,12 @@ etc.</p>
 ## 
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
-##                     GL     SQ QM     Fc   Pr&gt;Fc
-## Trat.Solo            3 30.395  5 74.004 0.00000
-## Fungicida            1  0.209  4  1.527 0.23439
-## Trat.Solo*Fungicida  3  0.413  3  1.005 0.41607
-## Residuo             16  2.191  2               
-## Total               23 33.208  1               
+##                     GL     SQ      QM     Fc   Pr&gt;Fc
+## Trat.Solo            3 30.395 10.1317 74.004 0.00000
+## Fungicida            1  0.209  0.2091  1.527 0.23439
+## Trat.Solo*Fungicida  3  0.413  0.1376  1.005 0.41607
+## Residuo             16  2.191  0.1369               
+## Total               23 33.208 10.6153               
 ## ------------------------------------------------------------------------
 ## CV = 9.42 %
 ## 

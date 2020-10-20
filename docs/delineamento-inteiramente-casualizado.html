@@ -310,18 +310,15 @@ onde:
 <p>Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt">Mandioca</a>.</p>
 <p><img src="Rlogo.png" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="delineamento-inteiramente-casualizado.html#cb1-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
-<span id="cb1-2"><a href="delineamento-inteiramente-casualizado.html#cb1-2"></a><span class="kw">library</span>(ExpDes.pt)</span>
-<span id="cb1-3"><a href="delineamento-inteiramente-casualizado.html#cb1-3"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-4"><a href="delineamento-inteiramente-casualizado.html#cb1-4"></a></span>
-<span id="cb1-5"><a href="delineamento-inteiramente-casualizado.html#cb1-5"></a></span>
-<span id="cb1-6"><a href="delineamento-inteiramente-casualizado.html#cb1-6"></a><span class="co"># Caminho dos dados</span></span>
-<span id="cb1-7"><a href="delineamento-inteiramente-casualizado.html#cb1-7"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt&quot;</span></span>
-<span id="cb1-8"><a href="delineamento-inteiramente-casualizado.html#cb1-8"></a></span>
-<span id="cb1-9"><a href="delineamento-inteiramente-casualizado.html#cb1-9"></a><span class="co"># Lendo o arquivo de dados</span></span>
-<span id="cb1-10"><a href="delineamento-inteiramente-casualizado.html#cb1-10"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb1-11"><a href="delineamento-inteiramente-casualizado.html#cb1-11"></a></span>
-<span id="cb1-12"><a href="delineamento-inteiramente-casualizado.html#cb1-12"></a><span class="co"># verificando os 6 primeiros registros</span></span>
-<span id="cb1-13"><a href="delineamento-inteiramente-casualizado.html#cb1-13"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<span id="cb1-2"><a href="delineamento-inteiramente-casualizado.html#cb1-2"></a><span class="kw">library</span>(ExpDes.pt)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="delineamento-inteiramente-casualizado.html#cb2-1"></a><span class="co"># Definindo o caminho dos dados</span></span>
+<span id="cb2-2"><a href="delineamento-inteiramente-casualizado.html#cb2-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt&quot;</span></span>
+<span id="cb2-3"><a href="delineamento-inteiramente-casualizado.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="delineamento-inteiramente-casualizado.html#cb2-4"></a><span class="co"># Lendo o arquivo de dados</span></span>
+<span id="cb2-5"><a href="delineamento-inteiramente-casualizado.html#cb2-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho, <span class="dt">h=</span>T, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb2-6"><a href="delineamento-inteiramente-casualizado.html#cb2-6"></a></span>
+<span id="cb2-7"><a href="delineamento-inteiramente-casualizado.html#cb2-7"></a><span class="co"># verificando os 6 primeiros registros</span></span>
+<span id="cb2-8"><a href="delineamento-inteiramente-casualizado.html#cb2-8"></a><span class="kw">head</span>(dados)</span></code></pre></div>
 <pre><code>##   Trat Rep    Y
 ## 1    1   1 38.9
 ## 2    1   2 25.4
@@ -329,19 +326,30 @@ onde:
 ## 4    1   4 25.7
 ## 5    1   5 29.3
 ## 6    2   1 20.9</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="delineamento-inteiramente-casualizado.html#cb3-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
-<span id="cb3-2"><a href="delineamento-inteiramente-casualizado.html#cb3-2"></a>trat &lt;-<span class="st"> </span>dados<span class="op">$</span>Trat <span class="co"># Criando o vetor de tratamentos</span></span>
-<span id="cb3-3"><a href="delineamento-inteiramente-casualizado.html#cb3-3"></a>prod &lt;-<span class="st"> </span>dados<span class="op">$</span>Y <span class="co"># Criando o vetor com a variável resposta</span></span>
-<span id="cb3-4"><a href="delineamento-inteiramente-casualizado.html#cb3-4"></a></span>
-<span id="cb3-5"><a href="delineamento-inteiramente-casualizado.html#cb3-5"></a><span class="co"># Utilizando a função</span></span>
-<span id="cb3-6"><a href="delineamento-inteiramente-casualizado.html#cb3-6"></a><span class="kw">dic</span>(trat,prod,<span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="delineamento-inteiramente-casualizado.html#cb4-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
+<span id="cb4-2"><a href="delineamento-inteiramente-casualizado.html#cb4-2"></a>trat &lt;-<span class="st"> </span><span class="kw">as.factor</span>(dados<span class="op">$</span>Trat) <span class="co"># Criando o vetor de tratamentos</span></span>
+<span id="cb4-3"><a href="delineamento-inteiramente-casualizado.html#cb4-3"></a>y &lt;-<span class="st"> </span>dados<span class="op">$</span>Y <span class="co"># Criando o vetor com a variável resposta</span></span>
+<span id="cb4-4"><a href="delineamento-inteiramente-casualizado.html#cb4-4"></a></span>
+<span id="cb4-5"><a href="delineamento-inteiramente-casualizado.html#cb4-5"></a><span class="co"># Criando o modelo</span></span>
+<span id="cb4-6"><a href="delineamento-inteiramente-casualizado.html#cb4-6"></a>mod &lt;-<span class="st"> </span><span class="kw">aov</span>(y <span class="op">~</span><span class="st"> </span>trat)</span>
+<span id="cb4-7"><a href="delineamento-inteiramente-casualizado.html#cb4-7"></a><span class="kw">anova</span>(mod)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: y
+##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## trat       4 2135.94  533.98  28.592 5.077e-08 ***
+## Residuals 20  373.52   18.68                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="delineamento-inteiramente-casualizado.html#cb6-1"></a><span class="co"># Utilizando a função dic - delineamento inteiramente casualizado</span></span>
+<span id="cb6-2"><a href="delineamento-inteiramente-casualizado.html#cb6-2"></a><span class="kw">dic</span>(trat, y, <span class="dt">quali=</span><span class="ot">TRUE</span>, <span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
-##            GL      SQ QM     Fc      Pr&gt;Fc
-## Tratamento  4 2135.94  3 28.592 5.0773e-08
-## Residuo    20  373.52  2                  
-## Total      24 2509.46  1                  
+##            GL      SQ     QM     Fc      Pr&gt;Fc
+## Tratamento  4 2135.94 533.98 28.592 5.0773e-08
+## Residuo    20  373.52  18.68                  
+## Total      24 2509.46 552.66                  
 ## ------------------------------------------------------------------------
 ## CV = 12.62 %
 ## 

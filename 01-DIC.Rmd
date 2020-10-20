@@ -126,22 +126,128 @@ Utilizando o R para obtermos o quadro da análise de variância, os dados estão
 ```{r,message=FALSE, error=FALSE, warning=FALSE}
 # Carregando o pacote para a análise
 library(ExpDes.pt)
-library(tidyverse)
+```
+
+```{r,message=FALSE, error=FALSE, warning=FALSE,echo=FALSE}
+dic <-function (trat, resp, quali = TRUE, mcomp = "tukey", nl = FALSE, 
+    hvar = "bartlett", sigT = 0.05, sigF = 0.05) 
+{
+    Trat <- factor(trat)
+    anava <- aov(resp ~ Trat)
+    tab <- summary(anava)
+    t <- length(levels(Trat))
+    r <- as.numeric(table(Trat))
+    colnames(tab[[1]]) <- c("GL", "SQ", "QM", 
+        "Fc", "Pr>Fc")
+    tab[[1]] <- rbind(tab[[1]], c(apply(tab[[1]], 2, sum)))
+    rownames(tab[[1]]) <- c("Tratamento", "Residuo", 
+        "Total")
+    cv <- round(sqrt(tab[[1]][2, 3])/mean(resp) * 100, 2)
+    cat("------------------------------------------------------------------------\nQuadro da analise de variancia\n------------------------------------------------------------------------\n")
+    print(tab[[1]])
+    cat("------------------------------------------------------------------------\nCV =", 
+        cv, "%\n")
+    pvalor.shapiro <- shapiro.test(anava$residuals)$p.value
+    cat("\n------------------------------------------------------------------------\nTeste de normalidade dos residuos \n")
+    cat("Valor-p: ", pvalor.shapiro, "\n")
+    if (pvalor.shapiro < 0.05) {
+        cat("ATENCAO: a 5% de significancia, os residuos nao podem ser considerados normais!\n------------------------------------------------------------------------\n")
+    }
+    else {
+        cat("De acordo com o teste de Shapiro-Wilk a 5% de significancia, os residuos podem ser considerados normais.\n------------------------------------------------------------------------\n")
+    }
+    if (hvar == "bartlett") 
+        pvalor.hvar <- bartlett(trat, resp, t, r)
+    if (hvar == "levene") 
+        pvalor.hvar <- levene(trat, resp, t, r)
+    if (hvar == "samiuddin") 
+        pvalor.hvar <- samiuddin(trat, resp, t, r)
+    if (hvar == "oneillmathews") 
+        pvalor.hvar <- oneillmathews(trat, resp, t, r)
+    if (hvar == "layard") 
+        pvalor.hvar <- layard(trat, resp, t, r)
+    cat("\n------------------------------------------------------------------------\nTeste de homogeneidade de variancia \n")
+    cat("valor-p: ", pvalor.hvar, "\n")
+    if (pvalor.hvar < 0.05) {
+        cat("ATENCAO: a 5% de significancia, as variancias nao podem ser consideradas homogeneas!\n------------------------------------------------------------------------\n")
+    }
+    else {
+        cat("De acordo com o teste de", hvar, "a 5% de significancia, as variancias podem ser consideradas homogeneas.\n------------------------------------------------------------------------\n")
+    }
+    if (tab[[1]][1, 5] < sigF) {
+        if (quali == TRUE) {
+            if (mcomp == "tukey") 
+                tukey(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 
+                  2], sigT)
+            if (mcomp == "duncan") 
+                duncan(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 
+                  2], sigT)
+            if (mcomp == "lsd") 
+                lsd(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 2], 
+                  sigT)
+            if (mcomp == "lsdb") 
+                lsdb(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 
+                  2], sigT)
+            if (mcomp == "sk") 
+                scottknott(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 
+                  2], sigT)
+            if (mcomp == "snk") 
+                snk(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 2], 
+                  sigT)
+            if (mcomp == "ccboot") 
+                ccboot(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 
+                  2], sigT)
+            if (mcomp == "ccf") 
+                ccf(resp, Trat, tab[[1]][2, 1], tab[[1]][2, 2], 
+                  sigT)
+        }
+        else if (nl == FALSE) 
+            reg <- reg.poly(resp, trat, tab[[1]][2, 1], tab[[1]][2, 
+                2], tab[[1]][1, 1], tab[[1]][1, 2])
+        else if (nl == TRUE) 
+            reg <- reg.nl(resp, trat)
+    }
+    else {
+        cat("\nDe acordo com o teste F, as medias nao podem ser consideradas diferentes.\n")
+        cat("------------------------------------------------------------------------\n")
+        mean.table <- tapply.stat(resp, trat, mean)
+        colnames(mean.table) <- c("Niveis", "Medias")
+        print(mean.table)
+        cat("------------------------------------------------------------------------\n")
+    }
+    out <- list()
+    out$residuos <- anava$residuals
+    out$gl.residual <- anava$df.residual
+    out$coeficientes <- anava$coefficients
+    out$efeitos <- anava$effects
+    out$valores.ajustados <- anava$fitted.values
+    out$medias <- tapply.stat(resp, trat, mean)
+    if (quali == FALSE && tab[[1]][1, 5] < sigF) {
+        out$reg <- reg
+    }
+    invisible(out)
+}
+```
 
 
-# Caminho dos dados
+```{r,message=FALSE, error=FALSE, warning=FALSE}
+# Definindo o caminho dos dados
 caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt"
 
 # Lendo o arquivo de dados
-dados<-read.table(caminho,h=T,sep="\t")
+dados<-read.table(caminho, h=T, sep="\t")
 
 # verificando os 6 primeiros registros
 head(dados)
 
 # Análise de variância e teste de Tukey com a função dic
-trat <- dados$Trat # Criando o vetor de tratamentos
-prod <- dados$Y # Criando o vetor com a variável resposta
+trat <- as.factor(dados$Trat) # Criando o vetor de tratamentos
+y <- dados$Y # Criando o vetor com a variável resposta
 
-# Utilizando a função
-dic(trat,prod,mcomp = "tukey")
+# Criando o modelo
+mod <- aov(y ~ trat)
+anova(mod)
+
+# Utilizando a função dic - delineamento inteiramente casualizado
+dic(trat, y, quali=TRUE, mcomp = "tukey")
 ```
