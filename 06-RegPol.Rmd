@@ -20,9 +20,21 @@ X<- seq(0,100,25)
 Y<-c(2100,2600,3000,3550,4150)
 
 # Construindo o gráfico
-plot(X,Y, pch=21,bg="gray",cex=1.4,las=1,
-     xlab = "Dose de adubo (kg/ha)",
-     ylab = "Produção do Milho (kg/ha)")
+plot(X,Y,las=1,pch=15,col="red",cex=1.3,
+     xlab="Doses do adubo (kg/ha)",
+     ylab="Produção do milho (kg/ha)",
+     cex.lab=1.2)
+
+# Análise de regressão linear
+reg<-lm(Y~X)
+summary.lm(reg)
+
+# Adicionando a reta de regressão ao gráfico
+abline(reg,col="blue",lwd=2,lty=2)
+
+# adicionando o valore de Rquadrado e da equação ao gráfico
+text(20,3000,"R² = 0,995",font=4)
+text(20,3250,"Y = 2070 + 20,2X",font=4)
 ```
 
 
@@ -229,30 +241,31 @@ dic <-function (trat, resp, quali = TRUE, mcomp = "tukey", nl = FALSE,
 caminho<-"https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt"
 
 dados<-read.table(caminho,h=T)
-dose <- dados$trat
+doses <- dados$trat
 y<-dados$y
 
 # Construindo o gráfico
-plot(dose,y, pch=21,bg="gray",cex=1.4,las=1,
+plot(doses,y, pch=21,bg="gray",cex=1.4,las=1,
      xlab = "Dose de Gesso (kg/ha)",
      ylab = "Ppeso de 1000 sementes (g)")
 
 # Análise de Variância
-dic(dose, y, quali = FALSE)
+dic(doses, y, quali = FALSE)
 ```
 
 ```{r}
 # Construção do gráfico
-X<-seq(0,300,50)
-Y<-tapply(y, dose, mean)
-plot(Y~X,
-     las=1,
-     pch=21,bg="gray",cex=1.4,
-     xlab="Dose de Gesso (kg/ha)",
-     ylab="Peso de 1000 sementes (g)"
-)
-curve(140.7836+0.2737*x-0.000783*x^2,add=TRUE,col="red",lwd=2)
-text(155,145,"140.7836 + 0.2737X - 0.000783X²\nR²=0.8801")
+X <- seq(0,300,50)
+Y <- tapply(y, doses, mean)
+plot(X,Y,las=1,pch=15,col="red",cex=1.3,
+     xlab="Doses de Gesso (kg/ha)",
+     ylab="Peso de 1000 sementes (g)",
+     cex.lab=1.2)
+curve(140.7839+0.2736*x-0.0008*x^2,add=TRUE,
+      col="blue",lwd=2,lty=2)
+
+text(150,145,"R² = 0,88",font=4)
+text(150,147,"Y = 140.7839+0.2736X-0.0008X²",font=4)
 ```
 
 Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.
