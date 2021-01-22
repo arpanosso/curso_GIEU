@@ -24,7 +24,7 @@
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-20" />
+<meta name="date" content="2021-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="delineamento-em-blocos-casualizados.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,22 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +86,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -163,10 +162,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="delineamento-inteiramente-casualizado" class="section level1">
+<div id="delineamento-inteiramente-casualizado" class="section level1" number="2">
 <h1><span class="header-section-number"> 2</span> Delineamento Inteiramente Casualizado</h1>
 <p><strong>Caracterização</strong></p>
-<p>O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos inteiramente casualizados ou experimentos inteiramente ao acaso.</p>
+<p>O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos inteiramente casualizados ou experimentos inteiramente ao acaso (DIC).</p>
 <p>Este delineamento apresenta as seguintes características:</p>
 <ol style="list-style-type: decimal">
 <li><p>Leva em consideração os princípios da <strong>repetição</strong> e da <strong>casualização</strong>, deixando de lado o princípio do controle local e, portanto, as repetições não são organizadas em blocos.</p></li>
@@ -309,16 +308,16 @@ onde:
 <p><strong>Aplicação no R - DIC</strong></p>
 <p>Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt">Mandioca</a>.</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="delineamento-inteiramente-casualizado.html#cb1-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
-<span id="cb1-2"><a href="delineamento-inteiramente-casualizado.html#cb1-2"></a><span class="kw">library</span>(ExpDes.pt)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="delineamento-inteiramente-casualizado.html#cb2-1"></a><span class="co"># Definindo o caminho dos dados</span></span>
-<span id="cb2-2"><a href="delineamento-inteiramente-casualizado.html#cb2-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt&quot;</span></span>
-<span id="cb2-3"><a href="delineamento-inteiramente-casualizado.html#cb2-3"></a></span>
-<span id="cb2-4"><a href="delineamento-inteiramente-casualizado.html#cb2-4"></a><span class="co"># Lendo o arquivo de dados</span></span>
-<span id="cb2-5"><a href="delineamento-inteiramente-casualizado.html#cb2-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho, <span class="dt">h=</span>T, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb2-6"><a href="delineamento-inteiramente-casualizado.html#cb2-6"></a></span>
-<span id="cb2-7"><a href="delineamento-inteiramente-casualizado.html#cb2-7"></a><span class="co"># verificando os 6 primeiros registros</span></span>
-<span id="cb2-8"><a href="delineamento-inteiramente-casualizado.html#cb2-8"></a><span class="kw">head</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="delineamento-inteiramente-casualizado.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregando o pacote para a análise</span></span>
+<span id="cb1-2"><a href="delineamento-inteiramente-casualizado.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ExpDes.pt)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="delineamento-inteiramente-casualizado.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo o caminho dos dados</span></span>
+<span id="cb2-2"><a href="delineamento-inteiramente-casualizado.html#cb2-2" aria-hidden="true" tabindex="-1"></a>caminho<span class="ot">&lt;-</span><span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/mandioca.txt&quot;</span></span>
+<span id="cb2-3"><a href="delineamento-inteiramente-casualizado.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="delineamento-inteiramente-casualizado.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Lendo o arquivo de dados</span></span>
+<span id="cb2-5"><a href="delineamento-inteiramente-casualizado.html#cb2-5" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.table</span>(caminho, <span class="at">h=</span>T, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb2-6"><a href="delineamento-inteiramente-casualizado.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="delineamento-inteiramente-casualizado.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># verificando os 6 primeiros registros</span></span>
+<span id="cb2-8"><a href="delineamento-inteiramente-casualizado.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dados)</span></code></pre></div>
 <pre><code>##   Trat Rep    Y
 ## 1    1   1 38.9
 ## 2    1   2 25.4
@@ -326,13 +325,13 @@ onde:
 ## 4    1   4 25.7
 ## 5    1   5 29.3
 ## 6    2   1 20.9</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="delineamento-inteiramente-casualizado.html#cb4-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
-<span id="cb4-2"><a href="delineamento-inteiramente-casualizado.html#cb4-2"></a>trat &lt;-<span class="st"> </span><span class="kw">as.factor</span>(dados<span class="op">$</span>Trat) <span class="co"># Criando o vetor de tratamentos</span></span>
-<span id="cb4-3"><a href="delineamento-inteiramente-casualizado.html#cb4-3"></a>y &lt;-<span class="st"> </span>dados<span class="op">$</span>Y <span class="co"># Criando o vetor com a variável resposta</span></span>
-<span id="cb4-4"><a href="delineamento-inteiramente-casualizado.html#cb4-4"></a></span>
-<span id="cb4-5"><a href="delineamento-inteiramente-casualizado.html#cb4-5"></a><span class="co"># Criando o modelo</span></span>
-<span id="cb4-6"><a href="delineamento-inteiramente-casualizado.html#cb4-6"></a>mod &lt;-<span class="st"> </span><span class="kw">aov</span>(y <span class="op">~</span><span class="st"> </span>trat)</span>
-<span id="cb4-7"><a href="delineamento-inteiramente-casualizado.html#cb4-7"></a><span class="kw">anova</span>(mod)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="delineamento-inteiramente-casualizado.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análise de variância e teste de Tukey com a função dic</span></span>
+<span id="cb4-2"><a href="delineamento-inteiramente-casualizado.html#cb4-2" aria-hidden="true" tabindex="-1"></a>trat <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dados<span class="sc">$</span>Trat) <span class="co"># Criando o vetor de tratamentos</span></span>
+<span id="cb4-3"><a href="delineamento-inteiramente-casualizado.html#cb4-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> dados<span class="sc">$</span>Y <span class="co"># Criando o vetor com a variável resposta</span></span>
+<span id="cb4-4"><a href="delineamento-inteiramente-casualizado.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="delineamento-inteiramente-casualizado.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando o modelo</span></span>
+<span id="cb4-6"><a href="delineamento-inteiramente-casualizado.html#cb4-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(y <span class="sc">~</span> trat)</span>
+<span id="cb4-7"><a href="delineamento-inteiramente-casualizado.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: y
@@ -341,8 +340,8 @@ onde:
 ## Residuals 20  373.52   18.68                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="delineamento-inteiramente-casualizado.html#cb6-1"></a><span class="co"># Utilizando a função dic - delineamento inteiramente casualizado</span></span>
-<span id="cb6-2"><a href="delineamento-inteiramente-casualizado.html#cb6-2"></a><span class="kw">dic</span>(trat, y, <span class="dt">quali=</span><span class="ot">TRUE</span>, <span class="dt">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="delineamento-inteiramente-casualizado.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilizando a função dic - delineamento inteiramente casualizado</span></span>
+<span id="cb6-2"><a href="delineamento-inteiramente-casualizado.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dic</span>(trat, y, <span class="at">quali=</span><span class="cn">TRUE</span>, <span class="at">mcomp =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------

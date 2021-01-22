@@ -24,7 +24,7 @@
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-20" />
+<meta name="date" content="2021-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="delineamento-em-blocos-casualizados.html"/>
 <link rel="next" href="estudo-do-fatorial-32.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,22 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +86,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -163,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="experimentos-fatoriais" class="section level1">
+<div id="experimentos-fatoriais" class="section level1" number="4">
 <h1><span class="header-section-number"> 4</span> Experimentos Fatoriais</h1>
 <p><strong>Introdução</strong></p>
 <p>Os experimentos simples, realizados de acordo com o delineamento inteiramente casualizado ou em blocos casualizados, são utilizados para testar os efeitos de apenas um tipo de <strong>tratamento</strong>, ou <strong>fator</strong>, sendo os demais mantidos constantes.</p>
@@ -213,7 +212,7 @@ etc.</p>
 <p>Para exemplificar a casualização dos tratamentos, vamos supor um experimento fatorial <span class="math inline">\(3 \times 2\)</span>, com 3 variedades de milho (<span class="math inline">\(V_1,V_2,V_3\)</span>) e 2 níveis de adubação dom <span class="math inline">\(P_2O_5\)</span> (<span class="math inline">\(P_1 e\; P_2\)</span>). Se o experimento fosse instalado de acordo com o delineamento em blocos casualizados, com 4 repetições, teríamos:</p>
 <p><img src="Casuali.png" />
 <strong>Análise de variância de um experimento fatorial com 2 fatores com interação não significativa</strong></p>
-<p>Para a obtenção da análise de variância, vamos utilizar os dados adaptados do trabalho “Ensaios em condições de casa-de-vegetação para controlo químico do ‘damping-off’ em <em>Eucalyptus saligna</em> Sm.”, realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p. 97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de <em>Eucalytus saligna</em>, do fatores:</p>
+<p>Para a obtenção da análise de variância, vamos utilizar os dados adaptados do trabalho “Ensaios em condições de casa-de-vegetação para controlo químico do ‘damping-off’ em <em>Eucalyptus saligna</em> Sm.” realizado por KRUGNER; CARVALHO (1971) e publicado em IPEF, n 2/3 p. 97-113. O ensaio foi realizado no delineamento inteiramente casualizado, com 3 repetições e foram estudados os efeitos sobre a altura média das mudas de <em>Eucalytus saligna</em>, do fatores:</p>
 <p><strong>Tratamento do solo (S)</strong>, sendo:<br />
 <span class="math inline">\(S_1=\text{Vapam}\)</span><br />
 <span class="math inline">\(S_2=\text{Brometo de metila}\)</span><br />
@@ -303,21 +302,21 @@ etc.</p>
 <p><strong>Aplicação em R - Fatorial com Interação Não Significativa</strong></p>
 <p><img src="R.png" /></p>
 <p><strong>Utilizando as funções básicas e o pacote agricolae</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="experimentos-fatoriais.html#cb15-1"></a><span class="co"># Carregando o pacote para análise de variância</span></span>
-<span id="cb15-2"><a href="experimentos-fatoriais.html#cb15-2"></a><span class="kw">library</span>(ExpDes.pt)</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="experimentos-fatoriais.html#cb16-1"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
-<span id="cb16-2"><a href="experimentos-fatoriais.html#cb16-2"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt&quot;</span></span>
-<span id="cb16-3"><a href="experimentos-fatoriais.html#cb16-3"></a></span>
-<span id="cb16-4"><a href="experimentos-fatoriais.html#cb16-4"></a><span class="co"># Entrada da dados</span></span>
-<span id="cb16-5"><a href="experimentos-fatoriais.html#cb16-5"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb16-6"><a href="experimentos-fatoriais.html#cb16-6"></a></span>
-<span id="cb16-7"><a href="experimentos-fatoriais.html#cb16-7"></a><span class="co">#Guardando os fatores (tratamentos de solo e fungicidas) e a variável resposta (y)</span></span>
-<span id="cb16-8"><a href="experimentos-fatoriais.html#cb16-8"></a>fator1&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>S)</span>
-<span id="cb16-9"><a href="experimentos-fatoriais.html#cb16-9"></a>fator2&lt;-<span class="kw">as.factor</span>(dados<span class="op">$</span>F)</span>
-<span id="cb16-10"><a href="experimentos-fatoriais.html#cb16-10"></a>y&lt;-dados<span class="op">$</span>y</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="experimentos-fatoriais.html#cb17-1"></a><span class="co"># Utilizando a função fat2.dic do pacote ExpDes.pt</span></span>
-<span id="cb17-2"><a href="experimentos-fatoriais.html#cb17-2"></a><span class="kw">fat2.dic</span>(fator1,fator2,y,<span class="dt">quali=</span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>),<span class="dt">mcomp=</span><span class="st">&quot;tukey&quot;</span>,</span>
-<span id="cb17-3"><a href="experimentos-fatoriais.html#cb17-3"></a>         <span class="dt">fac.names =</span> <span class="kw">c</span>(<span class="st">&quot;Trat.Solo&quot;</span>, <span class="st">&quot;Fungicida&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="experimentos-fatoriais.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregando o pacote para análise de variância</span></span>
+<span id="cb15-2"><a href="experimentos-fatoriais.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ExpDes.pt)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="experimentos-fatoriais.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo o caminho do banco de dados</span></span>
+<span id="cb16-2"><a href="experimentos-fatoriais.html#cb16-2" aria-hidden="true" tabindex="-1"></a>caminho<span class="ot">&lt;-</span><span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/solofungi.txt&quot;</span></span>
+<span id="cb16-3"><a href="experimentos-fatoriais.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="experimentos-fatoriais.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada da dados</span></span>
+<span id="cb16-5"><a href="experimentos-fatoriais.html#cb16-5" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.table</span>(caminho,<span class="at">h=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb16-6"><a href="experimentos-fatoriais.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="experimentos-fatoriais.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Guardando os fatores (tratamentos de solo e fungicidas) e a variável resposta (y)</span></span>
+<span id="cb16-8"><a href="experimentos-fatoriais.html#cb16-8" aria-hidden="true" tabindex="-1"></a>fator1<span class="ot">&lt;-</span><span class="fu">as.factor</span>(dados<span class="sc">$</span>S)</span>
+<span id="cb16-9"><a href="experimentos-fatoriais.html#cb16-9" aria-hidden="true" tabindex="-1"></a>fator2<span class="ot">&lt;-</span><span class="fu">as.factor</span>(dados<span class="sc">$</span>F)</span>
+<span id="cb16-10"><a href="experimentos-fatoriais.html#cb16-10" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span>dados<span class="sc">$</span>y</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="experimentos-fatoriais.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilizando a função fat2.dic do pacote ExpDes.pt</span></span>
+<span id="cb17-2"><a href="experimentos-fatoriais.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fat2.dic</span>(fator1,fator2,y,<span class="at">quali=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>),<span class="at">mcomp=</span><span class="st">&quot;tukey&quot;</span>,</span>
+<span id="cb17-3"><a href="experimentos-fatoriais.html#cb17-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">&quot;Trat.Solo&quot;</span>, <span class="st">&quot;Fungicida&quot;</span>))</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Legenda:
 ## FATOR 1:  Trat.Solo 

@@ -2,7 +2,7 @@
 
 **Caracterização**
 
-O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos inteiramente casualizados ou experimentos inteiramente ao acaso.
+O delineamento inteiramente casualizado é o mais simples de todos os delineamentos experimentais, e os experimentos instalados de acordo com este delineamento são chamado de experimentos inteiramente casualizados ou experimentos inteiramente ao acaso (DIC).
 
 Este delineamento apresenta as seguintes características:
 

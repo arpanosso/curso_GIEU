@@ -24,7 +24,7 @@
 <meta name="author" content="Alan R. Panosso" />
 
 
-<meta name="date" content="2020-10-20" />
+<meta name="date" content="2021-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="experimentos-em-parcelas-subdivididas.html"/>
 
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,22 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +86,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -163,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="análise-de-regressão" class="section level1">
+<div id="análise-de-regressão" class="section level1" number="7">
 <h1><span class="header-section-number"> 7</span> Análise de Regressão</h1>
 <p><strong>Introdução</strong></p>
 <p>Nos experimentos em que os tratamentos são quantitativos, como por exemplo, níveis crescentes de um adubo, doses crescentes de um inseticida, etc, muitas vezes existe uma correspondência funcional, denominada equação de regressão, que relaciona os valores dos tratamentos (<span class="math inline">\(X\)</span>) com os dados analisados (<span class="math inline">\(Y\)</span>).</p>
@@ -192,19 +191,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Vamos utilizar o R para representação gráfica dos dados:</p>
 <p><img src="Rlogo.png" /></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="análise-de-regressão.html#cb27-1"></a><span class="co"># Criando as variáveis X e Y</span></span>
-<span id="cb27-2"><a href="análise-de-regressão.html#cb27-2"></a>X&lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">25</span>)</span>
-<span id="cb27-3"><a href="análise-de-regressão.html#cb27-3"></a>Y&lt;-<span class="kw">c</span>(<span class="dv">2100</span>,<span class="dv">2600</span>,<span class="dv">3000</span>,<span class="dv">3550</span>,<span class="dv">4150</span>)</span>
-<span id="cb27-4"><a href="análise-de-regressão.html#cb27-4"></a></span>
-<span id="cb27-5"><a href="análise-de-regressão.html#cb27-5"></a><span class="co"># Construindo o gráfico</span></span>
-<span id="cb27-6"><a href="análise-de-regressão.html#cb27-6"></a><span class="kw">plot</span>(X,Y,<span class="dt">las=</span><span class="dv">1</span>,<span class="dt">pch=</span><span class="dv">15</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,</span>
-<span id="cb27-7"><a href="análise-de-regressão.html#cb27-7"></a>     <span class="dt">xlab=</span><span class="st">&quot;Doses do adubo (kg/ha)&quot;</span>,</span>
-<span id="cb27-8"><a href="análise-de-regressão.html#cb27-8"></a>     <span class="dt">ylab=</span><span class="st">&quot;Produção do milho (kg/ha)&quot;</span>,</span>
-<span id="cb27-9"><a href="análise-de-regressão.html#cb27-9"></a>     <span class="dt">cex.lab=</span><span class="fl">1.2</span>)</span>
-<span id="cb27-10"><a href="análise-de-regressão.html#cb27-10"></a></span>
-<span id="cb27-11"><a href="análise-de-regressão.html#cb27-11"></a><span class="co"># Análise de regressão linear</span></span>
-<span id="cb27-12"><a href="análise-de-regressão.html#cb27-12"></a>reg&lt;-<span class="kw">lm</span>(Y<span class="op">~</span>X)</span>
-<span id="cb27-13"><a href="análise-de-regressão.html#cb27-13"></a><span class="kw">summary.lm</span>(reg)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="análise-de-regressão.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando as variáveis X e Y</span></span>
+<span id="cb27-2"><a href="análise-de-regressão.html#cb27-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">25</span>)</span>
+<span id="cb27-3"><a href="análise-de-regressão.html#cb27-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2100</span>,<span class="dv">2600</span>,<span class="dv">3000</span>,<span class="dv">3550</span>,<span class="dv">4150</span>)</span>
+<span id="cb27-4"><a href="análise-de-regressão.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="análise-de-regressão.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Construindo o gráfico</span></span>
+<span id="cb27-6"><a href="análise-de-regressão.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X,Y,<span class="at">las=</span><span class="dv">1</span>,<span class="at">pch=</span><span class="dv">15</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">cex=</span><span class="fl">1.3</span>,</span>
+<span id="cb27-7"><a href="análise-de-regressão.html#cb27-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Doses do adubo (kg/ha)&quot;</span>,</span>
+<span id="cb27-8"><a href="análise-de-regressão.html#cb27-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Produção do milho (kg/ha)&quot;</span>,</span>
+<span id="cb27-9"><a href="análise-de-regressão.html#cb27-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.lab=</span><span class="fl">1.2</span>)</span>
+<span id="cb27-10"><a href="análise-de-regressão.html#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="análise-de-regressão.html#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Análise de regressão linear</span></span>
+<span id="cb27-12"><a href="análise-de-regressão.html#cb27-12" aria-hidden="true" tabindex="-1"></a>reg<span class="ot">&lt;-</span><span class="fu">lm</span>(Y<span class="sc">~</span>X)</span>
+<span id="cb27-13"><a href="análise-de-regressão.html#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary.lm</span>(reg)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Y ~ X)
@@ -223,17 +222,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 65.19 on 3 degrees of freedom
 ## Multiple R-squared:  0.995,  Adjusted R-squared:  0.9934 
 ## F-statistic: 600.1 on 1 and 3 DF,  p-value: 0.0001491</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="análise-de-regressão.html#cb29-1"></a><span class="co"># Adicionando a reta de regressão ao gráfico</span></span>
-<span id="cb29-2"><a href="análise-de-regressão.html#cb29-2"></a><span class="kw">abline</span>(reg,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb29-3"><a href="análise-de-regressão.html#cb29-3"></a></span>
-<span id="cb29-4"><a href="análise-de-regressão.html#cb29-4"></a><span class="co"># adicionando o valore de Rquadrado e da equação ao gráfico</span></span>
-<span id="cb29-5"><a href="análise-de-regressão.html#cb29-5"></a><span class="kw">text</span>(<span class="dv">20</span>,<span class="dv">3000</span>,<span class="st">&quot;R² = 0,995&quot;</span>,<span class="dt">font=</span><span class="dv">4</span>)</span>
-<span id="cb29-6"><a href="análise-de-regressão.html#cb29-6"></a><span class="kw">text</span>(<span class="dv">20</span>,<span class="dv">3250</span>,<span class="st">&quot;Y = 2070 + 20,2X&quot;</span>,<span class="dt">font=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="análise-de-regressão.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionando a reta de regressão ao gráfico</span></span>
+<span id="cb29-2"><a href="análise-de-regressão.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(reg,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb29-3"><a href="análise-de-regressão.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="análise-de-regressão.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># adicionando o valore de Rquadrado e da equação ao gráfico</span></span>
+<span id="cb29-5"><a href="análise-de-regressão.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">20</span>,<span class="dv">3000</span>,<span class="st">&quot;R² = 0,995&quot;</span>,<span class="at">font=</span><span class="dv">4</span>)</span>
+<span id="cb29-6"><a href="análise-de-regressão.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">20</span>,<span class="dv">3250</span>,<span class="st">&quot;Y = 2070 + 20,2X&quot;</span>,<span class="at">font=</span><span class="dv">4</span>)</span></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>Verificamos, portanto, que há uma tendência de aumento na produção à medida que aumentamos a quantidade de adubo aplicada.</p>
 <p>Vejamos então, como fazer a análise de variância para o estudo da regressão.</p>
 <p><strong>Obtenção da análise de variância, estudando-se os efeitos da regressão</strong></p>
-<p>Para estudo da regressão, vamos utilizar os dados do trabalho: “Efeito de doses de gesso na cultura do feijoeiro (<em>Phaseolu vulgaris</em> L.)”, realizado por RAGAZZI (1979). Neste trabalho foram utilizadas 7 doses de gesso 0, 50, 100, 150, 200, 250, e 300 <span class="math inline">\(kg\;ha^{-1}\)</span>. Os resultados obtidos para peso de 1000 sementes, em gramas, são apresentados a seguir:</p>
+<p>Para estudo da regressão, vamos utilizar os dados do trabalho: “Efeito de doses de gesso na cultura do feijoeiro (<em>Phaseolu vulgaris</em> L.),” realizado por RAGAZZI (1979). Neste trabalho foram utilizadas 7 doses de gesso 0, 50, 100, 150, 200, 250, e 300 <span class="math inline">\(kg\;ha^{-1}\)</span>. Os resultados obtidos para peso de 1000 sementes, em gramas, são apresentados a seguir:</p>
 <table>
 <thead>
 <tr class="header">
@@ -461,20 +460,20 @@ Os testes F para a regressão linear e regressão quadrática foram significativ
 </table>
 <p><strong>Aplicação em R - Análise de Regressão</strong></p>
 <p><img src="R.png" /></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="análise-de-regressão.html#cb30-1"></a><span class="kw">require</span>(ExpDes.pt)</span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="análise-de-regressão.html#cb31-1"></a>caminho&lt;-<span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt&quot;</span></span>
-<span id="cb31-2"><a href="análise-de-regressão.html#cb31-2"></a></span>
-<span id="cb31-3"><a href="análise-de-regressão.html#cb31-3"></a>dados&lt;-<span class="kw">read.table</span>(caminho,<span class="dt">h=</span>T)</span>
-<span id="cb31-4"><a href="análise-de-regressão.html#cb31-4"></a>doses &lt;-<span class="st"> </span>dados<span class="op">$</span>trat</span>
-<span id="cb31-5"><a href="análise-de-regressão.html#cb31-5"></a>y&lt;-dados<span class="op">$</span>y</span>
-<span id="cb31-6"><a href="análise-de-regressão.html#cb31-6"></a></span>
-<span id="cb31-7"><a href="análise-de-regressão.html#cb31-7"></a><span class="co"># Construindo o gráfico</span></span>
-<span id="cb31-8"><a href="análise-de-regressão.html#cb31-8"></a><span class="kw">plot</span>(doses,y, <span class="dt">pch=</span><span class="dv">21</span>,<span class="dt">bg=</span><span class="st">&quot;gray&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>,<span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb31-9"><a href="análise-de-regressão.html#cb31-9"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Dose de Gesso (kg/ha)&quot;</span>,</span>
-<span id="cb31-10"><a href="análise-de-regressão.html#cb31-10"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Ppeso de 1000 sementes (g)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="análise-de-regressão.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ExpDes.pt)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="análise-de-regressão.html#cb31-1" aria-hidden="true" tabindex="-1"></a>caminho<span class="ot">&lt;-</span><span class="st">&quot;https://raw.githubusercontent.com/arpanosso/curso_GIEU/master/dados/feijaoREG.txt&quot;</span></span>
+<span id="cb31-2"><a href="análise-de-regressão.html#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="análise-de-regressão.html#cb31-3" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.table</span>(caminho,<span class="at">h=</span>T)</span>
+<span id="cb31-4"><a href="análise-de-regressão.html#cb31-4" aria-hidden="true" tabindex="-1"></a>doses <span class="ot">&lt;-</span> dados<span class="sc">$</span>trat</span>
+<span id="cb31-5"><a href="análise-de-regressão.html#cb31-5" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span>dados<span class="sc">$</span>y</span>
+<span id="cb31-6"><a href="análise-de-regressão.html#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="análise-de-regressão.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Construindo o gráfico</span></span>
+<span id="cb31-8"><a href="análise-de-regressão.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(doses,y, <span class="at">pch=</span><span class="dv">21</span>,<span class="at">bg=</span><span class="st">&quot;gray&quot;</span>,<span class="at">cex=</span><span class="fl">1.4</span>,<span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb31-9"><a href="análise-de-regressão.html#cb31-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Dose de Gesso (kg/ha)&quot;</span>,</span>
+<span id="cb31-10"><a href="análise-de-regressão.html#cb31-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Ppeso de 1000 sementes (g)&quot;</span>)</span></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="análise-de-regressão.html#cb32-1"></a><span class="co"># Análise de Variância</span></span>
-<span id="cb32-2"><a href="análise-de-regressão.html#cb32-2"></a><span class="kw">dic</span>(doses, y, <span class="dt">quali =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="análise-de-regressão.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análise de Variância</span></span>
+<span id="cb32-2"><a href="análise-de-regressão.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dic</span>(doses, y, <span class="at">quali =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## ------------------------------------------------------------------------
 ## Quadro da analise de variancia
 ## ------------------------------------------------------------------------
@@ -574,18 +573,18 @@ Os testes F para a regressão linear e regressão quadrática foram significativ
 ## Residuos             21  886.3375   42.2066                
 ## -----------------------------------------------------------
 ## ------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="análise-de-regressão.html#cb34-1"></a><span class="co"># Construção do gráfico</span></span>
-<span id="cb34-2"><a href="análise-de-regressão.html#cb34-2"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">50</span>)</span>
-<span id="cb34-3"><a href="análise-de-regressão.html#cb34-3"></a>Y &lt;-<span class="st"> </span><span class="kw">tapply</span>(y, doses, mean)</span>
-<span id="cb34-4"><a href="análise-de-regressão.html#cb34-4"></a><span class="kw">plot</span>(X,Y,<span class="dt">las=</span><span class="dv">1</span>,<span class="dt">pch=</span><span class="dv">15</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,</span>
-<span id="cb34-5"><a href="análise-de-regressão.html#cb34-5"></a>     <span class="dt">xlab=</span><span class="st">&quot;Doses de Gesso (kg/ha)&quot;</span>,</span>
-<span id="cb34-6"><a href="análise-de-regressão.html#cb34-6"></a>     <span class="dt">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span>,</span>
-<span id="cb34-7"><a href="análise-de-regressão.html#cb34-7"></a>     <span class="dt">cex.lab=</span><span class="fl">1.2</span>)</span>
-<span id="cb34-8"><a href="análise-de-regressão.html#cb34-8"></a><span class="kw">curve</span>(<span class="fl">140.7839+0.2736</span><span class="op">*</span>x<span class="fl">-0.0008</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>,</span>
-<span id="cb34-9"><a href="análise-de-regressão.html#cb34-9"></a>      <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb34-10"><a href="análise-de-regressão.html#cb34-10"></a></span>
-<span id="cb34-11"><a href="análise-de-regressão.html#cb34-11"></a><span class="kw">text</span>(<span class="dv">150</span>,<span class="dv">145</span>,<span class="st">&quot;R² = 0,88&quot;</span>,<span class="dt">font=</span><span class="dv">4</span>)</span>
-<span id="cb34-12"><a href="análise-de-regressão.html#cb34-12"></a><span class="kw">text</span>(<span class="dv">150</span>,<span class="dv">147</span>,<span class="st">&quot;Y = 140.7839+0.2736X-0.0008X²&quot;,font=4)</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="análise-de-regressão.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construção do gráfico</span></span>
+<span id="cb34-2"><a href="análise-de-regressão.html#cb34-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">50</span>)</span>
+<span id="cb34-3"><a href="análise-de-regressão.html#cb34-3" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">tapply</span>(y, doses, mean)</span>
+<span id="cb34-4"><a href="análise-de-regressão.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X,Y,<span class="at">las=</span><span class="dv">1</span>,<span class="at">pch=</span><span class="dv">15</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">cex=</span><span class="fl">1.3</span>,</span>
+<span id="cb34-5"><a href="análise-de-regressão.html#cb34-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Doses de Gesso (kg/ha)&quot;</span>,</span>
+<span id="cb34-6"><a href="análise-de-regressão.html#cb34-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Peso de 1000 sementes (g)&quot;</span>,</span>
+<span id="cb34-7"><a href="análise-de-regressão.html#cb34-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.lab=</span><span class="fl">1.2</span>)</span>
+<span id="cb34-8"><a href="análise-de-regressão.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fl">140.7839+0.2736</span><span class="sc">*</span>x<span class="fl">-0.0008</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span>,<span class="at">add=</span><span class="cn">TRUE</span>,</span>
+<span id="cb34-9"><a href="análise-de-regressão.html#cb34-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb34-10"><a href="análise-de-regressão.html#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="análise-de-regressão.html#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">150</span>,<span class="dv">145</span>,<span class="st">&quot;R² = 0,88&quot;</span>,<span class="at">font=</span><span class="dv">4</span>)</span>
+<span id="cb34-12"><a href="análise-de-regressão.html#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">150</span>,<span class="dv">147</span>,<span class="st">&quot;Y = 140.7839+0.2736X-0.0008X²&quot;</span>,<span class="at">font=</span><span class="dv">4</span>)</span></code></pre></div>
 <p><img src="curso_GIEU_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>Gráfico 1. relação entre o Peso de 1000 sementes e a dose de gesso aplicada.</p>
 
