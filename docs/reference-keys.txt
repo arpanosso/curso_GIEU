@@ -5,3 +5,4 @@ experimentos-fatoriais
 estudo-do-fatorial-32
 experimentos-em-parcelas-subdivididas
 análise-de-regressão
+delineamento-inteiramente-casualizado-dic

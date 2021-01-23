@@ -1,4 +1,4 @@
-# Delineamento Inteiramente Casualizado
+# Delineamento Inteiramente Casualizado (DIC)
 
 **Caracterização**
 
